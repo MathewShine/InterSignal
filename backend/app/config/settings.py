@@ -1,7 +1,10 @@
 from functools import lru_cache
+from pathlib import Path
 
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+BACKEND_ROOT = Path(__file__).resolve().parents[2]
 
 
 class Settings(BaseSettings):
@@ -18,9 +21,11 @@ class Settings(BaseSettings):
     )
     frontend_url: str = Field(default="http://localhost:5173", alias="FRONTEND_URL")
     log_level: str | None = Field(default=None, alias="LOG_LEVEL")
+    groww_totp_token: str | None = Field(default=None, alias="GROWW_TOTP_TOKEN")
+    groww_totp_secret: str | None = Field(default=None, alias="GROWW_TOTP_SECRET")
 
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=BACKEND_ROOT / ".env",
         env_file_encoding="utf-8",
         extra="ignore",
         populate_by_name=True,
@@ -40,8 +45,11 @@ class Settings(BaseSettings):
         has_key = bool(self.supabase_service_role_key or self.supabase_anon_key)
         return has_url and has_key
 
+    @property
+    def groww_configured(self) -> bool:
+        return bool(self.groww_totp_token and self.groww_totp_secret)
+
 
 @lru_cache
 def get_settings() -> Settings:
     return Settings()
-

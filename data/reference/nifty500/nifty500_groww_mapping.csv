@@ -1,0 +1,502 @@
+nse_symbol,company_name,isin,groww_symbol,exchange,segment,instrument_type,mapping_status,mapping_reason,groww_name,series
+360ONE,360 ONE WAM Ltd.,INE466L01038,NSE-360ONE,NSE,CASH,EQ,MATCHED,isin_exact,360 One Wam,EQ
+3MINDIA,3M India Ltd.,INE470A01017,NSE-3MINDIA,NSE,CASH,EQ,MATCHED,isin_exact,3M India,EQ
+ABB,ABB India Ltd.,INE117A01022,NSE-ABB,NSE,CASH,EQ,MATCHED,isin_exact,ABB India,EQ
+ACC,ACC Ltd.,INE012A01025,NSE-ACC,NSE,CASH,EQ,MATCHED,isin_exact,ACC,EQ
+ACMESOLAR,ACME Solar Holdings Ltd.,INE622W01025,NSE-ACMESOLAR,NSE,CASH,EQ,MATCHED,isin_exact,Acme Solar Holdings,EQ
+AIAENG,AIA Engineering Ltd.,INE212H01026,NSE-AIAENG,NSE,CASH,EQ,MATCHED,isin_exact,AIA Engineering,EQ
+APLAPOLLO,APL Apollo Tubes Ltd.,INE702C01027,NSE-APLAPOLLO,NSE,CASH,EQ,MATCHED,isin_exact,APL Apollo Tubes,EQ
+AUBANK,AU Small Finance Bank Ltd.,INE949L01017,NSE-AUBANK,NSE,CASH,EQ,MATCHED,isin_exact,AU Small Fin. Bank,EQ
+AWL,AWL Agri Business Ltd.,INE699H01024,NSE-AWL,NSE,CASH,EQ,MATCHED,isin_exact,AWL Agri Business,EQ
+AADHARHFC,Aadhar Housing Finance Ltd.,INE883F01010,NSE-AADHARHFC,NSE,CASH,EQ,MATCHED,isin_exact,Aadhar Housing Fin.,EQ
+AARTIIND,Aarti Industries Ltd.,INE769A01020,NSE-AARTIIND,NSE,CASH,EQ,MATCHED,isin_exact,Aarti Industries,EQ
+AAVAS,Aavas Financiers Ltd.,INE216P01012,NSE-AAVAS,NSE,CASH,EQ,MATCHED,isin_exact,Aavas Financiers,EQ
+ABBOTINDIA,Abbott India Ltd.,INE358A01014,NSE-ABBOTINDIA,NSE,CASH,EQ,MATCHED,isin_exact,Abbott India,EQ
+ACE,Action Construction Equipment Ltd.,INE731H01025,NSE-ACE,NSE,CASH,EQ,MATCHED,isin_exact,Action Const Equip,EQ
+ACUTAAS,Acutaas Chemicals Ltd.,INE00FF01025,NSE-ACUTAAS,NSE,CASH,EQ,MATCHED,isin_exact,Acutaas Chemicals,EQ
+ADANIENSOL,Adani Energy Solutions Ltd.,INE931S01010,NSE-ADANIENSOL,NSE,CASH,EQ,MATCHED,isin_exact,Adani Energy Solut.,EQ
+ADANIENT,Adani Enterprises Ltd.,INE423A01024,NSE-ADANIENT,NSE,CASH,EQ,MATCHED,isin_exact,Adani Enterprises,EQ
+ADANIGREEN,Adani Green Energy Ltd.,INE364U01010,NSE-ADANIGREEN,NSE,CASH,EQ,MATCHED,isin_exact,Adani Green Energy,EQ
+ADANIPORTS,Adani Ports and Special Economic Zone Ltd.,INE742F01042,NSE-ADANIPORTS,NSE,CASH,EQ,MATCHED,isin_exact,Adani Ports &Special,EQ
+ADANIPOWER,Adani Power Ltd.,INE814H01029,NSE-ADANIPOWER,NSE,CASH,EQ,MATCHED,isin_exact,Adani Power,EQ
+ATGL,Adani Total Gas Ltd.,INE399L01023,NSE-ATGL,NSE,CASH,EQ,MATCHED,isin_exact,Adani Total Gas,EQ
+ABCAPITAL,Aditya Birla Capital Ltd.,INE674K01013,NSE-ABCAPITAL,NSE,CASH,EQ,MATCHED,isin_exact,Aditya Birla Cap,EQ
+ABFRL,Aditya Birla Fashion and Retail Ltd.,INE647O01011,NSE-ABFRL,NSE,CASH,EQ,MATCHED,isin_exact,ABFRL,EQ
+ABLBL,Aditya Birla Lifestyle Brands Ltd.,INE14LE01019,NSE-ABLBL,NSE,CASH,EQ,MATCHED,isin_exact,Aditya Birla Life,EQ
+ABREL,Aditya Birla Real Estate Ltd.,INE055A01016,NSE-ABREL,NSE,CASH,EQ,MATCHED,isin_exact,Aditya Birla Real,EQ
+ABSLAMC,Aditya Birla Sun Life AMC Ltd.,INE404A01024,NSE-ABSLAMC,NSE,CASH,EQ,MATCHED,isin_exact,Aditya Birla Sun AMC,EQ
+CPPLUS,Aditya Infotech Ltd.,INE819V01029,NSE-CPPLUS,NSE,CASH,EQ,MATCHED,isin_exact,Aditya Infotech,EQ
+AEGISLOG,Aegis Logistics Ltd.,INE208C01025,NSE-AEGISLOG,NSE,CASH,EQ,MATCHED,isin_exact,Aegis Logistics,EQ
+AEGISVOPAK,Aegis Vopak Terminals Ltd.,INE0INX01018,NSE-AEGISVOPAK,NSE,CASH,EQ,MATCHED,isin_exact,Aegis Vopak Terminal,EQ
+AFCONS,Afcons Infrastructure Ltd.,INE101I01011,NSE-AFCONS,NSE,CASH,EQ,MATCHED,isin_exact,Afcons Infrastruct.,EQ
+AFFLE,Affle 3i Ltd.,INE00WC01027,NSE-AFFLE,NSE,CASH,EQ,MATCHED,isin_exact,Affle 3i,EQ
+AJANTPHARM,Ajanta Pharmaceuticals Ltd.,INE031B01049,NSE-AJANTPHARM,NSE,CASH,EQ,MATCHED,isin_exact,Ajanta Pharma,EQ
+ALKEM,Alkem Laboratories Ltd.,INE540L01014,NSE-ALKEM,NSE,CASH,EQ,MATCHED,isin_exact,Alkem Laboratories,EQ
+ABDL,Allied Blenders and Distillers Ltd.,INE552Z01027,NSE-ABDL,NSE,CASH,EQ,MATCHED,isin_exact,Allied Blenders&Dist,EQ
+ARE&M,Amara Raja Energy & Mobility Ltd.,INE885A01032,NSE-ARE&M,NSE,CASH,EQ,MATCHED,isin_exact,Amara Raja Energy,EQ
+AMBER,Amber Enterprises India Ltd.,INE371P01015,NSE-AMBER,NSE,CASH,EQ,MATCHED,isin_exact,Amber Enterprises,EQ
+AMBUJACEM,Ambuja Cements Ltd.,INE079A01024,NSE-AMBUJACEM,NSE,CASH,EQ,MATCHED,isin_exact,Ambuja Cements,EQ
+ANANDRATHI,Anand Rathi Wealth Ltd.,INE463V01026,NSE-ANANDRATHI,NSE,CASH,EQ,MATCHED,isin_exact,Anand Rathi Weal,EQ
+ANANTRAJ,Anant Raj Ltd.,INE242C01024,NSE-ANANTRAJ,NSE,CASH,EQ,MATCHED,isin_exact,Anant Raj,EQ
+ANGELONE,Angel One Ltd.,INE732I01021,NSE-ANGELONE,NSE,CASH,EQ,MATCHED,isin_exact,Angel One,EQ
+ANTHEM,Anthem Biosciences Ltd.,INE0CZ201020,NSE-ANTHEM,NSE,CASH,EQ,MATCHED,isin_exact,Anthem Biosciences,EQ
+ANURAS,Anupam Rasayan India Ltd.,INE930P01018,NSE-ANURAS,NSE,CASH,EQ,MATCHED,isin_exact,Anupam Rasayan,EQ
+APARINDS,Apar Industries Ltd.,INE372A01015,NSE-APARINDS,NSE,CASH,EQ,MATCHED,isin_exact,Apar Industries,EQ
+APOLLOHOSP,Apollo Hospitals Enterprise Ltd.,INE437A01024,NSE-APOLLOHOSP,NSE,CASH,EQ,MATCHED,isin_exact,Apollo Hospitals,EQ
+APOLLOTYRE,Apollo Tyres Ltd.,INE438A01022,NSE-APOLLOTYRE,NSE,CASH,EQ,MATCHED,isin_exact,Apollo Tyres,EQ
+APTUS,Aptus Value Housing Finance India Ltd.,INE852O01025,NSE-APTUS,NSE,CASH,EQ,MATCHED,isin_exact,Aptus Value Housing,EQ
+ASAHIINDIA,Asahi India Glass Ltd.,INE439A01020,NSE-ASAHIINDIA,NSE,CASH,EQ,MATCHED,isin_exact,Asahi India Glass,EQ
+ASHOKLEY,Ashok Leyland Ltd.,INE208A01029,NSE-ASHOKLEY,NSE,CASH,EQ,MATCHED,isin_exact,Ashok Leyland,EQ
+ASIANPAINT,Asian Paints Ltd.,INE021A01026,NSE-ASIANPAINT,NSE,CASH,EQ,MATCHED,isin_exact,Asian Paints,EQ
+ASTERDM,Aster DM Quality Care Ltd.,INE914M01019,NSE-ASTERDM,NSE,CASH,EQ,MATCHED,isin_exact,Aster DM Quality,EQ
+ASTRAL,Astral Ltd.,INE006I01046,NSE-ASTRAL,NSE,CASH,EQ,MATCHED,isin_exact,Astral,EQ
+ATHERENERG,Ather Energy Ltd.,INE0LEZ01016,NSE-ATHERENERG,NSE,CASH,EQ,MATCHED,isin_exact,Ather Energy,EQ
+ATUL,Atul Ltd.,INE100A01010,NSE-ATUL,NSE,CASH,EQ,MATCHED,isin_exact,Atul,EQ
+AUROPHARMA,Aurobindo Pharma Ltd.,INE406A01037,NSE-AUROPHARMA,NSE,CASH,EQ,MATCHED,isin_exact,Aurobindo Pharma,EQ
+AIIL,Authum Investment & Infrastructure Ltd.,INE206F01022,NSE-AIIL,NSE,CASH,EQ,MATCHED,isin_exact,Authum Invstmnt,EQ
+DMART,Avenue Supermarts Ltd.,INE192R01011,NSE-DMART,NSE,CASH,EQ,MATCHED,isin_exact,Avenue Supermarts,EQ
+AXISBANK,Axis Bank Ltd.,INE238A01034,NSE-AXISBANK,NSE,CASH,EQ,MATCHED,isin_exact,Axis Bank,EQ
+BEML,BEML Ltd.,INE258A01024,NSE-BEML,NSE,CASH,EQ,MATCHED,isin_exact,BEML,EQ
+BLS,BLS International Services Ltd.,INE153T01027,NSE-BLS,NSE,CASH,EQ,MATCHED,isin_exact,BLS Internatl. Serv.,EQ
+BSE,BSE Ltd.,INE118H01025,NSE-BSE,NSE,CASH,EQ,MATCHED,isin_exact,BSE,EQ
+BAJAJ-AUTO,Bajaj Auto Ltd.,INE917I01010,NSE-BAJAJ-AUTO,NSE,CASH,EQ,MATCHED,isin_exact,Bajaj Auto,EQ
+BAJFINANCE,Bajaj Finance Ltd.,INE296A01032,NSE-BAJFINANCE,NSE,CASH,EQ,MATCHED,isin_exact,Bajaj Finance,EQ
+BAJAJFINSV,Bajaj Finserv Ltd.,INE918I01026,NSE-BAJAJFINSV,NSE,CASH,EQ,MATCHED,isin_exact,Bajaj Finserv,EQ
+BAJAJHLDNG,Bajaj Holdings & Investment Ltd.,INE118A01012,NSE-BAJAJHLDNG,NSE,CASH,EQ,MATCHED,isin_exact,Bajaj Hold & Invest.,EQ
+BAJAJHFL,Bajaj Housing Finance Ltd.,INE377Y01014,NSE-BAJAJHFL,NSE,CASH,EQ,MATCHED,isin_exact,Bajaj Housing Fin.,EQ
+BALKRISIND,Balkrishna Industries Ltd.,INE787D01026,NSE-BALKRISIND,NSE,CASH,EQ,MATCHED,isin_exact,Balkrishna Inds.,EQ
+BALRAMCHIN,Balrampur Chini Mills Ltd.,INE119A01028,NSE-BALRAMCHIN,NSE,CASH,EQ,MATCHED,isin_exact,Balrampur Chini Mill,EQ
+BANDHANBNK,Bandhan Bank Ltd.,INE545U01014,NSE-BANDHANBNK,NSE,CASH,EQ,MATCHED,isin_exact,Bandhan Bank,EQ
+BANKBARODA,Bank of Baroda,INE028A01039,NSE-BANKBARODA,NSE,CASH,EQ,MATCHED,isin_exact,Bank of Baroda,EQ
+BANKINDIA,Bank of India,INE084A01016,NSE-BANKINDIA,NSE,CASH,EQ,MATCHED,isin_exact,Bank Of India,EQ
+MAHABANK,Bank of Maharashtra,INE457A01014,NSE-MAHABANK,NSE,CASH,EQ,MATCHED,isin_exact,Bank of Maharashtra,EQ
+BATAINDIA,Bata India Ltd.,INE176A01028,NSE-BATAINDIA,NSE,CASH,EQ,MATCHED,isin_exact,Bata india,EQ
+BAYERCROP,Bayer Cropscience Ltd.,INE462A01022,NSE-BAYERCROP,NSE,CASH,EQ,MATCHED,isin_exact,Bayer CropScience,EQ
+BELRISE,Belrise Industries Ltd.,INE894V01022,NSE-BELRISE,NSE,CASH,EQ,MATCHED,isin_exact,Belrise Industries,EQ
+BERGEPAINT,Berger Paints India Ltd.,INE463A01038,NSE-BERGEPAINT,NSE,CASH,EQ,MATCHED,isin_exact,Berger Paints India,EQ
+BDL,Bharat Dynamics Ltd.,INE171Z01026,NSE-BDL,NSE,CASH,EQ,MATCHED,isin_exact,Bharat Dynamics,EQ
+BEL,Bharat Electronics Ltd.,INE263A01024,NSE-BEL,NSE,CASH,EQ,MATCHED,isin_exact,Bharat Electronics,EQ
+BHARATFORG,Bharat Forge Ltd.,INE465A01025,NSE-BHARATFORG,NSE,CASH,EQ,MATCHED,isin_exact,Bharat Forge,EQ
+BHEL,Bharat Heavy Electricals Ltd.,INE257A01026,NSE-BHEL,NSE,CASH,EQ,MATCHED,isin_exact,Bharat Heavy Elect.,EQ
+BPCL,Bharat Petroleum Corporation Ltd.,INE029A01011,NSE-BPCL,NSE,CASH,EQ,MATCHED,isin_exact,Bharat PetroleumCorp,EQ
+BHARTIARTL,Bharti Airtel Ltd.,INE397D01024,NSE-BHARTIARTL,NSE,CASH,EQ,MATCHED,isin_exact,Bharti Airtel,EQ
+BHARTIHEXA,Bharti Hexacom Ltd.,INE343G01021,NSE-BHARTIHEXA,NSE,CASH,EQ,MATCHED,isin_exact,Bharti Hexacom,EQ
+BIKAJI,Bikaji Foods International Ltd.,INE00E101023,NSE-BIKAJI,NSE,CASH,EQ,MATCHED,isin_exact,Bikaji Foods Inter.,EQ
+GROWW,Billionbrains Garage Ventures Ltd.,INE0HOQ01053,NSE-GROWW,NSE,CASH,EQ,MATCHED,isin_exact,Groww,EQ
+BIOCON,Biocon Ltd.,INE376G01013,NSE-BIOCON,NSE,CASH,EQ,MATCHED,isin_exact,Biocon,EQ
+BSOFT,Birlasoft Ltd.,INE836A01035,NSE-BSOFT,NSE,CASH,EQ,MATCHED,isin_exact,Birlasoft,EQ
+BLUEDART,Blue Dart Express Ltd.,INE233B01017,NSE-BLUEDART,NSE,CASH,EQ,MATCHED,isin_exact,Blue Dart Express,EQ
+BLUEJET,Blue Jet Healthcare Ltd.,INE0KBH01020,NSE-BLUEJET,NSE,CASH,EQ,MATCHED,isin_exact,Blue Jet Healthcare,EQ
+BLUESTARCO,Blue Star Ltd.,INE472A01039,NSE-BLUESTARCO,NSE,CASH,EQ,MATCHED,isin_exact,Blue Star,EQ
+BBTC,Bombay Burmah Trading Corporation Ltd.,INE050A01025,NSE-BBTC,NSE,CASH,EQ,MATCHED,isin_exact,Bombay Burmah Trdg.,EQ
+BOSCHLTD,Bosch Ltd.,INE323A01026,NSE-BOSCHLTD,NSE,CASH,EQ,MATCHED,isin_exact,Bosch,EQ
+FIRSTCRY,Brainbees Solutions Ltd.,INE02RE01045,NSE-FIRSTCRY,NSE,CASH,EQ,MATCHED,isin_exact,Brainbees Solutions,EQ
+BRIGADE,Brigade Enterprises Ltd.,INE791I01019,NSE-BRIGADE,NSE,CASH,EQ,MATCHED,isin_exact,Brigade Enterprises,EQ
+BRITANNIA,Britannia Industries Ltd.,INE216A01030,NSE-BRITANNIA,NSE,CASH,EQ,MATCHED,isin_exact,Britannia Industries,EQ
+MAPMYINDIA,C.E. Info Systems Ltd.,INE0BV301023,NSE-MAPMYINDIA,NSE,CASH,EQ,MATCHED,isin_exact,CE Info Systems,EQ
+CCL,CCL Products (I) Ltd.,INE421D01022,NSE-CCL,NSE,CASH,EQ,MATCHED,isin_exact,CCL Products India,EQ
+CESC,CESC Ltd.,INE486A01021,NSE-CESC,NSE,CASH,EQ,MATCHED,isin_exact,CESC,EQ
+CGPOWER,CG Power and Industrial Solutions Ltd.,INE067A01029,NSE-CGPOWER,NSE,CASH,EQ,MATCHED,isin_exact,CG Power & Ind.Sol.,EQ
+CIEINDIA,CIE Automotive India Ltd.,INE536H01010,NSE-CIEINDIA,NSE,CASH,EQ,MATCHED,isin_exact,CIE Automotive India,EQ
+CRISIL,CRISIL Ltd.,INE007A01025,NSE-CRISIL,NSE,CASH,EQ,MATCHED,isin_exact,CRISIL,EQ
+CANFINHOME,Can Fin Homes Ltd.,INE477A01020,NSE-CANFINHOME,NSE,CASH,EQ,MATCHED,isin_exact,Can Fin Homes,EQ
+CANBK,Canara Bank,INE476A01022,NSE-CANBK,NSE,CASH,EQ,MATCHED,isin_exact,Canara Bank,EQ
+CANHLIFE,Canara HSBC Life Insurance Company Ltd.,INE01TY01017,NSE-CANHLIFE,NSE,CASH,EQ,MATCHED,isin_exact,Canara HSBC Life Ins,EQ
+CAPLIPOINT,Caplin Point Laboratories Ltd.,INE475E01026,NSE-CAPLIPOINT,NSE,CASH,EQ,MATCHED,isin_exact,Caplin Point Labs.,EQ
+CGCL,Capri Global Capital Ltd.,INE180C01042,NSE-CGCL,NSE,CASH,EQ,MATCHED,isin_exact,Capri Global Capital,EQ
+CARBORUNIV,Carborundum Universal Ltd.,INE120A01034,NSE-CARBORUNIV,NSE,CASH,EQ,MATCHED,isin_exact,Carborundum Univers.,EQ
+CARTRADE,Cartrade Tech Ltd.,INE290S01011,NSE-CARTRADE,NSE,CASH,EQ,MATCHED,isin_exact,Cartrade Tech,EQ
+CASTROLIND,Castrol India Ltd.,INE172A01027,NSE-CASTROLIND,NSE,CASH,EQ,MATCHED,isin_exact,Castrol India,EQ
+CEATLTD,Ceat Ltd.,INE482A01020,NSE-CEATLTD,NSE,CASH,EQ,MATCHED,isin_exact,Ceat,EQ
+CEMPRO,Cemindia Projects Ltd.,INE686A01026,NSE-CEMPRO,NSE,CASH,EQ,MATCHED,isin_exact,Cemindia Projects,EQ
+CENTRALBK,Central Bank of India,INE483A01010,NSE-CENTRALBK,NSE,CASH,EQ,MATCHED,isin_exact,Central Bank of India,EQ
+CDSL,Central Depository Services (India) Ltd.,INE736A01011,NSE-CDSL,NSE,CASH,EQ,MATCHED,isin_exact,Central Dep. Service,EQ
+CHALET,Chalet Hotels Ltd.,INE427F01016,NSE-CHALET,NSE,CASH,EQ,MATCHED,isin_exact,Chalet Hotels,EQ
+CHAMBLFERT,Chambal Fertilizers & Chemicals Ltd.,INE085A01013,NSE-CHAMBLFERT,NSE,CASH,EQ,MATCHED,isin_exact,Chambal Fer. & Chem.,EQ
+CHENNPETRO,Chennai Petroleum Corporation Ltd.,INE178A01016,NSE-CHENNPETRO,NSE,CASH,EQ,MATCHED,isin_exact,Chennai Petro Corp,EQ
+CHOICEIN,Choice International Ltd.,INE102B01014,NSE-CHOICEIN,NSE,CASH,EQ,MATCHED,isin_exact,Choice Intl,EQ
+CHOLAHLDNG,Cholamandalam Financial Holdings Ltd.,INE149A01033,NSE-CHOLAHLDNG,NSE,CASH,EQ,MATCHED,isin_exact,Cholamandalam Fin.,EQ
+CHOLAFIN,Cholamandalam Investment and Finance Company Ltd.,INE121A01024,NSE-CHOLAFIN,NSE,CASH,EQ,MATCHED,isin_exact,Cholamandalam Invest,EQ
+CIPLA,Cipla Ltd.,INE059A01026,NSE-CIPLA,NSE,CASH,EQ,MATCHED,isin_exact,Cipla,EQ
+CUB,City Union Bank Ltd.,INE491A01021,NSE-CUB,NSE,CASH,EQ,MATCHED,isin_exact,City Union Bank,EQ
+CLEAN,Clean Science and Technology Ltd.,INE227W01023,NSE-CLEAN,NSE,CASH,EQ,MATCHED,isin_exact,Clean Science & Tech,EQ
+COALINDIA,Coal India Ltd.,INE522F01014,NSE-COALINDIA,NSE,CASH,EQ,MATCHED,isin_exact,Coal India,EQ
+COCHINSHIP,Cochin Shipyard Ltd.,INE704P01025,NSE-COCHINSHIP,NSE,CASH,EQ,MATCHED,isin_exact,Cochin Shipyard,EQ
+COFORGE,Coforge Ltd.,INE591G01025,NSE-COFORGE,NSE,CASH,EQ,MATCHED,isin_exact,Coforge,EQ
+COHANCE,Cohance Lifesciences Ltd.,INE03QK01018,NSE-COHANCE,NSE,CASH,EQ,MATCHED,isin_exact,Cohance Lifesciences,EQ
+COLPAL,Colgate Palmolive (India) Ltd.,INE259A01022,NSE-COLPAL,NSE,CASH,EQ,MATCHED,isin_exact,Colgate-Palmolive(I),EQ
+CAMS,Computer Age Management Services Ltd.,INE596I01020,NSE-CAMS,NSE,CASH,EQ,MATCHED,isin_exact,Computer Age Mgmnt.,EQ
+CONCORDBIO,Concord Biotech Ltd.,INE338H01029,NSE-CONCORDBIO,NSE,CASH,EQ,MATCHED,isin_exact,Concord Biotech,EQ
+CONCOR,Container Corporation of India Ltd.,INE111A01025,NSE-CONCOR,NSE,CASH,EQ,MATCHED,isin_exact,Container Corporat.,EQ
+COROMANDEL,Coromandel International Ltd.,INE169A01031,NSE-COROMANDEL,NSE,CASH,EQ,MATCHED,isin_exact,Coromandel Intl,EQ
+CRAFTSMAN,Craftsman Automation Ltd.,INE00LO01017,NSE-CRAFTSMAN,NSE,CASH,EQ,MATCHED,isin_exact,Craftsman Automation,EQ
+CREDITACC,CreditAccess Grameen Ltd.,INE741K01010,NSE-CREDITACC,NSE,CASH,EQ,MATCHED,isin_exact,CreditAccess Grameen,EQ
+CROMPTON,Crompton Greaves Consumer Electricals Ltd.,INE299U01018,NSE-CROMPTON,NSE,CASH,EQ,MATCHED,isin_exact,Crompton Greaves,EQ
+CUMMINSIND,Cummins India Ltd.,INE298A01020,NSE-CUMMINSIND,NSE,CASH,EQ,MATCHED,isin_exact,Cummins India,EQ
+CYIENT,Cyient Ltd.,INE136B01020,NSE-CYIENT,NSE,CASH,EQ,MATCHED,isin_exact,Cyient,EQ
+DCMSHRIRAM,DCM Shriram Ltd.,INE499A01024,NSE-DCMSHRIRAM,NSE,CASH,EQ,MATCHED,isin_exact,DCM Shriram,EQ
+DLF,DLF Ltd.,INE271C01023,NSE-DLF,NSE,CASH,EQ,MATCHED,isin_exact,DLF,EQ
+DOMS,DOMS Industries Ltd.,INE321T01012,NSE-DOMS,NSE,CASH,EQ,MATCHED,isin_exact,DOMS Industries,EQ
+DABUR,Dabur India Ltd.,INE016A01026,NSE-DABUR,NSE,CASH,EQ,MATCHED,isin_exact,Dabur India,EQ
+DALBHARAT,Dalmia Bharat Ltd.,INE00R701025,NSE-DALBHARAT,NSE,CASH,EQ,MATCHED,isin_exact,Dalmia Bharat,EQ
+DATAPATTNS,Data Patterns (India) Ltd.,INE0IX101010,NSE-DATAPATTNS,NSE,CASH,EQ,MATCHED,isin_exact,Data Patterns (I),EQ
+DEEPAKFERT,Deepak Fertilisers & Petrochemicals Corp. Ltd.,INE501A01019,NSE-DEEPAKFERT,NSE,CASH,EQ,MATCHED,isin_exact,Deepak Fert & Petro,EQ
+DEEPAKNTR,Deepak Nitrite Ltd.,INE288B01029,NSE-DEEPAKNTR,NSE,CASH,EQ,MATCHED,isin_exact,Deepak Nitrite,EQ
+DELHIVERY,Delhivery Ltd.,INE148O01028,NSE-DELHIVERY,NSE,CASH,EQ,MATCHED,isin_exact,Delhivery,EQ
+DEVYANI,Devyani International Ltd.,INE872J01023,NSE-DEVYANI,NSE,CASH,EQ,MATCHED,isin_exact,Devyani,EQ
+DIVISLAB,Divi's Laboratories Ltd.,INE361B01024,NSE-DIVISLAB,NSE,CASH,EQ,MATCHED,isin_exact,Divi's Laboratories,EQ
+DIXON,Dixon Technologies (India) Ltd.,INE935N01020,NSE-DIXON,NSE,CASH,EQ,MATCHED,isin_exact,Dixon Tech. (India),EQ
+LALPATHLAB,Dr. Lal Path Labs Ltd.,INE600L01024,NSE-LALPATHLAB,NSE,CASH,EQ,MATCHED,isin_exact,Dr Lal PathLabs,EQ
+DRREDDY,Dr. Reddy's Laboratories Ltd.,INE089A01031,NSE-DRREDDY,NSE,CASH,EQ,MATCHED,isin_exact,Dr. Reddy's Labs.,EQ
+DUMMYHEG,Dummy HEG Ltd.,DUM545A01024,,NSE,,,NOT_FOUND,No Groww instrument matched by ISIN or exact NSE symbol.,,
+EIDPARRY,E.I.D. Parry (India) Ltd.,INE126A01031,NSE-EIDPARRY,NSE,CASH,EQ,MATCHED,isin_exact,EID-Parry India,EQ
+EIHOTEL,EIH Ltd.,INE230A01023,NSE-EIHOTEL,NSE,CASH,EQ,MATCHED,isin_exact,EIH,EQ
+EICHERMOT,Eicher Motors Ltd.,INE066A01021,NSE-EICHERMOT,NSE,CASH,EQ,MATCHED,isin_exact,Eicher Motors,EQ
+ELECON,Elecon Engineering Co. Ltd.,INE205B01031,NSE-ELECON,NSE,CASH,EQ,MATCHED,isin_exact,Elecon Engg. Co.,EQ
+ELGIEQUIP,Elgi Equipments Ltd.,INE285A01027,NSE-ELGIEQUIP,NSE,CASH,EQ,MATCHED,isin_exact,Elgi Equipments,EQ
+EMAMILTD,Emami Ltd.,INE548C01032,NSE-EMAMILTD,NSE,CASH,EQ,MATCHED,isin_exact,Emami,EQ
+EMCURE,Emcure Pharmaceuticals Ltd.,INE168P01015,NSE-EMCURE,NSE,CASH,EQ,MATCHED,isin_exact,Emcure Pharma,EQ
+EMMVEE,Emmvee Photovoltaic Power Ltd.,INE1C6T01020,NSE-EMMVEE,NSE,CASH,EQ,MATCHED,isin_exact,Emmvee Photovoltaic,EQ
+ENDURANCE,Endurance Technologies Ltd.,INE913H01037,NSE-ENDURANCE,NSE,CASH,EQ,MATCHED,isin_exact,Endurance Tech.,EQ
+ENGINERSIN,Engineers India Ltd.,INE510A01028,NSE-ENGINERSIN,NSE,CASH,EQ,MATCHED,isin_exact,Engineers India,EQ
+ERIS,Eris Lifesciences Ltd.,INE406M01024,NSE-ERIS,NSE,CASH,EQ,MATCHED,isin_exact,Eris Lifesciences,EQ
+ESCORTS,Escorts Kubota Ltd.,INE042A01014,NSE-ESCORTS,NSE,CASH,EQ,MATCHED,isin_exact,Escorts,EQ
+ETERNAL,Eternal Ltd.,INE758T01015,NSE-ETERNAL,NSE,CASH,EQ,MATCHED,isin_exact,Eternal (Zomato),EQ
+EXIDEIND,Exide Industries Ltd.,INE302A01020,NSE-EXIDEIND,NSE,CASH,EQ,MATCHED,isin_exact,Exide Industries,EQ
+NYKAA,FSN E-Commerce Ventures Ltd.,INE388Y01029,NSE-NYKAA,NSE,CASH,EQ,MATCHED,isin_exact,FSN E-Comm. Ventur.,EQ
+FEDERALBNK,Federal Bank Ltd.,INE171A01029,NSE-FEDERALBNK,NSE,CASH,EQ,MATCHED,isin_exact,The Federal Bank,EQ
+FACT,Fertilisers and Chemicals Travancore Ltd.,INE188A01015,NSE-FACT,NSE,CASH,EQ,MATCHED,isin_exact,Fert & Chem Travan,EQ
+FINCABLES,Finolex Cables Ltd.,INE235A01022,NSE-FINCABLES,NSE,CASH,EQ,MATCHED,isin_exact,Finolex Cables,EQ
+FSL,Firstsource Solutions Ltd.,INE684F01012,NSE-FSL,NSE,CASH,EQ,MATCHED,isin_exact,Firstsource Solution,EQ
+FIVESTAR,Five-Star Business Finance Ltd.,INE128S01021,NSE-FIVESTAR,NSE,CASH,EQ,MATCHED,isin_exact,Five Star Business,EQ
+FORCEMOT,Force Motors Ltd.,INE451A01017,NSE-FORCEMOT,NSE,CASH,EQ,MATCHED,isin_exact,Force Motors,EQ
+FORTIS,Fortis Healthcare Ltd.,INE061F01013,NSE-FORTIS,NSE,CASH,EQ,MATCHED,isin_exact,Fortis Healthcare,EQ
+GAIL,GAIL (India) Ltd.,INE129A01019,NSE-GAIL,NSE,CASH,EQ,MATCHED,isin_exact,GAIL (India),EQ
+GVT&D,GE Vernova T&D India Ltd.,INE200A01026,NSE-GVT&D,NSE,CASH,EQ,MATCHED,isin_exact,GE Vernova T&D India,EQ
+GMRAIRPORT,GMR Airports Ltd.,INE776C01039,NSE-GMRAIRPORT,NSE,CASH,EQ,MATCHED,isin_exact,GMR Airports,EQ
+GABRIEL,Gabriel India Ltd.,INE524A01029,NSE-GABRIEL,NSE,CASH,EQ,MATCHED,isin_exact,Gabriel India,EQ
+GALLANTT,Gallantt Ispat Ltd.,INE297H01019,NSE-GALLANTT,NSE,CASH,EQ,MATCHED,isin_exact,Gallantt Ispat,EQ
+GRSE,Garden Reach Shipbuilders & Engineers Ltd.,INE382Z01011,NSE-GRSE,NSE,CASH,EQ,MATCHED,isin_exact,Garden Reach,EQ
+GICRE,General Insurance Corporation of India,INE481Y01014,NSE-GICRE,NSE,CASH,EQ,MATCHED,isin_exact,General Ins. Corpn.,EQ
+GILLETTE,Gillette India Ltd.,INE322A01010,NSE-GILLETTE,NSE,CASH,EQ,MATCHED,isin_exact,Gillette India,EQ
+GLAND,Gland Pharma Ltd.,INE068V01023,NSE-GLAND,NSE,CASH,EQ,MATCHED,isin_exact,Gland Pharma,EQ
+GLAXO,Glaxosmithkline Pharmaceuticals Ltd.,INE159A01016,NSE-GLAXO,NSE,CASH,EQ,MATCHED,isin_exact,GSK Pharma,EQ
+GLENMARK,Glenmark Pharmaceuticals Ltd.,INE935A01035,NSE-GLENMARK,NSE,CASH,EQ,MATCHED,isin_exact,Glenmark Pharma.,EQ
+MEDANTA,Global Health Ltd.,INE474Q01031,NSE-MEDANTA,NSE,CASH,EQ,MATCHED,isin_exact,Global Health,EQ
+GODIGIT,Go Digit General Insurance Ltd.,INE03JT01014,NSE-GODIGIT,NSE,CASH,EQ,MATCHED,isin_exact,Go Digit General Ins,EQ
+GPIL,Godawari Power & Ispat Ltd.,INE177H01039,NSE-GPIL,NSE,CASH,EQ,MATCHED,isin_exact,Godawari Pwr,EQ
+GODFRYPHLP,Godfrey Phillips India Ltd.,INE260B01028,NSE-GODFRYPHLP,NSE,CASH,EQ,MATCHED,isin_exact,Godfrey Phillips Ind,EQ
+GODREJCP,Godrej Consumer Products Ltd.,INE102D01028,NSE-GODREJCP,NSE,CASH,EQ,MATCHED,isin_exact,Godrej Consumer,EQ
+GODREJIND,Godrej Industries Ltd.,INE233A01035,NSE-GODREJIND,NSE,CASH,EQ,MATCHED,isin_exact,Godrej Industries,EQ
+GODREJPROP,Godrej Properties Ltd.,INE484J01027,NSE-GODREJPROP,NSE,CASH,EQ,MATCHED,isin_exact,Godrej Properties,EQ
+GRANULES,Granules India Ltd.,INE101D01020,NSE-GRANULES,NSE,CASH,EQ,MATCHED,isin_exact,Granules India,EQ
+GRAPHITE,Graphite India Ltd.,INE371A01025,NSE-GRAPHITE,NSE,CASH,EQ,MATCHED,isin_exact,Graphite India,EQ
+GRASIM,Grasim Industries Ltd.,INE047A01021,NSE-GRASIM,NSE,CASH,EQ,MATCHED,isin_exact,Grasim Industries,EQ
+GRAVITA,Gravita India Ltd.,INE024L01027,NSE-GRAVITA,NSE,CASH,EQ,MATCHED,isin_exact,Gravita India,EQ
+GESHIP,Great Eastern Shipping Co. Ltd.,INE017A01032,NSE-GESHIP,NSE,CASH,EQ,MATCHED,isin_exact,Great Eastern Ship.,EQ
+FLUOROCHEM,Gujarat Fluorochemicals Ltd.,INE09N301011,NSE-FLUOROCHEM,NSE,CASH,EQ,MATCHED,isin_exact,Gujarat Fluorochem.,EQ
+GMDCLTD,Gujarat Mineral Development Corporation Ltd.,INE131A01031,NSE-GMDCLTD,NSE,CASH,EQ,MATCHED,isin_exact,GMDC,EQ
+HBLENGINE,HBL Engineering Ltd.,INE292B01021,NSE-HBLENGINE,NSE,CASH,EQ,MATCHED,isin_exact,HBL Engineering,EQ
+HCLTECH,HCL Technologies Ltd.,INE860A01027,NSE-HCLTECH,NSE,CASH,EQ,MATCHED,isin_exact,HCL Technologies,EQ
+HDBFS,HDB Financial Services Ltd.,INE756I01012,NSE-HDBFS,NSE,CASH,EQ,MATCHED,isin_exact,HDB Financial Serv.,EQ
+HDFCAMC,HDFC Asset Management Company Ltd.,INE127D01025,NSE-HDFCAMC,NSE,CASH,EQ,MATCHED,isin_exact,HDFC Asset Mgmt Co,EQ
+HDFCBANK,HDFC Bank Ltd.,INE040A01034,NSE-HDFCBANK,NSE,CASH,EQ,MATCHED,isin_exact,HDFC Bank,EQ
+HDFCLIFE,HDFC Life Insurance Company Ltd.,INE795G01014,NSE-HDFCLIFE,NSE,CASH,EQ,MATCHED,isin_exact,HDFC Life Insurance,EQ
+HEG,HEG Ltd.,INE545A01024,NSE-HEG,NSE,CASH,EQ,NON_CASH_EQUITY,isin_exact; instrument exists but is not NSE CASH EQ.,HEG,BE
+HFCL,HFCL Ltd.,INE548A01028,NSE-HFCL,NSE,CASH,EQ,NON_CASH_EQUITY,isin_exact; instrument exists but is not NSE CASH EQ.,HFCL,BE
+HAVELLS,Havells India Ltd.,INE176B01034,NSE-HAVELLS,NSE,CASH,EQ,MATCHED,isin_exact,Havells India,EQ
+HEROMOTOCO,Hero MotoCorp Ltd.,INE158A01026,NSE-HEROMOTOCO,NSE,CASH,EQ,MATCHED,isin_exact,Hero MotoCorp,EQ
+HEXT,Hexaware Technologies Ltd.,INE093A01041,NSE-HEXT,NSE,CASH,EQ,MATCHED,isin_exact,HEXT,EQ
+HSCL,Himadri Speciality Chemical Ltd.,INE019C01026,NSE-HSCL,NSE,CASH,EQ,MATCHED,isin_exact,Himadri Speciality,EQ
+HINDALCO,Hindalco Industries Ltd.,INE038A01020,NSE-HINDALCO,NSE,CASH,EQ,MATCHED,isin_exact,Hindalco Industries,EQ
+HAL,Hindustan Aeronautics Ltd.,INE066F01020,NSE-HAL,NSE,CASH,EQ,MATCHED,isin_exact,Hindustan Aeronaut.,EQ
+HINDCOPPER,Hindustan Copper Ltd.,INE531E01026,NSE-HINDCOPPER,NSE,CASH,EQ,MATCHED,isin_exact,Hindustan Copper,EQ
+HINDPETRO,Hindustan Petroleum Corporation Ltd.,INE094A01015,NSE-HINDPETRO,NSE,CASH,EQ,MATCHED,isin_exact,HPCL,EQ
+HINDUNILVR,Hindustan Unilever Ltd.,INE030A01027,NSE-HINDUNILVR,NSE,CASH,EQ,MATCHED,isin_exact,Hindustan Unilever,EQ
+HINDZINC,Hindustan Zinc Ltd.,INE267A01025,NSE-HINDZINC,NSE,CASH,EQ,MATCHED,isin_exact,Hindustan Zinc,EQ
+POWERINDIA,Hitachi Energy India Ltd.,INE07Y701011,NSE-POWERINDIA,NSE,CASH,EQ,MATCHED,isin_exact,Hitachi Energy,EQ
+HOMEFIRST,Home First Finance Company India Ltd.,INE481N01025,NSE-HOMEFIRST,NSE,CASH,EQ,MATCHED,isin_exact,Home First Finance,EQ
+HONASA,Honasa Consumer Ltd.,INE0J5401028,NSE-HONASA,NSE,CASH,EQ,MATCHED,isin_exact,Honasa Consumer,EQ
+HONAUT,Honeywell Automation India Ltd.,INE671A01010,NSE-HONAUT,NSE,CASH,EQ,MATCHED,isin_exact,Honeywell Automation,EQ
+HUDCO,Housing & Urban Development Corporation Ltd.,INE031A01017,NSE-HUDCO,NSE,CASH,EQ,MATCHED,isin_exact,HUDCO,EQ
+HYUNDAI,Hyundai Motor India Ltd.,INE0V6F01027,NSE-HYUNDAI,NSE,CASH,EQ,MATCHED,isin_exact,Hyundai Motor India,EQ
+ICICIBANK,ICICI Bank Ltd.,INE090A01021,NSE-ICICIBANK,NSE,CASH,EQ,MATCHED,isin_exact,ICICI Bank,EQ
+ICICIGI,ICICI Lombard General Insurance Company Ltd.,INE765G01017,NSE-ICICIGI,NSE,CASH,EQ,MATCHED,isin_exact,ICICI Lombard Gen.,EQ
+ICICIAMC,ICICI Prudential Asset Management Company Ltd.,INE346A01027,NSE-ICICIAMC,NSE,CASH,EQ,MATCHED,isin_exact,ICICI Prud.Asset Man,EQ
+ICICIPRULI,ICICI Prudential Life Insurance Company Ltd.,INE726G01019,NSE-ICICIPRULI,NSE,CASH,EQ,MATCHED,isin_exact,ICICI PrudentialLife,EQ
+IDBI,IDBI Bank Ltd.,INE008A01015,NSE-IDBI,NSE,CASH,EQ,MATCHED,isin_exact,IDBI Bank,EQ
+IDFCFIRSTB,IDFC First Bank Ltd.,INE092T01019,NSE-IDFCFIRSTB,NSE,CASH,EQ,MATCHED,isin_exact,IDFC First Bank,EQ
+IFCI,IFCI Ltd.,INE039A01010,NSE-IFCI,NSE,CASH,EQ,MATCHED,isin_exact,IFCI,EQ
+IIFL,IIFL Finance Ltd.,INE530B01024,NSE-IIFL,NSE,CASH,EQ,MATCHED,isin_exact,IIFL Finance,EQ
+IRB,IRB Infrastructure Developers Ltd.,INE821I01022,NSE-IRB,NSE,CASH,EQ,MATCHED,isin_exact,IRB Infra Devs,EQ
+IRCON,IRCON International Ltd.,INE962Y01021,NSE-IRCON,NSE,CASH,EQ,MATCHED,isin_exact,Ircon International,EQ
+ITCHOTELS,ITC Hotels Ltd.,INE379A01028,NSE-ITCHOTELS,NSE,CASH,EQ,MATCHED,isin_exact,ITC Hotels,EQ
+ITC,ITC Ltd.,INE154A01025,NSE-ITC,NSE,CASH,EQ,MATCHED,isin_exact,ITC,EQ
+ITI,ITI Ltd.,INE248A01017,NSE-ITI,NSE,CASH,EQ,MATCHED,isin_exact,ITI,EQ
+INDGN,Indegene Ltd.,INE065X01017,NSE-INDGN,NSE,CASH,EQ,MATCHED,isin_exact,Indegene,EQ
+INDIACEM,India Cements Ltd.,INE383A01012,NSE-INDIACEM,NSE,CASH,EQ,MATCHED,isin_exact,India Cements,EQ
+INDIAMART,Indiamart Intermesh Ltd.,INE933S01016,NSE-INDIAMART,NSE,CASH,EQ,MATCHED,isin_exact,Indiamart Inter,EQ
+INDIANB,Indian Bank,INE562A01011,NSE-INDIANB,NSE,CASH,EQ,MATCHED,isin_exact,Indian Bank,EQ
+IEX,Indian Energy Exchange Ltd.,INE022Q01020,NSE-IEX,NSE,CASH,EQ,MATCHED,isin_exact,Indian Energy Exch.,EQ
+INDHOTEL,Indian Hotels Co. Ltd.,INE053A01029,NSE-INDHOTEL,NSE,CASH,EQ,MATCHED,isin_exact,The Indian Hotels Co,EQ
+IOC,Indian Oil Corporation Ltd.,INE242A01010,NSE-IOC,NSE,CASH,EQ,MATCHED,isin_exact,Indian Oil Corpn.,EQ
+IOB,Indian Overseas Bank,INE565A01014,NSE-IOB,NSE,CASH,EQ,MATCHED,isin_exact,Indian Overseas Bank,EQ
+IRCTC,Indian Railway Catering And Tourism Corporation Ltd.,INE335Y01020,NSE-IRCTC,NSE,CASH,EQ,MATCHED,isin_exact,IRCTC,EQ
+IRFC,Indian Railway Finance Corporation Ltd.,INE053F01010,NSE-IRFC,NSE,CASH,EQ,MATCHED,isin_exact,IRFC,EQ
+IREDA,Indian Renewable Energy Development Agency Ltd.,INE202E01016,NSE-IREDA,NSE,CASH,EQ,MATCHED,isin_exact,Indian Ren. Energy,EQ
+IGL,Indraprastha Gas Ltd.,INE203G01027,NSE-IGL,NSE,CASH,EQ,MATCHED,isin_exact,Indraprastha Gas,EQ
+INDUSTOWER,Indus Towers Ltd.,INE121J01017,NSE-INDUSTOWER,NSE,CASH,EQ,MATCHED,isin_exact,Indus Towers,EQ
+INDUSINDBK,IndusInd Bank Ltd.,INE095A01012,NSE-INDUSINDBK,NSE,CASH,EQ,MATCHED,isin_exact,IndusInd Bank,EQ
+NAUKRI,Info Edge (India) Ltd.,INE663F01032,NSE-NAUKRI,NSE,CASH,EQ,MATCHED,isin_exact,Info Edge (India),EQ
+INFY,Infosys Ltd.,INE009A01021,NSE-INFY,NSE,CASH,EQ,MATCHED,isin_exact,Infosys,EQ
+INOXWIND,Inox Wind Ltd.,INE066P01011,NSE-INOXWIND,NSE,CASH,EQ,MATCHED,isin_exact,INOX Wind,EQ
+INTELLECT,Intellect Design Arena Ltd.,INE306R01017,NSE-INTELLECT,NSE,CASH,EQ,MATCHED,isin_exact,Intellect Design,EQ
+INDIGO,InterGlobe Aviation Ltd.,INE646L01027,NSE-INDIGO,NSE,CASH,EQ,MATCHED,isin_exact,Interglobe Aviation,EQ
+IGIL,International Gemological Institute Ltd.,INE0Q9301021,NSE-IGIL,NSE,CASH,EQ,MATCHED,isin_exact,International Gemolo,EQ
+IKS,Inventurus Knowledge Solutions Ltd.,INE115Q01022,NSE-IKS,NSE,CASH,EQ,MATCHED,isin_exact,Inventurus Knowledge,EQ
+IPCALAB,Ipca Laboratories Ltd.,INE571A01038,NSE-IPCALAB,NSE,CASH,EQ,MATCHED,isin_exact,Ipca Laboratories,EQ
+JKCEMENT,J.K. Cement Ltd.,INE823G01014,NSE-JKCEMENT,NSE,CASH,EQ,MATCHED,isin_exact,JK Cement,EQ
+JBMA,JBM Auto Ltd.,INE927D01051,NSE-JBMA,NSE,CASH,EQ,MATCHED,isin_exact,JBM Auto,EQ
+JKTYRE,JK Tyre & Industries Ltd.,INE573A01042,NSE-JKTYRE,NSE,CASH,EQ,MATCHED,isin_exact,JK Tyre & Industries,EQ
+JMFINANCIL,JM Financial Ltd.,INE780C01023,NSE-JMFINANCIL,NSE,CASH,EQ,MATCHED,isin_exact,JM Financial,EQ
+JSWCEMENT,JSW Cement Ltd.,INE718I01012,NSE-JSWCEMENT,NSE,CASH,EQ,MATCHED,isin_exact,JSW Cement,EQ
+JSWDULUX,JSW Dulux Ltd.,INE133A01011,NSE-JSWDULUX,NSE,CASH,EQ,MATCHED,isin_exact,JSW Dulux,EQ
+JSWENERGY,JSW Energy Ltd.,INE121E01018,NSE-JSWENERGY,NSE,CASH,EQ,MATCHED,isin_exact,JSW Energy,EQ
+JSWINFRA,JSW Infrastructure Ltd.,INE880J01026,NSE-JSWINFRA,NSE,CASH,EQ,MATCHED,isin_exact,JSW Infrastructure,EQ
+JSWSTEEL,JSW Steel Ltd.,INE019A01038,NSE-JSWSTEEL,NSE,CASH,EQ,MATCHED,isin_exact,JSW Steel,EQ
+JAINREC,Jain Resource Recycling Ltd.,INE0YD401026,NSE-JAINREC,NSE,CASH,EQ,MATCHED,isin_exact,Jain Resource Recycl,EQ
+JPPOWER,Jaiprakash Power Ventures Ltd.,INE351F01018,NSE-JPPOWER,NSE,CASH,EQ,MATCHED,isin_exact,Jaiprakash Power,EQ
+J&KBANK,Jammu & Kashmir Bank Ltd.,INE168A01041,NSE-J&KBANK,NSE,CASH,EQ,MATCHED,isin_exact,Jammu & Kashmir Bank,EQ
+JINDALSAW,Jindal Saw Ltd.,INE324A01032,NSE-JINDALSAW,NSE,CASH,EQ,MATCHED,isin_exact,Jindal SAW,EQ
+JSL,Jindal Stainless Ltd.,INE220G01021,NSE-JSL,NSE,CASH,EQ,MATCHED,isin_exact,Jindal Stainless,EQ
+JINDALSTEL,Jindal Steel Ltd.,INE749A01030,NSE-JINDALSTEL,NSE,CASH,EQ,MATCHED,isin_exact,Jindal Steel,EQ
+JIOFIN,Jio Financial Services Ltd.,INE758E01017,NSE-JIOFIN,NSE,CASH,EQ,MATCHED,isin_exact,JIO Financial Serv.,EQ
+JUBLFOOD,Jubilant Foodworks Ltd.,INE797F01020,NSE-JUBLFOOD,NSE,CASH,EQ,MATCHED,isin_exact,Jubilant Foodworks,EQ
+JUBLINGREA,Jubilant Ingrevia Ltd.,INE0BY001018,NSE-JUBLINGREA,NSE,CASH,EQ,MATCHED,isin_exact,Jubilant Ingrevia,EQ
+JUBLPHARMA,Jubilant Pharmova Ltd.,INE700A01033,NSE-JUBLPHARMA,NSE,CASH,EQ,MATCHED,isin_exact,Jubilant Pharmova,EQ
+JWL,Jupiter Wagons Ltd.,INE209L01016,NSE-JWL,NSE,CASH,EQ,MATCHED,isin_exact,Jupiter Wagons,EQ
+JYOTICNC,Jyoti CNC Automation Ltd.,INE980O01024,NSE-JYOTICNC,NSE,CASH,EQ,MATCHED,isin_exact,Jyoti CNC Automation,EQ
+KPRMILL,K.P.R. Mill Ltd.,INE930H01031,NSE-KPRMILL,NSE,CASH,EQ,MATCHED,isin_exact,K.P.R. Mill,EQ
+KEI,KEI Industries Ltd.,INE878B01027,NSE-KEI,NSE,CASH,EQ,MATCHED,isin_exact,KEI Industries,EQ
+KPITTECH,KPIT Technologies Ltd.,INE04I401011,NSE-KPITTECH,NSE,CASH,EQ,MATCHED,isin_exact,KPIT Tech,EQ
+KAJARIACER,Kajaria Ceramics Ltd.,INE217B01036,NSE-KAJARIACER,NSE,CASH,EQ,MATCHED,isin_exact,Kajaria Ceramics,EQ
+KPIL,Kalpataru Projects International Ltd.,INE220B01022,NSE-KPIL,NSE,CASH,EQ,MATCHED,isin_exact,Kalpataru Projects,EQ
+KALYANKJIL,Kalyan Jewellers India Ltd.,INE303R01014,NSE-KALYANKJIL,NSE,CASH,EQ,MATCHED,isin_exact,Kalyan Jewellers,EQ
+KARURVYSYA,Karur Vysya Bank Ltd.,INE036D01028,NSE-KARURVYSYA,NSE,CASH,EQ,MATCHED,isin_exact,Karur Vysya Bank,EQ
+KAYNES,Kaynes Technology India Ltd.,INE918Z01012,NSE-KAYNES,NSE,CASH,EQ,MATCHED,isin_exact,Kaynes Technology,EQ
+KEC,Kec International Ltd.,INE389H01022,NSE-KEC,NSE,CASH,EQ,MATCHED,isin_exact,KEC International,EQ
+KFINTECH,Kfin Technologies Ltd.,INE138Y01010,NSE-KFINTECH,NSE,CASH,EQ,MATCHED,isin_exact,KFin Technologies,EQ
+KIRLOSENG,Kirloskar Oil Eng Ltd.,INE146L01010,NSE-KIRLOSENG,NSE,CASH,EQ,MATCHED,isin_exact,Kirloskar Oil Engine,EQ
+KOTAKBANK,Kotak Mahindra Bank Ltd.,INE237A01036,NSE-KOTAKBANK,NSE,CASH,EQ,MATCHED,isin_exact,Kotak Mahindra Bank,EQ
+KIMS,Krishna Institute of Medical Sciences Ltd.,INE967H01025,NSE-KIMS,NSE,CASH,EQ,MATCHED,isin_exact,KIMS,EQ
+LTF,L&T Finance Ltd.,INE498L01015,NSE-LTF,NSE,CASH,EQ,MATCHED,isin_exact,L&T Finance,EQ
+LTTS,L&T Technology Services Ltd.,INE010V01017,NSE-LTTS,NSE,CASH,EQ,MATCHED,isin_exact,L&T Technology Serv.,EQ
+LGEINDIA,LG Electronics India Ltd.,INE324D01010,NSE-LGEINDIA,NSE,CASH,EQ,MATCHED,isin_exact,LG Electronics India,EQ
+LICHSGFIN,LIC Housing Finance Ltd.,INE115A01026,NSE-LICHSGFIN,NSE,CASH,EQ,MATCHED,isin_exact,LIC Housing Finance,EQ
+LTFOODS,LT Foods Ltd.,INE818H01020,NSE-LTFOODS,NSE,CASH,EQ,MATCHED,isin_exact,LT Foods,EQ
+LTM,LTM Ltd.,INE214T01019,NSE-LTM,NSE,CASH,EQ,MATCHED,isin_exact,LTM,EQ
+LT,Larsen & Toubro Ltd.,INE018A01030,NSE-LT,NSE,CASH,EQ,MATCHED,isin_exact,L&T,EQ
+LATENTVIEW,Latent View Analytics Ltd.,INE0I7C01011,NSE-LATENTVIEW,NSE,CASH,EQ,MATCHED,isin_exact,Latent View,EQ
+LAURUSLABS,Laurus Labs Ltd.,INE947Q01028,NSE-LAURUSLABS,NSE,CASH,EQ,MATCHED,isin_exact,Laurus Labs,EQ
+THELEELA,Leela Palaces Hotels & Resorts Ltd.,INE0AQ201015,NSE-THELEELA,NSE,CASH,EQ,MATCHED,isin_exact,Leela Palaces Hotels,EQ
+LEMONTREE,Lemon Tree Hotels Ltd.,INE970X01018,NSE-LEMONTREE,NSE,CASH,EQ,MATCHED,isin_exact,Lemon Tree Hotels,EQ
+LENSKART,Lenskart Solutions Ltd.,INE956O01016,NSE-LENSKART,NSE,CASH,EQ,MATCHED,isin_exact,Lenskart Solutions,EQ
+LICI,Life Insurance Corporation of India,INE0J1Y01017,NSE-LICI,NSE,CASH,EQ,MATCHED,isin_exact,Life Insurance Corp.,EQ
+LINDEINDIA,Linde India Ltd.,INE473A01011,NSE-LINDEINDIA,NSE,CASH,EQ,MATCHED,isin_exact,Linde India,EQ
+LLOYDSME,Lloyds Metals And Energy Ltd.,INE281B01032,NSE-LLOYDSME,NSE,CASH,EQ,MATCHED,isin_exact,Lloyds Metals,EQ
+LODHA,Lodha Developers Ltd.,INE670K01029,NSE-LODHA,NSE,CASH,EQ,MATCHED,isin_exact,Lodha Developers,EQ
+LUPIN,Lupin Ltd.,INE326A01037,NSE-LUPIN,NSE,CASH,EQ,MATCHED,isin_exact,Lupin,EQ
+MMTC,MMTC Ltd.,INE123F01029,NSE-MMTC,NSE,CASH,EQ,MATCHED,isin_exact,MMTC,EQ
+MRF,MRF Ltd.,INE883A01011,NSE-MRF,NSE,CASH,EQ,MATCHED,isin_exact,MRF,EQ
+MGL,Mahanagar Gas Ltd.,INE002S01010,NSE-MGL,NSE,CASH,EQ,MATCHED,isin_exact,Mahanagar Gas,EQ
+M&MFIN,Mahindra & Mahindra Financial Services Ltd.,INE774D01024,NSE-M&MFIN,NSE,CASH,EQ,MATCHED,isin_exact,Mah & Mah Finl. Serv,EQ
+M&M,Mahindra & Mahindra Ltd.,INE101A01026,NSE-M&M,NSE,CASH,EQ,MATCHED,isin_exact,Mahindra & Mahindra,EQ
+MANAPPURAM,Manappuram Finance Ltd.,INE522D01027,NSE-MANAPPURAM,NSE,CASH,EQ,MATCHED,isin_exact,Manappuram Finance,EQ
+MRPL,Mangalore Refinery & Petrochemicals Ltd.,INE103A01014,NSE-MRPL,NSE,CASH,EQ,MATCHED,isin_exact,MRPL,EQ
+MANKIND,Mankind Pharma Ltd.,INE634S01028,NSE-MANKIND,NSE,CASH,EQ,MATCHED,isin_exact,Mankind Pharma,EQ
+MARICO,Marico Ltd.,INE196A01026,NSE-MARICO,NSE,CASH,EQ,MATCHED,isin_exact,Marico,EQ
+MARUTI,Maruti Suzuki India Ltd.,INE585B01010,NSE-MARUTI,NSE,CASH,EQ,MATCHED,isin_exact,Maruti Suzuki India,EQ
+MFSL,Max Financial Services Ltd.,INE180A01020,NSE-MFSL,NSE,CASH,EQ,MATCHED,isin_exact,Max Financial Serv.,EQ
+MAXHEALTH,Max Healthcare Institute Ltd.,INE027H01010,NSE-MAXHEALTH,NSE,CASH,EQ,MATCHED,isin_exact,Max Healthcare Inst.,EQ
+MAZDOCK,Mazagoan Dock Shipbuilders Ltd.,INE249Z01020,NSE-MAZDOCK,NSE,CASH,EQ,MATCHED,isin_exact,Mazagon Dock Ship.,EQ
+MEESHO,Meesho Ltd.,INE0VDM01015,NSE-MEESHO,NSE,CASH,EQ,MATCHED,isin_exact,Meesho,EQ
+MINDACORP,Minda Corporation Ltd.,INE842C01021,NSE-MINDACORP,NSE,CASH,EQ,MATCHED,isin_exact,Minda Corporation,EQ
+MSUMI,Motherson Sumi Wiring India Ltd.,INE0FS801015,NSE-MSUMI,NSE,CASH,EQ,MATCHED,isin_exact,Motherson SumiWiring,EQ
+MOTILALOFS,Motilal Oswal Financial Services Ltd.,INE338I01027,NSE-MOTILALOFS,NSE,CASH,EQ,MATCHED,isin_exact,MO Financial,EQ
+MPHASIS,MphasiS Ltd.,INE356A01018,NSE-MPHASIS,NSE,CASH,EQ,MATCHED,isin_exact,Mphasis,EQ
+MCX,Multi Commodity Exchange of India Ltd.,INE745G01043,NSE-MCX,NSE,CASH,EQ,MATCHED,isin_exact,MCX,EQ
+MUTHOOTFIN,Muthoot Finance Ltd.,INE414G01012,NSE-MUTHOOTFIN,NSE,CASH,EQ,MATCHED,isin_exact,Muthoot Finance,EQ
+NATCOPHARM,NATCO Pharma Ltd.,INE987B01026,NSE-NATCOPHARM,NSE,CASH,EQ,MATCHED,isin_exact,Natco Pharma,EQ
+NBCC,NBCC (India) Ltd.,INE095N01031,NSE-NBCC,NSE,CASH,EQ,MATCHED,isin_exact,NBCC (India),EQ
+NCC,NCC Ltd.,INE868B01028,NSE-NCC,NSE,CASH,EQ,MATCHED,isin_exact,NCC,EQ
+NHPC,NHPC Ltd.,INE848E01016,NSE-NHPC,NSE,CASH,EQ,MATCHED,isin_exact,NHPC,EQ
+NLCINDIA,NLC India Ltd.,INE589A01014,NSE-NLCINDIA,NSE,CASH,EQ,MATCHED,isin_exact,NLC India,EQ
+NMDC,NMDC Ltd.,INE584A01023,NSE-NMDC,NSE,CASH,EQ,MATCHED,isin_exact,NMDC,EQ
+NSLNISP,NMDC Steel Ltd.,INE0NNS01018,NSE-NSLNISP,NSE,CASH,EQ,MATCHED,isin_exact,NMDC Steel,EQ
+NTPCGREEN,NTPC Green Energy Ltd.,INE0ONG01011,NSE-NTPCGREEN,NSE,CASH,EQ,MATCHED,isin_exact,NTPC Green Energy,EQ
+NTPC,NTPC Ltd.,INE733E01010,NSE-NTPC,NSE,CASH,EQ,MATCHED,isin_exact,NTPC,EQ
+NH,Narayana Hrudayalaya Ltd.,INE410P01011,NSE-NH,NSE,CASH,EQ,MATCHED,isin_exact,Narayana Hrudayalay.,EQ
+NATIONALUM,National Aluminium Co. Ltd.,INE139A01034,NSE-NATIONALUM,NSE,CASH,EQ,MATCHED,isin_exact,NALCO,EQ
+NAVA,Nava Ltd.,INE725A01030,NSE-NAVA,NSE,CASH,EQ,MATCHED,isin_exact,Nava,EQ
+NAVINFLUOR,Navin Fluorine International Ltd.,INE048G01026,NSE-NAVINFLUOR,NSE,CASH,EQ,MATCHED,isin_exact,Navin Fluorine Intl.,EQ
+NESTLEIND,Nestle India Ltd.,INE239A01024,NSE-NESTLEIND,NSE,CASH,EQ,MATCHED,isin_exact,Nestle India,EQ
+NETWEB,Netweb Technologies India Ltd.,INE0NT901020,NSE-NETWEB,NSE,CASH,EQ,MATCHED,isin_exact,Netweb Technologies,EQ
+NEULANDLAB,Neuland Laboratories Ltd.,INE794A01010,NSE-NEULANDLAB,NSE,CASH,EQ,MATCHED,isin_exact,Neuland Laboratories,EQ
+NEWGEN,Newgen Software Technologies Ltd.,INE619B01017,NSE-NEWGEN,NSE,CASH,EQ,MATCHED,isin_exact,Newgen Software Tech,EQ
+NAM-INDIA,Nippon Life India Asset Management Ltd.,INE298J01013,NSE-NAM-INDIA,NSE,CASH,EQ,MATCHED,isin_exact,Nippon LifeInd.Asset,EQ
+NIVABUPA,Niva Bupa Health Insurance Company Ltd.,INE995S01015,NSE-NIVABUPA,NSE,CASH,EQ,MATCHED,isin_exact,Niva Bupa Health Ins,EQ
+NUVAMA,Nuvama Wealth Management Ltd.,INE531F01023,NSE-NUVAMA,NSE,CASH,EQ,MATCHED,isin_exact,Nuvama Wealth Mgmnt.,EQ
+NUVOCO,Nuvoco Vistas Corporation Ltd.,INE118D01016,NSE-NUVOCO,NSE,CASH,EQ,MATCHED,isin_exact,Nuvoco Vistas Corpn.,EQ
+OBEROIRLTY,Oberoi Realty Ltd.,INE093I01010,NSE-OBEROIRLTY,NSE,CASH,EQ,MATCHED,isin_exact,Oberoi Realty,EQ
+ONGC,Oil & Natural Gas Corporation Ltd.,INE213A01029,NSE-ONGC,NSE,CASH,EQ,MATCHED,isin_exact,ONGC,EQ
+OIL,Oil India Ltd.,INE274J01014,NSE-OIL,NSE,CASH,EQ,MATCHED,isin_exact,Oil India,EQ
+OLAELEC,Ola Electric Mobility Ltd.,INE0LXG01040,NSE-OLAELEC,NSE,CASH,EQ,MATCHED,isin_exact,Ola Electric Mobility,EQ
+OLECTRA,Olectra Greentech Ltd.,INE260D01016,NSE-OLECTRA,NSE,CASH,EQ,MATCHED,isin_exact,Olectra Greentech,EQ
+PAYTM,One 97 Communications Ltd.,INE982J01020,NSE-PAYTM,NSE,CASH,EQ,MATCHED,isin_exact,Paytm,EQ
+ONESOURCE,Onesource Specialty Pharma Ltd.,INE013P01021,NSE-ONESOURCE,NSE,CASH,EQ,MATCHED,isin_exact,Onesource Specialty,EQ
+OFSS,Oracle Financial Services Software Ltd.,INE881D01027,NSE-OFSS,NSE,CASH,EQ,MATCHED,isin_exact,Oracle Finl. Service,EQ
+POLICYBZR,PB Fintech Ltd.,INE417T01026,NSE-POLICYBZR,NSE,CASH,EQ,MATCHED,isin_exact,PolicyBazaar,EQ
+PCBL,PCBL Chemical Ltd.,INE602A01031,NSE-PCBL,NSE,CASH,EQ,MATCHED,isin_exact,PCBL Chemical,EQ
+PGEL,PG Electroplast Ltd.,INE457L01029,NSE-PGEL,NSE,CASH,EQ,MATCHED,isin_exact,PG Electroplast,EQ
+PIIND,PI Industries Ltd.,INE603J01030,NSE-PIIND,NSE,CASH,EQ,MATCHED,isin_exact,PI Industries,EQ
+PNBHOUSING,PNB Housing Finance Ltd.,INE572E01012,NSE-PNBHOUSING,NSE,CASH,EQ,MATCHED,isin_exact,PNB Housing Finance,EQ
+PTCIL,PTC Industries Ltd.,INE596F01018,NSE-PTCIL,NSE,CASH,EQ,MATCHED,isin_exact,PTC Industries,EQ
+PVRINOX,PVR INOX Ltd.,INE191H01014,NSE-PVRINOX,NSE,CASH,EQ,MATCHED,isin_exact,PVR Inox,EQ
+PAGEIND,Page Industries Ltd.,INE761H01022,NSE-PAGEIND,NSE,CASH,EQ,MATCHED,isin_exact,Page Industries,EQ
+PARADEEP,Paradeep Phosphates Ltd.,INE088F01024,NSE-PARADEEP,NSE,CASH,EQ,MATCHED,isin_exact,Paradeep Phsphts,EQ
+PATANJALI,Patanjali Foods Ltd.,INE619A01035,NSE-PATANJALI,NSE,CASH,EQ,MATCHED,isin_exact,Patanjali Foods,EQ
+PERSISTENT,Persistent Systems Ltd.,INE262H01021,NSE-PERSISTENT,NSE,CASH,EQ,MATCHED,isin_exact,Persistent Systems,EQ
+PETRONET,Petronet LNG Ltd.,INE347G01014,NSE-PETRONET,NSE,CASH,EQ,MATCHED,isin_exact,Petronet LNG,EQ
+PFIZER,Pfizer Ltd.,INE182A01018,NSE-PFIZER,NSE,CASH,EQ,MATCHED,isin_exact,Pfizer,EQ
+PHOENIXLTD,Phoenix Mills Ltd.,INE211B01039,NSE-PHOENIXLTD,NSE,CASH,EQ,MATCHED,isin_exact,Phoenix Mills,EQ
+PWL,Physicswallah Ltd.,INE0LP301011,NSE-PWL,NSE,CASH,EQ,MATCHED,isin_exact,Physicswallah,EQ
+PIDILITIND,Pidilite Industries Ltd.,INE318A01026,NSE-PIDILITIND,NSE,CASH,EQ,MATCHED,isin_exact,Pidilite Industries,EQ
+PINELABS,Pine Labs Ltd.,INE15B701018,NSE-PINELABS,NSE,CASH,EQ,MATCHED,isin_exact,Pine Labs,EQ
+PIRAMALFIN,Piramal Finance Ltd.,INE202B01038,NSE-PIRAMALFIN,NSE,CASH,EQ,MATCHED,isin_exact,Piramal Finance,EQ
+PPLPHARMA,Piramal Pharma Ltd.,INE0DK501011,NSE-PPLPHARMA,NSE,CASH,EQ,MATCHED,isin_exact,Piramal Pharma,EQ
+POLYMED,Poly Medicure Ltd.,INE205C01021,NSE-POLYMED,NSE,CASH,EQ,MATCHED,isin_exact,Poly Medicure,EQ
+POLYCAB,Polycab India Ltd.,INE455K01017,NSE-POLYCAB,NSE,CASH,EQ,MATCHED,isin_exact,Polycab India,EQ
+POONAWALLA,Poonawalla Fincorp Ltd.,INE511C01022,NSE-POONAWALLA,NSE,CASH,EQ,MATCHED,isin_exact,Poonawalla Fincorp,EQ
+PFC,Power Finance Corporation Ltd.,INE134E01011,NSE-PFC,NSE,CASH,EQ,MATCHED,isin_exact,Power Finance Corpn.,EQ
+POWERGRID,Power Grid Corporation of India Ltd.,INE752E01010,NSE-POWERGRID,NSE,CASH,EQ,MATCHED,isin_exact,Power Grid Corpn.,EQ
+PREMIERENE,Premier Energies Ltd.,INE0BS701011,NSE-PREMIERENE,NSE,CASH,EQ,MATCHED,isin_exact,Premier Energies,EQ
+PRESTIGE,Prestige Estates Projects Ltd.,INE811K01011,NSE-PRESTIGE,NSE,CASH,EQ,MATCHED,isin_exact,Prestige Estates,EQ
+PFOCUS,Prime Focus Ltd.,INE367G01038,NSE-PFOCUS,NSE,CASH,EQ,MATCHED,isin_exact,Prime Focus,EQ
+PNB,Punjab National Bank,INE160A01022,NSE-PNB,NSE,CASH,EQ,MATCHED,isin_exact,PNB,EQ
+RRKABEL,R R Kabel Ltd.,INE777K01022,NSE-RRKABEL,NSE,CASH,EQ,MATCHED,isin_exact,RR Kabel,EQ
+RBLBANK,RBL Bank Ltd.,INE976G01028,NSE-RBLBANK,NSE,CASH,EQ,MATCHED,isin_exact,RBL Bank,EQ
+RECLTD,REC Ltd.,INE020B01018,NSE-RECLTD,NSE,CASH,EQ,MATCHED,isin_exact,RECL,EQ
+RHIM,RHI MAGNESITA INDIA LTD.,INE743M01012,NSE-RHIM,NSE,CASH,EQ,MATCHED,isin_exact,RHI Magnesita India,EQ
+RITES,RITES Ltd.,INE320J01015,NSE-RITES,NSE,CASH,EQ,MATCHED,isin_exact,RITES,EQ
+RADICO,Radico Khaitan Ltd,INE944F01028,NSE-RADICO,NSE,CASH,EQ,MATCHED,isin_exact,Radico Khaitan,EQ
+RVNL,Rail Vikas Nigam Ltd.,INE415G01027,NSE-RVNL,NSE,CASH,EQ,MATCHED,isin_exact,Rail Vikas Nigam,EQ
+RAILTEL,Railtel Corporation Of India Ltd.,INE0DD101019,NSE-RAILTEL,NSE,CASH,EQ,MATCHED,isin_exact,Railtel Corp,EQ
+RAINBOW,Rainbow Childrens Medicare Ltd.,INE961O01016,NSE-RAINBOW,NSE,CASH,EQ,MATCHED,isin_exact,Rainbow Children,EQ
+RKFORGE,Ramkrishna Forgings Ltd.,INE399G01023,NSE-RKFORGE,NSE,CASH,EQ,MATCHED,isin_exact,Ramkrishna Forgings,EQ
+REDINGTON,Redington Ltd.,INE891D01026,NSE-REDINGTON,NSE,CASH,EQ,MATCHED,isin_exact,Redington,EQ
+RELIANCE,Reliance Industries Ltd.,INE002A01018,NSE-RELIANCE,NSE,CASH,EQ,MATCHED,isin_exact,Reliance Industries,EQ
+RPOWER,Reliance Power Ltd.,INE614G01033,NSE-RPOWER,NSE,CASH,EQ,MATCHED,isin_exact,Reliance Power,EQ
+SBFC,SBFC Finance Ltd.,INE423Y01016,NSE-SBFC,NSE,CASH,EQ,MATCHED,isin_exact,SBFC Finance,EQ
+SBICARD,SBI Cards and Payment Services Ltd.,INE018E01016,NSE-SBICARD,NSE,CASH,EQ,MATCHED,isin_exact,SBI Cards & Payment,EQ
+SBILIFE,SBI Life Insurance Company Ltd.,INE123W01016,NSE-SBILIFE,NSE,CASH,EQ,MATCHED,isin_exact,SBI Life Insurance,EQ
+SJVN,SJVN Ltd.,INE002L01015,NSE-SJVN,NSE,CASH,EQ,MATCHED,isin_exact,SJVN,EQ
+SRF,SRF Ltd.,INE647A01010,NSE-SRF,NSE,CASH,EQ,MATCHED,isin_exact,SRF,EQ
+SAGILITY,Sagility Ltd.,INE0W2G01015,NSE-SAGILITY,NSE,CASH,EQ,MATCHED,isin_exact,Sagility,EQ
+SAILIFE,Sai Life Sciences Ltd.,INE570L01029,NSE-SAILIFE,NSE,CASH,EQ,MATCHED,isin_exact,Sai Life Sciences,EQ
+SAMMAANCAP,Sammaan Capital Ltd.,INE148I01020,NSE-SAMMAANCAP,NSE,CASH,EQ,MATCHED,isin_exact,Sammaan Capital,EQ
+MOTHERSON,Samvardhana Motherson International Ltd.,INE775A01035,NSE-MOTHERSON,NSE,CASH,EQ,MATCHED,isin_exact,Samvardhana Motherson,EQ
+SAPPHIRE,Sapphire Foods India Ltd.,INE806T01020,NSE-SAPPHIRE,NSE,CASH,EQ,MATCHED,isin_exact,Sapphire Foods,EQ
+SARDAEN,Sarda Energy and Minerals Ltd.,INE385C01021,NSE-SARDAEN,NSE,CASH,EQ,MATCHED,isin_exact,Sarda Energy & Min.,EQ
+SAREGAMA,Saregama India Ltd,INE979A01025,NSE-SAREGAMA,NSE,CASH,EQ,MATCHED,isin_exact,Saregama India,EQ
+SCHAEFFLER,Schaeffler India Ltd.,INE513A01022,NSE-SCHAEFFLER,NSE,CASH,EQ,MATCHED,isin_exact,Schaeffler India,EQ
+SCHNEIDER,Schneider Electric Infrastructure Ltd.,INE839M01018,NSE-SCHNEIDER,NSE,CASH,EQ,MATCHED,isin_exact,SchneiderElect.Infra,EQ
+SCI,Shipping Corporation of India Ltd.,INE109A01011,NSE-SCI,NSE,CASH,EQ,MATCHED,isin_exact,Shipping Corpn.India,EQ
+SHREECEM,Shree Cement Ltd.,INE070A01015,NSE-SHREECEM,NSE,CASH,EQ,MATCHED,isin_exact,Shree Cement,EQ
+SHRIRAMFIN,Shriram Finance Ltd.,INE721A01047,NSE-SHRIRAMFIN,NSE,CASH,EQ,MATCHED,isin_exact,Shriram Finance,EQ
+SHYAMMETL,Shyam Metalics and Energy Ltd.,INE810G01011,NSE-SHYAMMETL,NSE,CASH,EQ,MATCHED,isin_exact,Shyam Metalics,EQ
+ENRIN,Siemens Energy India Ltd.,INE1NPP01017,NSE-ENRIN,NSE,CASH,EQ,MATCHED,isin_exact,Siemens Energy India,EQ
+SIEMENS,Siemens Ltd.,INE003A01024,NSE-SIEMENS,NSE,CASH,EQ,MATCHED,isin_exact,Siemens,EQ
+SIGNATURE,Signatureglobal (India) Ltd.,INE903U01023,NSE-SIGNATURE,NSE,CASH,EQ,MATCHED,isin_exact,Signatureglobal (I),EQ
+SOBHA,Sobha Ltd.,INE671H01015,NSE-SOBHA,NSE,CASH,EQ,MATCHED,isin_exact,Sobha,EQ
+SOLARINDS,Solar Industries India Ltd.,INE343H01029,NSE-SOLARINDS,NSE,CASH,EQ,MATCHED,isin_exact,Solar Industries Ind,EQ
+SONACOMS,Sona BLW Precision Forgings Ltd.,INE073K01018,NSE-SONACOMS,NSE,CASH,EQ,MATCHED,isin_exact,Sona BLW Precision,EQ
+SONATSOFTW,Sonata Software Ltd.,INE269A01021,NSE-SONATSOFTW,NSE,CASH,EQ,MATCHED,isin_exact,Sonata Software,EQ
+STARHEALTH,Star Health and Allied Insurance Company Ltd.,INE575P01011,NSE-STARHEALTH,NSE,CASH,EQ,MATCHED,isin_exact,Star Health Insurance,EQ
+SBIN,State Bank of India,INE062A01020,NSE-SBIN,NSE,CASH,EQ,MATCHED,isin_exact,State Bank Of India,EQ
+SAIL,Steel Authority of India Ltd.,INE114A01011,NSE-SAIL,NSE,CASH,EQ,MATCHED,isin_exact,Steel Authority,EQ
+SUMICHEM,Sumitomo Chemical India Ltd.,INE258G01013,NSE-SUMICHEM,NSE,CASH,EQ,MATCHED,isin_exact,Sumitomo Chem. India,EQ
+SUNPHARMA,Sun Pharmaceutical Industries Ltd.,INE044A01036,NSE-SUNPHARMA,NSE,CASH,EQ,MATCHED,isin_exact,Sun Pharma. Inds.,EQ
+SUNTV,Sun TV Network Ltd.,INE424H01027,NSE-SUNTV,NSE,CASH,EQ,MATCHED,isin_exact,Sun TV Network,EQ
+SUNDARMFIN,Sundaram Finance Ltd.,INE660A01013,NSE-SUNDARMFIN,NSE,CASH,EQ,MATCHED,isin_exact,Sundaram Finance,EQ
+SUPREMEIND,Supreme Industries Ltd.,INE195A01028,NSE-SUPREMEIND,NSE,CASH,EQ,MATCHED,isin_exact,Supreme Industries,EQ
+SPLPETRO,Supreme Petrochem Ltd.,INE663A01033,NSE-SPLPETRO,NSE,CASH,EQ,MATCHED,isin_exact,Supreme Petrochem,EQ
+SUZLON,Suzlon Energy Ltd.,INE040H01021,NSE-SUZLON,NSE,CASH,EQ,MATCHED,isin_exact,Suzlon Energy,EQ
+SWANCORP,Swan Corp Ltd.,INE665A01038,NSE-SWANCORP,NSE,CASH,EQ,MATCHED,isin_exact,Swan Corp,EQ
+SWIGGY,Swiggy Ltd.,INE00H001014,NSE-SWIGGY,NSE,CASH,EQ,MATCHED,isin_exact,Swiggy,EQ
+SYNGENE,Syngene International Ltd.,INE398R01022,NSE-SYNGENE,NSE,CASH,EQ,MATCHED,isin_exact,Syngene Internatl.,EQ
+SYRMA,Syrma SGS Technology Ltd.,INE0DYJ01015,NSE-SYRMA,NSE,CASH,EQ,MATCHED,isin_exact,Syrma SGS Technology,EQ
+TBOTEK,TBO Tek Ltd.,INE673O01025,NSE-TBOTEK,NSE,CASH,EQ,MATCHED,isin_exact,TBO Tek,EQ
+TVSMOTOR,TVS Motor Company Ltd.,INE494B01023,NSE-TVSMOTOR,NSE,CASH,EQ,MATCHED,isin_exact,TVS Motor Company,EQ
+TATACAP,Tata Capital Ltd.,INE976I01016,NSE-TATACAP,NSE,CASH,EQ,MATCHED,isin_exact,Tata Capital,EQ
+TATACHEM,Tata Chemicals Ltd.,INE092A01019,NSE-TATACHEM,NSE,CASH,EQ,MATCHED,isin_exact,Tata Chemicals,EQ
+TATACOMM,Tata Communications Ltd.,INE151A01013,NSE-TATACOMM,NSE,CASH,EQ,MATCHED,isin_exact,Tata Communications,EQ
+TCS,Tata Consultancy Services Ltd.,INE467B01029,NSE-TCS,NSE,CASH,EQ,MATCHED,isin_exact,TCS,EQ
+TATACONSUM,Tata Consumer Products Ltd.,INE192A01025,NSE-TATACONSUM,NSE,CASH,EQ,MATCHED,isin_exact,Tata Consumer Prod.,EQ
+TATAELXSI,Tata Elxsi Ltd.,INE670A01012,NSE-TATAELXSI,NSE,CASH,EQ,MATCHED,isin_exact,Tata Elxsi,EQ
+TATAINVEST,Tata Investment Corporation Ltd.,INE672A01026,NSE-TATAINVEST,NSE,CASH,EQ,MATCHED,isin_exact,Tata Invest. Corpn.,EQ
+TMCV,Tata Motors Ltd.,INE1TAE01010,NSE-TMCV,NSE,CASH,EQ,MATCHED,isin_exact,Tata Motors Commercial,EQ
+TMPV,Tata Motors Passenger Vehicles Ltd.,INE155A01022,NSE-TMPV,NSE,CASH,EQ,MATCHED,isin_exact,Tata Motors Passenger,EQ
+TATAPOWER,Tata Power Co. Ltd.,INE245A01021,NSE-TATAPOWER,NSE,CASH,EQ,MATCHED,isin_exact,Tata Power,EQ
+TATASTEEL,Tata Steel Ltd.,INE081A01020,NSE-TATASTEEL,NSE,CASH,EQ,MATCHED,isin_exact,Tata Steel,EQ
+TATATECH,Tata Technologies Ltd.,INE142M01025,NSE-TATATECH,NSE,CASH,EQ,MATCHED,isin_exact,Tata Technologies,EQ
+TTML,Tata Teleservices (Maharashtra) Ltd.,INE517B01013,NSE-TTML,NSE,CASH,EQ,MATCHED,isin_exact,Tata Tele (Maha),EQ
+TECHM,Tech Mahindra Ltd.,INE669C01036,NSE-TECHM,NSE,CASH,EQ,MATCHED,isin_exact,Tech Mahindra,EQ
+TECHNOE,Techno Electric & Engineering Company Ltd.,INE285K01026,NSE-TECHNOE,NSE,CASH,EQ,MATCHED,isin_exact,Techno Electric,EQ
+TEGA,Tega Industries Ltd.,INE011K01018,NSE-TEGA,NSE,CASH,EQ,MATCHED,isin_exact,Tega Industries,EQ
+TEJASNET,Tejas Networks Ltd.,INE010J01012,NSE-TEJASNET,NSE,CASH,EQ,MATCHED,isin_exact,Tejas Networks,EQ
+TENNIND,Tenneco Clean Air India Ltd.,INE19RI01016,NSE-TENNIND,NSE,CASH,EQ,MATCHED,isin_exact,Tenneco Clean Air,EQ
+NIACL,The New India Assurance Company Ltd.,INE470Y01017,NSE-NIACL,NSE,CASH,EQ,MATCHED,isin_exact,New India Assurance,EQ
+RAMCOCEM,The Ramco Cements Ltd.,INE331A01037,NSE-RAMCOCEM,NSE,CASH,EQ,MATCHED,isin_exact,Ramco Cements,EQ
+THERMAX,Thermax Ltd.,INE152A01029,NSE-THERMAX,NSE,CASH,EQ,MATCHED,isin_exact,Thermax,EQ
+TIMKEN,Timken India Ltd.,INE325A01013,NSE-TIMKEN,NSE,CASH,EQ,MATCHED,isin_exact,Timken India,EQ
+TITAGARH,Titagarh Rail Systems Ltd.,INE615H01020,NSE-TITAGARH,NSE,CASH,EQ,MATCHED,isin_exact,Titagarh Railsystems,EQ
+TITAN,Titan Company Ltd.,INE280A01028,NSE-TITAN,NSE,CASH,EQ,MATCHED,isin_exact,Titan Company,EQ
+TORNTPHARM,Torrent Pharmaceuticals Ltd.,INE685A01028,NSE-TORNTPHARM,NSE,CASH,EQ,MATCHED,isin_exact,Torrent Pharma,EQ
+TORNTPOWER,Torrent Power Ltd.,INE813H01021,NSE-TORNTPOWER,NSE,CASH,EQ,MATCHED,isin_exact,Torrent Power,EQ
+TARIL,Transformers And Rectifiers (India) Ltd.,INE763I01026,NSE-TARIL,NSE,CASH,EQ,MATCHED,isin_exact,Transformers & Rect.,EQ
+TRAVELFOOD,Travel Food Services Ltd.,INE103V01028,NSE-TRAVELFOOD,NSE,CASH,EQ,MATCHED,isin_exact,Travel Food Services,EQ
+TRENT,Trent Ltd.,INE849A01020,NSE-TRENT,NSE,CASH,EQ,MATCHED,isin_exact,Trent,EQ
+TRIDENT,Trident Ltd.,INE064C01022,NSE-TRIDENT,NSE,CASH,EQ,MATCHED,isin_exact,Trident,EQ
+TRITURBINE,Triveni Turbine Ltd.,INE152M01016,NSE-TRITURBINE,NSE,CASH,EQ,MATCHED,isin_exact,Triveni Turbine,EQ
+TIINDIA,Tube Investments of India Ltd.,INE974X01010,NSE-TIINDIA,NSE,CASH,EQ,MATCHED,isin_exact,Tube Investments,EQ
+UCOBANK,UCO Bank,INE691A01018,NSE-UCOBANK,NSE,CASH,EQ,MATCHED,isin_exact,UCO Bank,EQ
+UNOMINDA,UNO Minda Ltd.,INE405E01023,NSE-UNOMINDA,NSE,CASH,EQ,MATCHED,isin_exact,UNO Minda,EQ
+UPL,UPL Ltd.,INE628A01036,NSE-UPL,NSE,CASH,EQ,MATCHED,isin_exact,UPL,EQ
+UTIAMC,UTI Asset Management Company Ltd.,INE094J01016,NSE-UTIAMC,NSE,CASH,EQ,MATCHED,isin_exact,UTI Asset Management,EQ
+ULTRACEMCO,UltraTech Cement Ltd.,INE481G01011,NSE-ULTRACEMCO,NSE,CASH,EQ,MATCHED,isin_exact,UltraTech Cement,EQ
+UNIONBANK,Union Bank of India,INE692A01016,NSE-UNIONBANK,NSE,CASH,EQ,MATCHED,isin_exact,Union Bank of India,EQ
+UBL,United Breweries Ltd.,INE686F01025,NSE-UBL,NSE,CASH,EQ,MATCHED,isin_exact,United Breweries,EQ
+UNITDSPR,United Spirits Ltd.,INE854D01024,NSE-UNITDSPR,NSE,CASH,EQ,MATCHED,isin_exact,United Spirits,EQ
+URBANCO,Urban Company Ltd.,INE0CAZ01013,NSE-URBANCO,NSE,CASH,EQ,MATCHED,isin_exact,Urban Company,EQ
+USHAMART,Usha Martin Ltd.,INE228A01035,NSE-USHAMART,NSE,CASH,EQ,MATCHED,isin_exact,Usha Martin,EQ
+VTL,Vardhman Textiles Ltd.,INE825A01020,NSE-VTL,NSE,CASH,EQ,MATCHED,isin_exact,Vardhman Textiles,EQ
+VBL,Varun Beverages Ltd.,INE200M01039,NSE-VBL,NSE,CASH,EQ,MATCHED,isin_exact,Varun Beverages,EQ
+VEDL,Vedanta Ltd.,INE205A01025,NSE-VEDL,NSE,CASH,EQ,MATCHED,isin_exact,Vedanta,EQ
+VIJAYA,Vijaya Diagnostic Centre Ltd.,INE043W01024,NSE-VIJAYA,NSE,CASH,EQ,MATCHED,isin_exact,VDC,EQ
+VMM,Vishal Mega Mart Ltd.,INE01EA01019,NSE-VMM,NSE,CASH,EQ,MATCHED,isin_exact,Vishal Mega Mart,EQ
+IDEA,Vodafone Idea Ltd.,INE669E01016,NSE-IDEA,NSE,CASH,EQ,MATCHED,isin_exact,Vodafone Idea,EQ
+VOLTAS,Voltas Ltd.,INE226A01021,NSE-VOLTAS,NSE,CASH,EQ,MATCHED,isin_exact,Voltas,EQ
+WAAREEENER,Waaree Energies Ltd.,INE377N01017,NSE-WAAREEENER,NSE,CASH,EQ,MATCHED,isin_exact,Waaree Energies,EQ
+WELCORP,Welspun Corp Ltd.,INE191B01025,NSE-WELCORP,NSE,CASH,EQ,MATCHED,isin_exact,Welspun Corp,EQ
+WELSPUNLIV,Welspun Living Ltd.,INE192B01031,NSE-WELSPUNLIV,NSE,CASH,EQ,MATCHED,isin_exact,Welspun Living,EQ
+WHIRLPOOL,Whirlpool of India Ltd.,INE716A01013,NSE-WHIRLPOOL,NSE,CASH,EQ,MATCHED,isin_exact,Whirlpool Of India,EQ
+WIPRO,Wipro Ltd.,INE075A01022,NSE-WIPRO,NSE,CASH,EQ,MATCHED,isin_exact,Wipro,EQ
+WOCKPHARMA,Wockhardt Ltd.,INE049B01025,NSE-WOCKPHARMA,NSE,CASH,EQ,MATCHED,isin_exact,Wockhardt,EQ
+YESBANK,Yes Bank Ltd.,INE528G01035,NSE-YESBANK,NSE,CASH,EQ,MATCHED,isin_exact,Yes Bank,EQ
+ZFCVINDIA,ZF Commercial Vehicle Control Systems India Ltd.,INE342J01019,NSE-ZFCVINDIA,NSE,CASH,EQ,MATCHED,isin_exact,ZF Commercial Vehic.,EQ
+ZEEL,Zee Entertainment Enterprises Ltd.,INE256A01028,NSE-ZEEL,NSE,CASH,EQ,MATCHED,isin_exact,Zee Entertainment,EQ
+ZENTEC,Zen Technologies Ltd.,INE251B01027,NSE-ZENTEC,NSE,CASH,EQ,MATCHED,isin_exact,Zen Technologies,EQ
+ZENSARTECH,Zensar Technolgies Ltd.,INE520A01027,NSE-ZENSARTECH,NSE,CASH,EQ,MATCHED,isin_exact,Zensar Technologies,EQ
+ZYDUSLIFE,Zydus Lifesciences Ltd.,INE010B01027,NSE-ZYDUSLIFE,NSE,CASH,EQ,MATCHED,isin_exact,Zydus,EQ
+ZYDUSWELL,Zydus Wellness Ltd.,INE768C01028,NSE-ZYDUSWELL,NSE,CASH,EQ,MATCHED,isin_exact,Zydus Wellness,EQ
+ECLERX,eClerx Services Ltd.,INE738I01010,NSE-ECLERX,NSE,CASH,EQ,MATCHED,isin_exact,eClerx Services,EQ

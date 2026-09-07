@@ -35,6 +35,8 @@ The schema intentionally keeps these layers separate. Raw provider payloads are 
 | `candidate_outcomes` | Post-event labels and forward-return/risk outcomes for accepted and rejected candidates. |
 | `simulated_trades` | Future research and paper-trade records. Live execution is not represented. |
 | `audit_events` | System-level audit trail for future configuration changes, transitions, risk decisions, and failures. |
+| `ingestion_runs` | Historical-data import run summaries added by Step 02.3A. |
+| `ingestion_errors` | Row-level import errors added by Step 02.3A. |
 
 ## Relationships
 
@@ -58,6 +60,7 @@ erDiagram
   strategy_candidates ||--|| candidate_outcomes : evaluated_by
   strategy_candidates ||--o{ simulated_trades : may_create
   trade_signals ||--o{ simulated_trades : may_create
+  ingestion_runs ||--o{ ingestion_errors : records
 ```
 
 ## Raw vs Normalized vs Derived Data
@@ -110,3 +113,10 @@ backend/migrations/001_initial_schema.sql
 
 It is directly executable in the Supabase SQL editor. It has not been applied remotely by this task.
 
+Step 02.3A adds:
+
+```text
+backend/migrations/002_data_ingestion.sql
+```
+
+That migration is also local only until explicitly applied.

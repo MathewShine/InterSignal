@@ -20,6 +20,7 @@ pnpm-debug.log*
 
 # Environment files
 .env
+*.env
 .env.*
 !.env.example
 !frontend/.env.example
@@ -33,3 +34,14 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Local research datasets
+data/historical/
+data/raw/nse/
+data/reports/*.csv
+data/reports/*.json
+data/reports/**/*.csv
+data/reports/**/*.json
+data/reference/nse/daily/raw/
+data/reference/nifty500/history/raw/
+tmp/

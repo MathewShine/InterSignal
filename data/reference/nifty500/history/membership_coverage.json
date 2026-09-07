@@ -1,0 +1,772 @@
+{
+  "phase": "Step 02.3D-Fix",
+  "task": "Historical Nifty 500 membership reconstruction from official index review documents",
+  "generated_at": "2026-09-07T20:03:09.521133+00:00",
+  "official_sources": {
+    "current_constituents": "https://www.niftyindices.com/IndexConstituent/ind_nifty500list.csv",
+    "press_release_index": "https://www.niftyindices.com/press-release",
+    "index_rebalancing_schedule": "https://www.niftyindices.com/resources/index-rebalancing-schedule"
+  },
+  "target_date_range": {
+    "start_date": "2021-09-07",
+    "end_date": "2026-09-07"
+  },
+  "current_snapshot": {
+    "source_date": "2026-09-07",
+    "constituent_count": 501,
+    "source": {
+      "source_url": "https://www.niftyindices.com/IndexConstituent/ind_nifty500list.csv",
+      "source": "Nifty Indices official constituent CSV",
+      "source_date": "2026-09-07",
+      "downloaded_at": "2026-09-07T20:02:45.947548+00:00",
+      "http_last_modified": "Mon, 07 Sep 2026 18:00:18 GMT",
+      "http_content_type": "application/octet-stream"
+    }
+  },
+  "official_documents": {
+    "inventoried": 135,
+    "containing_nifty500_changes": 35,
+    "successfully_parsed": 34,
+    "parsed_with_review": 0,
+    "requiring_manual_review": 0,
+    "parse_status_counts": {
+      "PARSED": 34,
+      "SUPERSEDED_BY_LATER_OFFICIAL_RELEASE": 1,
+      "NO_NIFTY500_CHANGES": 100
+    }
+  },
+  "membership_events": {
+    "total": 1110,
+    "additions": 305,
+    "removals": 304,
+    "current_snapshot": 501,
+    "earliest_effective_event_date": "2021-06-30",
+    "latest_effective_event_date": "2026-09-30"
+  },
+  "membership_periods": {
+    "total": 755,
+    "coverage_start": "2021-09-30",
+    "coverage_end": "2026-09-07"
+  },
+  "review_cycle_coverage": {
+    "expected_cycles": 11,
+    "covered_cycles": 11,
+    "timeline": [
+      {
+        "cycle": "2021-09",
+        "source_found": true,
+        "parsed": true,
+        "effective_dates": [
+          "2021-09-30"
+        ],
+        "additions": 22,
+        "removals": 22,
+        "unresolved_rows": 0,
+        "source_documents": [
+          "ind_prs15092021.pdf",
+          "ind_prs20092021.pdf",
+          "ind_prs23082021.pdf"
+        ]
+      },
+      {
+        "cycle": "2022-03",
+        "source_found": true,
+        "parsed": true,
+        "effective_dates": [
+          "2022-03-31"
+        ],
+        "additions": 32,
+        "removals": 32,
+        "unresolved_rows": 0,
+        "source_documents": [
+          "ind_prs08032022.pdf",
+          "ind_prs24022022_1.pdf"
+        ]
+      },
+      {
+        "cycle": "2022-09",
+        "source_found": true,
+        "parsed": true,
+        "effective_dates": [
+          "2022-09-30"
+        ],
+        "additions": 19,
+        "removals": 19,
+        "unresolved_rows": 0,
+        "source_documents": [
+          "ind_prs01092022.pdf",
+          "ind_prs16092022.pdf"
+        ]
+      },
+      {
+        "cycle": "2023-03",
+        "source_found": true,
+        "parsed": true,
+        "effective_dates": [
+          "2023-03-31"
+        ],
+        "additions": 20,
+        "removals": 20,
+        "unresolved_rows": 0,
+        "source_documents": [
+          "ind_prs06032023.pdf",
+          "ind_prs17022023_1.pdf"
+        ]
+      },
+      {
+        "cycle": "2023-09",
+        "source_found": true,
+        "parsed": true,
+        "effective_dates": [
+          "2023-09-29"
+        ],
+        "additions": 18,
+        "removals": 18,
+        "unresolved_rows": 0,
+        "source_documents": [
+          "ind_prs05092023.pdf",
+          "ind_prs15092023.pdf",
+          "ind_prs17082023.pdf"
+        ]
+      },
+      {
+        "cycle": "2024-03",
+        "source_found": true,
+        "parsed": true,
+        "effective_dates": [
+          "2024-03-28"
+        ],
+        "additions": 34,
+        "removals": 34,
+        "unresolved_rows": 0,
+        "source_documents": [
+          "ind_prs14032024.pdf",
+          "ind_prs19032024.pdf",
+          "ind_prs28022024.pdf"
+        ]
+      },
+      {
+        "cycle": "2024-09",
+        "source_found": true,
+        "parsed": true,
+        "effective_dates": [
+          "2024-09-30"
+        ],
+        "additions": 27,
+        "removals": 27,
+        "unresolved_rows": 0,
+        "source_documents": [
+          "ind_prs13092024.pdf",
+          "ind_prs19092024.pdf",
+          "ind_prs23082024.pdf",
+          "ind_prs27082024.pdf"
+        ]
+      },
+      {
+        "cycle": "2025-03",
+        "source_found": true,
+        "parsed": true,
+        "effective_dates": [
+          "2025-03-21",
+          "2025-03-28"
+        ],
+        "additions": 31,
+        "removals": 31,
+        "unresolved_rows": 0,
+        "source_documents": [
+          "ind_prs06032025.pdf",
+          "ind_prs13032025.pdf",
+          "ind_prs17032025.pdf",
+          "ind_prs17032025_1.pdf",
+          "ind_prs21022025.pdf"
+        ]
+      },
+      {
+        "cycle": "2025-09",
+        "source_found": true,
+        "parsed": true,
+        "effective_dates": [
+          "2025-09-23",
+          "2025-09-30"
+        ],
+        "additions": 19,
+        "removals": 19,
+        "unresolved_rows": 0,
+        "source_documents": [
+          "ind_prs15092025.pdf",
+          "ind_prs15092025_1.pdf",
+          "ind_prs22082025.pdf",
+          "ind_prs22092025.pdf"
+        ]
+      },
+      {
+        "cycle": "2026-03",
+        "source_found": true,
+        "parsed": true,
+        "effective_dates": [
+          "2026-03-30"
+        ],
+        "additions": 31,
+        "removals": 31,
+        "unresolved_rows": 0,
+        "source_documents": [
+          "ind_prs23022026.pdf"
+        ]
+      },
+      {
+        "cycle": "2026-09",
+        "source_found": true,
+        "parsed": true,
+        "effective_dates": [
+          "2026-09-07",
+          "2026-09-30"
+        ],
+        "additions": 28,
+        "removals": 27,
+        "unresolved_rows": 0,
+        "source_documents": [
+          "ind_prs03092026.pdf",
+          "ind_prs10082026.pdf",
+          "ind_prs26082026_1.pdf"
+        ]
+      }
+    ]
+  },
+  "symbol_resolution": {
+    "mapping_method": "EXPLICIT_SYMBOL where official PDF provides symbol; current snapshot lookup used only for ISIN enrichment.",
+    "unresolved_company_symbol_mappings": 0,
+    "identity_alias_count": 7,
+    "identity_aliases_path": "data/reference/nifty500/history/membership_identity_aliases.csv",
+    "identity_aliases": [
+      {
+        "original_symbol": "AKZOINDIA",
+        "canonical_symbol": "JSWDULUX",
+        "original_company_name": "Akzo Nobel India Ltd.",
+        "canonical_instrument_id": "INE133A01011",
+        "mapping_reason": "Official Nifty 500 lifecycle uses AKZOINDIA before the current constituent snapshot lists JSW Dulux Ltd. with the same exchange instrument identity.",
+        "evidence_reference": "data/reference/nifty500/history/raw/ind_prs22082025.pdf; data/reference/nifty500/current/nifty500_constituents_normalized.csv",
+        "confidence": "HIGH"
+      },
+      {
+        "original_symbol": "GET&D",
+        "canonical_symbol": "GVT&D",
+        "original_company_name": "GE T&D India Ltd.",
+        "canonical_instrument_id": "INE200A01026",
+        "mapping_reason": "Official Nifty 500 lifecycle uses GET&D before the current constituent snapshot lists GE Vernova T&D India Ltd. as GVT&D.",
+        "evidence_reference": "data/reference/nifty500/history/raw/ind_prs23082024.pdf; data/reference/nifty500/current/nifty500_constituents_normalized.csv",
+        "confidence": "HIGH"
+      },
+      {
+        "original_symbol": "GMRINFRA",
+        "canonical_symbol": "GMRAIRPORT",
+        "original_company_name": "GMR Infrastructure Ltd.",
+        "canonical_instrument_id": "INE776C01039",
+        "mapping_reason": "Official Nifty 500 lifecycle uses GMRINFRA before the current constituent snapshot lists GMR Airports Ltd. as GMRAIRPORT.",
+        "evidence_reference": "data/reference/nifty500/history/raw/ind_prs05042022.pdf; data/reference/nifty500/current/nifty500_constituents_normalized.csv",
+        "confidence": "HIGH"
+      },
+      {
+        "original_symbol": "HBLPOWER",
+        "canonical_symbol": "HBLENGINE",
+        "original_company_name": "HBL Power Systems Ltd.",
+        "canonical_instrument_id": "INE292B01021",
+        "mapping_reason": "Official Nifty 500 lifecycle uses HBLPOWER before the current constituent snapshot lists HBL Engineering Ltd. as HBLENGINE.",
+        "evidence_reference": "data/reference/nifty500/history/raw/ind_prs28022024.pdf; data/reference/nifty500/current/nifty500_constituents_normalized.csv",
+        "confidence": "HIGH"
+      },
+      {
+        "original_symbol": "MFL",
+        "canonical_symbol": "EPIGRAL",
+        "original_company_name": "Meghmani Finechem Ltd.",
+        "canonical_instrument_id": "",
+        "mapping_reason": "Official Nifty 500 lifecycle adds Meghmani Finechem Ltd. as MFL and later removes Epigral Ltd.; treated as one canonical identity for lifecycle counting.",
+        "evidence_reference": "data/reference/nifty500/history/raw/ind_prs17022023_1.pdf; data/reference/nifty500/history/raw/ind_prs28022024.pdf",
+        "confidence": "MEDIUM"
+      },
+      {
+        "original_symbol": "SWANENERGY",
+        "canonical_symbol": "SWANCORP",
+        "original_company_name": "Swan Energy Ltd.",
+        "canonical_instrument_id": "INE665A01038",
+        "mapping_reason": "Official Nifty 500 lifecycle uses SWANENERGY before the current constituent snapshot lists Swan Corp Ltd. as SWANCORP.",
+        "evidence_reference": "data/reference/nifty500/history/raw/ind_prs01092022.pdf; data/reference/nifty500/current/nifty500_constituents_normalized.csv",
+        "confidence": "HIGH"
+      },
+      {
+        "original_symbol": "ZOMATO",
+        "canonical_symbol": "ETERNAL",
+        "original_company_name": "Zomato Ltd.",
+        "canonical_instrument_id": "INE758T01015",
+        "mapping_reason": "Official Nifty 500 lifecycle uses ZOMATO before the current constituent snapshot lists Eternal Ltd. as ETERNAL.",
+        "evidence_reference": "data/reference/nifty500/history/raw/ind_prs24022022_1.pdf; data/reference/nifty500/current/nifty500_constituents_normalized.csv",
+        "confidence": "HIGH"
+      }
+    ]
+  },
+  "manual_review": {
+    "items_remaining": 0,
+    "path": "data/reports/nifty500_membership_manual_review.csv"
+  },
+  "reconstruction": {
+    "method": "BACKWARD_RECONSTRUCTED_FROM_CURRENT_SNAPSHOT",
+    "earliest_reconstructable_date": "2021-09-30",
+    "latest_reconstructable_date": "2026-09-07",
+    "events_used": 553,
+    "interval_count": 30,
+    "event_application_anomalies": [
+      {
+        "symbol": "IDEA",
+        "canonical_symbol": "IDEA",
+        "event_type": "REMOVED",
+        "effective_date": "2024-09-30",
+        "source_document": "ind_prs23082024.pdf",
+        "issue": "remove_already_active_after_effective_date",
+        "notes": "Backward reconstruction found this REMOVED identity already active in the later interval. This usually indicates a missing later ADD, repeated REMOVE, or current snapshot conflict."
+      },
+      {
+        "symbol": "IREDA",
+        "canonical_symbol": "IREDA",
+        "event_type": "ADDED",
+        "effective_date": "2024-03-28",
+        "source_document": "ind_prs28022024.pdf",
+        "issue": "add_not_active_after_effective_date",
+        "notes": "Backward reconstruction could not remove this ADD because the canonical identity was not active in the later interval. This usually indicates a duplicate ADD, missing later REMOVE, or unresolved symbol identity change."
+      },
+      {
+        "symbol": "VGUARD",
+        "canonical_symbol": "VGUARD",
+        "event_type": "REMOVED",
+        "effective_date": "2024-03-28",
+        "source_document": "ind_prs28022024.pdf",
+        "issue": "remove_already_active_after_effective_date",
+        "notes": "Backward reconstruction found this REMOVED identity already active in the later interval. This usually indicates a missing later ADD, repeated REMOVE, or current snapshot conflict."
+      }
+    ]
+  },
+  "reconciliation": {
+    "current_snapshot_explanation": "The official current constituent CSV dated 2026-09-07 contains 501 unique symbols and 501 unique ISINs. The extra constituent is DUMMYHEG, a dummy symbol for the HEG Ltd. demerger, supported by the official September 03, 2026 corporate-action press release effective September 07, 2026.",
+    "unresolved_pdf_result": "Visually reviewed pages 1, 3 and 4. The PDF contains 23 Nifty 500 exclusions and 23 inclusions effective September 30, 2021, but the later official September 15, 2021 release states the August 23 REIT/InvIT inclusions were revoked and the earlier replacement list stands replaced. Events from this superseded document are not applied.",
+    "rows": [
+      {
+        "effective_date": "2021-09-30",
+        "count_before": "",
+        "additions": 22,
+        "removals": 22,
+        "expected_after": "",
+        "actual_after": 499,
+        "difference": "",
+        "applied_to_reconstruction": true,
+        "notes": "Count before this date is outside the reconstructed coverage range."
+      },
+      {
+        "effective_date": "2021-10-29",
+        "count_before": 499,
+        "additions": 1,
+        "removals": 1,
+        "expected_after": 499,
+        "actual_after": 499,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      },
+      {
+        "effective_date": "2022-03-31",
+        "count_before": 499,
+        "additions": 32,
+        "removals": 32,
+        "expected_after": 499,
+        "actual_after": 499,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      },
+      {
+        "effective_date": "2022-04-07",
+        "count_before": 499,
+        "additions": 1,
+        "removals": 1,
+        "expected_after": 499,
+        "actual_after": 499,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      },
+      {
+        "effective_date": "2022-04-12",
+        "count_before": 499,
+        "additions": 1,
+        "removals": 1,
+        "expected_after": 499,
+        "actual_after": 499,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      },
+      {
+        "effective_date": "2022-05-04",
+        "count_before": 499,
+        "additions": 1,
+        "removals": 1,
+        "expected_after": 499,
+        "actual_after": 499,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      },
+      {
+        "effective_date": "2022-05-31",
+        "count_before": 499,
+        "additions": 1,
+        "removals": 1,
+        "expected_after": 499,
+        "actual_after": 499,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      },
+      {
+        "effective_date": "2022-08-08",
+        "count_before": 499,
+        "additions": 3,
+        "removals": 3,
+        "expected_after": 499,
+        "actual_after": 499,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      },
+      {
+        "effective_date": "2022-09-30",
+        "count_before": 499,
+        "additions": 19,
+        "removals": 19,
+        "expected_after": 499,
+        "actual_after": 499,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      },
+      {
+        "effective_date": "2022-12-30",
+        "count_before": 499,
+        "additions": 4,
+        "removals": 4,
+        "expected_after": 499,
+        "actual_after": 499,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      },
+      {
+        "effective_date": "2023-02-17",
+        "count_before": 499,
+        "additions": 1,
+        "removals": 1,
+        "expected_after": 499,
+        "actual_after": 499,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      },
+      {
+        "effective_date": "2023-03-31",
+        "count_before": 499,
+        "additions": 20,
+        "removals": 20,
+        "expected_after": 499,
+        "actual_after": 499,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      },
+      {
+        "effective_date": "2023-04-28",
+        "count_before": 499,
+        "additions": 2,
+        "removals": 2,
+        "expected_after": 499,
+        "actual_after": 499,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      },
+      {
+        "effective_date": "2023-07-13",
+        "count_before": 499,
+        "additions": 1,
+        "removals": 1,
+        "expected_after": 499,
+        "actual_after": 499,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      },
+      {
+        "effective_date": "2023-09-29",
+        "count_before": 499,
+        "additions": 18,
+        "removals": 18,
+        "expected_after": 499,
+        "actual_after": 499,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      },
+      {
+        "effective_date": "2023-10-26",
+        "count_before": 499,
+        "additions": 1,
+        "removals": 1,
+        "expected_after": 499,
+        "actual_after": 499,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      },
+      {
+        "effective_date": "2024-03-28",
+        "count_before": 499,
+        "additions": 34,
+        "removals": 34,
+        "expected_after": 499,
+        "actual_after": 499,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      },
+      {
+        "effective_date": "2024-09-30",
+        "count_before": 499,
+        "additions": 27,
+        "removals": 27,
+        "expected_after": 499,
+        "actual_after": 500,
+        "difference": 1,
+        "applied_to_reconstruction": true,
+        "notes": "Count difference remains; see lifecycle anomalies and identity alias notes."
+      },
+      {
+        "effective_date": "2024-10-10",
+        "count_before": 500,
+        "additions": 1,
+        "removals": 1,
+        "expected_after": 500,
+        "actual_after": 500,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      },
+      {
+        "effective_date": "2024-10-16",
+        "count_before": 500,
+        "additions": 1,
+        "removals": 1,
+        "expected_after": 500,
+        "actual_after": 500,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      },
+      {
+        "effective_date": "2025-03-21",
+        "count_before": 500,
+        "additions": 1,
+        "removals": 1,
+        "expected_after": 500,
+        "actual_after": 500,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      },
+      {
+        "effective_date": "2025-03-28",
+        "count_before": 500,
+        "additions": 30,
+        "removals": 30,
+        "expected_after": 500,
+        "actual_after": 500,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      },
+      {
+        "effective_date": "2025-04-11",
+        "count_before": 500,
+        "additions": 1,
+        "removals": 1,
+        "expected_after": 500,
+        "actual_after": 500,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      },
+      {
+        "effective_date": "2025-09-23",
+        "count_before": 500,
+        "additions": 1,
+        "removals": 1,
+        "expected_after": 500,
+        "actual_after": 500,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      },
+      {
+        "effective_date": "2025-09-30",
+        "count_before": 500,
+        "additions": 18,
+        "removals": 18,
+        "expected_after": 500,
+        "actual_after": 500,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      },
+      {
+        "effective_date": "2025-12-31",
+        "count_before": 500,
+        "additions": 1,
+        "removals": 1,
+        "expected_after": 500,
+        "actual_after": 500,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      },
+      {
+        "effective_date": "2026-03-30",
+        "count_before": 500,
+        "additions": 31,
+        "removals": 31,
+        "expected_after": 500,
+        "actual_after": 500,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      },
+      {
+        "effective_date": "2026-05-12",
+        "count_before": 500,
+        "additions": 1,
+        "removals": 1,
+        "expected_after": 500,
+        "actual_after": 500,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      },
+      {
+        "effective_date": "2026-07-17",
+        "count_before": 500,
+        "additions": 1,
+        "removals": 1,
+        "expected_after": 500,
+        "actual_after": 500,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      },
+      {
+        "effective_date": "2026-09-07",
+        "count_before": 500,
+        "additions": 1,
+        "removals": 0,
+        "expected_after": 501,
+        "actual_after": 501,
+        "difference": 0,
+        "applied_to_reconstruction": true,
+        "notes": "Count reconciles against applied event totals for this effective date."
+      }
+    ],
+    "rows_with_count_differences": 1,
+    "event_application_anomalies": [
+      {
+        "symbol": "IDEA",
+        "canonical_symbol": "IDEA",
+        "event_type": "REMOVED",
+        "effective_date": "2024-09-30",
+        "source_document": "ind_prs23082024.pdf",
+        "issue": "remove_already_active_after_effective_date",
+        "notes": "Backward reconstruction found this REMOVED identity already active in the later interval. This usually indicates a missing later ADD, repeated REMOVE, or current snapshot conflict."
+      },
+      {
+        "symbol": "IREDA",
+        "canonical_symbol": "IREDA",
+        "event_type": "ADDED",
+        "effective_date": "2024-03-28",
+        "source_document": "ind_prs28022024.pdf",
+        "issue": "add_not_active_after_effective_date",
+        "notes": "Backward reconstruction could not remove this ADD because the canonical identity was not active in the later interval. This usually indicates a duplicate ADD, missing later REMOVE, or unresolved symbol identity change."
+      },
+      {
+        "symbol": "VGUARD",
+        "canonical_symbol": "VGUARD",
+        "event_type": "REMOVED",
+        "effective_date": "2024-03-28",
+        "source_document": "ind_prs28022024.pdf",
+        "issue": "remove_already_active_after_effective_date",
+        "notes": "Backward reconstruction found this REMOVED identity already active in the later interval. This usually indicates a missing later ADD, repeated REMOVE, or current snapshot conflict."
+      }
+    ],
+    "previous_query_counts": {
+      "2026-09-07": 501,
+      "2025-06-15": 502,
+      "2024-06-15": 502,
+      "2023-06-15": 503,
+      "2022-06-15": 505
+    },
+    "updated_query_counts": {
+      "2026-09-07": {
+        "member_count": 501,
+        "membership_status": "PARTIAL_HISTORY",
+        "source_confidence": "OFFICIAL_EVENTS_PARTIAL"
+      },
+      "2025-06-15": {
+        "member_count": 500,
+        "membership_status": "PARTIAL_HISTORY",
+        "source_confidence": "OFFICIAL_EVENTS_PARTIAL"
+      },
+      "2024-06-15": {
+        "member_count": 499,
+        "membership_status": "PARTIAL_HISTORY",
+        "source_confidence": "OFFICIAL_EVENTS_PARTIAL"
+      },
+      "2023-06-15": {
+        "member_count": 499,
+        "membership_status": "PARTIAL_HISTORY",
+        "source_confidence": "OFFICIAL_EVENTS_PARTIAL"
+      },
+      "2022-06-15": {
+        "member_count": 499,
+        "membership_status": "PARTIAL_HISTORY",
+        "source_confidence": "OFFICIAL_EVENTS_PARTIAL"
+      }
+    }
+  },
+  "survivorship_bias_status": "PARTIAL_HISTORY",
+  "known_gaps": [
+    "Historical membership is reconstructed from parsed official documents but has not been manually reconciled end to end.",
+    "Lifecycle anomalies remain unresolved: 3 event applications need review.",
+    "Count reconciliation differences remain on 1 effective dates."
+  ],
+  "storage": {
+    "current_snapshot_path": "data/reference/nifty500/current/",
+    "history_path": "data/reference/nifty500/history/",
+    "source_manifest_csv": "data/reference/nifty500/history/membership_source_manifest.csv",
+    "events_csv": "data/reference/nifty500/history/membership_events.csv",
+    "periods_csv": "data/reference/nifty500/history/membership_periods.csv",
+    "coverage_json": "data/reference/nifty500/history/membership_coverage.json",
+    "report_json": "data/reports/nifty500_membership_coverage.json",
+    "events_summary_csv": "data/reports/nifty500_membership_events_summary.csv",
+    "manual_review_csv": "data/reports/nifty500_membership_manual_review.csv",
+    "reconciliation_csv": "data/reports/nifty500_membership_reconciliation.csv",
+    "reconciliation_json": "data/reports/nifty500_membership_reconciliation.json",
+    "identity_aliases_csv": "data/reference/nifty500/history/membership_identity_aliases.csv"
+  },
+  "safety": {
+    "orders_placed": 0,
+    "remote_migrations_applied": 0,
+    "supabase_bulk_records_persisted": 0,
+    "strategy_calculations_executed": 0
+  }
+}

@@ -1,6 +1,11 @@
 const statusLabels = {
   ok: "Online",
+  available: "Available",
   checking: "Checking",
+  partial: "Partial",
+  current_only: "Current-only",
+  partial_history: "Partial History",
+  verified_history: "Verified History",
   not_configured: "Not configured",
   placeholder: "Pending",
   unavailable: "Unavailable",
@@ -12,18 +17,21 @@ export function formatStatusLabel(status) {
 }
 
 export function getStatusClassName(status) {
-  if (status === "ok") {
+  if (status === "ok" || status === "available") {
     return "status-ok";
   }
 
-  if (status === "checking" || status === "placeholder") {
+  if (status === "checking" || status === "placeholder" || status === "partial" || status === "partial_history") {
     return "status-pending";
   }
 
-  if (status === "not_configured") {
+  if (status === "verified_history") {
+    return "status-ok";
+  }
+
+  if (status === "not_configured" || status === "current_only") {
     return "status-muted";
   }
 
   return "status-error";
 }
-

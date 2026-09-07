@@ -42,3 +42,15 @@ def test_initial_schema_keeps_research_execution_separate_from_live_trading():
     assert "LIVE" not in migration
     assert "UNASSIGNED_RESEARCH" in migration
 
+
+def test_data_ingestion_migration_tracks_runs_and_row_errors():
+    migration = (
+        Path(__file__).resolve().parents[1]
+        / "migrations"
+        / "002_data_ingestion.sql"
+    ).read_text(encoding="utf-8")
+
+    assert "create table if not exists public.ingestion_runs" in migration
+    assert "create table if not exists public.ingestion_errors" in migration
+    assert "status in ('STARTED', 'COMPLETED', 'FAILED', 'PARTIAL', 'DRY_RUN')" in migration
+    assert "alter table public.ingestion_runs enable row level security;" in migration
