@@ -1,0 +1,131 @@
+{
+  "phase": "Step 02.3E",
+  "generated_at": "2026-09-07T20:43:14.626327+00:00",
+  "source_manifest": {
+    "source_id": "nse_corporate_actions_equities_20210907_20260907",
+    "source_type": "official_nse_corporate_actions",
+    "source_url": "https://www.nseindia.com/api/corporates-corporateActions?index=equities&from_date=07-09-2021&to_date=07-09-2026&csv=true",
+    "source_path": "C:\\Users\\cores\\OneDrive\\Desktop\\Personal Project\\InterSignal\\data\\reference\\nse\\corporate_actions\\raw\\nse_corporate_actions_equities_20210907_20260907.csv",
+    "start_date": "2021-09-07",
+    "end_date": "2026-09-07",
+    "fetched_at": "2026-09-07T20:43:14.626327+00:00",
+    "http_status": 200,
+    "rows_raw": 12257,
+    "sha256": "bac82fff5263703e857e2426d3c3e2c88f1d2dedcc6d903577a4c93df758f46a",
+    "notes": "Official NSE corporate-actions CSV requested from the corporate filings actions endpoint."
+  },
+  "date_coverage": {
+    "start_date": "2021-09-07",
+    "end_date": "2026-09-07"
+  },
+  "official_sources": {
+    "nse_corporate_actions_page": "https://www.nseindia.com/companies-listing/corporate-filings-actions",
+    "nse_corporate_actions_api": "https://www.nseindia.com/api/corporates-corporateActions",
+    "source_manifest_csv": "C:\\Users\\cores\\OneDrive\\Desktop\\Personal Project\\InterSignal\\data\\reference\\nse\\corporate_actions\\corporate_action_source_manifest.csv"
+  },
+  "events": {
+    "total": 12257,
+    "counts_by_type": {
+      "BONUS": 255,
+      "CAPITAL_REDUCTION": 3,
+      "DEMERGER": 62,
+      "DIVIDEND": 7498,
+      "OTHER": 3772,
+      "RIGHTS": 207,
+      "SPECIAL_DIVIDEND": 193,
+      "STOCK_SPLIT": 267
+    },
+    "price_adjustment_event_count": 522,
+    "manual_review_event_count": 400,
+    "continuity_break_event_count": 65,
+    "summary_csv": "C:\\Users\\cores\\OneDrive\\Desktop\\Personal Project\\InterSignal\\data\\reports\\corporate_action_events_summary.csv",
+    "events_csv": "C:\\Users\\cores\\OneDrive\\Desktop\\Personal Project\\InterSignal\\data\\reference\\nse\\corporate_actions\\corporate_action_events.csv"
+  },
+  "adjustment_factors": {
+    "count": 522,
+    "path": "C:\\Users\\cores\\OneDrive\\Desktop\\Personal Project\\InterSignal\\data\\reference\\nse\\corporate_actions\\adjustment_factors.csv",
+    "methodology_version": "PRICE_ADJUSTED_STRUCTURAL_V1"
+  },
+  "suspect_reconciliation": {
+    "suspects_reconciled": 808,
+    "summary_counts": {
+      "CONFIRMED_CORPORATE_ACTION": 418,
+      "LIKELY_CORPORATE_ACTION": 9,
+      "MARKET_MOVE": 78,
+      "UNRESOLVED": 303
+    },
+    "path": "C:\\Users\\cores\\OneDrive\\Desktop\\Personal Project\\InterSignal\\data\\reports\\corporate_action_suspect_reconciliation.csv"
+  },
+  "adjusted_dataset": {
+    "full_processing_completed": true,
+    "output_path": "C:\\Users\\cores\\OneDrive\\Desktop\\Personal Project\\InterSignal\\data\\research\\adjusted\\daily\\nse",
+    "output_format": "partitioned CSV",
+    "file_count": 1240,
+    "record_count": 3246754,
+    "adjusted_record_count": 235657,
+    "date_range": {
+      "first_trading_session": "2021-09-07",
+      "last_trading_session": "2026-09-07"
+    },
+    "status_counts": {
+      "ADJUSTED_READY": 2069715,
+      "CONTINUITY_BREAK": 60517,
+      "MANUAL_REVIEW_REQUIRED": 294938,
+      "RAW_ONLY": 821584
+    },
+    "adjusted_ready_count": 2069715,
+    "adjusted_ready_percent": "63.74720721064792712968090591",
+    "raw_only_count": 821584,
+    "continuity_break_count": 60517,
+    "manual_review_required_count": 294938,
+    "storage_size_bytes": 546577804,
+    "processing_duration_seconds": 125.204
+  },
+  "raw_integrity": {
+    "before": {
+      "raw_nse": {
+        "path": "C:\\Users\\cores\\OneDrive\\Desktop\\Personal Project\\InterSignal\\data\\raw\\nse\\daily",
+        "exists": true,
+        "file_count": 1827,
+        "total_size_bytes": 462970421,
+        "aggregate_sha256": "51cd58b9e1f71886ff312c6504952c426ff3d93d8eafb22fd3dd2e6d85b77bb9"
+      },
+      "normalized_raw_nse": {
+        "path": "C:\\Users\\cores\\OneDrive\\Desktop\\Personal Project\\InterSignal\\data\\historical\\daily\\nse",
+        "exists": true,
+        "file_count": 1240,
+        "total_size_bytes": 950755301,
+        "aggregate_sha256": "f8cd067714c75984a0e3f974b6e3c18442f36607ba2decd95151d13345dd12a8"
+      }
+    },
+    "after": {
+      "raw_nse": {
+        "path": "C:\\Users\\cores\\OneDrive\\Desktop\\Personal Project\\InterSignal\\data\\raw\\nse\\daily",
+        "exists": true,
+        "file_count": 1827,
+        "total_size_bytes": 462970421,
+        "aggregate_sha256": "51cd58b9e1f71886ff312c6504952c426ff3d93d8eafb22fd3dd2e6d85b77bb9"
+      },
+      "normalized_raw_nse": {
+        "path": "C:\\Users\\cores\\OneDrive\\Desktop\\Personal Project\\InterSignal\\data\\historical\\daily\\nse",
+        "exists": true,
+        "file_count": 1240,
+        "total_size_bytes": 950755301,
+        "aggregate_sha256": "f8cd067714c75984a0e3f974b6e3c18442f36607ba2decd95151d13345dd12a8"
+      }
+    },
+    "unchanged": true
+  },
+  "methodology": {
+    "version": "PRICE_ADJUSTED_STRUCTURAL_V1",
+    "price_adjustment_target": "PRICE_ADJUSTED",
+    "price_adjustment_policy": "Backward-adjust pre-ex-date OHLC for verified structural split, bonus, and face-value events only.",
+    "ordinary_dividend_policy": "INFORMATIONAL_ONLY",
+    "special_dividend_policy": "MANUAL_REVIEW_REQUIRED",
+    "rights_policy": "ADJUSTMENT_REQUIRES_REVIEW",
+    "merger_demerger_policy": "CONTINUITY_BREAK; no naive mechanical price factor is created.",
+    "symbol_identity_policy": "Symbol/name changes are identity events, not price events; ISIN is preferred when present.",
+    "adjusted_volume_policy": "Adjusted volume is generated with the inverse structural price factor."
+  },
+  "ready_for_review": true
+}

@@ -1,0 +1,9 @@
+{
+  "source_url": "https://www.niftyindices.com/IndexConstituent/ind_nifty500list.csv",
+  "source": "Nifty Indices official constituent CSV",
+  "source_date": "2026-09-07",
+  "downloaded_at": "2026-09-07T13:54:45.490045+00:00",
+  "http_last_modified": "Mon, 07 Sep 2026 11:00:21 GMT",
+  "http_content_type": "application/octet-stream",
+  "constituent_count": 501
+}
