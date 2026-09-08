@@ -1,0 +1,141 @@
+from __future__ import annotations
+
+FEATURE_GROUPS = {
+    "returns": ["return_1d", "return_2d", "return_3d", "return_5d", "return_10d", "return_20d"],
+    "momentum": [
+        "momentum_3d",
+        "momentum_5d",
+        "momentum_10d",
+        "momentum_20d",
+        "positive_days_5",
+        "positive_days_10",
+        "positive_days_20",
+        "up_days_ratio_5",
+        "up_days_ratio_10",
+        "up_days_ratio_20",
+    ],
+    "liquidity": [
+        "daily_traded_value",
+        "median_traded_value_5d",
+        "median_traded_value_20d",
+        "avg_volume_5d",
+        "avg_volume_20d",
+    ],
+    "relative_volume": ["relative_volume_5d", "relative_volume_20d"],
+    "volatility": [
+        "true_range",
+        "atr_5",
+        "atr_14",
+        "atr_20",
+        "atr_percent_14",
+        "return_volatility_5d",
+        "return_volatility_20d",
+    ],
+    "levels": [
+        "high_5d",
+        "high_10d",
+        "high_20d",
+        "high_52w",
+        "low_5d",
+        "low_10d",
+        "low_20d",
+        "low_52w",
+        "prior_high_5d",
+        "prior_high_20d",
+        "prior_high_52w",
+        "prior_low_5d",
+        "prior_low_20d",
+        "distance_to_prior_5d_high_pct",
+        "distance_to_prior_20d_high_pct",
+        "distance_to_prior_52w_high_pct",
+    ],
+    "trend": [
+        "sma_5",
+        "sma_10",
+        "sma_20",
+        "sma_50",
+        "sma_200",
+        "distance_from_sma_20_pct",
+        "distance_from_sma_50_pct",
+        "distance_from_sma_200_pct",
+    ],
+    "candle": [
+        "daily_range_pct",
+        "body_pct",
+        "upper_wick_pct",
+        "lower_wick_pct",
+        "close_location_value",
+        "gap_open_pct",
+    ],
+    "consolidation": [
+        "above_prior_5d_high",
+        "above_prior_20d_high",
+        "above_prior_52w_high",
+        "intraday_high_above_prior_20d_high",
+        "range_width_5d_pct",
+        "range_width_10d_pct",
+        "range_width_20d_pct",
+        "atr_contraction_ratio",
+    ],
+    "benchmark": [
+        "benchmark_symbol",
+        "benchmark_return_5d",
+        "benchmark_return_20d",
+        "relative_return_5d_vs_benchmark",
+        "relative_return_20d_vs_benchmark",
+    ],
+}
+
+IDENTITY_FIELDS = [
+    "trading_date",
+    "symbol",
+    "isin",
+    "universe_name",
+    "universe_membership_status",
+    "universe_membership_confidence",
+    "universe_membership_source",
+    "universe_version",
+    "sector",
+    "sector_metadata_status",
+]
+
+PROVENANCE_FIELDS = [
+    "feature_date",
+    "availability_time",
+    "decision_input_time",
+    "timeframe",
+    "feature_version",
+    "adjustment_methodology",
+    "exclusion_policy",
+    "source_dataset",
+    "source_file",
+    "source_completeness_status",
+    "traded_value_method",
+    "atr_methodology",
+    "volatility_methodology",
+]
+
+STATUS_FIELDS = [
+    "feature_status",
+    "feature_null_reasons",
+    "eligibility_reason_codes",
+    "blocking_events",
+    "returns_status",
+    "momentum_status",
+    "liquidity_status",
+    "relative_volume_status",
+    "volatility_status",
+    "levels_status",
+    "trend_status",
+    "candle_status",
+    "consolidation_status",
+    "benchmark_status",
+    "sector_status",
+]
+
+FEATURE_OUTPUT_FIELDS = (
+    IDENTITY_FIELDS
+    + PROVENANCE_FIELDS
+    + [field for fields in FEATURE_GROUPS.values() for field in fields]
+    + STATUS_FIELDS
+)
