@@ -16,6 +16,7 @@ from app.services.daily_feature_engine import (  # noqa: E402
     DailyFeatureEngineConfig,
     build_daily_feature_engine,
     json_safe,
+    write_benchmark_and_sector_context_markdown,
     write_daily_feature_engine_markdown,
 )
 
@@ -53,6 +54,7 @@ def main() -> int:
         return 2
 
     write_daily_feature_engine_markdown(report, REPO_ROOT / "docs" / "daily-feature-engine.md")
+    write_benchmark_and_sector_context_markdown(report, REPO_ROOT / "docs" / "benchmark-and-sector-context.md")
     print(json.dumps(json_safe(compact_console_report(report)), indent=2))
     return 0
 
@@ -85,6 +87,8 @@ def compact_console_report(report: dict[str, Any]) -> dict[str, Any]:
         "command": report["command"],
         "ready_for_review": report["ready_for_review"],
         "feature_version": report["feature_engine"]["feature_version"],
+        "benchmark_context_version": report["methodology"]["benchmark_context_version"],
+        "sector_context_version": report["methodology"]["sector_context_version"],
         "dataset_path": report["feature_engine"]["dataset_path"],
         "full_generation_completed": generation["full_generation_completed"],
         "total_potential_symbol_date_observations": generation["total_potential_symbol_date_observations"],
@@ -95,6 +99,12 @@ def compact_console_report(report: dict[str, Any]) -> dict[str, Any]:
         "insufficient_history_rows": generation["insufficient_history_rows"],
         "membership_uncertain_rows": generation["membership_uncertain_rows"],
         "usable_percent_by_lookback": generation["usable_percent_by_lookback"],
+        "benchmark_relative_available_rows": generation["benchmark_relative_available_rows"],
+        "benchmark_relative_coverage_percent": generation["benchmark_relative_coverage_percent"],
+        "sector_relative_available_rows": generation["sector_relative_available_rows"],
+        "sector_relative_coverage_percent": generation["sector_relative_coverage_percent"],
+        "relative_strength_5d_usable_percent": generation["relative_strength_5d_usable_percent"],
+        "relative_strength_20d_usable_percent": generation["relative_strength_20d_usable_percent"],
         "benchmark": report["benchmark"],
         "sector": report["sector"],
         "pilot": report["pilot"],

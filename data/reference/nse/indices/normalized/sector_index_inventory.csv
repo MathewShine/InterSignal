@@ -1,0 +1,35 @@
+sector_index_id,index_name,category,source_reference,configured,discovered_live,usable,available_sessions,coverage_percent
+NIFTY_AUTO,NIFTY AUTO,SECTORAL INDICES,https://www.nseindia.com/market-data/live-equity-market-indices#index_inventory_all_indices.json,True,True,True,1239,99.9194
+NIFTY_BANK,NIFTY BANK,SECTORAL INDICES,https://www.nseindia.com/market-data/live-equity-market-indices#index_inventory_all_indices.json,True,True,True,1239,99.9194
+NIFTY_CAPITAL_GOODS,NIFTY CAPITAL GOODS,SECTORAL INDICES,,True,False,False,0,0.0000
+NIFTY_CEMENT,NIFTY CEMENT,SECTORAL INDICES,https://www.nseindia.com/market-data/live-equity-market-indices#index_inventory_all_indices.json,True,True,True,137,11.0484
+NIFTY_CHEMICALS,NIFTY CHEMICALS,SECTORAL INDICES,https://www.nseindia.com/market-data/live-equity-market-indices#index_inventory_all_indices.json,True,True,True,369,29.7581
+NIFTY_COMMERCIAL_AND_TRANSPORT_SERVICES,NIFTY COMMERCIAL & TRANSPORT SERVICES,SECTORAL INDICES,,True,False,False,0,0.0000
+NIFTY_CONSTRUCTION,NIFTY CONSTRUCTION,SECTORAL INDICES,,True,False,False,0,0.0000
+NIFTY_CONSUMER_DURABLES,NIFTY CONSUMER DURABLES,SECTORAL INDICES,https://www.nseindia.com/market-data/live-equity-market-indices#index_inventory_all_indices.json,True,True,True,1239,99.9194
+NIFTY_CONSUMER_SERVICES,NIFTY CONSUMER SERVICES,SECTORAL INDICES,,True,False,False,0,0.0000
+NIFTY_FINANCIAL_SERVICES,NIFTY FINANCIAL SERVICES,SECTORAL INDICES,https://www.nseindia.com/market-data/live-equity-market-indices#index_inventory_all_indices.json,True,True,True,1239,99.9194
+NIFTY_FINANCIAL_SERVICES_25_50,NIFTY FINANCIAL SERVICES 25/50,SECTORAL INDICES,https://www.nseindia.com/market-data/live-equity-market-indices#index_inventory_all_indices.json,True,True,True,1239,99.9194
+NIFTY_FINANCIAL_SERVICES_EX_BANK,NIFTY FINANCIAL SERVICES EX-BANK,SECTORAL INDICES,https://www.nseindia.com/market-data/live-equity-market-indices#index_inventory_all_indices.json,False,True,True,429,34.5968
+NIFTY_FMCG,NIFTY FMCG,SECTORAL INDICES,https://www.nseindia.com/market-data/live-equity-market-indices#index_inventory_all_indices.json,True,True,True,1239,99.9194
+NIFTY_HEALTHCARE_INDEX,NIFTY HEALTHCARE INDEX,SECTORAL INDICES,https://www.nseindia.com/market-data/live-equity-market-indices#index_inventory_all_indices.json,True,True,True,1239,99.9194
+NIFTY_HOSPITALS,NIFTY HOSPITALS,SECTORAL INDICES,,True,False,False,0,0.0000
+NIFTY_HOUSING_FINANCE,NIFTY HOUSING FINANCE,SECTORAL INDICES,,True,False,False,0,0.0000
+NIFTY_INSURANCE,NIFTY INSURANCE,SECTORAL INDICES,,True,False,False,0,0.0000
+NIFTY_IT,NIFTY IT,SECTORAL INDICES,https://www.nseindia.com/market-data/live-equity-market-indices#index_inventory_all_indices.json,True,True,True,1239,99.9194
+NIFTY_MEDIA,NIFTY MEDIA,SECTORAL INDICES,https://www.nseindia.com/market-data/live-equity-market-indices#index_inventory_all_indices.json,True,True,True,1239,99.9194
+NIFTY_METAL,NIFTY METAL,SECTORAL INDICES,https://www.nseindia.com/market-data/live-equity-market-indices#index_inventory_all_indices.json,True,True,True,1239,99.9194
+NIFTY_MIDSMALL_FINANCIAL_SERVICES,NIFTY MIDSMALL FINANCIAL SERVICES,SECTORAL INDICES,https://www.nseindia.com/market-data/live-equity-market-indices#index_inventory_all_indices.json,False,True,True,429,34.5968
+NIFTY_MIDSMALL_HEALTHCARE,NIFTY MIDSMALL HEALTHCARE,SECTORAL INDICES,https://www.nseindia.com/market-data/live-equity-market-indices#index_inventory_all_indices.json,False,True,True,600,48.3871
+NIFTY_MIDSMALL_IT_AND_TELECOM,NIFTY MIDSMALL IT & TELECOM,SECTORAL INDICES,https://www.nseindia.com/market-data/live-equity-market-indices#index_inventory_all_indices.json,False,True,True,429,34.5968
+NIFTY_NBFC,NIFTY NBFC,SECTORAL INDICES,,True,False,False,0,0.0000
+NIFTY_OIL_AND_GAS,NIFTY OIL & GAS,SECTORAL INDICES,https://www.nseindia.com/market-data/live-equity-market-indices#index_inventory_all_indices.json,True,True,True,1232,99.3548
+NIFTY_PHARMA,NIFTY PHARMA,SECTORAL INDICES,https://www.nseindia.com/market-data/live-equity-market-indices#index_inventory_all_indices.json,True,True,True,1239,99.9194
+NIFTY_POWER,NIFTY POWER,SECTORAL INDICES,,True,False,False,0,0.0000
+NIFTY_PRIVATE_BANK,NIFTY PRIVATE BANK,SECTORAL INDICES,https://www.nseindia.com/market-data/live-equity-market-indices#index_inventory_all_indices.json,True,True,True,1239,99.9194
+NIFTY_PSU_BANK,NIFTY PSU BANK,SECTORAL INDICES,https://www.nseindia.com/market-data/live-equity-market-indices#index_inventory_all_indices.json,True,True,True,1239,99.9194
+NIFTY_REALTY,NIFTY REALTY,SECTORAL INDICES,https://www.nseindia.com/market-data/live-equity-market-indices#index_inventory_all_indices.json,True,True,True,1239,99.9194
+NIFTY_REITS_AND_REALTY,NIFTY REITS & REALTY,SECTORAL INDICES,https://www.nseindia.com/market-data/live-equity-market-indices#index_inventory_all_indices.json,True,True,True,84,6.7742
+NIFTY_RETAIL,NIFTY RETAIL,SECTORAL INDICES,,True,False,False,0,0.0000
+NIFTY_TELECOMMUNICATIONS,NIFTY TELECOMMUNICATIONS,SECTORAL INDICES,,True,False,False,0,0.0000
+NIFTY500_HEALTHCARE,NIFTY500 HEALTHCARE,SECTORAL INDICES,https://www.nseindia.com/market-data/live-equity-market-indices#index_inventory_all_indices.json,True,True,True,207,16.6935

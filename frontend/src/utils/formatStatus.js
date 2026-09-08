@@ -3,6 +3,7 @@ const statusLabels = {
   available: "Available",
   checking: "Checking",
   partial: "Partial",
+  limited: "Limited",
   current_only: "Current-only",
   partial_history: "Partial History",
   verified_history: "Verified History",
@@ -21,7 +22,7 @@ export function getStatusClassName(status) {
     return "status-ok";
   }
 
-  if (status === "checking" || status === "placeholder" || status === "partial" || status === "partial_history") {
+  if (status === "checking" || status === "placeholder" || status === "partial" || status === "partial_history" || status === "limited") {
     return "status-pending";
   }
 

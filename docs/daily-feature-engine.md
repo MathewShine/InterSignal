@@ -1,10 +1,12 @@
 # Daily Feature Engine
 
-Current phase: Step 02.4 / Command 01 - leakage-safe historical daily feature engine foundation
+Current phase: Step 02.4 / Command 02 - benchmark and sector relative-strength context
 
 ## Status
 
 - Feature methodology: DAILY_FEATURES_V1
+- Benchmark context version: BENCHMARK_CONTEXT_V1
+- Sector context version: SECTOR_CONTEXT_V1
 - Full generation completed: True
 - Ready for review: True
 - Feature dataset: C:\Users\cores\OneDrive\Desktop\Personal Project\InterSignal\data\research\features\daily\v1\daily_features_v1.csv.gz
@@ -25,6 +27,8 @@ Current phase: Step 02.4 / Command 01 - leakage-safe historical daily feature en
 - Rolling windows use trading sessions, not calendar days.
 - Relative volume denominators use prior sessions only and exclude the current date.
 - Prior highs/lows exclude the current date; inclusive rolling highs/lows are stored separately.
+- Benchmark and sector index closes are official DAILY_EOD context and are not treated as intraday inputs.
+- DAILY_FEATURES_V1 is retained; benchmark_context_version and sector_context_version record this Command 02 enhancement.
 
 ## Feature Groups
 
@@ -37,7 +41,8 @@ Current phase: Step 02.4 / Command 01 - leakage-safe historical daily feature en
 - trend: sma_5, sma_10, sma_20, sma_50, sma_200, distance_from_sma_20_pct, distance_from_sma_50_pct, distance_from_sma_200_pct
 - candle: daily_range_pct, body_pct, upper_wick_pct, lower_wick_pct, close_location_value, gap_open_pct
 - consolidation: above_prior_5d_high, above_prior_20d_high, above_prior_52w_high, intraday_high_above_prior_20d_high, range_width_5d_pct, range_width_10d_pct, range_width_20d_pct, atr_contraction_ratio
-- benchmark: benchmark_symbol, benchmark_return_5d, benchmark_return_20d, relative_return_5d_vs_benchmark, relative_return_20d_vs_benchmark
+- benchmark: benchmark_symbol, primary_benchmark_id, secondary_benchmark_id, benchmark_return_1d, benchmark_return_2d, benchmark_return_3d, benchmark_return_5d, benchmark_return_10d, benchmark_return_20d, relative_return_1d_vs_nifty500, relative_return_3d_vs_nifty500, relative_return_5d_vs_nifty500, relative_return_10d_vs_nifty500, relative_return_20d_vs_nifty500, nifty50_return_5d, nifty50_return_20d, relative_return_5d_vs_nifty50, relative_return_20d_vs_nifty50, relative_return_5d_vs_benchmark, relative_return_20d_vs_benchmark
+- sector: sector_index_id, sector_index_name, sector_mapping_status, sector_mapping_confidence, sector_mapping_source, sector_return_1d, sector_return_3d, sector_return_5d, sector_return_10d, sector_return_20d, sector_index_return_1d, sector_index_return_5d, sector_index_return_20d, relative_return_1d_vs_sector, relative_return_3d_vs_sector, relative_return_5d_vs_sector, relative_return_10d_vs_sector, relative_return_20d_vs_sector, sector_above_sma20, sector_momentum_available
 
 ## Membership And Eligibility
 
@@ -48,17 +53,20 @@ Current phase: Step 02.4 / Command 01 - leakage-safe historical daily feature en
 
 ## Benchmark And Sector
 
-- Benchmark status: UNAVAILABLE
-- Benchmark reason: Official benchmark close history is not present locally.
-- Sector status: UNAVAILABLE_FOR_RELATIVE_STRENGTH
-- Sector reason: Point-in-time sector mapping is not available; current-only sector metadata is not used for historical sector-relative features.
+- Benchmark status: AVAILABLE
+- Primary benchmark: NIFTY_500
+- Secondary benchmark: NIFTY_50
+- Benchmark reason: 
+- Sector status: LIMITED
+- Sector reason: Current-only sector metadata is retained but not projected backward.
+- Sector mapping policy: Only POINT_IN_TIME_VERIFIED and INFERRED_WITH_EVIDENCE mappings are eligible for sector-relative features.
 
 ## Pilot
 
 - Symbols requested: RELIANCE, TCS, HDFCBANK, INFY, SUNPHARMA, 360ONE, 3MINDIA, INFIBEAM, AADHARHFC
 - Symbols generated: 360ONE, 3MINDIA, AADHARHFC, HDFCBANK, INFIBEAM, INFY, RELIANCE, SUNPHARMA, TCS
 - Pilot rows: 9341
-- Manual validation rows: 8
+- Manual validation rows: 12
 - Manual validation passed: True
 
 ## Full Generation
@@ -68,14 +76,18 @@ Current phase: Step 02.4 / Command 01 - leakage-safe historical daily feature en
 - READY rows: 395617
 - Rows with partial/null features: 597924
 - Corporate-action-blocked rows: 25070
-- Insufficient-history rows: 167440
+- Insufficient-history rows: 167457
 - Membership-uncertain rows: 597924
+- Benchmark-relative rows: 569087 (95.1771%)
+- Sector-relative rows: 0 (0.0000%)
+- 5-session relative strength usable: 98.6227%
+- 20-session relative strength usable: 95.1771%
 - 5-session usable: 99.1082%
 - 20-session usable: 96.8444%
 - 60-session usable: 92.4183%
 - 200-session usable: 72.3435%
-- Storage bytes: 169038315
-- Processing seconds: 810.743
+- Storage bytes: 237415127
+- Processing seconds: 759.227
 
 ## Integrity And Safety
 
@@ -87,7 +99,7 @@ Current phase: Step 02.4 / Command 01 - leakage-safe historical daily feature en
 
 ## Known Limitations
 
-- Official benchmark history is not present locally, so benchmark-relative fields are unavailable.
-- Point-in-time sector mapping is unavailable, so sector-relative features remain deferred.
+- Sector index history is available where official NSE publishes it, but point-in-time stock-sector mapping remains limited.
+- CURRENT_ONLY sector mappings are retained for diagnostics and deliberately produce null sector-relative fields.
 - Historical Nifty 500 membership remains PARTIAL_HISTORY and must be considered by future backtests.
 - EMA features are deferred; SMA descriptors are implemented for Command 01.

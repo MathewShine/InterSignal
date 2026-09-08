@@ -18,6 +18,8 @@ STATUS_CORPORATE_ACTION_LOOKBACK_BLOCKED = "CORPORATE_ACTION_LOOKBACK_BLOCKED"
 STATUS_MISSING_INPUT_DATA = "MISSING_INPUT_DATA"
 STATUS_UNIVERSE_UNCERTAIN = "UNIVERSE_UNCERTAIN"
 STATUS_BENCHMARK_UNAVAILABLE = "BENCHMARK_UNAVAILABLE"
+STATUS_SECTOR_CONTEXT_UNAVAILABLE = "SECTOR_CONTEXT_UNAVAILABLE"
+STATUS_SECTOR_MAPPING_UNAVAILABLE = "SECTOR_MAPPING_UNAVAILABLE"
 STATUS_INVALID_SOURCE_ROW = "INVALID_SOURCE_ROW"
 STATUS_NOT_APPLICABLE = "NOT_APPLICABLE"
 
@@ -36,14 +38,22 @@ class DailyFeatureConfig:
     sma_windows: tuple[int, ...] = (5, 10, 20, 50, 200)
     volatility_windows: tuple[int, ...] = (5, 20)
     range_windows: tuple[int, ...] = (5, 10, 20)
+    benchmark_return_windows: tuple[int, ...] = (1, 2, 3, 5, 10, 20)
+    benchmark_relative_windows: tuple[int, ...] = (1, 3, 5, 10, 20)
+    secondary_benchmark_windows: tuple[int, ...] = (5, 20)
+    sector_return_windows: tuple[int, ...] = (1, 3, 5, 10, 20)
     traded_value_method: str = "ADJUSTED_CLOSE_X_ADJUSTED_VOLUME_PROXY"
     atr_methodology: str = "SIMPLE_ROLLING_MEAN"
     volatility_methodology: str = "SAMPLE_STDEV_NON_ANNUALIZED"
     source_dataset: str = "ADJUSTED_RESEARCH_DAILY_NSE"
     universe_name: str = "NIFTY_500"
     universe_version: str = "NIFTY500_MEMBERSHIP_PARTIAL_HISTORY"
-    benchmark_symbol: str = ""
-    sector_relative_features_status: str = STATUS_BENCHMARK_UNAVAILABLE
+    primary_benchmark_id: str = "NIFTY_500"
+    secondary_benchmark_id: str = "NIFTY_50"
+    benchmark_symbol: str = "NIFTY_500"
+    benchmark_context_version: str = "BENCHMARK_CONTEXT_V1"
+    sector_context_version: str = "SECTOR_CONTEXT_V1"
+    sector_relative_features_status: str = STATUS_SECTOR_MAPPING_UNAVAILABLE
 
 
 @dataclass(frozen=True, slots=True)

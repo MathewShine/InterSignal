@@ -4,9 +4,11 @@ import csv
 import json
 from datetime import date, timedelta
 from decimal import Decimal
+from pathlib import Path
 
 from app.features import breakout_context, daily, liquidity, volatility
 from app.features.base import DAILY_FEATURES_VERSION, AdjustedDailyBar, DailyFeatureConfig
+from app.features.relative_strength import LocalOfficialIndexContextProvider
 from app.services.daily_feature_engine import (
     DailyFeatureEngineConfig,
     FeatureRowBuilder,
@@ -156,6 +158,8 @@ def test_report_generation_writes_local_outputs_without_mutating_adjusted_datase
     write_eligibility(data_dir, [("RELIANCE", sessions[0], sessions[-1], "RESEARCH_READY", "default")])
     write_membership_coverage(data_dir)
     write_current_constituents(data_dir)
+    write_benchmark_context(data_dir, sessions)
+    write_sector_context(data_dir, sessions)
     for index, session in enumerate(sessions):
         write_adjusted_file(data_dir, session, [bar_row("RELIANCE", session, 100 + index)])
     before = list((data_dir / "research" / "adjusted" / "daily" / "nse").glob("*/*/*.csv"))[0].read_text(encoding="utf-8")
@@ -168,7 +172,7 @@ def test_report_generation_writes_local_outputs_without_mutating_adjusted_datase
     assert report["ready_for_review"] is True
     assert report["generation"]["full_generation_completed"] is True
     assert report["generation"]["generated_feature_rows"] == 30
-    assert report["benchmark"]["status"] == "UNAVAILABLE"
+    assert report["benchmark"]["status"] == "AVAILABLE"
     assert report["integrity"]["raw_nse_unchanged"] is True
     assert list((data_dir / "research" / "adjusted" / "daily" / "nse").glob("*/*/*.csv"))[0].read_text(encoding="utf-8") == before
     assert json.loads(report["outputs"]["summary_json"] and (data_dir / "reports" / "daily_feature_engine_summary.json").read_text(encoding="utf-8"))["safety"]["orders_placed"] == 0
@@ -201,7 +205,7 @@ def build_row(
         trading_sessions=sessions,
         trading_session_index={session: offset for offset, session in enumerate(sessions)},
         feature_config=DailyFeatureConfig(),
-        benchmark_available=False,
+        relative_strength_context=LocalOfficialIndexContextProvider(data_dir=Path("__missing__"), trading_sessions=sessions),
     ).build()
 
 
@@ -317,6 +321,89 @@ def write_current_constituents(data_dir):
         [{"symbol": "RELIANCE", "company_name": "Reliance", "isin": "INERELIANCE", "industry": "Energy", "sector": "", "membership_start": "", "source": "fixture", "source_date": "2024-01-01"}],
         ["symbol", "company_name", "isin", "industry", "sector", "membership_start", "source", "source_date"],
     )
+
+
+def write_benchmark_context(data_dir, sessions):
+    rows = []
+    for index, session in enumerate(sessions):
+        rows.append(index_row(session, "benchmark_id", "NIFTY_500", "NIFTY 500", Decimal(1000 + index)))
+        rows.append(index_row(session, "benchmark_id", "NIFTY_50", "NIFTY 50", Decimal(2000 + index)))
+    write_csv(
+        data_dir / "reference" / "nse" / "indices" / "normalized" / "benchmark_daily.csv",
+        rows,
+        [
+            "trading_date",
+            "benchmark_id",
+            "index_name",
+            "open",
+            "high",
+            "low",
+            "close",
+            "source",
+            "source_reference",
+            "source_date",
+            "methodology",
+            "benchmark_context_version",
+        ],
+    )
+
+
+def write_sector_context(data_dir, sessions):
+    rows = [index_row(session, "sector_index_id", "NIFTY_IT", "NIFTY IT", Decimal(3000 + index)) for index, session in enumerate(sessions)]
+    write_csv(
+        data_dir / "reference" / "nse" / "indices" / "normalized" / "sector_index_daily.csv",
+        rows,
+        [
+            "trading_date",
+            "sector_index_id",
+            "index_name",
+            "close",
+            "source",
+            "source_reference",
+            "coverage_start",
+            "coverage_end",
+            "methodology",
+            "sector_context_version",
+        ],
+    )
+    write_csv(
+        data_dir / "reference" / "nse" / "indices" / "normalized" / "stock_sector_mapping.csv",
+        [
+            {
+                "symbol": "RELIANCE",
+                "isin": "INERELIANCE",
+                "sector_name": "Information Technology",
+                "sector_index_id": "NIFTY_IT",
+                "valid_from": "",
+                "valid_to": "",
+                "mapping_source": "fixture",
+                "mapping_status": "CURRENT_ONLY",
+                "confidence": "CURRENT_OFFICIAL_SNAPSHOT_ONLY",
+                "notes": "fixture",
+            }
+        ],
+        ["symbol", "isin", "sector_name", "sector_index_id", "valid_from", "valid_to", "mapping_source", "mapping_status", "confidence", "notes"],
+    )
+
+
+def index_row(session, id_field, index_id, index_name, close):
+    return {
+        "trading_date": session.isoformat(),
+        id_field: index_id,
+        "index_name": index_name,
+        "open": str(close),
+        "high": str(close),
+        "low": str(close),
+        "close": str(close),
+        "source": "fixture",
+        "source_reference": "fixture",
+        "source_date": session.isoformat(),
+        "methodology": "fixture",
+        "benchmark_context_version": "BENCHMARK_CONTEXT_V1",
+        "sector_context_version": "SECTOR_CONTEXT_V1",
+        "coverage_start": "",
+        "coverage_end": "",
+    }
 
 
 def write_adjusted_file(data_dir, session, rows):

@@ -48,6 +48,16 @@ export function DevelopmentHome() {
         status="partial_history"
         detail="Official event reconstruction with coverage gaps"
       />
+      <StatusPanel
+        label="Benchmark Context"
+        status="available"
+        detail="Official NIFTY 50 and NIFTY 500 histories"
+      />
+      <StatusPanel
+        label="Sector Context"
+        status="limited"
+        detail="Official sector index histories with current-only stock mapping"
+      />
     </div>
   );
 }

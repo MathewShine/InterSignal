@@ -22,6 +22,8 @@ from app.features.base import (
     STATUS_MISSING_INPUT_DATA,
     STATUS_NOT_APPLICABLE,
     STATUS_READY,
+    STATUS_SECTOR_CONTEXT_UNAVAILABLE,
+    STATUS_SECTOR_MAPPING_UNAVAILABLE,
     TIMEFRAME,
     AdjustedDailyBar,
     DailyFeatureConfig,
@@ -33,7 +35,12 @@ from app.features.base import (
     simple_return,
 )
 from app.features.registry import FEATURE_GROUPS, FEATURE_OUTPUT_FIELDS
-from app.features.relative_strength import resolve_benchmark_provider
+from app.features.relative_strength import LocalOfficialIndexContextProvider, resolve_relative_strength_context_provider
+from app.providers.indices.base import (
+    ALLOWED_SECTOR_MAPPING_STATUSES,
+    PRIMARY_BENCHMARK_ID,
+    SECONDARY_BENCHMARK_ID,
+)
 from app.services.corporate_actions import METHODOLOGY_VERSION, fingerprint_directory
 from app.services.nifty500_ca_final_readiness import (
     EXCLUSION_POLICY_VERSION,
@@ -56,6 +63,7 @@ PILOT_SYMBOLS = (
 )
 
 QUALITY_SUMMARY_FIELDS = ["metric", "value", "notes"]
+RELATIVE_STRENGTH_QUALITY_FIELDS = ["metric", "value", "notes"]
 PILOT_VALIDATION_FIELDS = ["symbol", "trading_date", "feature", "calculated", "expected", "difference", "tolerance", "result"]
 USABILITY_SCENARIOS = (5, 20, 60, 200)
 DECIMAL_OUTPUT_QUANT = Decimal("0.000000000001")
@@ -128,6 +136,18 @@ class DailyFeatureEngineConfig:
     @property
     def pilot_validation_path(self) -> Path:
         return self.reports_dir / "daily_feature_pilot_validation.csv"
+
+    @property
+    def relative_strength_quality_path(self) -> Path:
+        return self.reports_dir / "relative_strength_feature_quality.csv"
+
+    @property
+    def benchmark_context_summary_path(self) -> Path:
+        return self.reports_dir / "benchmark_context_summary.json"
+
+    @property
+    def sector_context_summary_path(self) -> Path:
+        return self.reports_dir / "sector_context_summary.json"
 
 
 @dataclass(frozen=True, slots=True)
@@ -238,7 +258,7 @@ class FeatureRowBuilder:
         trading_sessions: Sequence[date],
         trading_session_index: dict[date, int],
         feature_config: DailyFeatureConfig,
-        benchmark_available: bool,
+        relative_strength_context: LocalOfficialIndexContextProvider,
     ) -> None:
         self.bars = bars
         self.index = index
@@ -252,7 +272,7 @@ class FeatureRowBuilder:
         self.trading_sessions = trading_sessions
         self.session_index = trading_session_index
         self.feature_config = feature_config
-        self.benchmark_available = benchmark_available
+        self.relative_strength_context = relative_strength_context
         self.states: dict[int, WindowState] = {}
         self.row: dict[str, Any] = {}
         self.group_status: dict[str, str] = {
@@ -265,8 +285,8 @@ class FeatureRowBuilder:
             "trend": STATUS_READY,
             "candle": STATUS_READY,
             "consolidation": STATUS_READY,
-            "benchmark": STATUS_BENCHMARK_UNAVAILABLE if not benchmark_available else STATUS_READY,
-            "sector": STATUS_NOT_APPLICABLE,
+            "benchmark": STATUS_READY if relative_strength_context.is_available() else STATUS_BENCHMARK_UNAVAILABLE,
+            "sector": STATUS_READY if relative_strength_context.sector_context_available() else STATUS_SECTOR_CONTEXT_UNAVAILABLE,
         }
         self.null_reasons: set[str] = set()
         self.eligibility_reasons: set[str] = set()
@@ -321,6 +341,8 @@ class FeatureRowBuilder:
             "traded_value_method": self.feature_config.traded_value_method,
             "atr_methodology": self.feature_config.atr_methodology,
             "volatility_methodology": self.feature_config.volatility_methodology,
+            "benchmark_context_version": self.feature_config.benchmark_context_version,
+            "sector_context_version": self.feature_config.sector_context_version,
         }
 
     def window_state(self, lookback: int) -> WindowState:
@@ -462,18 +484,134 @@ class FeatureRowBuilder:
         self.assign("consolidation", "atr_contraction_ratio", 20, self.feature_cache.get("atr_contraction_ratio", self.index))
 
     def compute_benchmark(self) -> None:
-        self.row["benchmark_symbol"] = self.feature_config.benchmark_symbol or None
-        self.row["benchmark_return_5d"] = None
-        self.row["benchmark_return_20d"] = None
-        self.row["relative_return_5d_vs_benchmark"] = None
-        self.row["relative_return_20d_vs_benchmark"] = None
-        if not self.benchmark_available:
+        primary_id = self.feature_config.primary_benchmark_id
+        secondary_id = self.feature_config.secondary_benchmark_id
+        self.row["benchmark_symbol"] = primary_id
+        self.row["primary_benchmark_id"] = primary_id
+        self.row["secondary_benchmark_id"] = secondary_id
+
+        if not self.relative_strength_context.is_available():
             self.group_status["benchmark"] = STATUS_BENCHMARK_UNAVAILABLE
             self.null_reasons.add("benchmark_relative_strength:BENCHMARK_UNAVAILABLE")
+            return
+
+        for window in self.feature_config.benchmark_return_windows:
+            field = f"benchmark_return_{window}d"
+            value = self.relative_strength_context.benchmark_return_for(primary_id, self.bar.trading_date, window)
+            self.row[field] = value
+            if value is None:
+                self.promote_group_status("benchmark", STATUS_MISSING_INPUT_DATA)
+                self.null_reasons.add(f"{field}:{STATUS_MISSING_INPUT_DATA}")
+
+        for window in self.feature_config.benchmark_relative_windows:
+            self.assign_benchmark_relative(
+                field=f"relative_return_{window}d_vs_nifty500",
+                window=window,
+                benchmark_id=primary_id,
+            )
+
+        for window in self.feature_config.secondary_benchmark_windows:
+            field = f"nifty50_return_{window}d"
+            value = self.relative_strength_context.benchmark_return_for(secondary_id, self.bar.trading_date, window)
+            self.row[field] = value
+            if value is None:
+                self.promote_group_status("benchmark", STATUS_MISSING_INPUT_DATA)
+                self.null_reasons.add(f"{field}:{STATUS_MISSING_INPUT_DATA}")
+            self.assign_benchmark_relative(
+                field=f"relative_return_{window}d_vs_nifty50",
+                window=window,
+                benchmark_id=secondary_id,
+            )
+
+        self.row["relative_return_5d_vs_benchmark"] = self.row.get("relative_return_5d_vs_nifty500")
+        self.row["relative_return_20d_vs_benchmark"] = self.row.get("relative_return_20d_vs_nifty500")
 
     def compute_sector(self) -> None:
-        self.group_status["sector"] = STATUS_NOT_APPLICABLE
-        self.null_reasons.add("sector_relative_features:NOT_APPLICABLE")
+        mapping = self.relative_strength_context.sector_mapping_for(self.bar.symbol, self.bar.trading_date)
+        self.row["sector_index_id"] = mapping.sector_index_id or None
+        self.row["sector_index_name"] = (
+            self.relative_strength_context.sector_index_name(mapping.sector_index_id)
+            if mapping.sector_index_id
+            else None
+        )
+        self.row["sector_mapping_status"] = mapping.mapping_status
+        self.row["sector_mapping_confidence"] = mapping.confidence
+        self.row["sector_mapping_source"] = mapping.mapping_source
+
+        if not self.relative_strength_context.sector_context_available():
+            self.group_status["sector"] = STATUS_SECTOR_CONTEXT_UNAVAILABLE
+            self.null_reasons.add("sector_relative_features:SECTOR_CONTEXT_UNAVAILABLE")
+            return
+
+        if mapping.mapping_status not in ALLOWED_SECTOR_MAPPING_STATUSES or not mapping.sector_index_id:
+            self.group_status["sector"] = STATUS_SECTOR_MAPPING_UNAVAILABLE
+            self.null_reasons.add(f"sector_relative_features:{mapping.mapping_status}_MAPPING_NOT_USED")
+            self.row["sector_momentum_available"] = False
+            return
+
+        for window in self.feature_config.sector_return_windows:
+            field = f"sector_return_{window}d"
+            value = self.relative_strength_context.sector_return_for(mapping.sector_index_id, self.bar.trading_date, window)
+            self.row[field] = value
+            if value is None:
+                self.promote_group_status("sector", STATUS_MISSING_INPUT_DATA)
+                self.null_reasons.add(f"{field}:{STATUS_MISSING_INPUT_DATA}")
+            self.assign_sector_relative(
+                field=f"relative_return_{window}d_vs_sector",
+                window=window,
+                sector_return=value,
+            )
+
+        for window in (1, 5, 20):
+            self.row[f"sector_index_return_{window}d"] = self.row.get(f"sector_return_{window}d")
+        self.row["sector_above_sma20"] = self.relative_strength_context.sector_above_sma20(
+            mapping.sector_index_id,
+            self.bar.trading_date,
+        )
+        self.row["sector_momentum_available"] = all(
+            self.row.get(f"sector_return_{window}d") is not None for window in (1, 5, 20)
+        )
+
+    def assign_benchmark_relative(self, *, field: str, window: int, benchmark_id: str) -> None:
+        state = self.window_state(window)
+        if state.status != STATUS_READY:
+            self.row[field] = None
+            self.promote_group_status("benchmark", state.status)
+            self.add_state_reason(field, state)
+            return
+        stock_return = self.feature_cache.get(f"return_{window}d", self.index)
+        benchmark_return = self.relative_strength_context.benchmark_return_for(benchmark_id, self.bar.trading_date, window)
+        if stock_return is None:
+            self.row[field] = None
+            self.promote_group_status("benchmark", STATUS_MISSING_INPUT_DATA)
+            self.null_reasons.add(f"{field}:STOCK_RETURN_UNAVAILABLE")
+            return
+        if benchmark_return is None:
+            self.row[field] = None
+            self.promote_group_status("benchmark", STATUS_MISSING_INPUT_DATA)
+            self.null_reasons.add(f"{field}:BENCHMARK_RETURN_UNAVAILABLE")
+            return
+        self.row[field] = stock_return - benchmark_return
+
+    def assign_sector_relative(self, *, field: str, window: int, sector_return: Decimal | None) -> None:
+        state = self.window_state(window)
+        if state.status != STATUS_READY:
+            self.row[field] = None
+            self.promote_group_status("sector", state.status)
+            self.add_state_reason(field, state)
+            return
+        stock_return = self.feature_cache.get(f"return_{window}d", self.index)
+        if stock_return is None:
+            self.row[field] = None
+            self.promote_group_status("sector", STATUS_MISSING_INPUT_DATA)
+            self.null_reasons.add(f"{field}:STOCK_RETURN_UNAVAILABLE")
+            return
+        if sector_return is None:
+            self.row[field] = None
+            self.promote_group_status("sector", STATUS_MISSING_INPUT_DATA)
+            self.null_reasons.add(f"{field}:SECTOR_RETURN_UNAVAILABLE")
+            return
+        self.row[field] = stock_return - sector_return
 
     def finish_status_fields(self) -> None:
         local_statuses = [
@@ -540,7 +678,7 @@ def build_daily_feature_engine(*, config: DailyFeatureEngineConfig, progress: An
     trading_sessions = load_trading_sessions(config.calendar_path, config.start_date, config.end_date)
     eligibility_index = ResearchEligibilityIndex(read_csv(config.eligibility_path), trading_sessions)
     sector_lookup = load_sector_lookup(config.current_constituents_path)
-    benchmark_provider = resolve_benchmark_provider(config.data_dir)
+    relative_strength_context = resolve_relative_strength_context_provider(config.data_dir, trading_sessions)
 
     if progress:
         progress("Loading adjusted point-in-time Nifty 500 bars")
@@ -564,12 +702,12 @@ def build_daily_feature_engine(*, config: DailyFeatureEngineConfig, progress: An
             eligibility_index=eligibility_index,
             trading_sessions=trading_sessions,
             feature_config=config.feature_config,
-            benchmark_available=benchmark_provider.is_available(),
+            relative_strength_context=relative_strength_context,
             symbols=PILOT_SYMBOLS,
         )
     )
     write_feature_rows(config.pilot_dataset_path, pilot_rows)
-    pilot_validation = validate_pilot_rows(pilot_rows, bars_by_symbol)
+    pilot_validation = validate_pilot_rows(pilot_rows, bars_by_symbol, relative_strength_context)
     write_csv(config.pilot_validation_path, pilot_validation["rows"], PILOT_VALIDATION_FIELDS)
 
     full_result = empty_generation_result(config.feature_dataset_path)
@@ -587,18 +725,22 @@ def build_daily_feature_engine(*, config: DailyFeatureEngineConfig, progress: An
             eligibility_index=eligibility_index,
             trading_sessions=trading_sessions,
             feature_config=config.feature_config,
-            benchmark_available=benchmark_provider.is_available(),
+            relative_strength_context=relative_strength_context,
         )
         full_generation_completed = True
 
     quality_rows = quality_summary_rows(full_result)
     write_csv(config.quality_summary_path, quality_rows, QUALITY_SUMMARY_FIELDS)
+    write_csv(config.relative_strength_quality_path, relative_strength_quality_rows(full_result), RELATIVE_STRENGTH_QUALITY_FIELDS)
 
     raw_after = fingerprint_directory(config.raw_daily_dir)
     adjusted_after = fingerprint_directory(config.adjusted_daily_dir)
+    benchmark_context_summary = load_json(config.benchmark_context_summary_path)
+    sector_context_summary = load_json(config.sector_context_summary_path)
+    benchmark_ready = relative_strength_context.is_available() and SECONDARY_BENCHMARK_ID in relative_strength_context.benchmark_records
     report = {
         "phase": "Step 02.4",
-        "command": "Command 01",
+        "command": "Command 02",
         "generated_at": generated_at,
         "feature_engine": {
             "architecture": "Adjusted research prices + point-in-time Nifty 500 membership + corporate-action research eligibility + NSE trading calendar",
@@ -617,6 +759,8 @@ def build_daily_feature_engine(*, config: DailyFeatureEngineConfig, progress: An
             "traded_value_method": config.feature_config.traded_value_method,
             "atr_methodology": config.feature_config.atr_methodology,
             "volatility_methodology": config.feature_config.volatility_methodology,
+            "benchmark_context_version": config.feature_config.benchmark_context_version,
+            "sector_context_version": config.feature_config.sector_context_version,
             "feature_windows": feature_windows(config.feature_config),
         },
         "membership": {
@@ -632,13 +776,21 @@ def build_daily_feature_engine(*, config: DailyFeatureEngineConfig, progress: An
             "blocked_rows": full_result["corporate_action_blocked_rows"],
         },
         "benchmark": {
-            "status": "UNAVAILABLE" if not benchmark_provider.is_available() else "AVAILABLE",
-            "provider": benchmark_provider.name,
-            "reason": getattr(benchmark_provider, "reason", ""),
+            "status": "AVAILABLE" if benchmark_ready else "UNAVAILABLE",
+            "provider": relative_strength_context.name,
+            "primary_benchmark_id": config.feature_config.primary_benchmark_id,
+            "secondary_benchmark_id": config.feature_config.secondary_benchmark_id,
+            "context_version": config.feature_config.benchmark_context_version,
+            "reason": "" if benchmark_ready else relative_strength_context.reason,
+            "coverage": benchmark_context_summary.get("benchmarks", {}),
         },
         "sector": {
-            "status": "UNAVAILABLE_FOR_RELATIVE_STRENGTH",
-            "reason": "Point-in-time sector mapping is not available; current-only sector metadata is not used for historical sector-relative features.",
+            "status": "LIMITED" if relative_strength_context.sector_context_available() else "UNAVAILABLE",
+            "context_version": config.feature_config.sector_context_version,
+            "mapping_policy": "Only POINT_IN_TIME_VERIFIED and INFERRED_WITH_EVIDENCE mappings are eligible for sector-relative features.",
+            "reason": "Current-only sector metadata is retained but not projected backward.",
+            "coverage": sector_context_summary.get("sector_indices", {}),
+            "mapping_status_counts": sector_context_summary.get("mapping_status_counts", {}),
         },
         "pilot": {
             "symbols_requested": list(PILOT_SYMBOLS),
@@ -671,8 +823,10 @@ def build_daily_feature_engine(*, config: DailyFeatureEngineConfig, progress: An
             "pilot_dataset": str(config.pilot_dataset_path),
             "summary_json": str(config.summary_path),
             "quality_summary_csv": str(config.quality_summary_path),
+            "relative_strength_quality_csv": str(config.relative_strength_quality_path),
             "pilot_validation_csv": str(config.pilot_validation_path),
             "markdown": "docs/daily-feature-engine.md",
+            "benchmark_sector_markdown": "docs/benchmark-and-sector-context.md",
         },
         "processing": {
             "duration_seconds": round(time.perf_counter() - started, 3),
@@ -683,6 +837,7 @@ def build_daily_feature_engine(*, config: DailyFeatureEngineConfig, progress: An
             and pilot_validation["passed"]
             and raw_before == raw_after
             and adjusted_before == adjusted_after
+            and benchmark_ready
         ),
     }
     write_json(config.summary_path, report)
@@ -699,7 +854,7 @@ def iter_feature_rows(
     eligibility_index: ResearchEligibilityIndex,
     trading_sessions: Sequence[date],
     feature_config: DailyFeatureConfig,
-    benchmark_available: bool,
+    relative_strength_context: LocalOfficialIndexContextProvider,
     symbols: Sequence[str] | None = None,
 ) -> Iterable[dict[str, Any]]:
     symbol_filter = {canonical_symbol(symbol) for symbol in symbols} if symbols else None
@@ -725,7 +880,7 @@ def iter_feature_rows(
                 trading_sessions=trading_sessions,
                 trading_session_index=trading_session_index,
                 feature_config=feature_config,
-                benchmark_available=benchmark_available,
+                relative_strength_context=relative_strength_context,
             ).build()
 
 
@@ -928,7 +1083,7 @@ def write_full_feature_dataset(
     eligibility_index: ResearchEligibilityIndex,
     trading_sessions: Sequence[date],
     feature_config: DailyFeatureConfig,
-    benchmark_available: bool,
+    relative_strength_context: LocalOfficialIndexContextProvider,
 ) -> dict[str, Any]:
     result = empty_generation_result(path)
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -944,13 +1099,14 @@ def write_full_feature_dataset(
             eligibility_index=eligibility_index,
             trading_sessions=trading_sessions,
             feature_config=feature_config,
-            benchmark_available=benchmark_available,
+            relative_strength_context=relative_strength_context,
         ):
             writer.writerow(json_safe(row))
             update_generation_result(result, row)
     result["dataset_path"] = str(path)
     result["storage_size_bytes"] = file_size(path)
     result["usable_percent_by_lookback"] = usable_percent_by_lookback(result)
+    finalize_relative_strength_percentages(result)
     return result
 
 
@@ -970,6 +1126,19 @@ def update_generation_result(result: dict[str, Any], row: dict[str, Any]) -> Non
         result["membership_uncertain_rows"] += 1
     if row.get("benchmark_status") == STATUS_BENCHMARK_UNAVAILABLE:
         result["benchmark_unavailable_rows"] += 1
+    if all(has_value(row.get(f"relative_return_{window}d_vs_nifty500")) for window in (1, 3, 5, 10, 20)):
+        result["benchmark_relative_available_rows"] += 1
+    else:
+        result["benchmark_relative_unavailable_rows"] += 1
+    if all(has_value(row.get(f"relative_return_{window}d_vs_sector")) for window in (1, 3, 5, 10, 20)):
+        result["sector_relative_available_rows"] += 1
+    else:
+        result["sector_relative_unavailable_rows"] += 1
+    if has_value(row.get("relative_return_5d_vs_nifty500")):
+        result["relative_strength_5d_usable_rows"] += 1
+    if has_value(row.get("relative_return_20d_vs_nifty500")):
+        result["relative_strength_20d_usable_rows"] += 1
+    result["sector_mapping_status_counts"][row.get("sector_mapping_status") or "UNAVAILABLE"] += 1
     for lookback in USABILITY_SCENARIOS:
         group_status = scenario_status_for_row(row, lookback)
         result["lookback_usability"][str(lookback)]["total"] += 1
@@ -1010,6 +1179,17 @@ def empty_generation_result(path: Path) -> dict[str, Any]:
         "insufficient_history_rows": 0,
         "membership_uncertain_rows": 0,
         "benchmark_unavailable_rows": 0,
+        "benchmark_relative_available_rows": 0,
+        "benchmark_relative_unavailable_rows": 0,
+        "benchmark_relative_coverage_percent": "0",
+        "sector_relative_available_rows": 0,
+        "sector_relative_unavailable_rows": 0,
+        "sector_relative_coverage_percent": "0",
+        "relative_strength_5d_usable_rows": 0,
+        "relative_strength_5d_usable_percent": "0",
+        "relative_strength_20d_usable_rows": 0,
+        "relative_strength_20d_usable_percent": "0",
+        "sector_mapping_status_counts": Counter(),
         "feature_status_counts": Counter(),
         "lookback_usability": {str(lookback): Counter() for lookback in USABILITY_SCENARIOS},
         "usable_percent_by_lookback": {str(lookback): "0" for lookback in USABILITY_SCENARIOS},
@@ -1017,7 +1197,29 @@ def empty_generation_result(path: Path) -> dict[str, Any]:
     }
 
 
-def validate_pilot_rows(pilot_rows: Sequence[dict[str, Any]], bars_by_symbol: dict[str, list[AdjustedDailyBar]]) -> dict[str, Any]:
+def finalize_relative_strength_percentages(result: dict[str, Any]) -> None:
+    total = result["generated_feature_rows"]
+    result["benchmark_relative_coverage_percent"] = percent(result["benchmark_relative_available_rows"], total)
+    result["sector_relative_coverage_percent"] = percent(result["sector_relative_available_rows"], total)
+    result["relative_strength_5d_usable_percent"] = percent(result["relative_strength_5d_usable_rows"], total)
+    result["relative_strength_20d_usable_percent"] = percent(result["relative_strength_20d_usable_rows"], total)
+
+
+def percent(numerator: int, denominator: int) -> str:
+    if denominator <= 0:
+        return "0"
+    return str((Decimal(numerator) / Decimal(denominator) * Decimal("100")).quantize(Decimal("0.0001")))
+
+
+def has_value(value: Any) -> bool:
+    return value not in {"", None}
+
+
+def validate_pilot_rows(
+    pilot_rows: Sequence[dict[str, Any]],
+    bars_by_symbol: dict[str, list[AdjustedDailyBar]],
+    relative_strength_context: LocalOfficialIndexContextProvider,
+) -> dict[str, Any]:
     required_features = (
         "return_5d",
         "median_traded_value_20d",
@@ -1067,6 +1269,90 @@ def validate_pilot_rows(pilot_rows: Sequence[dict[str, Any]], bars_by_symbol: di
                 "difference": difference,
                 "tolerance": tolerance,
                 "result": "PASS" if difference <= tolerance else "FAIL",
+            }
+        )
+
+    benchmark_expected = {
+        "benchmark_return_5d": relative_strength_context.benchmark_return_for(PRIMARY_BENCHMARK_ID, trading_date, 5),
+        "nifty50_return_20d": relative_strength_context.benchmark_return_for(SECONDARY_BENCHMARK_ID, trading_date, 20),
+    }
+    if benchmark_expected["benchmark_return_5d"] is not None and expected["return_5d"] is not None:
+        benchmark_expected["relative_return_5d_vs_nifty500"] = (
+            expected["return_5d"] - benchmark_expected["benchmark_return_5d"]
+        )
+    for feature, expected_value in benchmark_expected.items():
+        calculated = parse_decimal(target.get(feature))
+        difference = abs((calculated or Decimal("0")) - (expected_value or Decimal("0")))
+        rows.append(
+            {
+                "symbol": symbol,
+                "trading_date": trading_date,
+                "feature": feature,
+                "calculated": calculated,
+                "expected": expected_value,
+                "difference": difference,
+                "tolerance": tolerance,
+                "result": "PASS" if expected_value is not None and difference <= tolerance else "FAIL",
+            }
+        )
+
+    sector_target = next(
+        (
+            row
+            for row in reversed(pilot_rows)
+            if row.get("sector_mapping_status") in ALLOWED_SECTOR_MAPPING_STATUSES
+            and row.get("sector_return_5d") is not None
+            and row.get("relative_return_5d_vs_sector") is not None
+        ),
+        None,
+    )
+    if sector_target is not None:
+        sector_symbol = str(sector_target["symbol"])
+        sector_date = parse_date(str(sector_target["trading_date"]))
+        sector_bars = bars_by_symbol[sector_symbol]
+        sector_index = next(offset for offset, bar in enumerate(sector_bars) if bar.trading_date == sector_date)
+        sector_stock_return = daily.trailing_return(sector_bars, sector_index, 5)
+        sector_return = relative_strength_context.sector_return_for(str(sector_target["sector_index_id"]), sector_date, 5)
+        sector_expected = {
+            "sector_return_5d": sector_return,
+            "relative_return_5d_vs_sector": (
+                sector_stock_return - sector_return if sector_stock_return is not None and sector_return is not None else None
+            ),
+        }
+        for feature, expected_value in sector_expected.items():
+            calculated = parse_decimal(sector_target.get(feature))
+            difference = abs((calculated or Decimal("0")) - (expected_value or Decimal("0")))
+            rows.append(
+                {
+                    "symbol": sector_symbol,
+                    "trading_date": sector_date,
+                    "feature": feature,
+                    "calculated": calculated,
+                    "expected": expected_value,
+                    "difference": difference,
+                    "tolerance": tolerance,
+                    "result": "PASS" if expected_value is not None and difference <= tolerance else "FAIL",
+                }
+            )
+    else:
+        current_only_target = next(
+            (row for row in reversed(pilot_rows) if row.get("sector_mapping_status") == "CURRENT_ONLY"),
+            None,
+        )
+        rows.append(
+            {
+                "symbol": current_only_target["symbol"] if current_only_target else "",
+                "trading_date": current_only_target["trading_date"] if current_only_target else "",
+                "feature": "sector_relative_null_policy",
+                "calculated": current_only_target.get("relative_return_5d_vs_sector") if current_only_target else None,
+                "expected": None,
+                "difference": 0,
+                "tolerance": tolerance,
+                "result": (
+                    "PASS"
+                    if current_only_target is not None and current_only_target.get("relative_return_5d_vs_sector") is None
+                    else "FAIL"
+                ),
             }
         )
     return {"passed": all(row["result"] == "PASS" for row in rows), "rows": rows}
@@ -1153,13 +1439,36 @@ def quality_summary_rows(result: dict[str, Any]) -> list[dict[str, Any]]:
         {"metric": "insufficient_history_rows", "value": result["insufficient_history_rows"], "notes": ""},
         {"metric": "membership_uncertain_rows", "value": result["membership_uncertain_rows"], "notes": "Historical membership remains PARTIAL_HISTORY."},
         {"metric": "benchmark_unavailable_rows", "value": result["benchmark_unavailable_rows"], "notes": ""},
+        {"metric": "benchmark_relative_available_rows", "value": result["benchmark_relative_available_rows"], "notes": f"{result['benchmark_relative_coverage_percent']}%"},
+        {"metric": "benchmark_relative_unavailable_rows", "value": result["benchmark_relative_unavailable_rows"], "notes": ""},
+        {"metric": "sector_relative_available_rows", "value": result["sector_relative_available_rows"], "notes": f"{result['sector_relative_coverage_percent']}%"},
+        {"metric": "sector_relative_unavailable_rows", "value": result["sector_relative_unavailable_rows"], "notes": ""},
+        {"metric": "relative_strength_5d_usable_rows", "value": result["relative_strength_5d_usable_rows"], "notes": f"{result['relative_strength_5d_usable_percent']}%"},
+        {"metric": "relative_strength_20d_usable_rows", "value": result["relative_strength_20d_usable_rows"], "notes": f"{result['relative_strength_20d_usable_percent']}%"},
     ]
     for status, count in sorted(result["feature_status_counts"].items()):
         rows.append({"metric": f"feature_status.{status}", "value": count, "notes": ""})
+    for status, count in sorted(result["sector_mapping_status_counts"].items()):
+        rows.append({"metric": f"sector_mapping_status.{status}", "value": count, "notes": ""})
     for lookback, counts in sorted(result["lookback_usability"].items(), key=lambda item: int(item[0])):
         rows.append({"metric": f"lookback_{lookback}.usable", "value": counts["usable"], "notes": f"{result['usable_percent_by_lookback'][lookback]}%"})
         rows.append({"metric": f"lookback_{lookback}.unusable", "value": counts["unusable"], "notes": ""})
     return rows
+
+
+def relative_strength_quality_rows(result: dict[str, Any]) -> list[dict[str, Any]]:
+    return [
+        {"metric": "generated_feature_rows", "value": result["generated_feature_rows"], "notes": ""},
+        {"metric": "benchmark_relative_available_rows", "value": result["benchmark_relative_available_rows"], "notes": f"{result['benchmark_relative_coverage_percent']}%"},
+        {"metric": "benchmark_relative_unavailable_rows", "value": result["benchmark_relative_unavailable_rows"], "notes": ""},
+        {"metric": "sector_relative_available_rows", "value": result["sector_relative_available_rows"], "notes": f"{result['sector_relative_coverage_percent']}%"},
+        {"metric": "sector_relative_unavailable_rows", "value": result["sector_relative_unavailable_rows"], "notes": ""},
+        {"metric": "relative_strength_5d_usable_rows", "value": result["relative_strength_5d_usable_rows"], "notes": f"{result['relative_strength_5d_usable_percent']}%"},
+        {"metric": "relative_strength_20d_usable_rows", "value": result["relative_strength_20d_usable_rows"], "notes": f"{result['relative_strength_20d_usable_percent']}%"},
+    ] + [
+        {"metric": f"sector_mapping_status.{status}", "value": count, "notes": ""}
+        for status, count in sorted(result["sector_mapping_status_counts"].items())
+    ]
 
 
 def write_daily_feature_engine_markdown(report: dict[str, Any], path: Path) -> None:
@@ -1168,11 +1477,13 @@ def write_daily_feature_engine_markdown(report: dict[str, Any], path: Path) -> N
     lines = [
         "# Daily Feature Engine",
         "",
-        "Current phase: Step 02.4 / Command 01 - leakage-safe historical daily feature engine foundation",
+        "Current phase: Step 02.4 / Command 02 - benchmark and sector relative-strength context",
         "",
         "## Status",
         "",
         f"- Feature methodology: {report['feature_engine']['feature_version']}",
+        f"- Benchmark context version: {report['methodology']['benchmark_context_version']}",
+        f"- Sector context version: {report['methodology']['sector_context_version']}",
         f"- Full generation completed: {generation['full_generation_completed']}",
         f"- Ready for review: {report['ready_for_review']}",
         f"- Feature dataset: {report['feature_engine']['dataset_path']}",
@@ -1193,6 +1504,8 @@ def write_daily_feature_engine_markdown(report: dict[str, Any], path: Path) -> N
         "- Rolling windows use trading sessions, not calendar days.",
         "- Relative volume denominators use prior sessions only and exclude the current date.",
         "- Prior highs/lows exclude the current date; inclusive rolling highs/lows are stored separately.",
+        "- Benchmark and sector index closes are official DAILY_EOD context and are not treated as intraday inputs.",
+        "- DAILY_FEATURES_V1 is retained; benchmark_context_version and sector_context_version record this Command 02 enhancement.",
         "",
         "## Feature Groups",
         "",
@@ -1212,9 +1525,12 @@ def write_daily_feature_engine_markdown(report: dict[str, Any], path: Path) -> N
             "## Benchmark And Sector",
             "",
             f"- Benchmark status: {report['benchmark']['status']}",
+            f"- Primary benchmark: {report['benchmark']['primary_benchmark_id']}",
+            f"- Secondary benchmark: {report['benchmark']['secondary_benchmark_id']}",
             f"- Benchmark reason: {report['benchmark']['reason']}",
             f"- Sector status: {report['sector']['status']}",
             f"- Sector reason: {report['sector']['reason']}",
+            f"- Sector mapping policy: {report['sector']['mapping_policy']}",
             "",
             "## Pilot",
             "",
@@ -1233,6 +1549,10 @@ def write_daily_feature_engine_markdown(report: dict[str, Any], path: Path) -> N
             f"- Corporate-action-blocked rows: {generation['corporate_action_blocked_rows']}",
             f"- Insufficient-history rows: {generation['insufficient_history_rows']}",
             f"- Membership-uncertain rows: {generation['membership_uncertain_rows']}",
+            f"- Benchmark-relative rows: {generation['benchmark_relative_available_rows']} ({generation['benchmark_relative_coverage_percent']}%)",
+            f"- Sector-relative rows: {generation['sector_relative_available_rows']} ({generation['sector_relative_coverage_percent']}%)",
+            f"- 5-session relative strength usable: {generation['relative_strength_5d_usable_percent']}%",
+            f"- 20-session relative strength usable: {generation['relative_strength_20d_usable_percent']}%",
             f"- 5-session usable: {generation['usable_percent_by_lookback']['5']}%",
             f"- 20-session usable: {generation['usable_percent_by_lookback']['20']}%",
             f"- 60-session usable: {generation['usable_percent_by_lookback']['60']}%",
@@ -1250,10 +1570,96 @@ def write_daily_feature_engine_markdown(report: dict[str, Any], path: Path) -> N
             "",
             "## Known Limitations",
             "",
-            "- Official benchmark history is not present locally, so benchmark-relative fields are unavailable.",
-            "- Point-in-time sector mapping is unavailable, so sector-relative features remain deferred.",
+            "- Sector index history is available where official NSE publishes it, but point-in-time stock-sector mapping remains limited.",
+            "- CURRENT_ONLY sector mappings are retained for diagnostics and deliberately produce null sector-relative fields.",
             "- Historical Nifty 500 membership remains PARTIAL_HISTORY and must be considered by future backtests.",
             "- EMA features are deferred; SMA descriptors are implemented for Command 01.",
+            "",
+        ]
+    )
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("\n".join(lines), encoding="utf-8")
+
+
+def write_benchmark_and_sector_context_markdown(report: dict[str, Any], path: Path) -> None:
+    generation = report["generation"]
+    benchmark_coverage = report["benchmark"].get("coverage", {})
+    sector_coverage = report["sector"].get("coverage", {})
+    lines = [
+        "# Benchmark And Sector Context",
+        "",
+        "Current phase: Step 02.4 / Command 02 - official benchmark and sector relative-strength foundation",
+        "",
+        "## Status",
+        "",
+        f"- Benchmark context version: {report['methodology']['benchmark_context_version']}",
+        f"- Sector context version: {report['methodology']['sector_context_version']}",
+        f"- Feature version decision: {report['feature_engine']['feature_version']} retained with context-version metadata.",
+        f"- Full feature regeneration completed: {generation['full_generation_completed']}",
+        f"- Ready for review: {report['ready_for_review']}",
+        "",
+        "## Official Sources",
+        "",
+        "- Official NSE historical index data endpoint: https://www.nseindia.com/api/historicalOR/indicesHistory",
+        "- Official NSE historical index page: https://www.nseindia.com/reports-indices-historical-index-data",
+        "- Official NSE live index inventory endpoint: https://www.nseindia.com/api/allIndices",
+        "- Current official Nifty 500 constituent CSV: https://www.niftyindices.com/IndexConstituent/ind_nifty500list.csv",
+        "",
+        "## Formulas And Timing",
+        "",
+        "- benchmark_return_Nd = index_close_T / index_close_T-N - 1.",
+        "- relative_return_Nd_vs_nifty500 = adjusted_stock_return_Nd - NIFTY_500_return_Nd.",
+        "- relative_return_Nd_vs_sector = adjusted_stock_return_Nd - sector_index_return_Nd when mapping is approved for T.",
+        "- All benchmark and sector features are DAILY_EOD and become NEXT_SESSION_DECISION_INPUT for the next session.",
+        "- Missing official index sessions are not forward-filled.",
+        "- Corporate-action blocked stock windows also block benchmark and sector relative returns.",
+        "",
+        "## Benchmark Coverage",
+        "",
+    ]
+    for benchmark_id, row in sorted(benchmark_coverage.items()):
+        lines.append(
+            "- "
+            f"{benchmark_id} ({row.get('index_name', '')}): {row.get('first_date', '')} to {row.get('last_date', '')}, "
+            f"{row.get('available_sessions', 0)}/{row.get('target_sessions', 0)} sessions, "
+            f"{row.get('missing_sessions', 0)} missing, {row.get('coverage_percent', '0')}% coverage"
+        )
+    lines.extend(["", "## Sector Index Coverage", ""])
+    for sector_id, row in sorted(sector_coverage.items()):
+        lines.append(
+            "- "
+            f"{sector_id} ({row.get('index_name', '')}): {row.get('first_date', '')} to {row.get('last_date', '')}, "
+            f"{row.get('available_sessions', 0)}/{row.get('target_sessions', 0)} sessions, "
+            f"{row.get('missing_sessions', 0)} missing, {row.get('coverage_percent', '0')}% coverage, usable={row.get('usable', False)}"
+        )
+    lines.extend(
+        [
+            "",
+            "## Stock-Sector Mapping",
+            "",
+            f"- Mapping policy: {report['sector']['mapping_policy']}",
+            "- POINT_IN_TIME_VERIFIED and INFERRED_WITH_EVIDENCE are eligible for sector-relative features.",
+            "- CURRENT_ONLY is not projected backward and produces null sector-relative fields.",
+        ]
+    )
+    for status, count in sorted(generation["sector_mapping_status_counts"].items()):
+        lines.append(f"- Generated rows with {status}: {count}")
+    lines.extend(
+        [
+            "",
+            "## Regenerated Feature Coverage",
+            "",
+            f"- Total feature rows: {generation['generated_feature_rows']}",
+            f"- Benchmark-relative rows available: {generation['benchmark_relative_available_rows']} ({generation['benchmark_relative_coverage_percent']}%)",
+            f"- Sector-relative rows available: {generation['sector_relative_available_rows']} ({generation['sector_relative_coverage_percent']}%)",
+            f"- 5-session relative-strength usable: {generation['relative_strength_5d_usable_percent']}%",
+            f"- 20-session relative-strength usable: {generation['relative_strength_20d_usable_percent']}%",
+            "",
+            "## Known Limitations",
+            "",
+            "- Historical Nifty 500 membership remains PARTIAL_HISTORY.",
+            "- Public point-in-time stock-sector membership archives were not available inside this command scope.",
+            "- No strategy scores, candidate selection, labels, backtests, orders, remote migrations, or Supabase bulk writes are performed.",
             "",
         ]
     )
@@ -1272,6 +1678,8 @@ def status_priority(status: str) -> int:
         STATUS_READY: 0,
         STATUS_NOT_APPLICABLE: 0,
         STATUS_BENCHMARK_UNAVAILABLE: 1,
+        STATUS_SECTOR_CONTEXT_UNAVAILABLE: 1,
+        STATUS_SECTOR_MAPPING_UNAVAILABLE: 1,
         STATUS_INSUFFICIENT_HISTORY: 2,
         STATUS_MISSING_INPUT_DATA: 3,
         STATUS_INVALID_SOURCE_ROW: 4,
@@ -1296,6 +1704,10 @@ def feature_windows(config: DailyFeatureConfig) -> dict[str, Any]:
         "sma": list(config.sma_windows),
         "volatility": list(config.volatility_windows),
         "range": list(config.range_windows),
+        "benchmark_returns": list(config.benchmark_return_windows),
+        "benchmark_relative": list(config.benchmark_relative_windows),
+        "secondary_benchmark": list(config.secondary_benchmark_windows),
+        "sector_returns": list(config.sector_return_windows),
     }
 
 

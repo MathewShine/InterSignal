@@ -118,8 +118,10 @@ class NSEDailyReferenceProvider:
 
     def get_or_download_daily_file(self, trading_date: date) -> Path | None:
         self.cache_dir.mkdir(parents=True, exist_ok=True)
+        ddmmyyyy = trading_date.strftime("%d%m%Y")
         missing_marker = self.cache_dir / f"{trading_date.isoformat()}.missing"
-        if missing_marker.exists() and not self.force_refresh:
+        legacy_missing_marker = self.cache_dir / f"{ddmmyyyy}.missing"
+        if (missing_marker.exists() or legacy_missing_marker.exists()) and not self.force_refresh:
             return None
 
         for candidate in self._cache_candidates(trading_date):
