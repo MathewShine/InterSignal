@@ -83,6 +83,16 @@ export function DevelopmentHome() {
         status="available"
         detail="Setup funnel, candle semantics, and sensitivity diagnostics"
       />
+      <StatusPanel
+        label="Historical Market Regime"
+        status="available"
+        detail="Daily EOD broad-market context foundation"
+      />
+      <StatusPanel
+        label="Market Regime Stability Audit"
+        status="available"
+        detail="Structural audit without outcome labels"
+      />
     </div>
   );
 }
