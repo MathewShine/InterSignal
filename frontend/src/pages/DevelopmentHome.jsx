@@ -73,6 +73,16 @@ export function DevelopmentHome() {
         status="available"
         detail="RVOL confirmation semantics without outcome labels"
       />
+      <StatusPanel
+        label="Daily Setup Evaluator"
+        status="pilot"
+        detail="Breakout and continuation setup quality foundation"
+      />
+      <StatusPanel
+        label="Daily Setup Audit"
+        status="available"
+        detail="Setup funnel, candle semantics, and sensitivity diagnostics"
+      />
     </div>
   );
 }
