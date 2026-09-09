@@ -93,6 +93,16 @@ export function DevelopmentHome() {
         status="available"
         detail="Structural audit without outcome labels"
       />
+      <StatusPanel
+        label="Strategy V1 Entry Evaluator"
+        status="available"
+        detail="Entry context gate foundation"
+      />
+      <StatusPanel
+        label="Entry Evaluation Audit"
+        status="available"
+        detail="Structural selectivity and invariant audit"
+      />
     </div>
   );
 }
