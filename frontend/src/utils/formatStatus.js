@@ -1,6 +1,7 @@
 const statusLabels = {
   ok: "Online",
   available: "Available",
+  complete: "Complete",
   checking: "Checking",
   pilot: "Pilot",
   partial: "Partial",
@@ -19,7 +20,7 @@ export function formatStatusLabel(status) {
 }
 
 export function getStatusClassName(status) {
-  if (status === "ok" || status === "available") {
+  if (status === "ok" || status === "available" || status === "complete") {
     return "status-ok";
   }
 

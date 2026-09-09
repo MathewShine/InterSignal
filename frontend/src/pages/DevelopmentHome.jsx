@@ -103,6 +103,21 @@ export function DevelopmentHome() {
         status="available"
         detail="Structural selectivity and invariant audit"
       />
+      <StatusPanel
+        label="Risk Structure Engine"
+        status="available"
+        detail="Stop, target, reward:risk, and position-risk foundation"
+      />
+      <StatusPanel
+        label="Risk Structure Audit"
+        status="available"
+        detail="Stop semantics, target fallback, and capital-risk audit"
+      />
+      <StatusPanel
+        label="Risk Structure Foundation"
+        status="complete"
+        detail="Current: RISK_STRUCTURE_V1_1"
+      />
     </div>
   );
 }
