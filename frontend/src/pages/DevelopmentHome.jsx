@@ -58,6 +58,21 @@ export function DevelopmentHome() {
         status="limited"
         detail="Official sector index histories with current-only stock mapping"
       />
+      <StatusPanel
+        label="Momentum Candidate Engine"
+        status="pilot"
+        detail="Emerging and confirmed research candidates"
+      />
+      <StatusPanel
+        label="Momentum Candidate Audit"
+        status="available"
+        detail="Structural funnel audit without outcome labels"
+      />
+      <StatusPanel
+        label="Emerging Volume Semantics Audit"
+        status="available"
+        detail="RVOL confirmation semantics without outcome labels"
+      />
     </div>
   );
 }

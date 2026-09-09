@@ -47,5 +47,7 @@ data/reference/nse/indices/raw/
 data/reference/nse/corporate_actions/raw/
 data/reference/nifty500/history/raw/
 data/research/adjusted/
+data/research/audits/
+data/research/candidates/
 data/research/features/
 tmp/
