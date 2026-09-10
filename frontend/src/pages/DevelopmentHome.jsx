@@ -118,6 +118,16 @@ export function DevelopmentHome() {
         status="complete"
         detail="Current: RISK_STRUCTURE_V1_1"
       />
+      <StatusPanel
+        label="Strategy V1 Scoring"
+        status="complete"
+        detail="Current: STRATEGY_SCORE_V1 / SWING_DAILY_EOD_V1"
+      />
+      <StatusPanel
+        label="Strategy Score Structural Audit"
+        status="available"
+        detail="Score mechanics and gate-separation audit"
+      />
     </div>
   );
 }
