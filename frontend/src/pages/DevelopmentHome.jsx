@@ -128,6 +128,16 @@ export function DevelopmentHome() {
         status="available"
         detail="Score mechanics and gate-separation audit"
       />
+      <StatusPanel
+        label="Historical Outcome Labeling"
+        status="complete"
+        detail="Current: STRATEGY_OUTCOME_V1 / SWING_DAILY_OUTCOME_V1"
+      />
+      <StatusPanel
+        label="Historical Outcome Structural Audit"
+        status="available"
+        detail="Outcome-label integrity and diagnostic review"
+      />
     </div>
   );
 }
