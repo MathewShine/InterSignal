@@ -138,6 +138,16 @@ export function DevelopmentHome() {
         status="available"
         detail="Outcome-label integrity and diagnostic review"
       />
+      <StatusPanel
+        label="Portfolio Backtest"
+        status="complete"
+        detail="Current mechanical baseline: PORTFOLIO_BACKTEST_V1 — HISTORICAL RESEARCH / GROSS BEFORE COSTS"
+      />
+      <StatusPanel
+        label="Portfolio Backtest Structural Audit"
+        status="available"
+        detail="Available; historical research / gross before costs"
+      />
     </div>
   );
 }
