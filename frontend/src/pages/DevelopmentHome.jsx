@@ -148,6 +148,36 @@ export function DevelopmentHome() {
         status="available"
         detail="Available; historical research / gross before costs"
       />
+      <StatusPanel
+        label="Strategy Diagnostic Research"
+        status="available"
+        detail="Framework Available — HISTORICAL RESEARCH ONLY"
+      />
+      <StatusPanel
+        label="Exit / Stop-Path Diagnostics"
+        status="available"
+        detail="Available — HISTORICAL RESEARCH ONLY"
+      />
+      <StatusPanel
+        label="Entry Quality Diagnostics"
+        status="available"
+        detail="Available — HISTORICAL RESEARCH ONLY"
+      />
+      <StatusPanel
+        label="Score Calibration Diagnostics"
+        status="available"
+        detail="Available — HISTORICAL RESEARCH ONLY"
+      />
+      <StatusPanel
+        label="Regime / Market Context Diagnostics"
+        status="available"
+        detail="Available — HISTORICAL RESEARCH ONLY"
+      />
+      <StatusPanel
+        label="Strategy Diagnostic Synthesis"
+        status="available"
+        detail="Available — RESEARCH DECISION SUPPORT ONLY"
+      />
     </div>
   );
 }

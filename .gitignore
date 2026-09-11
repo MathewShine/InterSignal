@@ -57,4 +57,5 @@ data/research/strategy_scores/
 data/research/setups/
 data/research/outcomes/
 data/research/backtests/
+data/research/diagnostics/
 tmp/
