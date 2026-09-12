@@ -58,4 +58,11 @@ data/research/setups/
 data/research/outcomes/
 data/research/backtests/
 data/research/diagnostics/
+data/research/costs/
+data/research/temporal_validation/
+data/raw/intraday/
+data/normalized/intraday/
+data/derived/intraday/
+data/research/intraday/
+data/research/experiments/
 tmp/

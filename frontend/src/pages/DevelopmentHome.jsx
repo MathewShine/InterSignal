@@ -178,6 +178,41 @@ export function DevelopmentHome() {
         status="available"
         detail="Available — RESEARCH DECISION SUPPORT ONLY"
       />
+      <StatusPanel
+        label="Transaction Cost Research"
+        status="available"
+        detail="Foundation Available — HISTORICAL RESEARCH — NET ESTIMATE / COST ASSUMPTIONS"
+      />
+      <StatusPanel
+        label="Temporal Validation Harness"
+        status="available"
+        detail="Validation SEALED — RESEARCH GOVERNANCE"
+      />
+      <StatusPanel
+        label="Intraday Research Architecture"
+        status="available"
+        detail="Available — Canonical 5-minute — ARCHITECTURE ONLY — NO LIVE EXECUTION"
+      />
+      <StatusPanel
+        label="Real Intraday Pilot"
+        status="pilot"
+        detail="Groww bounded provider audit — DEVELOPMENT DATA ONLY — NO LIVE EXECUTION"
+      />
+      <StatusPanel
+        label="Development Intraday Dataset"
+        status="available"
+        detail="Groww bounded ingestion — DEVELOPMENT COVERAGE — VALIDATION SEALED — RESEARCH DATA ONLY"
+      />
+      <StatusPanel
+        label="Groww Intraday Audit"
+        status="limited"
+        detail="Reconciliation: BENIGN SOURCE SEMANTICS — Retrieval: SDK WITH TIMEOUT WRAPPER — Command 05 Resume: ELIGIBLE AFTER FIX — ROOT-CAUSE AUDIT ONLY"
+      />
+      <StatusPanel
+        label="Development Intraday Resume"
+        status="available"
+        detail="COMPLETE 705/705 — Transport V1.1 CLEAN — Coverage: 53.72% all DEVELOPMENT / 99.37% selected scope — Validation SEALED — RESEARCH DATA ONLY"
+      />
     </div>
   );
 }
