@@ -427,15 +427,26 @@ def test_temporal_guard_allows_structural_inspection_but_rejects_holdout_perform
 
 
 def test_report_generation_and_safety_contract(repo_root: Path) -> None:
-    first = build_intraday_architecture_research(repo_root=repo_root)
-    second = build_intraday_architecture_research(repo_root=repo_root)
-    assert first["dataset_hashes"] == second["dataset_hashes"]
-    assert first["pilot"]["passed_case_count"] == 14
-    assert first["temporal_integration"]["validation_state"] == "SEALED"
-    assert first["safety"]["holdout_performance_exposed"] is False
-    assert first["regression"]["baseline_mutation_violations"] == 0
-    for name in REPORT_NAMES:
-        assert (repo_root / "data/reports" / name).stat().st_size > 0
+    report_paths = [repo_root / "data/reports" / name for name in REPORT_NAMES]
+    original_reports = {
+        path: path.read_bytes() if path.exists() else None for path in report_paths
+    }
+    try:
+        first = build_intraday_architecture_research(repo_root=repo_root)
+        second = build_intraday_architecture_research(repo_root=repo_root)
+        assert first["dataset_hashes"] == second["dataset_hashes"]
+        assert first["pilot"]["passed_case_count"] == 14
+        assert first["temporal_integration"]["validation_state"] == "SEALED"
+        assert first["safety"]["holdout_performance_exposed"] is False
+        assert first["regression"]["baseline_mutation_violations"] == 0
+        for path in report_paths:
+            assert path.stat().st_size > 0
+    finally:
+        for path, original in original_reports.items():
+            if original is None:
+                path.unlink(missing_ok=True)
+            else:
+                path.write_bytes(original)
 
 
 def test_generated_summary_has_required_classifications(repo_root: Path) -> None:

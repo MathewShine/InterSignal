@@ -65,4 +65,6 @@ data/normalized/intraday/
 data/derived/intraday/
 data/research/intraday/
 data/research/experiments/
+data/research/validation/
+data/research/strategy_families/
 tmp/

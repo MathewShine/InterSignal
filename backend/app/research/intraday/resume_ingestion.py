@@ -472,6 +472,8 @@ class ResumeGrowwTransport:
         total_timeout_seconds: float = TOTAL_TIMEOUT_SECONDS,
         max_retries: int = MAX_RETRIES,
         throttle_seconds: float = THROTTLE_SECONDS,
+        allowed_start_date: date = DEFAULT_TEMPORAL_CONFIG.development_start,
+        allowed_end_date: date = DEFAULT_TEMPORAL_CONFIG.development_end,
         sleeper: Callable[[float], None] = time.sleep,
         monotonic: Callable[[], float] = time.perf_counter,
         wall_clock: Callable[[], datetime] = lambda: datetime.now(timezone.utc),
@@ -490,6 +492,10 @@ class ResumeGrowwTransport:
         self.total_timeout_seconds = total_timeout_seconds
         self.max_retries = max_retries
         self.throttle_seconds = max(throttle_seconds, 0.0)
+        if allowed_start_date > allowed_end_date:
+            raise ValueError("allowed_start_date must not exceed allowed_end_date")
+        self.allowed_start_date = allowed_start_date
+        self.allowed_end_date = allowed_end_date
         self.sleeper = sleeper
         self.monotonic = monotonic
         self.wall_clock = wall_clock
@@ -519,7 +525,7 @@ class ResumeGrowwTransport:
         request_id = str(request["request_id"])
         start_date = date.fromisoformat(str(request["start_date"]))
         end_date = date.fromisoformat(str(request["end_date"]))
-        if start_date < DEFAULT_TEMPORAL_CONFIG.development_start or end_date > DEFAULT_TEMPORAL_CONFIG.development_end:
+        if start_date < self.allowed_start_date or end_date > self.allowed_end_date:
             raise RuntimeError("VALIDATION_DATE_REQUEST_REJECTED")
         if (end_date - start_date).days + 1 > 30:
             raise RuntimeError("FROZEN_REQUEST_WINDOW_INVALID")
