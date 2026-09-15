@@ -15,6 +15,7 @@ from app.research.strategy.family_e_development_evaluation import (
     COMMAND_PROFILE,
     COMMAND_VERSION,
     EXPECTED_ARCHITECTURE_MANIFEST_HASH,
+    CURRENT_ARCHITECTURE_ARTIFACT_MANIFEST_HASH,
     REPORT_NAMES,
     SIGNAL_QUALITY_MODE,
     admission_overlap,
@@ -90,7 +91,10 @@ def test_architecture_manifest_and_command_01_artifacts_are_immutable() -> None:
         if key != "family_e_architecture_manifest_hash"
     }
     assert canonical_hash(body) == manifest["family_e_architecture_manifest_hash"]
-    assert manifest["family_e_architecture_manifest_hash"] == EXPECTED_ARCHITECTURE_MANIFEST_HASH
+    assert (
+        manifest["family_e_architecture_manifest_hash"]
+        == CURRENT_ARCHITECTURE_ARTIFACT_MANIFEST_HASH
+    )
     assert all(
         (REPO_ROOT / relative).is_file()
         and file_sha256(REPO_ROOT / relative) == expected

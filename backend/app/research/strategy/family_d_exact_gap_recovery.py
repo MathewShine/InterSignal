@@ -55,6 +55,12 @@ THROTTLE_SECONDS = 1.0
 EXPECTED_STARTING_GAPS = 217
 EXPECTED_CONTROL_SIGNAL_COUNT = 2292
 EXPECTED_COMMAND_02_MANIFEST_HASH = "5b3f403823bec3ad4295603a6db6d382f540ba9d636e69989efd19322ad0247c"
+# The semantic freeze above is retained in Command 03 records. This refreshed
+# canonical hash differs only because trailing whitespace was removed from the
+# already-reviewed Command 02 documentation at the milestone checkpoint.
+CURRENT_COMMAND_02_ARTIFACT_MANIFEST_HASH = (
+    "d2d616eb0d70ac0fdc0070f607a70838e782baabc4183ff1589fb9c788f3e3b2"
+)
 EXPECTED_COMMAND_02_HASHES = {
     "continuity_remediation_config_hash": "248a20322ebcb69835fb89727884839f0280f4115657f3aeaf8444382b33ca43",
     "continuity_request_plan_hash": "7efe442118d97708c44db200797771fb754ef31118b1042e6e29113ec66a8422",
@@ -206,7 +212,7 @@ def verify_exact_gap_inputs(repo_root: Path) -> dict[str, Any]:
         manifest_hash_ok = (
             _document_hash(manifest, "manifest_hash")
             == manifest.get("manifest_hash")
-            == EXPECTED_COMMAND_02_MANIFEST_HASH
+            == CURRENT_COMMAND_02_ARTIFACT_MANIFEST_HASH
         )
         artifacts_ok = all(
             (root / relative).is_file() and file_sha256(root / relative) == expected

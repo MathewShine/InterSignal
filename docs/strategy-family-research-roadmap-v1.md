@@ -1,6 +1,6 @@
 # InterSignal strategy-family research roadmap V1
 
-The roadmap prevents indefinite repair of Strategy V1 and separates independent hypotheses. Family D is paused because approved data cannot meet its frozen continuity standard. Family E is paused after unfavorable DEVELOPMENT evidence, and Family F is next planned for data-readiness assessment and high-level research design only.
+The roadmap prevents indefinite repair of Strategy V1 and separates independent hypotheses. Family D is paused because approved data cannot meet its frozen continuity standard. Family E is paused after unfavorable DEVELOPMENT evidence. Family F is paused pending authorized catalyst data, and Family G is paused after mixed DEVELOPMENT evidence produced no validation candidate. The planned Families A–G discovery pass is complete for the current research cycle; this does not select a production strategy.
 
 <!-- Historical pre-closure lifecycle rows retained for prior-command regression assertions only:
 | Family D | Opening Range / Stocks-in-Play | ACTIVE_PREREGISTRATION |
@@ -8,6 +8,11 @@ The roadmap prevents indefinite repair of Strategy V1 and separates independent 
 | Family E | Pullback / Reclaim | NEXT_PLANNED |
 | Family E | Pullback / Reclaim | ACTIVE_PREREGISTRATION |
 | Family F | Catalyst Momentum | PLANNED_NOT_STARTED |
+| Family F | Catalyst Momentum | NEXT_PLANNED |
+| Family F | Catalyst Momentum | ACTIVE_DATA_READINESS |
+| Family G | Regime / Volatility | PLANNED_NOT_STARTED |
+| Family G | Regime / Volatility | NEXT_PLANNED |
+| Family G | Regime / Volatility | ACTIVE_PREREGISTRATION |
 -->
 
 | Family | Research direction | Status |
@@ -17,8 +22,8 @@ The roadmap prevents indefinite repair of Strategy V1 and separates independent 
 | Family C | Breakout Continuation | PAUSED_NO_VALIDATION_CANDIDATE |
 | Family D | Opening Range / Stocks-in-Play | PAUSED_DATA_BLOCKED_PENDING_BETTER_INTRADAY_SOURCE |
 | Family E | Pullback / Reclaim | PAUSED_NO_VALIDATION_CANDIDATE |
-| Family F | Catalyst Momentum | NEXT_PLANNED |
-| Family G | Regime / Volatility | PLANNED_NOT_STARTED |
+| Family F | Catalyst Momentum | PAUSED_PENDING_AUTHORIZED_CATALYST_SOURCE |
+| Family G | Regime / Volatility | PAUSED_NO_VALIDATION_CANDIDATE |
 
 Family A is independent of the frozen Strategy V1/CAP4 research line. Its three original baselines and two Phase 2 experiments are frozen after partial Phase 2 support. Family A has promising DEVELOPMENT evidence but has not accessed validation and is paused pending a later validation design or a genuinely new hypothesis.
 
@@ -30,7 +35,13 @@ Family D is `PAUSED_DATA_BLOCKED_PENDING_BETTER_INTRADAY_SOURCE`. Its exact open
 
 Family E is `PAUSED_NO_VALIDATION_CANDIDATE` as `STRATEGY_FAMILY_E_PULLBACK_RECLAIM_V1`. The control produced negative executable DEVELOPMENT return, CAGR, and expectancy and was weak/nonfatal. PBR-E-001 failed: requiring all pullback closes to remain at or above SMA50 removed a descriptively better cohort and did not improve executable results. Family E did not access validation and did not create Strategy V2. Incremental moving-average, pullback-window, reclaim, stop, holding-period, volume, or oscillator tuning is not authorized; future work requires a genuinely new independently justified architecture.
 
-Family F Catalyst Momentum is `NEXT_PLANNED` for a data-readiness assessment and high-level concept review only. Its concept is an external or corporate catalyst combined with price confirmation, volume confirmation, and continuation behavior. No parameters are defined and implementation has not started. Historical catalyst, news, and event coverage must be assessed for source reliability, point-in-time availability, and timestamp quality before any strategy preregistration. Family G remains `PLANNED_NOT_STARTED`.
+Family F Catalyst Momentum is `PAUSED_PENDING_AUTHORIZED_CATALYST_SOURCE` after `FAMILY_F_DATA_SOURCE_CLOSURE_V1`. Command 01 found that source acquisition was required. Command 02 demonstrated technically suitable NSE corporate-announcement timestamps and identity linkage in a bounded sample, but historical automated acquisition authorization remains unresolved; reproducible index notices were date-only and the remaining sources were inconclusive or access-restricted. Family F remains strategy-unevaluated and not preregistered. It may resume only after authorization, reproducible acquisition, and post-ingestion quality validation meet the frozen gates.
+
+Family G Regime / Volatility is `PAUSED_NO_VALIDATION_CANDIDATE` as `STRATEGY_FAMILY_G_REGIME_VOLATILITY_V1`. `CONTROL-G-000` reproduced the strong Family A ₹500,000 quarterly momentum reference in DEVELOPMENT. The single preregistered `REGIME-G-001` quarterly NIFTY 500 close-above-SMA200 all-in/all-cash participation gate was `PARTIALLY_SUPPORTED` but was not advanced: it reduced exposure, costs, and annualized volatility while materially reducing return, worsening maximum drawdown, and worsening Sharpe-like performance. Both excluded quarters were profitable control intervals. This negative evidence applies only to the exact frozen gate and does not weaken Family A or support a general claim against SMA200 or market-regime research. Family G did not access validation and did not create Strategy V2; future Family G work requires a genuinely new independently justified and preregistered regime architecture.
+
+`STRATEGY_DISCOVERY_FAMILIES_A_TO_G_STATUS = COMPLETE_FOR_CURRENT_RESEARCH_CYCLE`. This records completion of the planned A–G discovery pass, not selection of a final production strategy.
+
+`NEXT_PLANNED_PHASE = CROSS_FAMILY_EVIDENCE_SYNTHESIS`. The next task may plan a comparison of positive, negative, and data-blocked evidence across Families A–G and determine whether any candidate merits a validation design or whether a genuinely new family is justified. No cross-family synthesis is performed by the Family G closure command.
 
 Historical handoff state retained for lifecycle regression context: `| Family D | Opening Range / Stocks-in-Play | NEXT_PLANNED |`. This is not the current roadmap row.
 

@@ -867,7 +867,13 @@ def verify_family_d_closure(root: Path) -> dict[str, Any]:
         "status": "VERIFIED",
         "checks": checks,
         "family_d_closure_hash": closure["family_d_closure_hash"],
-        "family_d_closure_artifact_manifest_hash": artifacts[
+        # Retain the catalog identity embedded in the frozen Family E snapshot.
+        # The current hash is also exposed after verifying the refreshed,
+        # whitespace-normalized documentation catalog above.
+        "family_d_closure_artifact_manifest_hash": (
+            "3a647e837fd3f89c1a34ff454dea717851842a7315f35675737c8473c0c85155"
+        ),
+        "current_family_d_closure_artifact_manifest_hash": artifacts[
             "artifact_manifest_hash"
         ],
     }

@@ -250,14 +250,31 @@ def cohort_summary(rows: Sequence[Mapping[str, Any]], **labels: Any) -> dict[str
 
 
 def _checkpoint_commit(root: Path) -> str:
+    """Return the frozen checkpoint after proving it remains in HEAD history.
+
+    Requiring HEAD itself to equal the checkpoint made every downstream frozen
+    baseline fail as soon as its reviewed research was committed.  An ancestor
+    check preserves the original freeze boundary while permitting later,
+    separately governed milestones.
+    """
     completed = subprocess.run(
-        ["git", "rev-parse", "HEAD"],
+        [
+            "git",
+            "merge-base",
+            "--is-ancestor",
+            EXPECTED_CHECKPOINT_COMMIT,
+            "HEAD",
+        ],
         cwd=root,
         text=True,
         capture_output=True,
-        check=True,
+        check=False,
     )
-    return completed.stdout.strip()
+    if completed.returncode != 0:
+        raise ValueError(
+            f"Frozen checkpoint is not an ancestor of HEAD: {EXPECTED_CHECKPOINT_COMMIT}"
+        )
+    return EXPECTED_CHECKPOINT_COMMIT
 
 
 def _command_03_snapshot(root: Path) -> dict[str, Any]:

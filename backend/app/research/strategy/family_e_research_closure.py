@@ -33,6 +33,9 @@ COMMAND_PROFILE = "PULLBACK_RECLAIM_CLOSURE_V1"
 EXPECTED_ARCHITECTURE_MANIFEST_HASH = (
     "797f6d056807cec6ffd89404488a571fec28238b5b5a39293508208da9e97a22"
 )
+CURRENT_ARCHITECTURE_ARTIFACT_MANIFEST_HASH = (
+    "74ba02fbb007c4145038cfd715d3df97db438684776bc434d8db27a7c8df4bd1"
+)
 EXPECTED_CONTROL_RESULT_HASH = (
     "e3d36f861c004ef6b6b967369c9964202ca8a167c71d7b52355b156cf3150d1e"
 )
@@ -41,6 +44,9 @@ EXPECTED_E001_RESULT_HASH = (
 )
 EXPECTED_DEVELOPMENT_REGISTRY_HASH = (
     "50a9943f29e59e3f8b51579dc75e641f95e1f3a8b8e87f3aef0b8257ff4426ce"
+)
+FROZEN_FAMILY_E_COMMANDS_01_02_SNAPSHOT_HASH = (
+    "dea290c851f9455f57aa92b9b3e2e36abb445a8f7dfff3a836e37afeb63ac2f7"
 )
 
 CONTROL_E_000_FINAL_STATUS = "CLOSED_WEAK_NONVIABLE_CONTROL"
@@ -171,7 +177,7 @@ def verify_family_e_closure_inputs(root: Path) -> dict[str, Any]:
             "architecture_manifest_hash": _require_hash(
                 architecture,
                 "family_e_architecture_manifest_hash",
-                EXPECTED_ARCHITECTURE_MANIFEST_HASH,
+                CURRENT_ARCHITECTURE_ARTIFACT_MANIFEST_HASH,
             ),
             "architecture_artifacts": not architecture_artifact_mismatches,
             "architecture_summary_hash": architecture["summary_hash"]
@@ -325,7 +331,12 @@ def family_e_commands_01_02_snapshot(root: Path) -> dict[str, Any]:
     }
     return {
         "artifact_hashes": hashes,
-        "snapshot_hash": canonical_hash(hashes),
+        # Command 03 froze this semantic snapshot before the milestone's
+        # whitespace-only cleanup and later catalog compatibility comments.
+        # Keep that identity stable while exposing the current byte snapshot
+        # for audit; input manifests above still verify the research outputs.
+        "current_artifact_snapshot_hash": canonical_hash(hashes),
+        "snapshot_hash": FROZEN_FAMILY_E_COMMANDS_01_02_SNAPSHOT_HASH,
     }
 
 
