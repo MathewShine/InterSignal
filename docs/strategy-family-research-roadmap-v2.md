@@ -4,7 +4,7 @@ This append-only roadmap advances the lifecycle after `CROSS_FAMILY_EVIDENCE_SYN
 
 | Family | Research direction | Frozen final status | Synthesis classification |
 |---|---|---|---|
-| Family A | Medium-Term Momentum | PAUSED_PENDING_LATER_VALIDATION_DESIGN | VALIDATION_CANDIDATE |
+| Family A | Medium-Term Momentum | VALIDATION_EVALUATED_INCONCLUSIVE | VALIDATION_CANDIDATE |
 | Family B | Relative + Absolute Momentum | PAUSED_NO_VALIDATION_CANDIDATE | NEGATIVE_DEVELOPMENT_EVIDENCE |
 | Family C | Breakout Continuation | PAUSED_NO_VALIDATION_CANDIDATE | REUSABLE_SIGNAL_EVIDENCE |
 | Family D | Opening Range / Stocks-in-Play | PAUSED_DATA_BLOCKED_PENDING_BETTER_INTRADAY_SOURCE | DATA_BLOCKED |
@@ -22,14 +22,18 @@ This append-only roadmap advances the lifecycle after `CROSS_FAMILY_EVIDENCE_SYN
 
 `PROVISIONAL_CANDIDATE = FAMILY_A_MOM_A_002_A2_002`.
 
-`VALIDATION_DESIGN_STATUS = ACTIVE`. `FAMILY_A_ONE_SHOT_VALIDATION_DESIGN_V1` is sealed for review; design activity does not authorize execution.
+`VALIDATION_DESIGN_STATUS = SEALED_COMPLETE`. `FAMILY_A_ONE_SHOT_VALIDATION_DESIGN_V1` remained unchanged through the governed validation.
 
-`VALIDATION_EXECUTION_STATUS = NOT_AUTHORIZED`. The lifecycle remains `SEALED_DESIGN`, with run count zero and a maximum of one formal run.
+`FAMILY_A_VALIDATION_STATUS = EVALUATED`. The lifecycle is `EVALUATED`. Attempt 1 was formally invalidated for a deterministic result-serializer defect before any result persistence; explicitly authorized attempt 2 is the single completed formal validation.
 
-`NEXT_PLANNED_PHASE = REVIEW_FAMILY_A_VALIDATION_DESIGN`. Any transition to `AUTHORIZED_FOR_ONE_SHOT` requires a separate explicit user authorization while keeping the exact candidate frozen.
+`VALIDATION_RUN_COUNT = 1/1`. `VALIDATION_ATTEMPT_COUNT = 2`; `INVALIDATED_ATTEMPT_COUNT = 1`; `REMAINING_FORMAL_RUNS = 0`; `SECOND_FORMAL_VALIDATION_RUN_ALLOWED = NO`.
+
+`FAMILY_A_VALIDATION_RESULT = INCONCLUSIVE`. The sealed implementation-integrity gate failed because the first three scheduled rebalances had zero eligible securities under the frozen eligibility inputs. `FAMILY_A_GENERALIZATION_RESULT = INCONCLUSIVE` and `STRATEGY_V2_ADVANCEMENT_STATUS = NO_DECISION`.
+
+`NEXT_PLANNED_PHASE = GOVERNANCE_REVIEW_FAMILY_A_INCONCLUSIVE_VALIDATION`. This does not authorize another validation run or candidate change.
 
 `FAMILY_H_STATUS = NOT_PLANNED`. No additional family is justified before the synthesis decision is carried into validation design.
 
-`STRATEGY_V2_STATUS = NOT_CREATED`.
+`STRATEGY_V2_STATUS = NOT_CREATED — NO_DECISION`.
 
 Families D and F remain blocked rather than failed. Family C's compression finding remains signal-level evidence rather than a portfolio candidate. No B, C, F, or G overlay is added to Family A, and no hybrid architecture exists.

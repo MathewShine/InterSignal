@@ -448,7 +448,7 @@ def test_documentation_and_roadmap_show_design_only_state() -> None:
     assert "A_TO_G_DISCOVERY_STATUS = COMPLETE" in roadmap
     assert "CROSS_FAMILY_EVIDENCE_SYNTHESIS_STATUS = COMPLETE" in roadmap
     assert "PROVISIONAL_CANDIDATE = FAMILY_A_MOM_A_002_A2_002" in roadmap
-    assert "VALIDATION_DESIGN_STATUS = ACTIVE" in roadmap
-    assert "VALIDATION_EXECUTION_STATUS = NOT_AUTHORIZED" in roadmap
-    assert "STRATEGY_V2_STATUS = NOT_CREATED" in roadmap
+    assert "VALIDATION_DESIGN_STATUS = SEALED_COMPLETE" in roadmap
+    assert "FAMILY_A_VALIDATION_STATUS = EVALUATED" in roadmap
+    assert "STRATEGY_V2_STATUS = NOT_CREATED — NO_DECISION" in roadmap
     assert "FAMILY_H_STATUS = NOT_PLANNED" in roadmap

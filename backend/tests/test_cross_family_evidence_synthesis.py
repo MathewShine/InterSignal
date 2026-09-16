@@ -336,9 +336,9 @@ def test_documentation_roadmap_and_regressions_are_preserved() -> None:
     assert "A_TO_G_DISCOVERY_STATUS = COMPLETE" in roadmap
     assert "CROSS_FAMILY_EVIDENCE_SYNTHESIS_STATUS = COMPLETE" in roadmap
     assert "FAMILY_H_STATUS = NOT_PLANNED" in roadmap
-    assert "VALIDATION_DESIGN_STATUS = ACTIVE" in roadmap
-    assert "VALIDATION_EXECUTION_STATUS = NOT_AUTHORIZED" in roadmap
-    assert "NEXT_PLANNED_PHASE = REVIEW_FAMILY_A_VALIDATION_DESIGN" in roadmap
+    assert "VALIDATION_DESIGN_STATUS = SEALED_COMPLETE" in roadmap
+    assert "FAMILY_A_VALIDATION_STATUS = EVALUATED" in roadmap
+    assert "NEXT_PLANNED_PHASE = GOVERNANCE_REVIEW_FAMILY_A_INCONCLUSIVE_VALIDATION" in roadmap
     assert DISCOVERY_CYCLE_STATUS == "COMPLETE_FOR_CURRENT_RESEARCH_CYCLE"
     regressions = _summary()["regressions"]
     assert regressions["all_closure_hashes_unchanged"] is True
