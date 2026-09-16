@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-09-16T17:54:02.603436Z",
+  "integrity": {
+    "broken_artifact_refs": 0,
+    "broken_evidence_refs": 0,
+    "broken_lineage_refs": 0,
+    "broken_strategy_refs": 0,
+    "cycle_count": 0,
+    "duplicate_ids": 0,
+    "hash_mismatches": 0,
+    "metadata": {
+      "broken_artifact_refs": [],
+      "broken_evidence_refs": [],
+      "broken_lineage_refs": [],
+      "broken_strategy_refs": [],
+      "hash_mismatches": []
+    },
+    "status": "HEALTHY"
+  },
+  "integrity_hash": "cabe9270adec12a45815711bb4222efc4f981d1a97ebd9802a13a2c6c889cc49",
+  "integrity_version": "INTERSIGNAL_RESEARCH_WORKBENCH_INTEGRITY_V1",
+  "platform_foundation_hash": "ec270dcb640116fe56709c784b4ca915bd794b0a96847e11fb561460dfed877f"
+}

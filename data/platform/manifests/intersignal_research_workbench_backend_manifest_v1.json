@@ -1,0 +1,113 @@
+{
+  "command": "Step 04.02 / Command 01",
+  "command_profile": "RESEARCH_QUERY_AND_VIEW_MODEL_FOUNDATION_V1",
+  "command_version": "INTERSIGNAL_RESEARCH_WORKBENCH_BACKEND_V1",
+  "component_hashes": {
+    "blocked_studies_hash": "5c8b4eba157ec849c4c277fc2a664219d0a026ff3315e5fc6cca463f0dda7774",
+    "evidence_summary_hash": "f86ed68244ff91943d1a2b2432a389b3fd3ee794d12d3349d26eb591279d71ff",
+    "families_hash": "0ca3627e6c982398aa1864cc66301217cd70e5990c6082eaee4166922103f9a9",
+    "latest_events_hash": "ac82e1570c9000457b14e1aa1cc6bac3b9d5b356dff0d99ffeb3101f507a10e0",
+    "strategy_summaries_hash": "88e0dcfda67ee6f72120fad0c94e68ff16b5b69c02c50c1bef3031ce71cd3328"
+  },
+  "counts": {
+    "blocked_studies": 2,
+    "evidence": 11,
+    "families": 7,
+    "latest_events": 25,
+    "production_candidate_count": 0,
+    "strategies": 7,
+    "validated_production_strategy_count": 0
+  },
+  "created_at": "2026-09-16T17:54:02.603436Z",
+  "documentation": [
+    "docs/research-workbench-backend-v1.md",
+    "docs/research-workbench-view-models-v1.md"
+  ],
+  "family_h_created": false,
+  "foundation_artifacts_unchanged": {
+    "file_hashes_after": {
+      "data/platform/artifacts/artifacts.jsonl": "0c88823a2fdd0d19629b5a922308344c3d2609fa6b5060eb9aa996867c94d38b",
+      "data/platform/lineage/edges.jsonl": "8b11b935751632ea9e7e3b448eaa4014925465f34830fb3dfcdf98ce227a43ab",
+      "data/platform/lineage/nodes.jsonl": "8fadda8d7fa778a15b3dca22917a0df3fb0ac08567254a34fe1679de802567be",
+      "data/platform/manifests/intersignal_platform_foundation_manifest_v1.json": "7a367491b89c7974ec1fe0858ee31337f0f6576412ed4d07cf16a3fe107046bc",
+      "data/platform/registry/current_research_snapshot_v1.json": "5c7d3704b92dfc72341d21c61635bdd72568620c42c4bdf35574da8223341a1f",
+      "data/platform/registry/events.jsonl": "6145281733e9415807e92064b9eac1ad73a34d9c8ce460617302b34b9d091b6f",
+      "data/platform/registry/evidence.jsonl": "6ca8176b3391c607ad087f0633324a0e0dd9f29a248ce359cc6e2de61c50ff26",
+      "data/platform/registry/platform_foundation_verification_v1.json": "ea2ffd7e39afab890e5bb441e40a0c03eb6a52f3174a0726b9d0d0b58946d080",
+      "data/platform/registry/strategies.jsonl": "7384000259b931c2dd547958ede796eb1dfd352e00083f21d14d21b1659f180a"
+    },
+    "file_hashes_before": {
+      "data/platform/artifacts/artifacts.jsonl": "0c88823a2fdd0d19629b5a922308344c3d2609fa6b5060eb9aa996867c94d38b",
+      "data/platform/lineage/edges.jsonl": "8b11b935751632ea9e7e3b448eaa4014925465f34830fb3dfcdf98ce227a43ab",
+      "data/platform/lineage/nodes.jsonl": "8fadda8d7fa778a15b3dca22917a0df3fb0ac08567254a34fe1679de802567be",
+      "data/platform/manifests/intersignal_platform_foundation_manifest_v1.json": "7a367491b89c7974ec1fe0858ee31337f0f6576412ed4d07cf16a3fe107046bc",
+      "data/platform/registry/current_research_snapshot_v1.json": "5c7d3704b92dfc72341d21c61635bdd72568620c42c4bdf35574da8223341a1f",
+      "data/platform/registry/events.jsonl": "6145281733e9415807e92064b9eac1ad73a34d9c8ce460617302b34b9d091b6f",
+      "data/platform/registry/evidence.jsonl": "6ca8176b3391c607ad087f0633324a0e0dd9f29a248ce359cc6e2de61c50ff26",
+      "data/platform/registry/platform_foundation_verification_v1.json": "ea2ffd7e39afab890e5bb441e40a0c03eb6a52f3174a0726b9d0d0b58946d080",
+      "data/platform/registry/strategies.jsonl": "7384000259b931c2dd547958ede796eb1dfd352e00083f21d14d21b1659f180a"
+    },
+    "unchanged": true
+  },
+  "hashing_method": "INTERSIGNAL_CANONICAL_SHA256_V1",
+  "integrity": {
+    "broken_artifact_refs": 0,
+    "broken_evidence_refs": 0,
+    "broken_lineage_refs": 0,
+    "broken_strategy_refs": 0,
+    "cycle_count": 0,
+    "duplicate_ids": 0,
+    "hash_mismatches": 0,
+    "metadata": {
+      "broken_artifact_refs": [],
+      "broken_evidence_refs": [],
+      "broken_lineage_refs": [],
+      "broken_strategy_refs": [],
+      "hash_mismatches": []
+    },
+    "status": "HEALTHY"
+  },
+  "integrity_hash": "cabe9270adec12a45815711bb4222efc4f981d1a97ebd9802a13a2c6c889cc49",
+  "live_trading_started": false,
+  "manifest_version": "INTERSIGNAL_RESEARCH_WORKBENCH_BACKEND_MANIFEST_V1",
+  "paper_trading_started": false,
+  "platform_charter_hash": "3bdf3224c6ca21c06c261bf673b76e164e6d0788b204b2875122dad878d9263b",
+  "platform_foundation_hash": "ec270dcb640116fe56709c784b4ca915bd794b0a96847e11fb561460dfed877f",
+  "portfolio_os_started": false,
+  "programme_state": {
+    "a_to_g_cycle_status": "COMPLETE_NO_VALIDATED_STRATEGY",
+    "family_h_status": "NOT_PLANNED",
+    "live_readiness": "NOT_READY",
+    "paper_readiness": "NOT_READY",
+    "primary_programme": "PRODUCT_PLATFORM_PROGRAM",
+    "production_candidate_count": 0,
+    "secondary_programme": "FORWARD_DATA_PROGRAM",
+    "strategy_research_status": "PAUSED",
+    "strategy_v2_status": "NOT_CREATED",
+    "validated_strategy_count": 0
+  },
+  "real_time_feed_added": false,
+  "reports": [
+    "research_workbench_backend_v1_summary.json",
+    "research_workbench_backend_v1_families.csv",
+    "research_workbench_backend_v1_evidence.csv",
+    "research_workbench_backend_v1_blocked.csv",
+    "research_workbench_backend_v1_integrity.csv"
+  ],
+  "required_checkpoint": "1ccb93afabad936a79eb1c1131194652f80ec3c1",
+  "research_workbench_backend_hash": "c0c1ba634f584b4532e99e4f015be83e7e0c069eafb3cd5ca6a1fc7cfaf8f52b",
+  "security": {
+    "broker_calls": 0,
+    "credentials_written": 0,
+    "external_writes": 0,
+    "live_orders": 0,
+    "live_signals": 0,
+    "migrations": 0,
+    "network_required": false,
+    "supabase_writes": 0
+  },
+  "snapshot_hash": "fac196c96445ee4d489a17217173c971cc1a1008cabe4daa760760b1b2cc9187",
+  "strategy_research_run": false,
+  "strategy_v2_created": false,
+  "ui_implemented": false
+}
