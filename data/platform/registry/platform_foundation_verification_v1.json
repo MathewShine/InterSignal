@@ -1,0 +1,14 @@
+{
+  "platform_foundation_hash": "ec270dcb640116fe56709c784b4ca915bd794b0a96847e11fb561460dfed877f",
+  "platform_foundation_verification_hash": "f50916d879da0a1baee2fe8cf7e440b06a4fff7173b01f7f4c9d977c54c7a3af",
+  "verification": {
+    "backend_full_tests": "PASS: 1738 passed; 2 dependency deprecation warnings",
+    "backend_targeted_tests": "PASS: 20 passed",
+    "frontend_build": "PASS: Vite 7.3.6; 35 modules transformed",
+    "manifest_unchanged": true,
+    "ready_for_review": true,
+    "regressions": "PASS: existing backend and frontend verification gates remain green",
+    "research_artifacts_unchanged": true
+  },
+  "verification_version": "INTERSIGNAL_PLATFORM_FOUNDATION_VERIFICATION_V1"
+}

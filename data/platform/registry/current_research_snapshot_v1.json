@@ -1,0 +1,14 @@
+{
+  "a_to_g": "COMPLETE_NO_VALIDATED_STRATEGY",
+  "current_research_snapshot_hash": "020ff9aa7be98f3231ef0ef27fa460c52a086218cf25213665c4ffa148080c11",
+  "evidence_count": 11,
+  "family_h": "NOT_PLANNED",
+  "live": "NOT_READY",
+  "paper": "NOT_READY",
+  "production_candidate_count": 0,
+  "snapshot_version": "INTERSIGNAL_CURRENT_RESEARCH_SNAPSHOT_V1",
+  "strategy_count": 7,
+  "strategy_research_programme": "PAUSED",
+  "strategy_v2": "NOT_CREATED",
+  "validated_production_strategy_count": 0
+}
