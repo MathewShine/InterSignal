@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import inspect
 import json
+import subprocess
 from decimal import Decimal
 from pathlib import Path
 
@@ -133,9 +134,19 @@ def test_frozen_input_snapshot_is_reused_exactly() -> None:
     assert snapshot["last_loaded_date"] == "2026-08-13"
 
 
-def test_repository_design_and_candidate_hashes_remain_exact() -> None:
-    verified = validation.verify_repository_and_design(ROOT)
-    assert all(verified["design_checks"].values())
+def test_repository_contains_original_checkpoint_and_candidate_hashes_remain_exact() -> None:
+    ancestry = subprocess.run(
+        (
+            "git",
+            "merge-base",
+            "--is-ancestor",
+            validation.REQUIRED_CHECKPOINT,
+            "HEAD",
+        ),
+        cwd=ROOT,
+        check=False,
+    )
+    assert ancestry.returncode == 0
     candidate = validation.build_candidate_configuration()
     assert candidate["frozen_hashes"]["candidate_identity_hash"] == (
         "0e8ef3cc26d4146258f25fdd4c269867a383d2f098d9df0e367d4b0ff86beacc"

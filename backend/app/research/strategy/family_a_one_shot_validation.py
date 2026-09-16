@@ -27,6 +27,7 @@ from app.research.strategy.family_a_development_backtest import (
 from app.research.strategy.family_a_momentum import (
     LIQUIDITY_FLOOR,
     LIQUIDITY_WINDOW,
+    LOOKBACK_SESSIONS,
     PRICE_FLOOR,
     AdjustedBar,
     _corporate_action_exclusions,
@@ -2000,6 +2001,42 @@ def _seal_replacement_staging(root: Path, staging: Path) -> None:
     staging.rmdir()
 
 
+def prepare_validation_session_windows(root: Path) -> tuple[list[date], list[date]]:
+    causal_history_sessions = _load_sessions(root)
+    performance_sessions = [
+        value
+        for value in causal_history_sessions
+        if VALIDATION_START <= value <= VALIDATION_END
+    ]
+    if (
+        not causal_history_sessions
+        or causal_history_sessions[0] >= VALIDATION_START
+        or causal_history_sessions[-1] != VALIDATION_END
+    ):
+        raise FamilyAValidationDesignMismatch(
+            "Validation causal history must include prehistory and end at the holdout boundary"
+        )
+    if (
+        not performance_sessions
+        or performance_sessions[0] != VALIDATION_START
+        or performance_sessions[-1] != VALIDATION_END
+    ):
+        raise FamilyAValidationDesignMismatch(
+            "Validation performance sessions must remain inside the exact holdout window"
+        )
+    positions = {
+        session: index for index, session in enumerate(causal_history_sessions)
+    }
+    required = LOOKBACK_SESSIONS["6M"]
+    for formation, _ in SEALED_SCHEDULE:
+        position = positions.get(formation)
+        if position is None or position < required:
+            raise FamilyAValidationDesignMismatch(
+                "Causal feature and eligibility history was truncated by the performance window"
+            )
+    return causal_history_sessions, performance_sessions
+
+
 def execute_one_shot_validation(root: Path) -> dict[str, Any]:
     root = Path(root).resolve()
     started_at = utc_now()
@@ -2009,18 +2046,18 @@ def execute_one_shot_validation(root: Path) -> dict[str, Any]:
     _ensure_fresh_replacement(root)
     input_snapshot = _existing_input_snapshot(root)
 
-    sessions = [
-        value
-        for value in _load_sessions(root)
-        if VALIDATION_START <= value <= VALIDATION_END
-    ]
+    causal_history_sessions, performance_sessions = prepare_validation_session_windows(
+        root
+    )
     membership = _load_membership(root)
     aliases = _load_aliases(root)
     bars = _load_bounded_bars(root, set(membership.grouped), aliases)
     schedules, selection_rows, quality_rows = build_validation_schedules(
-        root, sessions, bars
+        root, causal_history_sessions, bars
     )
-    simulation = simulate_validation_executable(schedules, sessions, bars)
+    simulation = simulate_validation_executable(
+        schedules, performance_sessions, bars
+    )
     analysis = calculate_validation_metrics(simulation)
     criteria = evaluate_criteria(
         analysis["metrics"], simulation, schedules, selection_rows, input_snapshot

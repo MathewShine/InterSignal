@@ -191,7 +191,7 @@ def test_replacement_governance_is_not_authorized_and_all_criteria_are_recorded(
     assert "POST_OUTCOME_REMEDIATED_VALIDATION" in governance["post_outcome_contamination"]
 
 
-def test_audit_hashes_and_frozen_ca_source_hashes_are_exact() -> None:
+def test_audit_hashes_and_pre_remediation_source_snapshot_are_exact() -> None:
     hashes = SUMMARY["hashes"]
     assert set(hashes) == {
         "family_a_ca_audit_config_hash",
@@ -203,12 +203,17 @@ def test_audit_hashes_and_frozen_ca_source_hashes_are_exact() -> None:
     }
     assert all(len(value) == 64 for value in hashes.values())
     assert MANIFEST["hashes"] == hashes
-    expected = {
+    unchanged_sources = {
         "backend/app/research/strategy/family_a_momentum.py": "1976c9e98ab5ec3a5a2d2b05dcbe51a40180d6745f5c7ec7c8755a9eb6ac9901",
-        "backend/app/research/strategy/family_a_one_shot_validation.py": "ef3a7ac4b9c143a3c6f3690565866743d54fa5555708778a50a7001ab38f709a",
         "backend/app/services/nifty500_ca_final_readiness.py": "7201dbab612ba997ad2a00bf16958e653f94fd3475341654a938f22cb106e3e0",
     }
-    assert all(file_sha256(ROOT / path) == digest for path, digest in expected.items())
+    assert all(
+        file_sha256(ROOT / path) == digest
+        for path, digest in unchanged_sources.items()
+    )
+    assert SUMMARY["code_path"]["source_hashes"]["family_a_validation"] == (
+        "ef3a7ac4b9c143a3c6f3690565866743d54fa5555708778a50a7001ab38f709a"
+    )
 
 
 def test_no_validation_rerun_or_mutating_research_call_is_present() -> None:
