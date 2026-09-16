@@ -1,0 +1,73 @@
+{
+  "deliverables_version": "INTERSIGNAL_MONTH_1_DELIVERABLES_V1",
+  "deliverables": [
+    {
+      "deliverable_id": "M1-01",
+      "deliverable": "PLATFORM_ARCHITECTURE_DOCUMENT",
+      "status": "FROZEN_IN_CHARTER",
+      "implementation": false
+    },
+    {
+      "deliverable_id": "M1-02",
+      "deliverable": "MODULE_DEPENDENCY_MAP",
+      "status": "FROZEN_IN_CHARTER",
+      "implementation": false
+    },
+    {
+      "deliverable_id": "M1-03",
+      "deliverable": "CANONICAL_DOMAIN_MODEL",
+      "status": "FROZEN_IN_CHARTER",
+      "implementation": false
+    },
+    {
+      "deliverable_id": "M1-04",
+      "deliverable": "DATA_LINEAGE_SPEC",
+      "status": "FROZEN_IN_CHARTER",
+      "implementation": false
+    },
+    {
+      "deliverable_id": "M1-05",
+      "deliverable": "STRATEGY_EVIDENCE_REGISTRY_SPEC",
+      "status": "FROZEN_IN_CHARTER",
+      "implementation": false
+    },
+    {
+      "deliverable_id": "M1-06",
+      "deliverable": "PORTFOLIO_OS_DOMAIN_MODEL",
+      "status": "FROZEN_IN_CHARTER",
+      "implementation": false
+    },
+    {
+      "deliverable_id": "M1-07",
+      "deliverable": "SHADOW_MODE_GOVERNANCE_SPEC",
+      "status": "FROZEN_IN_CHARTER",
+      "implementation": false
+    },
+    {
+      "deliverable_id": "M1-08",
+      "deliverable": "BROKER_ABSTRACTION_CONTRACT",
+      "status": "FROZEN_IN_CHARTER",
+      "implementation": false
+    },
+    {
+      "deliverable_id": "M1-09",
+      "deliverable": "REAL_TIME_ENGINE_DESIGN",
+      "status": "FROZEN_IN_CHARTER",
+      "implementation": false
+    },
+    {
+      "deliverable_id": "M1-10",
+      "deliverable": "UI_INFORMATION_ARCHITECTURE",
+      "status": "FROZEN_IN_CHARTER",
+      "implementation": false
+    },
+    {
+      "deliverable_id": "M1-11",
+      "deliverable": "MONTH_2_BACKLOG_CATEGORIES",
+      "status": "FROZEN_IN_CHARTER",
+      "implementation": false
+    }
+  ],
+  "implementation_deliverables": 0,
+  "month_1_deliverables_hash": "3f3600b2ff7f0d90a5d680db9041133a17d8413178314ae6f13a285e81c8fd94"
+}

@@ -1,0 +1,9 @@
+risk_id,risk,impact,mitigation
+R-001,SCOPE_CREEP,HIGH,"Use the frozen priorities, non-goals, and product-owner gates."
+R-002,PREMATURE_EXECUTION_FOCUS,HIGH,Keep Trade and broker order paths inactive until validation and separate approval.
+R-003,OVERENGINEERING,MEDIUM,Implement only an approved vertical slice against stable contracts.
+R-004,VENDOR_LOCK_IN,HIGH,Require broker and data adapter interfaces with provider-neutral domain logic.
+R-005,DATA_LICENSING,HIGH,Track rights and provenance; require approval before D/F acquisition.
+R-006,RESEARCH_PRODUCT_COUPLING,HIGH,"Separate research, registry, portfolio, data, and execution boundaries."
+R-007,AI_OVERREACH,HIGH,Prohibit autonomous strategy selection and unrestricted strategy generation.
+R-008,UNCLEAR_PRODUCTION_READINESS_SEMANTICS,HIGH,"Expose explicit lifecycle, authorization, validation, and readiness fields."

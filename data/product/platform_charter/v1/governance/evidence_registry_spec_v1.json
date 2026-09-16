@@ -1,0 +1,42 @@
+{
+  "registry_spec_version": "INTERSIGNAL_EVIDENCE_REGISTRY_SPEC_V1",
+  "classifications": [
+    "POSITIVE_EVIDENCE",
+    "NEGATIVE_EVIDENCE",
+    "BLOCKED_RESEARCH",
+    "VALIDATION_EVIDENCE",
+    "POST_OUTCOME_EVIDENCE",
+    "DATA_INFRASTRUCTURE_EVIDENCE"
+  ],
+  "required_fields": [
+    "EVIDENCE_ID",
+    "FAMILY_ID",
+    "CLASSIFICATION",
+    "STATUS",
+    "FINDING",
+    "SOURCE_HASH",
+    "CREATED_AT",
+    "LINEAGE_IDS"
+  ],
+  "preserved_a_to_g_evidence_ids": [
+    "EDGE-POSITIVE-A-DEVELOPMENT-001",
+    "EDGE-POSITIVE-A-FAMILY-G-REPRODUCTION-001",
+    "EDGE-POSITIVE-A-IMPLEMENTATION-REALISM-001",
+    "EVIDENCE-A-FORMAL-VALIDATION-001",
+    "EDGE-NEGATIVE-A-LATER-PERIOD-GENERALIZATION-001",
+    "DATA-LESSON-A-CAUSAL-PREHISTORY-001",
+    "EVIDENCE-B-NEGATIVE-DEVELOPMENT-001",
+    "EVIDENCE-C-COMPRESSION-001",
+    "EVIDENCE-D-DATA-BLOCKED-001",
+    "EVIDENCE-E-NEGATIVE-DEVELOPMENT-001",
+    "EVIDENCE-F-SOURCE-BLOCKED-001",
+    "EVIDENCE-G-NEGATIVE-OVERLAY-001"
+  ],
+  "family_c_canonical_observation_id": "EDGE-EVIDENCE-C-COMPRESSION-001",
+  "family_c_source_registry_id": "EVIDENCE-C-COMPRESSION-001",
+  "family_c_id_relationship": "CANONICAL_OBSERVATION_ALIAS_PRESERVES_EXISTING_SOURCE_ID",
+  "source_registry_hash": "5dfd87cba4a8ac1ea0f260fb60cc8084258ae90700583fddc25fa6e7a2910022",
+  "ids_mutated": false,
+  "implementation_started": false,
+  "evidence_registry_spec_hash": "4a9cda32f752468f3ab5841bdbccbab0fd529d4203fe91152eeb5a88ac77458e"
+}

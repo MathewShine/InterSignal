@@ -1,0 +1,7 @@
+module,interaction,value
+Trade,DEFERRED,No strategy execution or live automation.
+Invest,SECONDARY,"Future catalyst intelligence, alerts, and decision support."
+Research,PRIMARY,"Workbench, signal registry, experiment evidence, and auditability."
+Portfolio OS,PRIMARY,"Portfolio intelligence, analytics, risk, monitoring, and decisions."
+Broker Connection,DESIGN_ONLY,Abstraction boundaries only; no broker calls or execution.
+Data Layer,PRIMARY,"Lineage, quality, provenance, and future shadow-data governance."

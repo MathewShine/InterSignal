@@ -1,0 +1,81 @@
+{
+  "options_version": "POST_RESEARCH_PROGRAM_OPTIONS_V1",
+  "rating_scale": [
+    "HIGH",
+    "MEDIUM",
+    "LOW"
+  ],
+  "rating_note": "HIGH is favorable for value, cleanliness, reuse, and optionality; HIGH denotes greater burden for time, effort, dependency, cost, and overfitting risk.",
+  "options": [
+    {
+      "option_id": "OPTION_A_FORWARD_DATA_PROGRAM",
+      "direction": "FORWARD_DATA_PROGRAM",
+      "definition": "Freeze selected hypotheses and wait for genuinely new unseen future data.",
+      "expected_research_value": "HIGH",
+      "scientific_cleanliness": "HIGH",
+      "time_to_next_decision": "HIGH",
+      "engineering_effort": "MEDIUM",
+      "data_licensing_dependency": "LOW",
+      "cost": "LOW",
+      "reuse_across_intersignal": "MEDIUM",
+      "risk_of_overfitting": "LOW",
+      "strategic_optionality": "HIGH",
+      "product_value_without_strategy": "MEDIUM",
+      "decision": "SECONDARY",
+      "rationale": "Only genuinely new observations can restore unseen evidence, but the wait is long and no validated candidate currently justifies deployment rehearsal."
+    },
+    {
+      "option_id": "OPTION_B_DATA_INFRASTRUCTURE_PROGRAM",
+      "direction": "DATA_INFRASTRUCTURE_PROGRAM",
+      "definition": "Resolve Family D intraday continuity and Family F authorized catalyst data blockers.",
+      "expected_research_value": "MEDIUM",
+      "scientific_cleanliness": "HIGH",
+      "time_to_next_decision": "HIGH",
+      "engineering_effort": "HIGH",
+      "data_licensing_dependency": "HIGH",
+      "cost": "HIGH",
+      "reuse_across_intersignal": "HIGH",
+      "risk_of_overfitting": "LOW",
+      "strategic_optionality": "HIGH",
+      "product_value_without_strategy": "HIGH",
+      "decision": "DEFERRED_TARGETED_FEASIBILITY_ONLY",
+      "rationale": "Intraday and catalyst data have broad reuse, but continuity, authorization, licensing, and engineering burdens should be scoped before committing."
+    },
+    {
+      "option_id": "OPTION_C_NEW_HYPOTHESIS_PROGRAM",
+      "direction": "NEW_HYPOTHESIS_PROGRAM",
+      "definition": "Develop a distinct economic or behavioral mechanism with independent preregistration.",
+      "expected_research_value": "MEDIUM",
+      "scientific_cleanliness": "MEDIUM",
+      "time_to_next_decision": "HIGH",
+      "engineering_effort": "MEDIUM",
+      "data_licensing_dependency": "MEDIUM",
+      "cost": "MEDIUM",
+      "reuse_across_intersignal": "LOW",
+      "risk_of_overfitting": "MEDIUM",
+      "strategic_optionality": "HIGH",
+      "product_value_without_strategy": "LOW",
+      "decision": "DEFERRED_NOT_YET_JUSTIFIED",
+      "rationale": "No distinct mechanism with verified data readiness currently exists; continuing to Family H would force strategy production rather than follow evidence."
+    },
+    {
+      "option_id": "OPTION_D_PRODUCT_PLATFORM_PROGRAM",
+      "direction": "PRODUCT_PLATFORM_PROGRAM",
+      "definition": "Pause strategy discovery and strengthen InterSignal as a research, portfolio, and governance platform.",
+      "expected_research_value": "MEDIUM",
+      "scientific_cleanliness": "HIGH",
+      "time_to_next_decision": "MEDIUM",
+      "engineering_effort": "HIGH",
+      "data_licensing_dependency": "LOW",
+      "cost": "MEDIUM",
+      "reuse_across_intersignal": "HIGH",
+      "risk_of_overfitting": "LOW",
+      "strategic_optionality": "HIGH",
+      "product_value_without_strategy": "HIGH",
+      "decision": "PRIMARY",
+      "rationale": "It creates durable research, portfolio-intelligence, risk, lineage, and audit value regardless of alpha success while preserving future options."
+    }
+  ],
+  "arbitrary_weighted_score_used": false,
+  "post_research_program_options_hash": "46e5c88d5a7cbb395a857ac9b7a63a94948eb4b5ade7a1377faeb4b72bc3cf5f"
+}

@@ -1,0 +1,84 @@
+{
+  "resource_plan_version": "POST_RESEARCH_PROGRAM_RESOURCE_PLAN_V1",
+  "resources": [
+    {
+      "resource": "ENGINEERING_EFFORT",
+      "level": "HIGH",
+      "basis": "Cross-module architecture, lineage, registry, risk, audit, and portfolio capabilities."
+    },
+    {
+      "resource": "DATA_EFFORT",
+      "level": "MEDIUM",
+      "basis": "Existing-data lineage and readiness design plus D/F feasibility assessment."
+    },
+    {
+      "resource": "LICENSING_DATA_COST",
+      "level": "LOW",
+      "basis": "No acquisition in the selected programme; only feasibility review is included."
+    },
+    {
+      "resource": "COMPUTE_STORAGE_IMPACT",
+      "level": "MEDIUM",
+      "basis": "Registry, lineage, portfolio analytics, monitoring, and future shadow data retention."
+    },
+    {
+      "resource": "MANUAL_REVIEW_EFFORT",
+      "level": "MEDIUM",
+      "basis": "Product decisions, governance review, data-quality review, and audit acceptance."
+    }
+  ],
+  "success_criteria": [
+    {
+      "criterion": "PRODUCT_PROGRAM_CHARTER",
+      "success": "Owner-approved priorities, boundaries, and module sequence."
+    },
+    {
+      "criterion": "RESEARCH_AUDITABILITY",
+      "success": "Complete lineage, evidence, and decision-record requirements."
+    },
+    {
+      "criterion": "SHADOW_OBSERVATION_READINESS",
+      "success": "Governed research-shadow design ready for separate authorization."
+    },
+    {
+      "criterion": "DATA_BLOCKER_DECISIONS",
+      "success": "Explicit D/F feasibility decisions without unauthorized acquisition."
+    },
+    {
+      "criterion": "PLATFORM_VALUE",
+      "success": "Defined utility for research, portfolio intelligence, risk, and audit independent of alpha."
+    },
+    {
+      "criterion": "NEXT_CANDIDATE_DECISION",
+      "success": "Clean continue, change, or pause decision based on evidence rather than return targets."
+    }
+  ],
+  "stop_conditions": [
+    {
+      "condition": "PERSISTENT_NON_GENERALIZATION",
+      "action": "PAUSE_ALPHA_RESEARCH"
+    },
+    {
+      "condition": "INSUFFICIENT_DATA_QUALITY",
+      "action": "STOP_AFFECTED_RESEARCH_PATH"
+    },
+    {
+      "condition": "EXCESSIVE_LICENSING_BURDEN",
+      "action": "DEFER_DATA_DEPENDENT_PROGRAM"
+    },
+    {
+      "condition": "NO_DISTINCT_ECONOMIC_HYPOTHESIS",
+      "action": "DO_NOT_START_NEW_RESEARCH_CYCLE"
+    },
+    {
+      "condition": "ENGINEERING_OPPORTUNITY_COST_TOO_HIGH",
+      "action": "REDUCE_OR_STOP_PLATFORM_PROGRAM"
+    },
+    {
+      "condition": "NO_PRODUCT_OWNER_VALUE_CONFIRMATION",
+      "action": "REASSESS_PROGRAM_DIRECTION"
+    }
+  ],
+  "financial_return_target_defined": false,
+  "post_research_program_resource_plan_hash": "46182a025ad33a755053d156af94b2fc98ee035f6bd9e3281af155f7cf02b72d"
+}

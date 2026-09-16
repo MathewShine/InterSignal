@@ -1,0 +1,49 @@
+{
+  "success_criteria_version": "INTERSIGNAL_MONTH_1_SUCCESS_CRITERIA_V1",
+  "criteria": [
+    {
+      "criterion": "ARCHITECTURE_FROZEN",
+      "required": true
+    },
+    {
+      "criterion": "MODULE_BOUNDARIES_CLEAR",
+      "required": true
+    },
+    {
+      "criterion": "LINEAGE_MODEL_COMPLETE",
+      "required": true
+    },
+    {
+      "criterion": "REGISTRY_MODELS_COMPLETE",
+      "required": true
+    },
+    {
+      "criterion": "PORTFOLIO_OS_SCOPE_COMPLETE",
+      "required": true
+    },
+    {
+      "criterion": "SHADOW_GOVERNANCE_COMPLETE",
+      "required": true
+    },
+    {
+      "criterion": "BROKER_ABSTRACTION_DEFINED",
+      "required": true
+    },
+    {
+      "criterion": "REALTIME_INDICATOR_ARCHITECTURE_DOCUMENTED",
+      "required": true
+    },
+    {
+      "criterion": "UI_IA_DOCUMENTED",
+      "required": true
+    },
+    {
+      "criterion": "PRIORITIZED_MONTH_2_BACKLOG_APPROVED",
+      "required": true
+    }
+  ],
+  "charter_definition_complete": true,
+  "month_2_backlog_approved": false,
+  "month_1_program_complete": false,
+  "month_1_success_criteria_hash": "515d85b30b02d6f40cf94c02995e9bd8c529d8e8eec902ea153e349c2cb2782a"
+}

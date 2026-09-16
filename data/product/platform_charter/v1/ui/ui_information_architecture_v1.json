@@ -1,0 +1,93 @@
+{
+  "ui_ia_version": "INTERSIGNAL_UI_INFORMATION_ARCHITECTURE_V1",
+  "pages": {
+    "Home / Command Center": [
+      "SYSTEM_STATUS",
+      "MARKET_STATE",
+      "PORTFOLIO_STATE",
+      "RESEARCH_STATUS",
+      "DATA_FRESHNESS",
+      "STRATEGY_STATUS",
+      "ALERTS",
+      "BROKER_CONNECTIVITY"
+    ],
+    "Research": [
+      "FAMILY_MATRIX",
+      "EXPERIMENT_TIMELINE",
+      "EVIDENCE",
+      "VALIDATION",
+      "BLOCKED_STUDIES",
+      "REPORTS",
+      "ARTIFACTS"
+    ],
+    "Strategies": [
+      "LIFECYCLE",
+      "CONFIGURATION_HASH",
+      "AUTHORIZATION",
+      "VALIDATION_STATE",
+      "PRODUCTION_READINESS"
+    ],
+    "Evidence": [
+      "CLASSIFICATION",
+      "SOURCE",
+      "LINEAGE",
+      "HASH",
+      "POSITIVE_NEGATIVE_BLOCKED_VIEWS"
+    ],
+    "Portfolio": [
+      "HOLDINGS",
+      "ALLOCATION",
+      "PERFORMANCE",
+      "RISK",
+      "CASH",
+      "BENCHMARKS",
+      "BROKER_SYNC",
+      "GOALS"
+    ],
+    "Market": [
+      "MARKET_STATE",
+      "BENCHMARKS",
+      "BREADTH",
+      "CALENDAR",
+      "INSTRUMENT_UNIVERSE"
+    ],
+    "Data": [
+      "SOURCES",
+      "COVERAGE",
+      "FRESHNESS",
+      "QUALITY",
+      "LINEAGE",
+      "INGESTION_RUNS",
+      "FAILURES",
+      "LICENSING_STATUS"
+    ],
+    "Governance": [
+      "AUTHORIZATIONS",
+      "VALIDATION_RUNS",
+      "STRATEGY_LIFECYCLE",
+      "AUDIT_LOG",
+      "POLICY_VIOLATIONS",
+      "MANUAL_OVERRIDES"
+    ],
+    "Alerts": [
+      "OPEN_ALERTS",
+      "SEVERITY",
+      "OWNERSHIP",
+      "ACKNOWLEDGEMENT",
+      "HISTORY"
+    ],
+    "Settings": [
+      "MARKET",
+      "EXCHANGE",
+      "CALENDAR",
+      "CURRENCY",
+      "DATA_SOURCE",
+      "BROKER_ADAPTER",
+      "POLICY_CONFIGURATION"
+    ]
+  },
+  "command_center_no_signal_rule": "NO_SIGNAL_RECOMMENDATION_WHEN_NO_VALIDATED_STRATEGY_EXISTS",
+  "current_validated_strategy_count": 0,
+  "ui_coding_started": false,
+  "ui_information_architecture_hash": "28d1d7c6bb79125b6487093f00adc96810f255f58f790b17e2ba028b87d74cea"
+}

@@ -1,0 +1,62 @@
+{
+  "backlog_version": "INTERSIGNAL_MONTH_2_BACKLOG_CATEGORIES_V1",
+  "categories": [
+    {
+      "backlog_id": "M2-B01",
+      "category": "FOUNDATION_IMPLEMENTATION_CANDIDATE",
+      "status": "REQUIRES_PRODUCT_OWNER_APPROVAL",
+      "implementation_command_generated": false
+    },
+    {
+      "backlog_id": "M2-B02",
+      "category": "REGISTRY_AND_LINEAGE",
+      "status": "REQUIRES_PRODUCT_OWNER_APPROVAL",
+      "implementation_command_generated": false
+    },
+    {
+      "backlog_id": "M2-B03",
+      "category": "PORTFOLIO_OS",
+      "status": "REQUIRES_PRODUCT_OWNER_APPROVAL",
+      "implementation_command_generated": false
+    },
+    {
+      "backlog_id": "M2-B04",
+      "category": "UI_SHELL_AND_READ_MODELS",
+      "status": "REQUIRES_PRODUCT_OWNER_APPROVAL",
+      "implementation_command_generated": false
+    },
+    {
+      "backlog_id": "M2-B05",
+      "category": "DATA_OBSERVABILITY",
+      "status": "REQUIRES_PRODUCT_OWNER_APPROVAL",
+      "implementation_command_generated": false
+    },
+    {
+      "backlog_id": "M2-B06",
+      "category": "SHADOW_DESIGN_READINESS",
+      "status": "REQUIRES_PRODUCT_OWNER_APPROVAL",
+      "implementation_command_generated": false
+    },
+    {
+      "backlog_id": "M2-B07",
+      "category": "BROKER_CONTRACTS",
+      "status": "REQUIRES_PRODUCT_OWNER_APPROVAL",
+      "implementation_command_generated": false
+    },
+    {
+      "backlog_id": "M2-B08",
+      "category": "PORTFOLIO_AND_RISK_ANALYTICS",
+      "status": "REQUIRES_PRODUCT_OWNER_APPROVAL",
+      "implementation_command_generated": false
+    },
+    {
+      "backlog_id": "M2-B09",
+      "category": "GOVERNANCE_AUDIT_AND_ALERTING",
+      "status": "REQUIRES_PRODUCT_OWNER_APPROVAL",
+      "implementation_command_generated": false
+    }
+  ],
+  "implementation_commands_generated": 0,
+  "month_2_started": false,
+  "month_2_backlog_categories_hash": "10250af6478661abae74d7214cfaabd858fea1a5aa79f85ef3685b5de4117ad8"
+}

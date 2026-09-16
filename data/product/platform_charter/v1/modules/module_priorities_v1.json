@@ -1,0 +1,149 @@
+{
+  "priority_version": "MONTH_1_MODULE_PRIORITY_FREEZE_V1",
+  "priority_order": [
+    "P0",
+    "P1",
+    "P2",
+    "DEFERRED"
+  ],
+  "modules": [
+    {
+      "module_id": "A",
+      "module": "RESEARCH_WORKBENCH",
+      "priority": "P0",
+      "month_1_scope": "Governed navigation, comparison, planning, and report/export specification.",
+      "rationale": "Makes the completed research corpus usable without changing its evidence.",
+      "implementation_started": false
+    },
+    {
+      "module_id": "B",
+      "module": "PORTFOLIO_OS_FOUNDATION",
+      "priority": "P0",
+      "month_1_scope": "Canonical portfolio, account, holding, cash, transaction, attribution, and risk-state model.",
+      "rationale": "Provides the shared state foundation for Trade, Invest, and portfolio intelligence.",
+      "implementation_started": false
+    },
+    {
+      "module_id": "C",
+      "module": "DATA_LINEAGE_PROVENANCE",
+      "priority": "P0",
+      "month_1_scope": "End-to-end lineage stages, identifiers, hashes, quality state, and upstream provenance contract.",
+      "rationale": "Auditability and causal integrity are prerequisites for every product domain.",
+      "implementation_started": false
+    },
+    {
+      "module_id": "D",
+      "module": "STRATEGY_EVIDENCE_REGISTRY",
+      "priority": "P0",
+      "month_1_scope": "Lifecycle and evidence schemas that preserve A-G identifiers and current states.",
+      "rationale": "Prevents ambiguous promotion and creates a common research/governance vocabulary.",
+      "implementation_started": false
+    },
+    {
+      "module_id": "E",
+      "module": "PORTFOLIO_RISK_ANALYTICS",
+      "priority": "P1",
+      "month_1_scope": "Metric definitions and data contracts for portfolio performance and risk.",
+      "rationale": "High product value, sequenced after portfolio and lineage foundations.",
+      "implementation_started": false
+    },
+    {
+      "module_id": "F",
+      "module": "SHADOW_OBSERVATION_FRAMEWORK_DESIGN",
+      "priority": "P1",
+      "month_1_scope": "Research-only observation governance for future unseen data; no activation.",
+      "rationale": "Preserves future evidence collection while keeping deployment semantics separate.",
+      "implementation_started": false
+    },
+    {
+      "module_id": "G",
+      "module": "BROKER_ABSTRACTION_DESIGN",
+      "priority": "P2",
+      "month_1_scope": "Broker-neutral capability and adapter contracts only.",
+      "rationale": "Portability matters, but no validated strategy or order path justifies earlier work.",
+      "implementation_started": false
+    },
+    {
+      "module_id": "H",
+      "module": "DATA_INGESTION_OBSERVABILITY",
+      "priority": "P1",
+      "month_1_scope": "Freshness, quality, coverage, licensing, run, and failure-state specifications.",
+      "rationale": "Operational confidence in data is needed before downstream analytics.",
+      "implementation_started": false
+    },
+    {
+      "module_id": "I",
+      "module": "GOVERNANCE_AUDIT_UI",
+      "priority": "P1",
+      "month_1_scope": "Information architecture for statuses, hashes, authorization, evidence, and audit events.",
+      "rationale": "Makes governance visible and reviewable across all modules.",
+      "implementation_started": false
+    },
+    {
+      "module_id": "J",
+      "module": "ALERT_MONITORING_FOUNDATION",
+      "priority": "P2",
+      "month_1_scope": "Alert taxonomy, severity, ownership, acknowledgement, and escalation design.",
+      "rationale": "Depends on the data, risk, governance, and broker boundaries being stable.",
+      "implementation_started": false
+    }
+  ],
+  "deferred": [
+    {
+      "scope_id": "LIVE_AUTOMATED_EXECUTION",
+      "priority": "DEFERRED",
+      "implementation_started": false,
+      "requires_separate_product_owner_approval": true
+    },
+    {
+      "scope_id": "PAPER_TRADING_DEPLOYMENT_REHEARSAL",
+      "priority": "DEFERRED",
+      "implementation_started": false,
+      "requires_separate_product_owner_approval": true
+    },
+    {
+      "scope_id": "FAMILY_H",
+      "priority": "DEFERRED",
+      "implementation_started": false,
+      "requires_separate_product_owner_approval": true
+    },
+    {
+      "scope_id": "STRATEGY_V2",
+      "priority": "DEFERRED",
+      "implementation_started": false,
+      "requires_separate_product_owner_approval": true
+    },
+    {
+      "scope_id": "NEW_STRATEGY_RESEARCH",
+      "priority": "DEFERRED",
+      "implementation_started": false,
+      "requires_separate_product_owner_approval": true
+    },
+    {
+      "scope_id": "FAMILY_D_FULL_INTRADAY_ACQUISITION",
+      "priority": "DEFERRED",
+      "implementation_started": false,
+      "requires_separate_product_owner_approval": true
+    },
+    {
+      "scope_id": "FAMILY_F_CATALYST_ACQUISITION",
+      "priority": "DEFERRED",
+      "implementation_started": false,
+      "requires_separate_product_owner_approval": true
+    },
+    {
+      "scope_id": "BROKER_ORDER_PLACEMENT_AUTOMATION",
+      "priority": "DEFERRED",
+      "implementation_started": false,
+      "requires_separate_product_owner_approval": true
+    },
+    {
+      "scope_id": "AI_AUTONOMOUS_STRATEGY_SELECTION",
+      "priority": "DEFERRED",
+      "implementation_started": false,
+      "requires_separate_product_owner_approval": true
+    }
+  ],
+  "all_planned_modules_assigned": true,
+  "month_1_module_priority_hash": "0826fa53f142b3b9178eaad8c2808d02ec35880c81f8d1508f65a22a2ced642a"
+}

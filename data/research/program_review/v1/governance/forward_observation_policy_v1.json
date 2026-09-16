@@ -1,0 +1,14 @@
+{
+  "policy_version": "INTERSIGNAL_FORWARD_OBSERVATION_POLICY_V1",
+  "paper_observation_mode": "RESEARCH_SHADOW_MODE",
+  "paper_trading_readiness": "NO_VALIDATED_CANDIDATE",
+  "deployment_rehearsal": false,
+  "new_unseen_evidence_requirement": "DATA_MUST_NOT_HAVE_BEEN_USED_FOR_MODEL_SELECTION",
+  "performance_thresholds_defined": false,
+  "FAMILY_A_FORWARD_USE_STATUS": "FROZEN_RESEARCH_BENCHMARK",
+  "family_a_live_candidate": false,
+  "FAMILY_C_FORWARD_USE_STATUS": "SIGNAL_LEVEL_RESEARCH_OBSERVATION_ONLY",
+  "family_c_strategy_created": false,
+  "forward_observation_started": false,
+  "forward_observation_policy_hash": "d993134aa80577db42b2c7bfe044e5bd3bbf3209b687962c67de784be836114c"
+}

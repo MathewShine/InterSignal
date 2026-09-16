@@ -1,0 +1,49 @@
+{
+  "decisions_version": "INTERSIGNAL_PRODUCT_OWNER_DECISIONS_V1",
+  "decisions": [
+    {
+      "decision_id": "PO-001",
+      "decision": "FIRST_IMPLEMENTATION_MODULE",
+      "current_state": "UNDECIDED",
+      "approval_required": true
+    },
+    {
+      "decision_id": "PO-002",
+      "decision": "SHADOW_OBSERVATION_ACTIVATION",
+      "current_state": "NOT_AUTHORIZED",
+      "approval_required": true
+    },
+    {
+      "decision_id": "PO-003",
+      "decision": "BROKER_CONNECTION",
+      "current_state": "NOT_AUTHORIZED",
+      "approval_required": true
+    },
+    {
+      "decision_id": "PO-004",
+      "decision": "DATA_ACQUISITION",
+      "current_state": "NOT_AUTHORIZED",
+      "approval_required": true
+    },
+    {
+      "decision_id": "PO-005",
+      "decision": "FAMILY_D_F_FEASIBILITY_EXECUTION",
+      "current_state": "NOT_AUTHORIZED",
+      "approval_required": true
+    },
+    {
+      "decision_id": "PO-006",
+      "decision": "PAPER_TRADING",
+      "current_state": "NOT_READY",
+      "approval_required": true
+    },
+    {
+      "decision_id": "PO-007",
+      "decision": "LIVE_TRADING",
+      "current_state": "NOT_READY",
+      "approval_required": true
+    }
+  ],
+  "default_without_approval": "DO_NOT_START",
+  "product_owner_decisions_hash": "0f72e434e6963e893b02ff37152830784778ecdcb3080532f64d910116adf8a4"
+}

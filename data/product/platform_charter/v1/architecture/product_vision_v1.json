@@ -1,0 +1,38 @@
+{
+  "vision_version": "INTERSIGNAL_PRODUCT_VISION_V1",
+  "product_framing": "InterSignal = Investment Intelligence Platform",
+  "core_domains": [
+    "TRADE",
+    "INVEST",
+    "RESEARCH"
+  ],
+  "shared_platform": [
+    "PORTFOLIO OS",
+    "BROKER CONNECTION",
+    "DATA LAYER",
+    "RISK / GOVERNANCE",
+    "AUDITABILITY"
+  ],
+  "architecture_principle": "LOOSELY_COUPLED_ADAPTER_DRIVEN",
+  "core_logic_must_not_depend_directly_on": [
+    "GROWW",
+    "ZERODHA",
+    "SINGLE_DATA_VENDOR",
+    "SINGLE_COUNTRY"
+  ],
+  "geographic_sequence": [
+    "INDIA_FIRST",
+    "UK_FUTURE",
+    "US_FUTURE"
+  ],
+  "configuration_dimensions": [
+    "MARKET",
+    "EXCHANGE",
+    "CALENDAR",
+    "CURRENCY",
+    "INSTRUMENT_UNIVERSE",
+    "DATA_SOURCE",
+    "BROKER"
+  ],
+  "product_vision_hash": "0e7d07c7549c65a3012e470666516659d40806a0ae26032ca44f6f049520f7f7"
+}

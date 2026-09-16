@@ -1,0 +1,21 @@
+{
+  "portfolio_os_version": "INTERSIGNAL_PORTFOLIO_OS_DOMAIN_MODEL_V1",
+  "scope": [
+    "PORTFOLIO_ENTITIES",
+    "HOLDINGS",
+    "CASH",
+    "TRANSACTIONS",
+    "EXPOSURES",
+    "REALIZED_PNL",
+    "UNREALIZED_PNL",
+    "BENCHMARK_COMPARISON",
+    "ALLOCATION",
+    "STRATEGY_SOURCE_ATTRIBUTION",
+    "RISK_STATE",
+    "BROKER_ACCOUNT_MAPPING"
+  ],
+  "authoritative_state_principle": "PORTFOLIO_STATE_IS_RECONCILED_FROM_AUDITABLE_TRANSACTIONS_AND_SNAPSHOTS",
+  "broker_neutral": true,
+  "architecture_only": true,
+  "portfolio_os_domain_model_hash": "8bfc780d8baa4fc5d828569269cc180ffe8f73f4d9af605dda916f1765210689"
+}

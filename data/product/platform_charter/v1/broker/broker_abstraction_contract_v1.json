@@ -1,0 +1,30 @@
+{
+  "broker_contract_version": "INTERSIGNAL_BROKER_ABSTRACTION_CONTRACT_V1",
+  "potential_adapters": [
+    "GROWW",
+    "ZERODHA",
+    "FUTURE_BROKERS"
+  ],
+  "conceptual_capabilities": [
+    "MARKET_DATA",
+    "ACCOUNT_INFO",
+    "HOLDINGS",
+    "POSITIONS",
+    "ORDERS",
+    "ORDER_STATUS",
+    "HISTORICAL_DATA"
+  ],
+  "contract_layers": [
+    "DOMAIN_PORT",
+    "BROKER_NEUTRAL_DTO",
+    "ADAPTER",
+    "PROVIDER_CLIENT"
+  ],
+  "orders_capability_status": "FUTURE_CONTRACT_ONLY",
+  "broker_connected": false,
+  "broker_calls": 0,
+  "orders_placed": 0,
+  "credentials_required": false,
+  "implementation_started": false,
+  "broker_abstraction_contract_hash": "50c93fcd0f377d2f5f6928bad151a05b0f90dfe1e22bd433e135ab4113a79e3e"
+}

@@ -1,0 +1,15 @@
+{
+  "governance_version": "POST_RESEARCH_PROGRAM_GOVERNANCE_V1",
+  "STRATEGY_RESEARCH_PROGRAM_STATUS": "PRODUCT_PLATFORM_FOCUS",
+  "STRATEGY_DISCOVERY_MODE": "PAUSED",
+  "STRATEGY_V2_STATUS": "NOT_CREATED",
+  "FAMILY_H_STATUS": "NOT_PLANNED",
+  "new_strategy_created": false,
+  "validation_run_performed": false,
+  "paper_trading_started": false,
+  "live_trading_started": false,
+  "data_acquisition_started": false,
+  "infrastructure_implementation_started": false,
+  "selected_program_started": false,
+  "post_research_program_governance_hash": "151dc424ae371eee686a9394504abbd708c560dd319498998071b87b0813a0bb"
+}

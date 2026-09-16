@@ -1,0 +1,32 @@
+{
+  "alerting_version": "INTERSIGNAL_ALERT_MONITORING_SCOPE_V1",
+  "planned_alerts": [
+    "DATA_FEED_OUTAGE",
+    "STALE_DATA",
+    "JOB_FAILURE",
+    "BROKER_DISCONNECT",
+    "RISK_BREACH",
+    "STRATEGY_ERROR_CONDITION",
+    "MISSING_SOURCE",
+    "VALIDATION_INTEGRITY_ISSUE"
+  ],
+  "lifecycle": [
+    "OPEN",
+    "ACKNOWLEDGED",
+    "RESOLVED",
+    "SUPPRESSED_WITH_REASON"
+  ],
+  "required_metadata": [
+    "SEVERITY",
+    "SOURCE",
+    "OWNER",
+    "FIRST_SEEN",
+    "LAST_SEEN",
+    "OBJECT_ID",
+    "RUNBOOK",
+    "AUDIT_EVENT_ID"
+  ],
+  "alerting_active": false,
+  "implementation_started": false,
+  "alert_monitoring_scope_hash": "a51c79eaf9268dfeac47602abde04d4b3f02226667a943062ac14e59feee8eaf"
+}

@@ -1,0 +1,63 @@
+{
+  "boundaries_version": "INTERSIGNAL_PRODUCT_MODULE_BOUNDARIES_V1",
+  "boundaries": [
+    {
+      "module": "Research",
+      "owns": "hypotheses; experiments; candidates; evidence; validation plans",
+      "allowed_dependencies": "Data; Governance; Strategy/Evidence Registry",
+      "forbidden_dependencies": "Broker adapters; Trade execution; Alerts as authority"
+    },
+    {
+      "module": "Trade",
+      "owns": "future signal evaluation; execution decisions; order intents",
+      "allowed_dependencies": "Portfolio OS; Data; Risk; Broker contracts; Governance",
+      "forbidden_dependencies": "Provider-specific broker code; research mutation"
+    },
+    {
+      "module": "Invest",
+      "owns": "goals; long-horizon allocation; portfolio intelligence",
+      "allowed_dependencies": "Portfolio OS; Data; Risk; Alerts",
+      "forbidden_dependencies": "Research internals; provider-specific code"
+    },
+    {
+      "module": "Portfolio OS",
+      "owns": "accounts; holdings; cash; transactions; attribution; portfolio state",
+      "allowed_dependencies": "Data contracts; Broker read contracts; Risk contracts",
+      "forbidden_dependencies": "Strategy selection; broker implementation"
+    },
+    {
+      "module": "Broker",
+      "owns": "provider adapters; account mappings; future order transport",
+      "allowed_dependencies": "External provider APIs behind adapters",
+      "forbidden_dependencies": "Research logic; portfolio analytics; policy authority"
+    },
+    {
+      "module": "Data",
+      "owns": "sources; ingestion; normalization; quality; lineage; market reference data",
+      "allowed_dependencies": "Provider adapters; configuration",
+      "forbidden_dependencies": "Strategy decisions; order decisions"
+    },
+    {
+      "module": "Risk",
+      "owns": "limits; exposure calculations; risk states; future risk gates",
+      "allowed_dependencies": "Portfolio OS; Data; Governance policy",
+      "forbidden_dependencies": "Alpha generation; broker transport"
+    },
+    {
+      "module": "Governance",
+      "owns": "authorization; lifecycle policy; evidence state; audit policy",
+      "allowed_dependencies": "Registry; append-only audit events",
+      "forbidden_dependencies": "Market prediction; broker transport"
+    },
+    {
+      "module": "Alerts",
+      "owns": "alert rules; severity; routing; acknowledgement",
+      "allowed_dependencies": "Read-only telemetry from Data; Broker; Risk; Governance; jobs",
+      "forbidden_dependencies": "Authoritative state mutation; order placement"
+    }
+  ],
+  "cycles_allowed": false,
+  "provider_dependencies_isolated_behind_adapters": true,
+  "month_1_implementation_started": false,
+  "product_module_boundaries_hash": "19d0d3f2e6d81b6753303d2c04d561a941ed2e343751047ae86e1c106de80e19"
+}

@@ -1,0 +1,74 @@
+{
+  "roadmap_version": "POST_RESEARCH_STRATEGY_PROGRAM_ROADMAP_V1",
+  "three_month_plan": [
+    {
+      "month": 1,
+      "focus": "PROGRAM_CHARTER_AND_PRODUCT_PRIORITIES",
+      "decision_milestones": "Confirm product-owner priorities across Research, Portfolio OS, risk, audit, signal registry, and data lineage; freeze non-goals and governance boundaries.",
+      "implementation_started": false
+    },
+    {
+      "month": 2,
+      "focus": "ARCHITECTURE_AND_FEASIBILITY_DECISIONS",
+      "decision_milestones": "Review module boundaries and resource tradeoffs; assess shadow-observation governance and scoped Family D/F data feasibility without acquisition.",
+      "implementation_started": false
+    },
+    {
+      "month": 3,
+      "focus": "PROGRAM_GO_NO_GO_AND_SEQUENCE",
+      "decision_milestones": "Approve, revise, or stop the platform programme; sequence separately authorized work and decide whether passive forward observation should be activated.",
+      "implementation_started": false
+    }
+  ],
+  "six_month_plan": [
+    {
+      "horizon": "MONTHS_1_TO_3",
+      "objective": "Complete product charter, architecture, governance, and resource decisions.",
+      "decision_point": "AUTHORIZE_REVISE_OR_STOP_PLATFORM_PROGRAM"
+    },
+    {
+      "horizon": "MONTHS_4_TO_5_IF_SEPARATELY_AUTHORIZED",
+      "objective": "Establish reusable research auditability, lineage, portfolio intelligence, and shadow-observation foundations without live deployment.",
+      "decision_point": "VERIFY_PROGRAM_LEVEL_SUCCESS_CRITERIA"
+    },
+    {
+      "horizon": "MONTH_6",
+      "objective": "Review product value, forward-data accumulation, data-blocker feasibility, and hypothesis quality.",
+      "decision_point": "CHOOSE_CONTINUE_PLATFORM_VALIDATE_FORWARD_EVIDENCE_CHANGE_PROGRAM_OR_PAUSE_ALPHA_RESEARCH"
+    }
+  ],
+  "product_mapping": [
+    {
+      "module": "Trade",
+      "interaction": "DEFERRED",
+      "value": "No strategy execution or live automation."
+    },
+    {
+      "module": "Invest",
+      "interaction": "SECONDARY",
+      "value": "Future catalyst intelligence, alerts, and decision support."
+    },
+    {
+      "module": "Research",
+      "interaction": "PRIMARY",
+      "value": "Workbench, signal registry, experiment evidence, and auditability."
+    },
+    {
+      "module": "Portfolio OS",
+      "interaction": "PRIMARY",
+      "value": "Portfolio intelligence, analytics, risk, monitoring, and decisions."
+    },
+    {
+      "module": "Broker Connection",
+      "interaction": "DESIGN_ONLY",
+      "value": "Abstraction boundaries only; no broker calls or execution."
+    },
+    {
+      "module": "Data Layer",
+      "interaction": "PRIMARY",
+      "value": "Lineage, quality, provenance, and future shadow-data governance."
+    }
+  ],
+  "programme_started": false,
+  "post_research_program_roadmap_hash": "363327ad8e92d282322df8fdbe182046287e407361896f4f38ef8d25cc4a449e"
+}

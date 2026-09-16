@@ -1,0 +1,51 @@
+{
+  "governance_version": "INTERSIGNAL_PLATFORM_GOVERNANCE_AUDIT_V1",
+  "ui_fields": [
+    "STRATEGY_STATUS",
+    "HASHES",
+    "EXPERIMENT_HISTORY",
+    "VALIDATION_STATE",
+    "EVIDENCE_CLASSIFICATION",
+    "BLOCKED_REASONS",
+    "DATA_QUALITY",
+    "AUTHORIZATION_STATE",
+    "RUN_COUNT",
+    "PRODUCTION_READINESS"
+  ],
+  "append_only_audit_events": [
+    "DATA_INGEST",
+    "RESEARCH_RUN",
+    "CONFIGURATION_FREEZE",
+    "AUTHORIZATION",
+    "VALIDATION",
+    "STRATEGY_LIFECYCLE_CHANGE",
+    "BROKER_ACTION",
+    "MANUAL_OVERRIDE"
+  ],
+  "audit_event_required_fields": [
+    "EVENT_ID",
+    "EVENT_TYPE",
+    "TIMESTAMP",
+    "ACTOR",
+    "OBJECT_ID",
+    "OBJECT_VERSION",
+    "BEFORE_HASH",
+    "AFTER_HASH",
+    "AUTHORIZATION_ID",
+    "REASON"
+  ],
+  "audit_log_append_only": true,
+  "current_states": {
+    "A_TO_G": "COMPLETE_NO_VALIDATED_STRATEGY",
+    "PROGRAM_REVIEW": "COMPLETE",
+    "PRIMARY_PROGRAMME": "PRODUCT_PLATFORM_PROGRAM",
+    "SECONDARY_PROGRAMME": "FORWARD_DATA_PROGRAM",
+    "MONTH_1": "ACTIVE_PLATFORM_CHARTER",
+    "STRATEGY_RESEARCH": "PAUSED",
+    "STRATEGY_V2": "NOT_CREATED",
+    "PAPER": "NOT_READY",
+    "LIVE": "NOT_READY"
+  },
+  "implementation_started": false,
+  "platform_governance_audit_hash": "32095e67524c98120584721d3a5705c3c2581e89c3b17defdeb505573d04cbb2"
+}

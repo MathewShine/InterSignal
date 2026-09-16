@@ -1,0 +1,29 @@
+{
+  "architecture_version": "INTERSIGNAL_PLATFORM_ARCHITECTURE_V1",
+  "style": "LOOSELY_COUPLED_MODULAR_PLATFORM",
+  "adapter_interfaces_required": true,
+  "domains": {
+    "TRADE": "Future decision and execution domain; inactive in Month 1.",
+    "INVEST": "Long-horizon portfolio, goal, allocation, and intelligence domain.",
+    "RESEARCH": "Governed hypothesis, experiment, validation, and evidence domain."
+  },
+  "shared_services": [
+    "PORTFOLIO_OS",
+    "DATA_LAYER",
+    "RISK",
+    "GOVERNANCE",
+    "AUDITABILITY",
+    "ALERTS",
+    "BROKER_ABSTRACTION"
+  ],
+  "dependency_rules": [
+    "DOMAIN_LOGIC_DEPENDS_ON_CONTRACTS_NOT_PROVIDER_ADAPTERS",
+    "DATA_PROVENANCE_CROSSES_ALL_DERIVED_OBJECTS",
+    "GOVERNANCE_IS_A_POLICY_AND_AUDIT_BOUNDARY_NOT_ALPHA_LOGIC",
+    "RISK_GATES_FUTURE_DECISIONS_BUT_DOES_NOT_CREATE_STRATEGIES",
+    "ALERTS_REPORT_STATE_BUT_DO_NOT_OWN_SOURCE_STATE",
+    "NO_CIRCULAR_DEPENDENCIES"
+  ],
+  "implementation_started": false,
+  "platform_architecture_hash": "ca99bce74b92e38db72315dcf52fc175d0207e3a69a659b03cb33046ef3e60ff"
+}

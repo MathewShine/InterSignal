@@ -1,0 +1,4 @@
+horizon,objective,decision_point
+MONTHS_1_TO_3,"Complete product charter, architecture, governance, and resource decisions.",AUTHORIZE_REVISE_OR_STOP_PLATFORM_PROGRAM
+MONTHS_4_TO_5_IF_SEPARATELY_AUTHORIZED,"Establish reusable research auditability, lineage, portfolio intelligence, and shadow-observation foundations without live deployment.",VERIFY_PROGRAM_LEVEL_SUCCESS_CRITERIA
+MONTH_6,"Review product value, forward-data accumulation, data-blocker feasibility, and hypothesis quality.",CHOOSE_CONTINUE_PLATFORM_VALIDATE_FORWARD_EVIDENCE_CHANGE_PROGRAM_OR_PAUSE_ALPHA_RESEARCH

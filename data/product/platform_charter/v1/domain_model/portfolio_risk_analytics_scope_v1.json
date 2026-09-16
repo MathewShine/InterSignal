@@ -1,0 +1,22 @@
+{
+  "risk_analytics_version": "INTERSIGNAL_PORTFOLIO_RISK_ANALYTICS_SCOPE_V1",
+  "planned_metrics": [
+    "TOTAL_EQUITY",
+    "CASH",
+    "EXPOSURE",
+    "SECTOR_EXPOSURE",
+    "CONCENTRATION",
+    "TURNOVER",
+    "TRANSACTION_COSTS",
+    "DRAWDOWN",
+    "VOLATILITY",
+    "ROLLING_RETURNS",
+    "CONTRIBUTION",
+    "BENCHMARK_RELATIVE_PERFORMANCE",
+    "RISK_LIMITS"
+  ],
+  "metric_definitions_require_lineage": true,
+  "risk_limits_enforced": false,
+  "implementation_started": false,
+  "portfolio_risk_analytics_scope_hash": "f462eb385a1b07ecdf0cded6798a18d929195346634e95303940c91fd7107633"
+}

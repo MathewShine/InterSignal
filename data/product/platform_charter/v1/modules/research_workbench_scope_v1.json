@@ -1,0 +1,17 @@
+{
+  "workbench_version": "INTERSIGNAL_RESEARCH_WORKBENCH_SCOPE_V1",
+  "responsibilities": [
+    "BROWSE_STRATEGY_FAMILIES",
+    "VIEW_EXPERIMENT_LINEAGE",
+    "VIEW_FROZEN_HASHES",
+    "COMPARE_DEVELOPMENT_VALIDATION_EVIDENCE",
+    "INSPECT_POSITIVE_NEGATIVE_EVIDENCE",
+    "VIEW_BLOCKED_DATA_LIMITED_STUDIES",
+    "CREATE_GOVERNED_FUTURE_EXPERIMENT_PLANS",
+    "EXPORT_RESEARCH_REPORTS"
+  ],
+  "can_execute_research": false,
+  "can_mutate_frozen_evidence": false,
+  "implementation_started": false,
+  "research_workbench_scope_hash": "6e4053cd904a345a3e487cf3feb3eacb39fa69c6ce9c3b36845a6a1ab03afd1a"
+}

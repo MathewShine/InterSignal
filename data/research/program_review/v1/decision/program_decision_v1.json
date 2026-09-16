@@ -1,0 +1,24 @@
+{
+  "decision_version": "INTERSIGNAL_NEXT_CYCLE_DECISION_V1",
+  "primary_question": "What should InterSignal do next after completing A-G without a validated strategy?",
+  "NEXT_PROGRAM_PRIMARY_DIRECTION": "PRODUCT_PLATFORM_PROGRAM",
+  "NEXT_PROGRAM_SECONDARY_DIRECTION": "FORWARD_DATA_PROGRAM",
+  "STRATEGY_RESEARCH_PROGRAM_STATUS": "PRODUCT_PLATFORM_FOCUS",
+  "STRATEGY_DISCOVERY_MODE": "PAUSED",
+  "another_strategy_family_currently_justified": "NO",
+  "primary_rationale": "Product/platform work offers the highest durable value across Research, Portfolio OS, risk, lineage, auditability, and decision support even if no alpha strategy succeeds. It also prepares clean infrastructure for later forward observation without treating shadow data as deployment rehearsal.",
+  "option_rationales": {
+    "OPTION_A_FORWARD_DATA_PROGRAM": "Selected as secondary because new unseen data is scientifically necessary, but the time-to-decision is long and Family A is only a frozen benchmark.",
+    "OPTION_B_DATA_INFRASTRUCTURE_PROGRAM": "Deferred to targeted feasibility because reusable value is high but licensing, continuity, engineering, and cost dependencies are high.",
+    "OPTION_C_NEW_HYPOTHESIS_PROGRAM": "Deferred because no genuinely distinct, data-ready economic mechanism currently justifies another family.",
+    "OPTION_D_PRODUCT_PLATFORM_PROGRAM": "Selected because it produces immediate program value independent of strategy-alpha success and retains the most future optionality."
+  },
+  "evidence_that_would_change_decision": [
+    "A materially accumulated genuinely unseen forward dataset with a preregistered frozen benchmark.",
+    "Acceptable licensed-data feasibility for reusable intraday or catalyst infrastructure.",
+    "A distinct economic hypothesis with independent preregistration and verified data readiness.",
+    "Evidence that platform engineering opportunity cost exceeds its cross-module value."
+  ],
+  "selected_program_started": false,
+  "post_research_program_decision_hash": "fe081ff3352cd7c925d59cafae44ea875eac75efb64480dafbb72c473ae0f2e9"
+}

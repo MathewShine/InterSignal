@@ -1,0 +1,6 @@
+resource,level,basis
+ENGINEERING_EFFORT,HIGH,"Cross-module architecture, lineage, registry, risk, audit, and portfolio capabilities."
+DATA_EFFORT,MEDIUM,Existing-data lineage and readiness design plus D/F feasibility assessment.
+LICENSING_DATA_COST,LOW,No acquisition in the selected programme; only feasibility review is included.
+COMPUTE_STORAGE_IMPACT,MEDIUM,"Registry, lineage, portfolio analytics, monitoring, and future shadow data retention."
+MANUAL_REVIEW_EFFORT,MEDIUM,"Product decisions, governance review, data-quality review, and audit acceptance."

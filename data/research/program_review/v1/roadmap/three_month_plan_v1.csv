@@ -1,0 +1,4 @@
+month,focus,decision_milestones,implementation_started
+1,PROGRAM_CHARTER_AND_PRODUCT_PRIORITIES,"Confirm product-owner priorities across Research, Portfolio OS, risk, audit, signal registry, and data lineage; freeze non-goals and governance boundaries.",False
+2,ARCHITECTURE_AND_FEASIBILITY_DECISIONS,Review module boundaries and resource tradeoffs; assess shadow-observation governance and scoped Family D/F data feasibility without acquisition.,False
+3,PROGRAM_GO_NO_GO_AND_SEQUENCE,"Approve, revise, or stop the platform programme; sequence separately authorized work and decide whether passive forward observation should be activated.",False

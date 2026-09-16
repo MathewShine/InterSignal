@@ -1,0 +1,26 @@
+{
+  "market_data_architecture_version": "INTERSIGNAL_MARKET_DATA_ARCHITECTURE_V1",
+  "categories": [
+    "DAILY_DATA",
+    "INTRADAY_DATA",
+    "REAL_TIME_DATA",
+    "CORPORATE_ACTIONS",
+    "FUNDAMENTALS",
+    "CATALYSTS",
+    "BENCHMARKS",
+    "BROKER_ACCOUNT_DATA"
+  ],
+  "separation_dimensions": [
+    "SOURCE",
+    "LICENSE",
+    "FREQUENCY",
+    "MARKET",
+    "QUALITY_STATE",
+    "RETENTION",
+    "LINEAGE"
+  ],
+  "provider_selected": false,
+  "data_acquisition_started": false,
+  "implementation_started": false,
+  "market_data_architecture_hash": "ee74ffb6fb8631f4a6dd09db49fed4ac202d48e6e5bcfc0af08034d441676bfa"
+}

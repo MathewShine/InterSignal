@@ -1,0 +1,47 @@
+{
+  "design_version": "INTERSIGNAL_REALTIME_INDICATOR_PATTERN_DESIGN_V1",
+  "future_live_data_path": [
+    "BROKER_OR_FEED",
+    "REAL_TIME_NORMALIZATION",
+    "BAR_AGGREGATION",
+    "INDICATOR_CALCULATION",
+    "PATTERN_STATE",
+    "STRATEGY_EVALUATION",
+    "RISK_GATE",
+    "EXECUTION_DECISION"
+  ],
+  "indicators": [
+    "VWAP",
+    "ATR",
+    "MOVING_AVERAGES",
+    "RELATIVE_VOLUME",
+    "RELATIVE_STRENGTH",
+    "MOMENTUM",
+    "OPENING_RANGE",
+    "BREADTH",
+    "VOLATILITY",
+    "SUPPORT_RESISTANCE",
+    "PRICE_STRUCTURE"
+  ],
+  "indicator_consumers": [
+    "STRATEGY_LOGIC",
+    "EXECUTION",
+    "RISK",
+    "MONITORING",
+    "ANALYTICS"
+  ],
+  "indicators_automatically_imply_alpha": false,
+  "patterns": [
+    "BREAKOUT",
+    "RECLAIM",
+    "PULLBACK",
+    "COMPRESSION",
+    "OPENING_RANGE_BEHAVIOR",
+    "TREND",
+    "MOMENTUM_CONTINUATION",
+    "SUPPORT_RESISTANCE_INTERACTION"
+  ],
+  "strategy_activation": false,
+  "implementation_started": false,
+  "realtime_indicator_pattern_design_hash": "b06c06173c2a9e477295e2a4f8645fd34cea00abc6695a12844e9cf4b17e62b2"
+}

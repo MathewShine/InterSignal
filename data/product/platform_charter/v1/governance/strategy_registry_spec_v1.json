@@ -1,0 +1,39 @@
+{
+  "registry_spec_version": "INTERSIGNAL_STRATEGY_REGISTRY_SPEC_V1",
+  "lifecycle": [
+    "IDEA",
+    "PREREGISTERED",
+    "DEVELOPMENT_EVALUATED",
+    "VALIDATION_CANDIDATE",
+    "VALIDATION_EVALUATED",
+    "PAUSED",
+    "REJECTED",
+    "DATA_BLOCKED",
+    "SOURCE_BLOCKED",
+    "PRODUCTION_CANDIDATE"
+  ],
+  "required_fields": [
+    "STRATEGY_ID",
+    "FAMILY_ID",
+    "VERSION",
+    "LIFECYCLE_STATE",
+    "CONFIGURATION_HASH",
+    "EVIDENCE_IDS",
+    "AUTHORIZATION_STATE",
+    "VALIDATION_STATE",
+    "PRODUCTION_READINESS"
+  ],
+  "current_governance_states": {
+    "A_TO_G": "COMPLETE_NO_VALIDATED_STRATEGY",
+    "FAMILY_A": "CLOSED_NOT_ADVANCED",
+    "STRATEGY_RESEARCH": "PAUSED",
+    "STRATEGY_V2": "NOT_CREATED",
+    "FAMILY_H": "NOT_PLANNED",
+    "PAPER": "NOT_READY",
+    "LIVE": "NOT_READY"
+  },
+  "current_families_upgraded": false,
+  "production_candidates_created": 0,
+  "implementation_started": false,
+  "strategy_registry_spec_hash": "5261d2b70efbb3d1c9dc4f5233ccb2c54d8b1db90bce01a11dba1e8f6757c622"
+}

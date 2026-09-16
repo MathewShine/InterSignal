@@ -1,0 +1,26 @@
+{
+  "shadow_governance_version": "INTERSIGNAL_RESEARCH_SHADOW_GOVERNANCE_V1",
+  "mode": "RESEARCH_SHADOW_MODE",
+  "purpose": "Track frozen research hypotheses against genuinely new future data.",
+  "status": "DESIGN_ONLY_NOT_ACTIVATED",
+  "new_data_requirement": "DATA_MUST_NOT_HAVE_BEEN_USED_FOR_MODEL_SELECTION",
+  "family_a": {
+    "status": "FROZEN_RESEARCH_BENCHMARK",
+    "production_candidate": false
+  },
+  "family_c": {
+    "evidence_id": "EDGE-EVIDENCE-C-COMPRESSION-001",
+    "status": "SIGNAL_LEVEL_RESEARCH_OBSERVATION_ONLY",
+    "strategy_created": false
+  },
+  "prohibitions": [
+    "PLACE_ORDERS",
+    "SIMULATE_DEPLOYMENT_READINESS",
+    "MUTATE_STRATEGY",
+    "USE_KNOWN_HOLDOUT_FOR_MODEL_SELECTION"
+  ],
+  "shadow_mode_started": false,
+  "paper_trading_started": false,
+  "live_trading_started": false,
+  "shadow_mode_governance_hash": "02e6f63e291733f23b3f08722901851ca612a82f1c2df65f266b5926d24f8b9b"
+}

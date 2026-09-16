@@ -1,0 +1,60 @@
+{
+  "domain_model_version": "INTERSIGNAL_CANONICAL_DOMAIN_MODEL_V1",
+  "entities": {
+    "Research": [
+      "StrategyFamily",
+      "Strategy",
+      "Experiment",
+      "Candidate",
+      "Evidence",
+      "Authorization",
+      "ValidationRun",
+      "ArtifactHash"
+    ],
+    "Portfolio": [
+      "Portfolio",
+      "Account",
+      "Holding",
+      "CashBalance",
+      "Transaction",
+      "Exposure",
+      "PnL",
+      "Benchmark",
+      "Allocation",
+      "Attribution",
+      "RiskState",
+      "Goal"
+    ],
+    "Data": [
+      "DataSource",
+      "Dataset",
+      "DataPartition",
+      "LineageNode",
+      "QualityCheck",
+      "CorporateAction",
+      "Instrument",
+      "MarketCalendar"
+    ],
+    "Broker": [
+      "BrokerAccountMapping",
+      "BrokerAdapter",
+      "OrderIntent",
+      "OrderRecord"
+    ],
+    "Operations": [
+      "Alert",
+      "JobRun",
+      "AuditEvent",
+      "ManualOverride"
+    ]
+  },
+  "identity_rules": [
+    "EVERY_ENTITY_HAS_A_STABLE_ID_AND_VERSION",
+    "EVERY_DERIVED_ENTITY_RETAINS_UPSTREAM_LINEAGE_IDS",
+    "CONFIGURATION_AND_EVIDENCE_OBJECTS_RETAIN_CONTENT_HASHES",
+    "LIFECYCLE_CHANGES_REQUIRE_APPEND_ONLY_AUDIT_EVENTS"
+  ],
+  "order_entities_are_future_contractS_only": true,
+  "implementation_started": false,
+  "canonical_domain_model_hash": "58a8c7e62ccb4e7f66035189c07bbaf8d37eaf70205915a4d018ba815f884c93"
+}

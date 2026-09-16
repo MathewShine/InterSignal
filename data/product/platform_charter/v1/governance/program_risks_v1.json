@@ -1,0 +1,54 @@
+{
+  "risks_version": "INTERSIGNAL_PRODUCT_PLATFORM_PROGRAM_RISKS_V1",
+  "risks": [
+    {
+      "risk_id": "R-001",
+      "risk": "SCOPE_CREEP",
+      "impact": "HIGH",
+      "mitigation": "Use the frozen priorities, non-goals, and product-owner gates."
+    },
+    {
+      "risk_id": "R-002",
+      "risk": "PREMATURE_EXECUTION_FOCUS",
+      "impact": "HIGH",
+      "mitigation": "Keep Trade and broker order paths inactive until validation and separate approval."
+    },
+    {
+      "risk_id": "R-003",
+      "risk": "OVERENGINEERING",
+      "impact": "MEDIUM",
+      "mitigation": "Implement only an approved vertical slice against stable contracts."
+    },
+    {
+      "risk_id": "R-004",
+      "risk": "VENDOR_LOCK_IN",
+      "impact": "HIGH",
+      "mitigation": "Require broker and data adapter interfaces with provider-neutral domain logic."
+    },
+    {
+      "risk_id": "R-005",
+      "risk": "DATA_LICENSING",
+      "impact": "HIGH",
+      "mitigation": "Track rights and provenance; require approval before D/F acquisition."
+    },
+    {
+      "risk_id": "R-006",
+      "risk": "RESEARCH_PRODUCT_COUPLING",
+      "impact": "HIGH",
+      "mitigation": "Separate research, registry, portfolio, data, and execution boundaries."
+    },
+    {
+      "risk_id": "R-007",
+      "risk": "AI_OVERREACH",
+      "impact": "HIGH",
+      "mitigation": "Prohibit autonomous strategy selection and unrestricted strategy generation."
+    },
+    {
+      "risk_id": "R-008",
+      "risk": "UNCLEAR_PRODUCTION_READINESS_SEMANTICS",
+      "impact": "HIGH",
+      "mitigation": "Expose explicit lifecycle, authorization, validation, and readiness fields."
+    }
+  ],
+  "product_platform_program_risks_hash": "c7d5b1d9b456314e1143afa9ae8d0836f42445ee0c00b8a684da58a75cf4627c"
+}

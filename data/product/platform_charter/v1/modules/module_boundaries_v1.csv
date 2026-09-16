@@ -1,0 +1,10 @@
+module,owns,allowed_dependencies,forbidden_dependencies
+Research,hypotheses; experiments; candidates; evidence; validation plans,Data; Governance; Strategy/Evidence Registry,Broker adapters; Trade execution; Alerts as authority
+Trade,future signal evaluation; execution decisions; order intents,Portfolio OS; Data; Risk; Broker contracts; Governance,Provider-specific broker code; research mutation
+Invest,goals; long-horizon allocation; portfolio intelligence,Portfolio OS; Data; Risk; Alerts,Research internals; provider-specific code
+Portfolio OS,accounts; holdings; cash; transactions; attribution; portfolio state,Data contracts; Broker read contracts; Risk contracts,Strategy selection; broker implementation
+Broker,provider adapters; account mappings; future order transport,External provider APIs behind adapters,Research logic; portfolio analytics; policy authority
+Data,sources; ingestion; normalization; quality; lineage; market reference data,Provider adapters; configuration,Strategy decisions; order decisions
+Risk,limits; exposure calculations; risk states; future risk gates,Portfolio OS; Data; Governance policy,Alpha generation; broker transport
+Governance,authorization; lifecycle policy; evidence state; audit policy,Registry; append-only audit events,Market prediction; broker transport
+Alerts,alert rules; severity; routing; acknowledgement,Read-only telemetry from Data; Broker; Risk; Governance; jobs,Authoritative state mutation; order placement
