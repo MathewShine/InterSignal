@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-09-16T22:43:00.000000Z",
+  "integrity": {
+    "audit_sequence_errors": 0,
+    "broken_subject_refs": 0,
+    "duplicate_ids": 0,
+    "expired_approval_usage": 0,
+    "hash_mismatches": 0,
+    "invalid_authorization_references": 0,
+    "metadata": {
+      "external_reference_errors": 0,
+      "subject_count": 19
+    },
+    "override_without_authorization": 0,
+    "policy_version_conflicts": 0,
+    "status": "HEALTHY"
+  },
+  "integrity_hash": "3072a4001416e502e41a913aa2d123c4b1df2a4f67844ee4abe3029009a786f4",
+  "integrity_version": "INTERSIGNAL_GOVERNANCE_AUDIT_INTEGRITY_V1",
+  "platform_foundation_hash": "ec270dcb640116fe56709c784b4ca915bd794b0a96847e11fb561460dfed877f",
+  "portfolio_os_foundation_hash": "6941ae2713b707908106ffb8d50be113d181e9339fd3e030338b2da637f026de",
+  "research_workbench_backend_hash": "c0c1ba634f584b4532e99e4f015be83e7e0c069eafb3cd5ca6a1fc7cfaf8f52b"
+}

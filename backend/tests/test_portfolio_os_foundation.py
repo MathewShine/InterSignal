@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import subprocess
 from datetime import date, datetime, timedelta, timezone
 from decimal import Decimal
 from pathlib import Path
@@ -8,7 +9,7 @@ from pathlib import Path
 import pytest
 from pydantic import ValidationError
 
-from app.platform.hashing import canonical_hash
+from app.platform.hashing import canonical_hash, file_sha256
 from app.portfolio_os.accounting import (
     FIFOAccountingEngine,
     calculate_cash_ledger,
@@ -23,7 +24,6 @@ from app.portfolio_os.builder import (
     RESEARCH_PORTFOLIO_ID,
     RESEARCH_WORKBENCH_HASH,
     REQUIRED_CHECKPOINT,
-    verify_portfolio_os_inputs,
 )
 from app.portfolio_os.errors import (
     AccountNotFound,
@@ -79,6 +79,10 @@ from app.portfolio_os.service import PortfolioOSService
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 T0 = datetime(2026, 9, 16, 10, 0, tzinfo=timezone.utc)
+STEP_04_03_CHECKPOINT = "0f7936bd482b05758546b2ce58915a93aeab7e02"
+PORTFOLIO_OS_FOUNDATION_HASH = (
+    "6941ae2713b707908106ffb8d50be113d181e9339fd3e030338b2da637f026de"
+)
 
 
 def _portfolio(
@@ -305,11 +309,34 @@ def test_command_identity_and_checkpoint_are_exact() -> None:
     assert RESEARCH_WORKBENCH_HASH == "c0c1ba634f584b4532e99e4f015be83e7e0c069eafb3cd5ca6a1fc7cfaf8f52b"
 
 
-def test_input_verifier_accepts_current_checkpoint_and_prior_hashes() -> None:
-    result = verify_portfolio_os_inputs(PROJECT_ROOT)
-    assert result["head"] == REQUIRED_CHECKPOINT
-    assert result["foundation"]["platform_foundation_hash"] == PLATFORM_FOUNDATION_HASH
-    assert result["workbench"]["research_workbench_backend_hash"] == RESEARCH_WORKBENCH_HASH
+def test_historical_checkpoint_ancestry_and_portfolio_artifacts_are_frozen() -> None:
+    head = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=PROJECT_ROOT,
+        capture_output=True,
+        check=True,
+        text=True,
+    ).stdout.strip()
+    for checkpoint in (REQUIRED_CHECKPOINT, STEP_04_03_CHECKPOINT):
+        ancestry = subprocess.run(
+            ["git", "merge-base", "--is-ancestor", checkpoint, head],
+            cwd=PROJECT_ROOT,
+            capture_output=True,
+            text=True,
+        )
+        assert ancestry.returncode == 0, f"Missing checkpoint from HEAD ancestry: {checkpoint}"
+
+    manifest_path = (
+        PROJECT_ROOT
+        / "data/platform/manifests/intersignal_portfolio_os_foundation_manifest_v1.json"
+    )
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    recorded_hash = manifest.pop("portfolio_os_foundation_hash")
+    assert recorded_hash == PORTFOLIO_OS_FOUNDATION_HASH
+    assert recorded_hash == canonical_hash(manifest)
+    assert manifest["required_checkpoint"] == REQUIRED_CHECKPOINT
+    for relative, expected_hash in manifest["artifact_file_hashes"].items():
+        assert file_sha256(PROJECT_ROOT / relative) == expected_hash
 
 
 def test_portfolio_account_security_cash_and_identifiers() -> None:
