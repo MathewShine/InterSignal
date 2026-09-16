@@ -1,0 +1,183 @@
+{
+  "manifest_version": "CROSS_FAMILY_EVIDENCE_SYNTHESIS_MANIFEST_V1",
+  "command": "Step 03.08 / Command 01",
+  "command_version": "CROSS_FAMILY_EVIDENCE_SYNTHESIS_V1",
+  "command_profile": "STRATEGY_DISCOVERY_A_TO_G_SYNTHESIS_V1",
+  "generated_at": "2026-09-15T16:54:31.842573Z",
+  "checkpoint": {
+    "milestone_commit": "a405e9ffef9cd1c9de3d9f9b92ff6b2547e1bdd1",
+    "head": "a405e9ffef9cd1c9de3d9f9b92ff6b2547e1bdd1",
+    "branch": "main",
+    "upstream": "origin/main",
+    "milestone_is_ancestor": true
+  },
+  "input_verification": {
+    "status": "VERIFIED",
+    "checks": {
+      "all_input_file_hashes_exact": true,
+      "all_family_closure_hashes_exact": true,
+      "all_family_statuses_exact": true,
+      "strategy_v1_weak": true,
+      "cap4_validation_failed": true,
+      "family_a_reference_exact": true,
+      "family_a_500k_reference_exact": true,
+      "family_a_result_exact": true,
+      "family_g_reproduced_family_a": true,
+      "family_d_continuity_block_exact": true,
+      "family_f_source_gate_exact": true,
+      "family_g_hash_exact": true,
+      "family_f_hash_exact": true
+    },
+    "git": {
+      "milestone_commit": "a405e9ffef9cd1c9de3d9f9b92ff6b2547e1bdd1",
+      "head": "a405e9ffef9cd1c9de3d9f9b92ff6b2547e1bdd1",
+      "branch": "main",
+      "upstream": "origin/main",
+      "milestone_is_ancestor": true
+    },
+    "source_file_hashes": {
+      "data/reports/strategy_diagnostic_v1_synthesis_summary.json": "fd8ecb0dcb45d86bffcc88cc9404b3391398b16e848ae8eac86b10ff9d35ea48",
+      "data/reports/rr_cap4_validation_v1_summary.json": "0ddee689c39a47774dcdd9e3bba12be6f8a42975303f31c9b54aa1c7bcd23daf",
+      "data/reports/family_a_closure_v1_summary.json": "beb80a111c30ff6a6e4221cea3f461101b52e16453d8bbecdd84056f512fff7c",
+      "data/reports/family_b_closure_v1_summary.json": "65d5d5c378461b30451c27552a984ee3f1f5dbf79e9d47ad719d273b24a76c81",
+      "data/reports/family_c_closure_v1_summary.json": "111adf1b113aded2852817d0c99c30f6efb9aaa2768bc55125767c41be311e71",
+      "data/reports/family_d_closure_v1_summary.json": "f7950808a519ce78a4b9eae775dcf339be27aa1c93e1902c3415bfefd50edc9c",
+      "data/reports/family_e_closure_v1_summary.json": "f10c1e7b5c760b8b169b523392325a003554f83ef758943a72d2734bcb883121",
+      "data/reports/family_f_closure_v1_summary.json": "d09b6ac29584e52e014c9e9a59b3630f56bc60ff50676187d559cabb3be2b1d1",
+      "data/reports/family_g_closure_v1_summary.json": "8658f912c42d1d3274a3f48999c85a5ec79db9c2305acb6e591a1a1ee7b43867",
+      "data/research/strategy_families/family_d/v1/closure/manifest/family_d_closure_manifest_v1.json": "eeb7058c892422f8f88df6a61abd28f4f09e2880b32556449a049ef0542bd559",
+      "data/research/strategy_families/family_a/v1/registry/mom_a_002_v1.json": "92a74e267806ca38c2409c105d6d7acac5b8cc6bd84cb7fc603e2ff5c9698135",
+      "data/research/strategy_families/family_a/v1/phase2/registry/a2_002_preregistration_v1.json": "261ee7e8c6a4a5a96b8027a3ac35d20ebc267d9d4592c270f9d1ed65eea30065",
+      "data/research/strategy_families/family_a/v1/phase2/development_evaluation/a2_002/development_result_v1.json": "083350f4a86b4ff502814159dc4b39c02c7d05ad88e7f7daf9b1422e089d367d"
+    },
+    "source_snapshot_hash": "de1380ff4fdbca6eed20b333ca501cd08774750aedf60a72987e38463801b78b",
+    "family_closure_hashes": {
+      "A": "51e2190c25f3146609ac173cc345e2a8adc0b6c9efb824633d735dc976581250",
+      "B": "32e510424551e01fd54aac4711fa90fa08c711856c80b812d797b3a2f8faf6b0",
+      "C": "e1146522bed8e81b87af8123f481045697a788c3af9e3f7654279b20724910d1",
+      "D": "1628774e5a6032487ac6e15e9beba21cbf52c96389b83aca7d4e87a46e577414",
+      "E": "4899cdbfe54b0ea636faa8ff0b4504b6ef60242e7eabdf682b2b913cfb001c00",
+      "F": "515bd3dc996c1e119e3e422f182ba82abfa8f2d312346df2c7a5751322d7716d",
+      "G": "2cb2102b207da24b4730cd673869aab1c00534ae8fa09c281639aafaaee6c179"
+    },
+    "family_final_statuses": {
+      "A": "PAUSED_PENDING_LATER_VALIDATION_DESIGN",
+      "B": "PAUSED_NO_VALIDATION_CANDIDATE",
+      "C": "PAUSED_NO_VALIDATION_CANDIDATE",
+      "D": "PAUSED_DATA_BLOCKED_PENDING_BETTER_INTRADAY_SOURCE",
+      "E": "PAUSED_NO_VALIDATION_CANDIDATE",
+      "F": "PAUSED_PENDING_AUTHORIZED_CATALYST_SOURCE",
+      "G": "PAUSED_NO_VALIDATION_CANDIDATE"
+    }
+  },
+  "discovery_cycle_status": "COMPLETE_FOR_CURRENT_RESEARCH_CYCLE",
+  "family_final_statuses": {
+    "A": "PAUSED_PENDING_LATER_VALIDATION_DESIGN",
+    "B": "PAUSED_NO_VALIDATION_CANDIDATE",
+    "C": "PAUSED_NO_VALIDATION_CANDIDATE",
+    "D": "PAUSED_DATA_BLOCKED_PENDING_BETTER_INTRADAY_SOURCE",
+    "E": "PAUSED_NO_VALIDATION_CANDIDATE",
+    "F": "PAUSED_PENDING_AUTHORIZED_CATALYST_SOURCE",
+    "G": "PAUSED_NO_VALIDATION_CANDIDATE"
+  },
+  "family_closure_hashes": {
+    "A": "51e2190c25f3146609ac173cc345e2a8adc0b6c9efb824633d735dc976581250",
+    "B": "32e510424551e01fd54aac4711fa90fa08c711856c80b812d797b3a2f8faf6b0",
+    "C": "e1146522bed8e81b87af8123f481045697a788c3af9e3f7654279b20724910d1",
+    "D": "1628774e5a6032487ac6e15e9beba21cbf52c96389b83aca7d4e87a46e577414",
+    "E": "4899cdbfe54b0ea636faa8ff0b4504b6ef60242e7eabdf682b2b913cfb001c00",
+    "F": "515bd3dc996c1e119e3e422f182ba82abfa8f2d312346df2c7a5751322d7716d",
+    "G": "2cb2102b207da24b4730cd673869aab1c00534ae8fa09c281639aafaaee6c179"
+  },
+  "classifications": {
+    "STRATEGY_V1": "NEGATIVE_DEVELOPMENT_EVIDENCE",
+    "CAP4": "REJECTED_VALIDATION",
+    "FAMILY_A": "VALIDATION_CANDIDATE",
+    "FAMILY_B": "NEGATIVE_DEVELOPMENT_EVIDENCE",
+    "FAMILY_C": "REUSABLE_SIGNAL_EVIDENCE",
+    "FAMILY_D": "DATA_BLOCKED",
+    "FAMILY_E": "NEGATIVE_DEVELOPMENT_EVIDENCE",
+    "FAMILY_F": "SOURCE_BLOCKED",
+    "FAMILY_G": "NEGATIVE_DEVELOPMENT_EVIDENCE"
+  },
+  "candidate_selection": {
+    "FAMILY_A_VALIDATION_CANDIDACY": "PASS",
+    "alternative_validation_candidate": "NONE",
+    "classification": "SINGLE_LEADING_CANDIDATE",
+    "provisional_candidate_id": "PROVISIONAL_VALIDATION_CANDIDATE_V1",
+    "provisional_candidate_hash": "2680c16aacda5d924f1b3d4484bc7fc5e419e8d3ed2cc2699f5ad750e7d9fb4c"
+  },
+  "readiness": {
+    "primary_question_result": "YES",
+    "VALIDATION_DESIGN_READINESS": "YES",
+    "NEXT_PLANNED_PHASE": "DESIGN_FAMILY_A_VALIDATION",
+    "FAMILY_H_STATUS": "NOT_PLANNED",
+    "STRATEGY_V2_STATUS": "NOT_CREATED"
+  },
+  "lessons": {
+    "simplicity": "Across tested A-G definitions, evidence provisionally favors one simple standalone architecture over adding the tested overlays; this is not a universal proof against multi-factor designs.",
+    "filter_additions": "Family B absolute-momentum filters added no clear distinct edge; Family G's exact SMA200 gate damaged return/drawdown; Family C volume and compression-priority filters and Family E's SMA50 structure filter did not improve executable evidence.",
+    "implementation": "Capital scale and whole shares can distort portfolios; capacity, costs, point-in-time history, continuous intraday data, and source licensing are first-class research constraints."
+  },
+  "component_hashes": {
+    "data/research/cross_family_synthesis/v1/family_matrix/family_matrix_v1.json": "7475c077fa07c246038e1d8e84cac2150484d57bd5b7443eea25e751503c097b",
+    "data/research/cross_family_synthesis/v1/positive_evidence/positive_evidence_registry_v1.json": "44c6863055cc7c8666d419427ef10b2b8501b8b784fef3cd6c35708c6e920479",
+    "data/research/cross_family_synthesis/v1/negative_evidence/negative_evidence_registry_v1.json": "2f09f5e2c8573545203d903b19826b04e87ae75eebb28e3427e42945447bb5e0",
+    "data/research/cross_family_synthesis/v1/blocked_research/blocked_research_registry_v1.json": "4be8c07a750637989b600af766bb4cb91929d45ef960ebf04232157b5699a369",
+    "data/research/cross_family_synthesis/v1/candidate_selection/candidate_selection_gate_v1.json": "cc3c64fe5c1c4d6c2007a08760a8d7d8d6030f330a1ecfe2b088e8e2a4ef6f7e",
+    "data/research/cross_family_synthesis/v1/validation_readiness/validation_readiness_v1.json": "725f16974e95116c7eaf700ed5e1880db766483e0df8d74ad0196258f5f5baba",
+    "data/reports/cross_family_synthesis_v1_family_matrix.csv": "1a2880da087d04d2f97ca87f69fd609492b8d1504cb18239b6ec9640503163de",
+    "data/reports/cross_family_synthesis_v1_evidence_dimensions.csv": "1f8affc7e3d7e7545ff31270e2caba6c37c1de6182ee193823f8e38044bebd05",
+    "data/reports/cross_family_synthesis_v1_positive_evidence.csv": "136a41316a33991ddd4058e6977ea3e0d4c1c98b1c0784df0354af0c285706d1",
+    "data/reports/cross_family_synthesis_v1_negative_evidence.csv": "3c3979a912d490a3bc317fac3dcdf75756b6c5af8ea4968a7403c8f5b6b1bbeb",
+    "data/reports/cross_family_synthesis_v1_blocked_research.csv": "a75e1d219dfcfd813d4b7287a937d49c0e633339a91bb48b47555f505eb604d2",
+    "data/reports/cross_family_synthesis_v1_candidate_gate.csv": "25c8fe21a701f44b48261e6edb1cef81ccba32b3b0a1598c02b363da4159f37b",
+    "data/reports/cross_family_synthesis_v1_validation_risks.csv": "70f960003bc50ae5e2d8e35b0f597db3b01b699b47fa8572f6e7e5e14678fd16",
+    "data/reports/cross_family_synthesis_v1_recommendation.csv": "d99e24b446811167faf3b747f8bfefb2f5ca0d5f998e607fe7e83441bfa2affc",
+    "docs/cross-family-evidence-synthesis-a-to-g-v1.md": "21868c1cee995a0c7f98a5e6a6b54ed2de88a397412da1c111d58fbaa75bdab9",
+    "docs/strategy-family-research-roadmap-v2.md": "f84554613f900a0975042aeb83b210e1364ced7933609f27c4c22beb2311a448"
+  },
+  "governance": {
+    "validation_design_only": true,
+    "candidate_is_proven_strategy": false,
+    "cross_family_combination_created": false,
+    "contamination_disclosure": "The project has previously seen aggregate diagnostics over later periods in other contexts, so formal Family A validation is governed/sealed but cannot be described as philosophically pristine laboratory-grade unseen data."
+  },
+  "regressions": {
+    "Strategy_V1": "PRESERVED",
+    "CAP4": "PRESERVED",
+    "Family_A": "PRESERVED",
+    "Family_B": "PRESERVED",
+    "Family_C": "PRESERVED",
+    "Family_D": "PRESERVED",
+    "Family_E": "PRESERVED",
+    "Family_F": "PRESERVED",
+    "Family_G": "PRESERVED",
+    "all_closure_hashes_unchanged": true
+  },
+  "safety": {
+    "network_accessed": false,
+    "credentials_written": false,
+    "performance_rerun": false,
+    "validation_accessed": false,
+    "validation_rows_loaded": 0,
+    "new_strategy_created": false,
+    "hybrid_strategy_created": false,
+    "family_h_created": false,
+    "strategy_v2_created": false,
+    "live_signals": 0,
+    "live_orders": 0,
+    "broker_calls": 0,
+    "remote_migrations": 0,
+    "supabase_persistence": 0,
+    "external_writes": 0
+  },
+  "verification": {
+    "backend_targeted_tests": "PASS: 44 passed in 1.28s",
+    "backend_full_tests": "PASS: 1586 passed, 2 warnings in 227.67s",
+    "frontend_build": "PASS: 35 modules transformed in 745ms",
+    "ready_for_review": true,
+    "finalized_at": "2026-09-15T16:59:51.675482Z"
+  },
+  "cross_family_synthesis_hash": "d05826bfae334b64a759b81de5864b25cc076da0267ac36d7b926a67f865d64e"
+}

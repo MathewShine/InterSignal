@@ -1,0 +1,175 @@
+{
+  "version": "CROSS_FAMILY_CANDIDATE_SELECTION_V1",
+  "family_a_candidate": "MOM-A-002+A2-002",
+  "family_a_gate_results": [
+    {
+      "candidate": "MOM-A-002+A2-002",
+      "gate_number": 1,
+      "gate": "POSITIVE_EXECUTABLE_DEVELOPMENT_EVIDENCE",
+      "result": "PASS",
+      "evidence": "A2-002 ended at INR 955,331.6799 from INR 500,000 after costs (+91.06633598%).",
+      "caveat": "DEVELOPMENT_ONLY"
+    },
+    {
+      "candidate": "MOM-A-002+A2-002",
+      "gate_number": 2,
+      "gate": "COSTS_INCLUDED",
+      "result": "PASS",
+      "evidence": "The frozen INDIA_EQUITY_COST_MODEL_V1/COST-SCENARIO-002 is included; total modeled costs were INR 17,629.90.",
+      "caveat": "COST_SENSITIVITY_REMAINS_A_VALIDATION_RISK"
+    },
+    {
+      "candidate": "MOM-A-002+A2-002",
+      "gate_number": 3,
+      "gate": "NO_KNOWN_DATA_ARTIFACT_EXPLANATION",
+      "result": "PASS",
+      "evidence": "Frozen Family A inputs are point-in-time and Family G independently reproduced the result; no known history-availability artifact explains it.",
+      "caveat": "REPRODUCTION_IS_DEVELOPMENT_NOT_VALIDATION"
+    },
+    {
+      "candidate": "MOM-A-002+A2-002",
+      "gate_number": 4,
+      "gate": "IMPLEMENTATION_DISTORTION_CONTROLLED",
+      "result": "PASS",
+      "evidence": "At INR 500k there were no unaffordable names, average invested capital was 97.351%, and tracking distortion was materially lower than at INR 100k.",
+      "caveat": "INR_500K_IS_A_RESEARCH_REFERENCE_NOT_A_LIVE_RECOMMENDATION"
+    },
+    {
+      "candidate": "MOM-A-002+A2-002",
+      "gate_number": 5,
+      "gate": "REASONABLY_STABLE_TEMPORAL_EVIDENCE",
+      "result": "PASS",
+      "evidence": "All three DEVELOPMENT calendar years were positive and 8/10 completed net rebalance periods were positive; the short window remains a validation risk.",
+      "caveat": "ONLY_THREE_YEARS_AND_TEN_COMPLETED_PERIODS"
+    },
+    {
+      "candidate": "MOM-A-002+A2-002",
+      "gate_number": 6,
+      "gate": "NO_UNRESOLVED_METHODOLOGY_BLOCKER",
+      "result": "PASS",
+      "evidence": "No unresolved methodology or data blocker prevents designing a validation; numeric-label caveats remain disclosed and raw metrics govern.",
+      "caveat": "COMMAND_04_LABELS_WERE_DESCRIPTIVE_NOT_PREREGISTERED"
+    },
+    {
+      "candidate": "MOM-A-002+A2-002",
+      "gate_number": 7,
+      "gate": "ARCHITECTURE_FROZEN",
+      "result": "PASS",
+      "evidence": "MOM-A-002 and A2-002 parameters, execution, and costs are frozen and hash-linked.",
+      "caveat": "ANY_CHANGE_REQUIRES_A_NEW_VERSION"
+    },
+    {
+      "candidate": "MOM-A-002+A2-002",
+      "gate_number": 8,
+      "gate": "SUFFICIENT_ARTIFACT_LINEAGE",
+      "result": "PASS",
+      "evidence": "Family A closure, preregistration, result, ledgers, and independent Family G reproduction provide sufficient lineage.",
+      "caveat": "LINEAGE_DOES_NOT_PROVE_GENERALIZATION"
+    },
+    {
+      "candidate": "MOM-A-002+A2-002",
+      "gate_number": 9,
+      "gate": "NO_PRIOR_VALIDATION_FAILURE_FOR_EXACT_CANDIDATE",
+      "result": "PASS",
+      "evidence": "The exact candidate has not undergone or failed formal validation.",
+      "caveat": "VALIDATION_REMAINS_SEALED"
+    },
+    {
+      "candidate": "MOM-A-002+A2-002",
+      "gate_number": 10,
+      "gate": "NO_OUTCOME_DRIVEN_VALIDATION_TUNING",
+      "result": "PASS",
+      "evidence": "No candidate-specific validation outcomes drove tuning; aggregate later-period project knowledge is disclosed separately.",
+      "caveat": "NOT_PHILOSOPHICALLY_PRISTINE_DUE_TO_AGGREGATE_LATER_PERIOD_KNOWLEDGE"
+    }
+  ],
+  "all_ten_gates_pass": true,
+  "FAMILY_A_VALIDATION_CANDIDACY": "PASS",
+  "alternative_candidate_results": [
+    {
+      "family": "B",
+      "result": "FAIL",
+      "first_failed_gate": "1",
+      "reason": "No distinct positive executable edge over the Family A reference."
+    },
+    {
+      "family": "C",
+      "result": "FAIL",
+      "first_failed_gate": "1",
+      "reason": "Positive event-level compression evidence did not become a robust executable portfolio."
+    },
+    {
+      "family": "D",
+      "result": "FAIL",
+      "first_failed_gate": "1",
+      "reason": "Performance was not evaluated because the data gate failed."
+    },
+    {
+      "family": "E",
+      "result": "FAIL",
+      "first_failed_gate": "1",
+      "reason": "Control and treatment evidence were unfavorable."
+    },
+    {
+      "family": "F",
+      "result": "FAIL",
+      "first_failed_gate": "1",
+      "reason": "Performance was not evaluated because source authorization is unresolved."
+    },
+    {
+      "family": "G",
+      "result": "FAIL",
+      "first_failed_gate": "1",
+      "reason": "The regime treatment did not preserve return or improve drawdown."
+    }
+  ],
+  "ALTERNATIVE_VALIDATION_CANDIDATE": "NONE",
+  "candidate_selection_classification": "SINGLE_LEADING_CANDIDATE",
+  "proven_strategy": false,
+  "provisional_candidate": {
+    "candidate_id": "PROVISIONAL_VALIDATION_CANDIDATE_V1",
+    "status": "SELECTED_FOR_VALIDATION_DESIGN_ONLY",
+    "candidate_selection_classification": "SINGLE_LEADING_CANDIDATE",
+    "strategy_v2": false,
+    "validation_run_authorized": false,
+    "architecture_reference": "MOM-A-002",
+    "implementation_reference": "A2-002",
+    "reference_capital_inr": "500000",
+    "frozen_references": {
+      "mom_a_002": {
+        "path": "data/research/strategy_families/family_a/v1/registry/mom_a_002_v1.json",
+        "parameter_hash": "f98c19a62ff0201c5501b1cab269432c362188f345a90acd76cd53f65e514df8"
+      },
+      "a2_002_preregistration": {
+        "path": "data/research/strategy_families/family_a/v1/phase2/registry/a2_002_preregistration_v1.json",
+        "preregistration_hash": "f379b7712d5f956a4632d2a5fdbe61e39ceb395f7c50147229a142e752197897"
+      },
+      "a2_002_result": {
+        "path": "data/research/strategy_families/family_a/v1/phase2/development_evaluation/a2_002/development_result_v1.json",
+        "result_hash": "7fc510ca7010483ac2b20614ceb0edb71e7b647c3b2f6b0da49d5fe2804f6d27"
+      }
+    },
+    "preserved_architecture": [
+      "POINT_IN_TIME_NIFTY_500",
+      "FROZEN_PRICE_GATE",
+      "FROZEN_LIQUIDITY_GATE",
+      "SIX_MONTH_MOMENTUM_RANKING",
+      "TOP_DECILE_SELECTION",
+      "QUARTERLY_REBALANCE",
+      "EQUAL_WEIGHT",
+      "INR_500K_REFERENCE_CAPITAL",
+      "WHOLE_SHARES",
+      "FROZEN_COST_SEMANTICS",
+      "FROZEN_NEXT_OPEN_EXECUTION_SEMANTICS"
+    ],
+    "excluded_overlays": [
+      "NO_FAMILY_B_FILTER",
+      "NO_FAMILY_C_COMPRESSION_OVERLAY",
+      "NO_FAMILY_G_REGIME_GATE",
+      "NO_CROSS_FAMILY_HYBRID"
+    ],
+    "selection_basis": "ONLY_EXISTING_ARCHITECTURE_PASSING_ALL_TEN_VALIDATION_DESIGN_GATES",
+    "interpretation": "A provisional design candidate, not a proven strategy, validation result, production approval, or Strategy V2.",
+    "provisional_candidate_hash": "2680c16aacda5d924f1b3d4484bc7fc5e419e8d3ed2cc2699f5ad750e7d9fb4c"
+  }
+}

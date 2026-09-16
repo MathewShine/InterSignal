@@ -1,0 +1,53 @@
+{
+  "version": "CROSS_FAMILY_POSITIVE_EVIDENCE_REGISTRY_V1",
+  "rows": [
+    {
+      "evidence_id": "CROSS-POSITIVE-A-MOMENTUM-001",
+      "source_family": "A",
+      "level": "STRATEGY_LEVEL",
+      "status": "DEVELOPMENT_ONLY_NOT_VALIDATED",
+      "finding": "Frozen medium-term cross-sectional momentum was executable and positive after costs in DEVELOPMENT.",
+      "reuse_rule": "Advance only through the frozen provisional candidate and a separately authorized validation design."
+    },
+    {
+      "evidence_id": "CROSS-POSITIVE-A-QUARTERLY-001",
+      "source_family": "A",
+      "level": "STRATEGY_LEVEL",
+      "status": "DEVELOPMENT_ONLY_NOT_VALIDATED",
+      "finding": "Quarterly rebalancing was operationally viable with 8 of 10 completed net rebalance periods positive.",
+      "reuse_rule": "This is portfolio-period evidence, not a trade win-rate claim."
+    },
+    {
+      "evidence_id": "CROSS-POSITIVE-A-CAPITAL-001",
+      "source_family": "A",
+      "level": "STRATEGY_LEVEL",
+      "status": "SUPPORTED_IMPLEMENTATION_EVIDENCE",
+      "finding": "The INR 500k whole-share implementation materially reduced the distortion observed at INR 100k.",
+      "reuse_rule": "Treat INR 500k as a research implementation reference, not an alpha parameter or live recommendation."
+    },
+    {
+      "evidence_id": "CROSS-POSITIVE-G-A-REPRODUCTION-001",
+      "source_family": "G",
+      "level": "STRATEGY_LEVEL",
+      "status": "INDEPENDENT_DEVELOPMENT_REPRODUCTION",
+      "finding": "CONTROL-G-000 exactly reproduced the frozen Family A INR 500k control metrics.",
+      "reuse_rule": "Reproduction increases lineage confidence but does not upgrade evidence to validation."
+    },
+    {
+      "evidence_id": "EDGE-EVIDENCE-C-COMPRESSION-001",
+      "source_family": "C",
+      "level": "SIGNAL_LEVEL",
+      "status": "RESEARCH_EVIDENCE_NOT_VALIDATED",
+      "finding": "Pre-breakout compression <=8% improved event-level signal quality in DEVELOPMENT.",
+      "reuse_rule": "Not portfolio-ready; reuse requires a genuinely new independently preregistered architecture."
+    },
+    {
+      "evidence_id": "DATA-EVIDENCE-F-NSE-ANNOUNCEMENTS-001",
+      "source_family": "F",
+      "level": "DATA_INFRASTRUCTURE_LEVEL",
+      "status": "TECHNICALLY_SUITABLE_PENDING_AUTHORIZATION",
+      "finding": "The bounded NSE corporate-announcement pilot achieved 95.24% trusted timestamps and 100% linkage, identity, and reproducibility.",
+      "reuse_rule": "No historical collection until an authorization gate is satisfied."
+    }
+  ]
+}

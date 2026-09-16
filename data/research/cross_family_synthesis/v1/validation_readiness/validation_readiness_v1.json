@@ -1,0 +1,73 @@
+{
+  "version": "CROSS_FAMILY_VALIDATION_READINESS_V1",
+  "primary_question": "After the controlled A-G discovery programme, is there sufficient evidence to nominate one existing strategy architecture for formal validation design?",
+  "primary_question_result": "YES",
+  "VALIDATION_DESIGN_READINESS": "YES",
+  "NEXT_PLANNED_PHASE": "DESIGN_FAMILY_A_VALIDATION",
+  "FAMILY_H_STATUS": "NOT_PLANNED",
+  "family_h_reason": "No additional family is justified before the synthesis decision is carried into a governed Family A validation design.",
+  "STRATEGY_V2_STATUS": "NOT_CREATED",
+  "validation_accessed": false,
+  "family_performance_rerun": false,
+  "new_strategy_created": false,
+  "hybrid_strategy_created": false,
+  "contamination_disclosure": "The project has previously seen aggregate diagnostics over later periods in other contexts, so formal Family A validation is governed/sealed but cannot be described as philosophically pristine laboratory-grade unseen data.",
+  "win_rate_assessment": {
+    "original_aspiration": "60_TO_65_PERCENT",
+    "selection_rule": "WIN_RATE_ALONE_MUST_NOT_DETERMINE_CANDIDATE_SELECTION",
+    "family_a_available_metric": "8_OF_10_COMPLETED_NET_PORTFOLIO_REBALANCE_PERIODS_POSITIVE_80_PERCENT",
+    "terminology": "PORTFOLIO_REBALANCE_PERIOD_NOT_TRADE_WIN_RATE",
+    "trade_level_win_rate_claimed": false
+  },
+  "risks": [
+    {
+      "risk_id": "VAL-RISK-A-001",
+      "risk": "ONLY_THREE_DEVELOPMENT_YEARS",
+      "severity": "HIGH",
+      "implication": "A short window can overrepresent favorable conditions.",
+      "design_response": "Use the untouched governed window once, without retuning."
+    },
+    {
+      "risk_id": "VAL-RISK-A-002",
+      "risk": "REGIME_CONCENTRATION",
+      "severity": "HIGH",
+      "implication": "2022-2024 may not span enough market states.",
+      "design_response": "Predeclare regime reporting without turning it into a gate or tuning dimension."
+    },
+    {
+      "risk_id": "VAL-RISK-A-003",
+      "risk": "LIMITED_QUARTERLY_OBSERVATIONS",
+      "severity": "HIGH",
+      "implication": "Only ten completed rebalance periods support the 80% period-success observation.",
+      "design_response": "Treat period counts as limited and predeclare exact inference boundaries."
+    },
+    {
+      "risk_id": "VAL-RISK-A-004",
+      "risk": "SELECTION_BREADTH",
+      "severity": "MODERATE",
+      "implication": "Top-decile breadth and constituent availability may shift.",
+      "design_response": "Preserve point-in-time membership and frozen minimum portfolio rules."
+    },
+    {
+      "risk_id": "VAL-RISK-A-005",
+      "risk": "TURNOVER_AND_COST_SENSITIVITY",
+      "severity": "MODERATE",
+      "implication": "Costs consumed 3.52598 percentage points of initial capital in DEVELOPMENT.",
+      "design_response": "Freeze identical cost and turnover accounting before validation."
+    },
+    {
+      "risk_id": "VAL-RISK-A-006",
+      "risk": "IMPLEMENTATION_AND_CAPITAL_ASSUMPTIONS",
+      "severity": "MODERATE",
+      "implication": "INR 500k reduced but did not eliminate idealized-tracking differences.",
+      "design_response": "Keep whole shares, INR 500k, cash, and next-open semantics unchanged."
+    },
+    {
+      "risk_id": "VAL-RISK-A-007",
+      "risk": "PRIOR_AGGREGATE_LATER_PERIOD_KNOWLEDGE",
+      "severity": "HIGH",
+      "implication": "The project has previously seen aggregate diagnostics over later periods in other contexts, so formal Family A validation is governed/sealed but cannot be described as philosophically pristine laboratory-grade unseen data.",
+      "design_response": "Separate formal sealed governance from any claim of pristine unseen data."
+    }
+  ]
+}

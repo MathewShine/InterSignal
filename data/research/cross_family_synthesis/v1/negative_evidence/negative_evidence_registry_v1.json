@@ -1,0 +1,69 @@
+{
+  "version": "CROSS_FAMILY_NEGATIVE_EVIDENCE_REGISTRY_V1",
+  "rows": [
+    {
+      "evidence_id": "CAP4-VALIDATION-FAILURE",
+      "source": "CAP4",
+      "scope": "VALIDATION",
+      "finding": "Promising DEVELOPMENT evidence failed formal validation.",
+      "result": "DOES_NOT_GENERALIZE_REJECTED",
+      "prohibited_inference": "DEVELOPMENT_STRENGTH_IS_SUFFICIENT_FOR_PROMOTION"
+    },
+    {
+      "evidence_id": "EDGE-NEGATIVE-B-POSITIVE-RETURN-001",
+      "source": "FAMILY_B",
+      "scope": "FROZEN_B001",
+      "finding": "The 6M positive-return filter removed zero of 302 top-decile candidates.",
+      "result": "REDUNDANT",
+      "prohibited_inference": "ALL_ABSOLUTE_MOMENTUM_IS_USELESS"
+    },
+    {
+      "evidence_id": "EDGE-NEGATIVE-B-SMA200-001",
+      "source": "FAMILY_B",
+      "scope": "FROZEN_B002",
+      "finding": "Apparent SMA200 strength was primarily a history-availability artifact; clean evidence had one genuine exclusion among 302 candidates.",
+      "result": "CONFOUNDED_THEN_WEAK_SPARSE",
+      "prohibited_inference": "ALL_TREND_FILTERS_FAIL"
+    },
+    {
+      "evidence_id": "EDGE-NEGATIVE-C-VOLUME-001",
+      "source": "FAMILY_C",
+      "scope": "FROZEN_BRK_C_002",
+      "finding": "The tested 1.5x breakout-day volume filter did not improve the strategy.",
+      "result": "FAILED",
+      "prohibited_inference": "ALL_VOLUME_FILTERS_FAIL"
+    },
+    {
+      "evidence_id": "IMPLEMENTATION-NEGATIVE-C-COMPRESSION-RANK-001",
+      "source": "FAMILY_C",
+      "scope": "FROZEN_C1_IMP_001",
+      "finding": "Tightest-compression-first capacity ranking failed to improve implementation quality.",
+      "result": "FAILED",
+      "prohibited_inference": "THE_COMPRESSION_SIGNAL_HAS_NO_VALUE"
+    },
+    {
+      "evidence_id": "EDGE-NEGATIVE-E-PULLBACK-RECLAIM-001",
+      "source": "FAMILY_E",
+      "scope": "FROZEN_CONTROL_E_000",
+      "finding": "The tested pullback/reclaim control did not produce positive portfolio-level DEVELOPMENT edge after costs.",
+      "result": "WEAK_NONVIABLE",
+      "prohibited_inference": "ALL_PULLBACK_STRATEGIES_FAIL"
+    },
+    {
+      "evidence_id": "EDGE-NEGATIVE-E-SMA50-STRUCTURE-001",
+      "source": "FAMILY_E",
+      "scope": "FROZEN_PBR_E_001",
+      "finding": "The SMA50 structure filter removed a descriptively better event cohort and worsened the treatment.",
+      "result": "FAILED_NEGATIVE_ATTRIBUTION",
+      "prohibited_inference": "ALL_SMA50_USE_FAILS"
+    },
+    {
+      "evidence_id": "EDGE-NEGATIVE-G-SMA200-GATE-001",
+      "source": "FAMILY_G",
+      "scope": "FROZEN_REGIME_G_001",
+      "finding": "The quarterly NIFTY 500 close>SMA200 all-in/all-cash gate reduced returns, worsened drawdown, and skipped two profitable control quarters.",
+      "result": "PARTIALLY_SUPPORTED_NOT_ADVANCED",
+      "prohibited_inference": "ALL_REGIME_FILTERS_OR_SMA200_METHODS_FAIL"
+    }
+  ]
+}

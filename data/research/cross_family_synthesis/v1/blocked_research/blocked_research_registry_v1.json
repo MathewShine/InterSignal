@@ -1,0 +1,24 @@
+{
+  "version": "CROSS_FAMILY_BLOCKED_RESEARCH_REGISTRY_V1",
+  "rows": [
+    {
+      "family": "D",
+      "classification": "DATA_BLOCKED",
+      "blocker": "CONTINUOUS_INTRADAY_DATA",
+      "evidence": "Exact prior-20 continuity was 77.826177% versus the frozen >=95% requirement; 1,069 of 4,821 targets remained incomplete.",
+      "strategy_result": "NOT_PERFORMANCE_EVALUATED",
+      "resume_condition": "An approved source must satisfy the unchanged continuity and quality gates.",
+      "failed_strategy": "False"
+    },
+    {
+      "family": "F",
+      "classification": "SOURCE_BLOCKED",
+      "blocker": "CATALYST_SOURCE_AUTHORIZATION",
+      "evidence": "The NSE corporate-announcement pilot was technically suitable, but systematic historical acquisition authorization remains unresolved.",
+      "strategy_result": "NOT_PERFORMANCE_EVALUATED",
+      "resume_condition": "Obtain authorized NSE delivery, an equivalent licensed feed, or an official alternative passing identical gates.",
+      "failed_strategy": "False"
+    }
+  ],
+  "blocked_is_not_failed": true
+}

@@ -1,0 +1,114 @@
+{
+  "version": "CROSS_FAMILY_FAMILY_MATRIX_V1",
+  "classification_buckets": [
+    "VALIDATION_CANDIDATE",
+    "PROMISING_BUT_NOT_READY",
+    "REUSABLE_SIGNAL_EVIDENCE",
+    "DATA_BLOCKED",
+    "SOURCE_BLOCKED",
+    "NEGATIVE_DEVELOPMENT_EVIDENCE",
+    "REJECTED_VALIDATION",
+    "INCONCLUSIVE"
+  ],
+  "rows": [
+    {
+      "entity": "STRATEGY_V1",
+      "entity_type": "HISTORICAL_BASELINE",
+      "architecture": "SHORT_HORIZON_BREAKOUT_SCORING",
+      "final_status": "WEAK_AND_REQUIRES_RESEARCH",
+      "primary_classification": "NEGATIVE_DEVELOPMENT_EVIDENCE",
+      "performance_status": "HISTORICAL_DEVELOPMENT_CONTEXT",
+      "validation_status": "NOT_A_CANDIDATE",
+      "decision": "DO_NOT_SELECT",
+      "evidence_summary": "Broad diagnostics left Strategy V1 weak and requiring research."
+    },
+    {
+      "entity": "CAP4",
+      "entity_type": "HISTORICAL_VALIDATION_CONTROL",
+      "architecture": "RR_SCORE_CAP_4",
+      "final_status": "DOES_NOT_GENERALIZE_REJECTED",
+      "primary_classification": "REJECTED_VALIDATION",
+      "performance_status": "DEVELOPMENT_PROMISING_VALIDATION_FAILED",
+      "validation_status": "CONSUMED_FAILED",
+      "decision": "DO_NOT_SELECT",
+      "evidence_summary": "The failed one-shot holdout shows why development evidence is insufficient."
+    },
+    {
+      "entity": "FAMILY_A",
+      "entity_type": "DISCOVERY_FAMILY",
+      "architecture": "MEDIUM_TERM_CROSS_SECTIONAL_MOMENTUM",
+      "final_status": "PAUSED_PENDING_LATER_VALIDATION_DESIGN",
+      "primary_classification": "VALIDATION_CANDIDATE",
+      "performance_status": "PROMISING_DEVELOPMENT_EVIDENCE_NOT_VALIDATED",
+      "validation_status": "NOT_ACCESSED",
+      "decision": "SELECTED_FOR_VALIDATION_DESIGN_ONLY",
+      "evidence_summary": "MOM-A-002/A2-002 was positive after costs, temporally positive in each development year, implementation-tested at INR 500k, and independently reproduced by Family G."
+    },
+    {
+      "entity": "FAMILY_B",
+      "entity_type": "DISCOVERY_FAMILY",
+      "architecture": "RELATIVE_PLUS_ABSOLUTE_MOMENTUM",
+      "final_status": "PAUSED_NO_VALIDATION_CANDIDATE",
+      "primary_classification": "NEGATIVE_DEVELOPMENT_EVIDENCE",
+      "performance_status": "NO_CLEAR_INCREMENTAL_EDGE_OVER_RELATIVE_MOMENTUM",
+      "validation_status": "NOT_ACCESSED",
+      "decision": "DO_NOT_ADVANCE",
+      "evidence_summary": "B001 was redundant; B002's apparent strength was primarily a history-availability artifact and became weak/sparse after remediation."
+    },
+    {
+      "entity": "FAMILY_C",
+      "entity_type": "DISCOVERY_FAMILY",
+      "architecture": "BREAKOUT_CONTINUATION",
+      "final_status": "PAUSED_NO_VALIDATION_CANDIDATE",
+      "primary_classification": "REUSABLE_SIGNAL_EVIDENCE",
+      "performance_status": "POSITIVE_COMPRESSION_SIGNAL_NOT_PORTFOLIO_READY",
+      "validation_status": "NOT_ACCESSED",
+      "decision": "PRESERVE_SIGNAL_EVIDENCE_ONLY",
+      "evidence_summary": "Compression <=8% improved event quality, while the control, volume treatment, and compression-priority portfolio ranking did not justify advancement."
+    },
+    {
+      "entity": "FAMILY_D",
+      "entity_type": "DISCOVERY_FAMILY",
+      "architecture": "OPENING_RANGE_STOCKS_IN_PLAY",
+      "final_status": "PAUSED_DATA_BLOCKED_PENDING_BETTER_INTRADAY_SOURCE",
+      "primary_classification": "DATA_BLOCKED",
+      "performance_status": "NOT_EVALUATED",
+      "validation_status": "NOT_ACCESSED",
+      "decision": "DATA_BLOCKED_NOT_STRATEGY_FAILED",
+      "evidence_summary": "Exact prior-20 continuity reached 77.826177%, below the frozen >=95% threshold."
+    },
+    {
+      "entity": "FAMILY_E",
+      "entity_type": "DISCOVERY_FAMILY",
+      "architecture": "PULLBACK_RECLAIM_CONTINUATION",
+      "final_status": "PAUSED_NO_VALIDATION_CANDIDATE",
+      "primary_classification": "NEGATIVE_DEVELOPMENT_EVIDENCE",
+      "performance_status": "PULLBACK_RECLAIM_V1_NOT_SUPPORTED",
+      "validation_status": "NOT_ACCESSED",
+      "decision": "DO_NOT_ADVANCE",
+      "evidence_summary": "The control was weak/nonviable and the SMA50 structure treatment failed while removing a descriptively better cohort."
+    },
+    {
+      "entity": "FAMILY_F",
+      "entity_type": "DISCOVERY_FAMILY",
+      "architecture": "CATALYST_MOMENTUM",
+      "final_status": "PAUSED_PENDING_AUTHORIZED_CATALYST_SOURCE",
+      "primary_classification": "SOURCE_BLOCKED",
+      "performance_status": "NOT_EVALUATED",
+      "validation_status": "NOT_ACCESSED",
+      "decision": "SOURCE_BLOCKED_NOT_STRATEGY_FAILED",
+      "evidence_summary": "Timestamp and linkage feasibility was demonstrated, but historical acquisition authorization remains unresolved."
+    },
+    {
+      "entity": "FAMILY_G",
+      "entity_type": "DISCOVERY_FAMILY",
+      "architecture": "QUARTERLY_REGIME_VOLATILITY_PARTICIPATION",
+      "final_status": "PAUSED_NO_VALIDATION_CANDIDATE",
+      "primary_classification": "NEGATIVE_DEVELOPMENT_EVIDENCE",
+      "performance_status": "SMA200_GATE_NOT_SUPPORTED_FOR_ADVANCEMENT",
+      "validation_status": "NOT_ACCESSED",
+      "decision": "DO_NOT_ADVANCE_GATE",
+      "evidence_summary": "The exact SMA200 all-in/all-cash gate materially reduced return, worsened drawdown, and skipped two profitable control quarters."
+    }
+  ]
+}
