@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-09-16T20:36:00.000000Z",
+  "integrity": {
+    "broken_refs": 0,
+    "cash_reconciliation_errors": 0,
+    "duplicate_transaction_ids": 0,
+    "event_sequence_errors": 0,
+    "metadata": {
+      "portfolio_count": 2
+    },
+    "negative_holding_violations": 0,
+    "status": "HEALTHY",
+    "valuation_mismatches": 0
+  },
+  "integrity_hash": "a78be3d38f6773d1edf540cc15826690d0a9d52725fb21ec0c254b8d6811eba0",
+  "integrity_version": "INTERSIGNAL_PORTFOLIO_OS_INTEGRITY_V1",
+  "platform_foundation_hash": "ec270dcb640116fe56709c784b4ca915bd794b0a96847e11fb561460dfed877f",
+  "research_workbench_backend_hash": "c0c1ba634f584b4532e99e4f015be83e7e0c069eafb3cd5ca6a1fc7cfaf8f52b"
+}

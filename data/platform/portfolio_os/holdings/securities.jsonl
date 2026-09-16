@@ -1,0 +1,2 @@
+{"currency":"INR","exchange":"SYNTHETIC","instrument_type":"EQUITY","isin":null,"market":"SYNTHETIC","metadata":{"industry":"Synthetic Software","sector":"Synthetic Technology"},"name":"Synthetic Equity One","security_id":"SEC-SYNTH-EQUITY-001","symbol":"SYN-EQ-001"}
+{"currency":"INR","exchange":"SYNTHETIC-MF","instrument_type":"MUTUAL_FUND","isin":"SYNTHETICISIN001","market":"SYNTHETIC","metadata":{"industry":"Mutual Fund","sector":"Diversified"},"name":"Synthetic Mutual Fund One","security_id":"SEC-SYNTH-MF-001","symbol":"SYN-MF-001"}

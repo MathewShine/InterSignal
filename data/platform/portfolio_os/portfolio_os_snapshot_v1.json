@@ -1,0 +1,252 @@
+{
+  "accounts": [
+    {
+      "account_id": "ACCT-MANUAL-INVESTMENT-001",
+      "account_type": "MUTUAL_FUND",
+      "broker_sync_state": "NEVER_SYNCED",
+      "created_at": "2026-09-16T20:21:00Z",
+      "currency": "INR",
+      "metadata": {
+        "broker_connection": false,
+        "sip_logic": false,
+        "synthetic": true
+      },
+      "portfolio_id": "PORT-MANUAL-INVESTMENT-SYNTHETIC-001",
+      "provider": "MANUAL",
+      "provider_account_reference": "SYNTHETIC-MANUAL-MF",
+      "status": "ACTIVE"
+    },
+    {
+      "account_id": "ACCT-RESEARCH-SIMULATED-001",
+      "account_type": "RESEARCH",
+      "broker_sync_state": "NEVER_SYNCED",
+      "created_at": "2026-09-16T20:01:00Z",
+      "currency": "INR",
+      "metadata": {
+        "broker_connection": false,
+        "synthetic": true
+      },
+      "portfolio_id": "PORT-RESEARCH-SYNTHETIC-001",
+      "provider": "SIMULATED",
+      "provider_account_reference": "SYNTHETIC-NON-BROKER-RESEARCH",
+      "status": "ACTIVE"
+    }
+  ],
+  "benchmarks": [
+    {
+      "benchmark_id": "BMK-SYNTH-MANUAL-001",
+      "currency": "INR",
+      "market": "SYNTHETIC",
+      "metadata": {
+        "alpha_claim": false,
+        "synthetic": true
+      },
+      "name": "Synthetic Manual Investment Index",
+      "source": "SYNTHETIC_FIXTURE",
+      "version": "V1"
+    },
+    {
+      "benchmark_id": "BMK-SYNTH-RESEARCH-001",
+      "currency": "INR",
+      "market": "SYNTHETIC",
+      "metadata": {
+        "alpha_claim": false,
+        "synthetic": true
+      },
+      "name": "Synthetic Research Index",
+      "source": "SYNTHETIC_FIXTURE",
+      "version": "V1"
+    }
+  ],
+  "cash": [
+    {
+      "account_id": "ACCT-MANUAL-INVESTMENT-001",
+      "as_of": "2026-09-16T20:26:00Z",
+      "available_cash": "42393",
+      "currency": "INR",
+      "lineage_node_id": null,
+      "metadata": {
+        "synthetic": true
+      },
+      "reserved_cash": "0",
+      "settled_cash": "42393",
+      "source": "SYNTHETIC_RECONCILIATION"
+    },
+    {
+      "account_id": "ACCT-RESEARCH-SIMULATED-001",
+      "as_of": "2026-09-16T20:05:00Z",
+      "available_cash": "89980",
+      "currency": "INR",
+      "lineage_node_id": null,
+      "metadata": {
+        "synthetic": true
+      },
+      "reserved_cash": "0",
+      "settled_cash": "89980",
+      "source": "SYNTHETIC_RECONCILIATION"
+    }
+  ],
+  "generated_at": "2026-09-16T20:36:00Z",
+  "holdings": [
+    {
+      "account_id": "ACCT-MANUAL-INVESTMENT-001",
+      "as_of": "2026-09-16T20:27:00Z",
+      "average_cost": "100.05",
+      "cost_basis": "8004.00",
+      "currency": "INR",
+      "current_price": "125",
+      "evidence_id": null,
+      "holding_id": "HLD-514772dfa17ceeae769a6e57",
+      "lineage_node_id": null,
+      "market_value": "10000",
+      "metadata": {
+        "industry": "Mutual Fund",
+        "instrument_type": "MUTUAL_FUND",
+        "lot_policy": "FIFO",
+        "sector": "Diversified"
+      },
+      "portfolio_id": "PORT-MANUAL-INVESTMENT-SYNTHETIC-001",
+      "quantity": "80",
+      "security_id": "SEC-SYNTH-MF-001",
+      "source": "SYNTHETIC_MARK",
+      "strategy_attribution": {},
+      "unrealized_pnl": "1996.00",
+      "unrealized_pnl_pct": "0.2493753123438280859570214893"
+    },
+    {
+      "account_id": "ACCT-RESEARCH-SIMULATED-001",
+      "as_of": "2026-09-16T20:06:00Z",
+      "average_cost": "1002",
+      "cost_basis": "10020",
+      "currency": "INR",
+      "current_price": "1100",
+      "evidence_id": null,
+      "holding_id": "HLD-8e41b685b8efaec044ae1774",
+      "lineage_node_id": null,
+      "market_value": "11000",
+      "metadata": {
+        "industry": "Synthetic Software",
+        "instrument_type": "EQUITY",
+        "lot_policy": "FIFO",
+        "sector": "Synthetic Technology"
+      },
+      "portfolio_id": "PORT-RESEARCH-SYNTHETIC-001",
+      "quantity": "10",
+      "security_id": "SEC-SYNTH-EQUITY-001",
+      "source": "SYNTHETIC_MARK",
+      "strategy_attribution": {},
+      "unrealized_pnl": "980",
+      "unrealized_pnl_pct": "0.09780439121756487025948103792"
+    }
+  ],
+  "integrity": {
+    "broken_refs": 0,
+    "cash_reconciliation_errors": 0,
+    "duplicate_transaction_ids": 0,
+    "event_sequence_errors": 0,
+    "metadata": {
+      "portfolio_count": 2
+    },
+    "negative_holding_violations": 0,
+    "status": "HEALTHY",
+    "valuation_mismatches": 0
+  },
+  "portfolios": [
+    {
+      "account_ids": [
+        "ACCT-MANUAL-INVESTMENT-001"
+      ],
+      "base_currency": "INR",
+      "benchmark_ids": [
+        "BMK-SYNTH-MANUAL-001"
+      ],
+      "created_at": "2026-09-16T20:20:00Z",
+      "goal_ids": [
+        "GOAL-SYNTH-MANUAL-001"
+      ],
+      "market_scope": [
+        "SYNTHETIC"
+      ],
+      "metadata": {
+        "live_strategy_semantics": false,
+        "manual_entry": true,
+        "synthetic": true
+      },
+      "name": "Synthetic Manual Investment Portfolio",
+      "portfolio_id": "PORT-MANUAL-INVESTMENT-SYNTHETIC-001",
+      "portfolio_type": "MANUAL",
+      "status": "ACTIVE",
+      "strategy_ids": [],
+      "updated_at": "2026-09-16T20:34:00Z"
+    },
+    {
+      "account_ids": [
+        "ACCT-RESEARCH-SIMULATED-001"
+      ],
+      "base_currency": "INR",
+      "benchmark_ids": [
+        "BMK-SYNTH-RESEARCH-001"
+      ],
+      "created_at": "2026-09-16T20:00:00Z",
+      "goal_ids": [],
+      "market_scope": [
+        "SYNTHETIC"
+      ],
+      "metadata": {
+        "live_strategy_semantics": false,
+        "purpose": "offline platform verification",
+        "synthetic": true
+      },
+      "name": "Synthetic Research Portfolio",
+      "portfolio_id": "PORT-RESEARCH-SYNTHETIC-001",
+      "portfolio_type": "RESEARCH",
+      "status": "RESEARCH_ONLY",
+      "strategy_ids": [],
+      "updated_at": "2026-09-16T20:12:00Z"
+    }
+  ],
+  "risk": [
+    {
+      "as_of": "2026-09-16T20:33:00Z",
+      "cash_pct": "0.8091348080850495295173019296",
+      "concentration": "0.1908651919149504704826980704",
+      "cost_drag": "0.0001336056343404653293378886492",
+      "drawdown": "0",
+      "gross_exposure": "0.1908651919149504704826980704",
+      "lineage_node_id": null,
+      "metadata": {
+        "recommendation": null,
+        "synthetic": true
+      },
+      "net_exposure": "0.1908651919149504704826980704",
+      "portfolio_id": "PORT-MANUAL-INVESTMENT-SYNTHETIC-001",
+      "risk_flags": [],
+      "top_1_weight": "0.1908651919149504704826980704",
+      "top_5_weight": "0.1908651919149504704826980704",
+      "turnover": "0.2422040569179533757190432940",
+      "volatility": "0.0"
+    },
+    {
+      "as_of": "2026-09-16T20:11:00Z",
+      "cash_pct": "0.8910675381263616557734204793",
+      "concentration": "0.1089324618736383442265795207",
+      "cost_drag": "0.0001980590215884333531392354922",
+      "drawdown": "0",
+      "gross_exposure": "0.1089324618736383442265795207",
+      "lineage_node_id": null,
+      "metadata": {
+        "recommendation": null,
+        "synthetic": true
+      },
+      "net_exposure": "0.1089324618736383442265795207",
+      "portfolio_id": "PORT-RESEARCH-SYNTHETIC-001",
+      "risk_flags": [],
+      "top_1_weight": "0.1089324618736383442265795207",
+      "top_5_weight": "0.1089324618736383442265795207",
+      "turnover": "0.09951238929246691213056025475",
+      "volatility": "0.0"
+    }
+  ],
+  "snapshot_hash": "00254461ff4b75275df3d0d49ebfe1e3b5565a1522d2b41d3e6f31b9bea4971f",
+  "snapshot_version": "INTERSIGNAL_PORTFOLIO_OS_SNAPSHOT_V1"
+}

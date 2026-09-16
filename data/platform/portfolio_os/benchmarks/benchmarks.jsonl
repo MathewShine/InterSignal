@@ -1,0 +1,2 @@
+{"benchmark_id":"BMK-SYNTH-RESEARCH-001","currency":"INR","market":"SYNTHETIC","metadata":{"alpha_claim":false,"synthetic":true},"name":"Synthetic Research Index","source":"SYNTHETIC_FIXTURE","version":"V1"}
+{"benchmark_id":"BMK-SYNTH-MANUAL-001","currency":"INR","market":"SYNTHETIC","metadata":{"alpha_claim":false,"synthetic":true},"name":"Synthetic Manual Investment Index","source":"SYNTHETIC_FIXTURE","version":"V1"}

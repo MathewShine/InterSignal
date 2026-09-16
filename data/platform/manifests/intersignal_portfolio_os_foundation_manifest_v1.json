@@ -1,0 +1,148 @@
+{
+  "artifact_file_hashes": {
+    "data/platform/portfolio_os/accounts/accounts.jsonl": "7c38bff728ddfd7d2687c5eaf482a66e2b3371596ba1b2580547faa648f738fe",
+    "data/platform/portfolio_os/accounts/cash_balances.jsonl": "2be63cbff213bb25e7354b83c82c16b947ba23445ef29da98d1412cd49d4683c",
+    "data/platform/portfolio_os/benchmarks/benchmarks.jsonl": "6d146af5225ff8fb50fd1586bc476a05e9eacf045c1634206a4c62a82d69c2c7",
+    "data/platform/portfolio_os/benchmarks/comparisons.jsonl": "6f6c3cc50d7103b93b533ed0f263be567f1cba40aa3a298fd627635213b26044",
+    "data/platform/portfolio_os/events/events.jsonl": "6d94184c82b4b28d4972a612d634852dba40a9d53c49f9d6aa16590d6666cb93",
+    "data/platform/portfolio_os/holdings/holdings.jsonl": "bc1181d3e2e47058e778c6174e389f0283cc95debea9a82babc0d4d5bed4b8b9",
+    "data/platform/portfolio_os/holdings/lots.jsonl": "6a12ee00d38dcb497f1446ed86674a59920bb414f92ba9a0acaba4e4aef1265e",
+    "data/platform/portfolio_os/holdings/securities.jsonl": "a02235be2fcc5ec7c9216f7746be3330c75337d8578ba7d4a4a5db28b5d36068",
+    "data/platform/portfolio_os/portfolio_os_integrity_v1.json": "1bf87f8da8b92ae9488105a04e529fe5e5d0d4a21d836eaca771a984491e0939",
+    "data/platform/portfolio_os/portfolio_os_snapshot_v1.json": "ae4d7e0da2d324c1d5bf8dd7ac86c27b93ea049dd5501720d53e2ccc29a7fc34",
+    "data/platform/portfolio_os/portfolios/goals.jsonl": "5eab7772fb26289ed31e17c833542233103e8da2b17f670b3687f6159d235b4f",
+    "data/platform/portfolio_os/portfolios/portfolios.jsonl": "b99d022ad3c26c3faf92d1ce1c66e3faef055cd1e3bf557cddb649dca6ba3979",
+    "data/platform/portfolio_os/risk/risk_snapshots.jsonl": "3190234ea5322239de2c0b8df6d739db7eae9769a9294dff923d21880bec40e9",
+    "data/platform/portfolio_os/transactions/transactions.jsonl": "4139782b9e94334f8db402a11fd150afc218e766577ba177ece49d4839ee5890",
+    "data/platform/portfolio_os/valuations/attributions.jsonl": "a6f7c86d4a9dcccab1365c1fcb77d7cd2e1cc9057ba91bf02a03fd1c4c5e552d",
+    "data/platform/portfolio_os/valuations/exposures.jsonl": "0fe24447e6cf7df11fa999b411f3cd696add7e2798816abb081a83a64bb4a3d2",
+    "data/platform/portfolio_os/valuations/performance.jsonl": "109857722f7419e7abf2135bf246b3a75bee9813cdd1c2a7328e7d041918dc50",
+    "data/platform/portfolio_os/valuations/valuations.jsonl": "52f568345f55d0d1386fa9b3bea78e9889d72563048c8f6232f451bed3a52f42"
+  },
+  "broker_connected": false,
+  "command": "Step 04.03 / Command 01",
+  "command_profile": "PORTFOLIO_ACCOUNT_HOLDINGS_TRANSACTION_RISK_DOMAIN_V1",
+  "command_version": "INTERSIGNAL_PORTFOLIO_OS_FOUNDATION_V1",
+  "component_hashes": {
+    "accounts_hash": "977d006d18d948868e56efc8596769819f65888778c48134d797006bae97ce3c",
+    "benchmarks_hash": "c16763f975a181634f72ed9b660c6b9cb70517c98df3d8623c2f0c3a265bb93a",
+    "cash_hash": "818e0a1f0fd76add7c348092079a38d3ea9ef163fa6c014533ec76d89caacfe9",
+    "holdings_hash": "5aef675425d77973f2ad9ecbb26dab311185fad47ea098ce9f6575a87884b74d",
+    "portfolios_hash": "8349cd28349a22eaee5d707151d16f2675593f34775fbb27fbc2014fd26333b0",
+    "risk_hash": "f37361a49a77101cfaaba64808445e5ac7ab3feb70aef1159fc92ba70284724d"
+  },
+  "counts": {
+    "accounts": 2,
+    "benchmarks": 2,
+    "broker_calls": 0,
+    "cash_balances": 2,
+    "events": 32,
+    "holdings": 2,
+    "live_orders": 0,
+    "live_signals": 0,
+    "portfolios": 2,
+    "risk_snapshots": 2,
+    "transactions": 5
+  },
+  "created_at": "2026-09-16T20:36:00.000000Z",
+  "documentation": [
+    "docs/portfolio-os-domain-model-v1.md",
+    "docs/portfolio-os-accounting-v1.md",
+    "docs/portfolio-os-risk-analytics-v1.md"
+  ],
+  "hashing_method": "INTERSIGNAL_CANONICAL_SHA256_V1",
+  "integrity": {
+    "broken_refs": 0,
+    "cash_reconciliation_errors": 0,
+    "duplicate_transaction_ids": 0,
+    "event_sequence_errors": 0,
+    "metadata": {
+      "portfolio_count": 2
+    },
+    "negative_holding_violations": 0,
+    "status": "HEALTHY",
+    "valuation_mismatches": 0
+  },
+  "integrity_hash": "a78be3d38f6773d1edf540cc15826690d0a9d52725fb21ec0c254b8d6811eba0",
+  "live_trading_started": false,
+  "manifest_version": "INTERSIGNAL_PORTFOLIO_OS_FOUNDATION_MANIFEST_V1",
+  "paper_trading_started": false,
+  "platform_foundation_hash": "ec270dcb640116fe56709c784b4ca915bd794b0a96847e11fb561460dfed877f",
+  "portfolio_os_foundation_hash": "6941ae2713b707908106ffb8d50be113d181e9339fd3e030338b2da637f026de",
+  "prior_artifacts_unchanged": {
+    "file_hashes_after": {
+      "data/platform/artifacts/artifacts.jsonl": "0c88823a2fdd0d19629b5a922308344c3d2609fa6b5060eb9aa996867c94d38b",
+      "data/platform/lineage/edges.jsonl": "8b11b935751632ea9e7e3b448eaa4014925465f34830fb3dfcdf98ce227a43ab",
+      "data/platform/lineage/nodes.jsonl": "8fadda8d7fa778a15b3dca22917a0df3fb0ac08567254a34fe1679de802567be",
+      "data/platform/manifests/intersignal_platform_foundation_manifest_v1.json": "7a367491b89c7974ec1fe0858ee31337f0f6576412ed4d07cf16a3fe107046bc",
+      "data/platform/manifests/intersignal_research_workbench_backend_manifest_v1.json": "f9dcb49592b360f266bda182a7be76187197d563b79466634dea72bb551509ce",
+      "data/platform/registry/current_research_snapshot_v1.json": "5c7d3704b92dfc72341d21c61635bdd72568620c42c4bdf35574da8223341a1f",
+      "data/platform/registry/events.jsonl": "6145281733e9415807e92064b9eac1ad73a34d9c8ce460617302b34b9d091b6f",
+      "data/platform/registry/evidence.jsonl": "6ca8176b3391c607ad087f0633324a0e0dd9f29a248ce359cc6e2de61c50ff26",
+      "data/platform/registry/platform_foundation_verification_v1.json": "ea2ffd7e39afab890e5bb441e40a0c03eb6a52f3174a0726b9d0d0b58946d080",
+      "data/platform/registry/strategies.jsonl": "7384000259b931c2dd547958ede796eb1dfd352e00083f21d14d21b1659f180a",
+      "data/platform/workbench/research_workbench_integrity_v1.json": "61cbf8d3fb4a51696e937b5ecf91a426cdd69d5627a876017bd154b92dd86674",
+      "data/platform/workbench/research_workbench_snapshot_v1.json": "c878b1a152a776479714535378d5bb10f5007c59b5cb0c119c8a053523af366d",
+      "data/reports/research_workbench_backend_v1_blocked.csv": "178ad0639e2b550aa61c1e7ed284c3eb04030fd05ce652804162d9f55cc39418",
+      "data/reports/research_workbench_backend_v1_evidence.csv": "b85055c95804d5d448dbbd6c5dd8cf8bb8682fa82235d683218262126183d6ca",
+      "data/reports/research_workbench_backend_v1_families.csv": "a0a05aac47d2d022f1b534f0c5dc56d7a0129a1cab9aff31d9158ee9dbe8800a",
+      "data/reports/research_workbench_backend_v1_integrity.csv": "7e2f62b483771eeb55f382391397943c9e96fc7fe492a6be02838b669deff018",
+      "data/reports/research_workbench_backend_v1_summary.json": "6915ae75ce2051d2c7f09b01739f2ffdd7f79e4eab73ba00e77ad834a145fdff",
+      "docs/research-workbench-backend-v1.md": "0c1ae676f577aa6c6b1b472d912195b3d8d317c6f61d7bb8a14b5ef013393e7b",
+      "docs/research-workbench-view-models-v1.md": "538819e69cc7aea0894a41f692f50946e64fd331f37b477b7f49020e94b25bac"
+    },
+    "file_hashes_before": {
+      "data/platform/artifacts/artifacts.jsonl": "0c88823a2fdd0d19629b5a922308344c3d2609fa6b5060eb9aa996867c94d38b",
+      "data/platform/lineage/edges.jsonl": "8b11b935751632ea9e7e3b448eaa4014925465f34830fb3dfcdf98ce227a43ab",
+      "data/platform/lineage/nodes.jsonl": "8fadda8d7fa778a15b3dca22917a0df3fb0ac08567254a34fe1679de802567be",
+      "data/platform/manifests/intersignal_platform_foundation_manifest_v1.json": "7a367491b89c7974ec1fe0858ee31337f0f6576412ed4d07cf16a3fe107046bc",
+      "data/platform/manifests/intersignal_research_workbench_backend_manifest_v1.json": "f9dcb49592b360f266bda182a7be76187197d563b79466634dea72bb551509ce",
+      "data/platform/registry/current_research_snapshot_v1.json": "5c7d3704b92dfc72341d21c61635bdd72568620c42c4bdf35574da8223341a1f",
+      "data/platform/registry/events.jsonl": "6145281733e9415807e92064b9eac1ad73a34d9c8ce460617302b34b9d091b6f",
+      "data/platform/registry/evidence.jsonl": "6ca8176b3391c607ad087f0633324a0e0dd9f29a248ce359cc6e2de61c50ff26",
+      "data/platform/registry/platform_foundation_verification_v1.json": "ea2ffd7e39afab890e5bb441e40a0c03eb6a52f3174a0726b9d0d0b58946d080",
+      "data/platform/registry/strategies.jsonl": "7384000259b931c2dd547958ede796eb1dfd352e00083f21d14d21b1659f180a",
+      "data/platform/workbench/research_workbench_integrity_v1.json": "61cbf8d3fb4a51696e937b5ecf91a426cdd69d5627a876017bd154b92dd86674",
+      "data/platform/workbench/research_workbench_snapshot_v1.json": "c878b1a152a776479714535378d5bb10f5007c59b5cb0c119c8a053523af366d",
+      "data/reports/research_workbench_backend_v1_blocked.csv": "178ad0639e2b550aa61c1e7ed284c3eb04030fd05ce652804162d9f55cc39418",
+      "data/reports/research_workbench_backend_v1_evidence.csv": "b85055c95804d5d448dbbd6c5dd8cf8bb8682fa82235d683218262126183d6ca",
+      "data/reports/research_workbench_backend_v1_families.csv": "a0a05aac47d2d022f1b534f0c5dc56d7a0129a1cab9aff31d9158ee9dbe8800a",
+      "data/reports/research_workbench_backend_v1_integrity.csv": "7e2f62b483771eeb55f382391397943c9e96fc7fe492a6be02838b669deff018",
+      "data/reports/research_workbench_backend_v1_summary.json": "6915ae75ce2051d2c7f09b01739f2ffdd7f79e4eab73ba00e77ad834a145fdff",
+      "docs/research-workbench-backend-v1.md": "0c1ae676f577aa6c6b1b472d912195b3d8d317c6f61d7bb8a14b5ef013393e7b",
+      "docs/research-workbench-view-models-v1.md": "538819e69cc7aea0894a41f692f50946e64fd331f37b477b7f49020e94b25bac"
+    },
+    "unchanged": true
+  },
+  "real_time_feed_added": false,
+  "reports": [
+    "portfolio_os_foundation_v1_summary.json",
+    "portfolio_os_foundation_v1_portfolios.csv",
+    "portfolio_os_foundation_v1_holdings.csv",
+    "portfolio_os_foundation_v1_transactions.csv",
+    "portfolio_os_foundation_v1_integrity.csv"
+  ],
+  "required_checkpoint": "f990c3c96d9b8a619953041006affb986914fc5c",
+  "research_workbench_backend_hash": "c0c1ba634f584b4532e99e4f015be83e7e0c069eafb3cd5ca6a1fc7cfaf8f52b",
+  "security": {
+    "broker_calls": 0,
+    "credentials_written": 0,
+    "external_writes": 0,
+    "live_orders": 0,
+    "live_signals": 0,
+    "migrations": 0,
+    "network_required": false,
+    "supabase_writes": 0
+  },
+  "snapshot_hash": "00254461ff4b75275df3d0d49ebfe1e3b5565a1522d2b41d3e6f31b9bea4971f",
+  "strategy_v2_created": false,
+  "synthetic_seed": {
+    "contains_real_user_data": false,
+    "contains_strategy_signals": false,
+    "portfolio_ids": [
+      "PORT-RESEARCH-SYNTHETIC-001",
+      "PORT-MANUAL-INVESTMENT-SYNTHETIC-001"
+    ]
+  },
+  "ui_implemented": false
+}

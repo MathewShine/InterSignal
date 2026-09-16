@@ -1,0 +1,2 @@
+{"account_id":"ACCT-RESEARCH-SIMULATED-001","as_of":"2026-09-16T20:05:00Z","available_cash":"89980","currency":"INR","lineage_node_id":null,"metadata":{"synthetic":true},"reserved_cash":"0","settled_cash":"89980","source":"SYNTHETIC_RECONCILIATION"}
+{"account_id":"ACCT-MANUAL-INVESTMENT-001","as_of":"2026-09-16T20:26:00Z","available_cash":"42393","currency":"INR","lineage_node_id":null,"metadata":{"synthetic":true},"reserved_cash":"0","settled_cash":"42393","source":"SYNTHETIC_RECONCILIATION"}
