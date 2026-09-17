@@ -1,0 +1,54 @@
+.motion-reveal {
+  will-change: transform, opacity;
+}
+
+.motion-link__arrow,
+.button__arrow {
+  transition: transform var(--motion-micro) var(--ease-editorial);
+}
+
+.motion-link:hover .motion-link__arrow,
+.motion-link:focus-visible .motion-link__arrow,
+.button:hover .button__arrow,
+.button:focus-visible .button__arrow {
+  transform: translateX(4px);
+}
+
+.motion-link::after {
+  position: absolute;
+  right: 0;
+  bottom: -0.2rem;
+  left: 0;
+  height: 1px;
+  background: currentColor;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--motion-state) var(--ease-editorial);
+}
+
+.motion-link:hover::after,
+.motion-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .parallax-layer,
+  .perspective-surface__responsive,
+  .reassembly-piece,
+  .convergence-label,
+  .signal-curve path {
+    transform: none !important;
+  }
+
+  .context-cursor { display: none !important; }
+}
