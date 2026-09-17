@@ -13,8 +13,8 @@ test("landing sign in completes the dummy flow to /app", async ({ page }) => {
   await page.getByRole("button", { name: "Sign in" }).click();
 
   await expect(page).toHaveURL(/\/app$/);
-  await expect(page.getByRole("heading", { name: "Authenticated prototype entry" })).toBeVisible();
-  await expect(page.getByText("AUTHENTICATION_BACKEND = NOT_IMPLEMENTED")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Here’s what matters." })).toBeVisible();
+  await expect(page.getByText("DEMO / LOCAL DATA")).toBeVisible();
   expect(await page.evaluate(() => ({ local: { ...localStorage }, session: { ...sessionStorage } }))).toEqual({ local: {}, session: {} });
 });
 

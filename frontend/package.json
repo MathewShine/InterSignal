@@ -13,8 +13,10 @@
     "test:sequence": "playwright test e2e/landing-sequence.spec.js",
     "test:timing": "playwright test e2e/landing-timing.spec.js",
     "test:auth-flow": "playwright test e2e/auth-flow.spec.js",
+    "test:home": "playwright test e2e/home-flow.spec.js",
     "qa:screenshots": "playwright test e2e/landing-screenshots.spec.js",
-    "qa:auth-screenshots": "playwright test e2e/auth-screenshots.spec.js"
+    "qa:auth-screenshots": "playwright test e2e/auth-screenshots.spec.js",
+    "qa:home-screenshots": "playwright test e2e/home-screenshots.spec.js"
   },
   "dependencies": {
     "@fontsource-variable/instrument-sans": "^5.3.0",
