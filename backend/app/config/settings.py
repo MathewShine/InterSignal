@@ -24,6 +24,11 @@ class Settings(BaseSettings):
         default=BACKEND_ROOT.parent / "data/platform",
         alias="HOME_DATA_ROOT",
     )
+    market_data_provider: str = Field(default="seeded", alias="MARKET_DATA_PROVIDER")
+    market_data_root: Path = Field(
+        default=BACKEND_ROOT.parent / "data",
+        alias="MARKET_DATA_ROOT",
+    )
     log_level: str | None = Field(default=None, alias="LOG_LEVEL")
     groww_totp_token: str | None = Field(default=None, alias="GROWW_TOTP_TOKEN")
     groww_totp_secret: str | None = Field(default=None, alias="GROWW_TOTP_SECRET")
