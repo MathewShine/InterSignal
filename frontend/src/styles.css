@@ -10,6 +10,7 @@
 @import "./styles/home.css";
 @import "./styles/research.css";
 @import "./styles/portfolio.css";
+@import "./styles/operations.css";
 
 @font-face {
   font-family: "Manrope Variable";

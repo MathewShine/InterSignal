@@ -7,7 +7,7 @@ export function GovernancePulse({ focused = false, governance }) {
   return (
     <section aria-labelledby="governance-title" className={`governance-pulse${focused ? " is-context-focused" : ""}`}>
       <div><h2 id="governance-title">Readiness</h2><p>Operational controls</p></div>
-      <dl><div><dt>Paper</dt><dd>{governance.paper}</dd></div><div><dt>Live</dt><dd>{governance.live}</dd></div><div><dt>Broker</dt><dd>{governance.brokerDisplay ?? governance.broker ?? "Not connected"}</dd></div></dl>
+      <dl><div><dt>Paper</dt><dd>{governance.paper}</dd></div><div><dt>Live</dt><dd>{governance.live}</dd></div><div><dt>Broker</dt><dd>{governance.brokerDisplay ?? governance.broker ?? "Not connected"}</dd></div><div><dt>Production</dt><dd>{governance.production}</dd></div><div><dt>Pending authorization</dt><dd>{governance.pendingAuthorizations}</dd></div></dl>
       <Link to="/app/governance">View governance →</Link>
     </section>
   );

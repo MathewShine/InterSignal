@@ -4,6 +4,19 @@ import { LandingPage } from "./pages/LandingPage.jsx";
 import { AppSectionPlaceholder } from "./features/home/AppSectionPlaceholder.jsx";
 import { HomePage } from "./features/home/HomePage.jsx";
 import {
+  DataLimitationsPage,
+  DataLineagePage,
+  DataOverviewPage,
+  DataSourcesPage,
+} from "./features/data/DataPages.jsx";
+import {
+  GovernanceAuditPage,
+  GovernanceAuthorizationsPage,
+  GovernanceOverviewPage,
+  GovernancePoliciesPage,
+  GovernanceReadinessPage,
+} from "./features/governance/GovernancePages.jsx";
+import {
   PortfolioActivityPage,
   PortfolioHoldingsPage,
   PortfolioOverviewPage,
@@ -40,8 +53,15 @@ export default function App() {
         <Route element={<PortfolioActivityPage />} path="/app/portfolio/activity" />
         <Route element={<PortfolioPerformancePage />} path="/app/portfolio/performance" />
         <Route element={<AppSectionPlaceholder area="Market" />} path="/app/market" />
-        <Route element={<AppSectionPlaceholder area="Data" />} path="/app/data" />
-        <Route element={<AppSectionPlaceholder area="Governance" />} path="/app/governance" />
+        <Route element={<DataOverviewPage />} path="/app/data" />
+        <Route element={<DataSourcesPage />} path="/app/data/sources" />
+        <Route element={<DataLineagePage />} path="/app/data/lineage" />
+        <Route element={<DataLimitationsPage />} path="/app/data/limitations" />
+        <Route element={<GovernanceOverviewPage />} path="/app/governance" />
+        <Route element={<GovernanceReadinessPage />} path="/app/governance/readiness" />
+        <Route element={<GovernancePoliciesPage />} path="/app/governance/policies" />
+        <Route element={<GovernanceAuthorizationsPage />} path="/app/governance/authorizations" />
+        <Route element={<GovernanceAuditPage />} path="/app/governance/audit" />
         <Route element={<AppSectionPlaceholder area="Alerts" />} path="/app/alerts" />
         <Route element={<AppSectionPlaceholder area="Settings" />} path="/app/settings" />
         <Route element={<AppSectionPlaceholder area="Profile" />} path="/app/profile" />
