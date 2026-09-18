@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { DemoHomeAdapter, HomeDataService } from "./homeDataService.js";
+import { ApiHomeAdapter } from "./apiHomeAdapter.js";
+import { createHomeDataService, DemoHomeAdapter, HomeDataService } from "./homeDataService.js";
 
 describe("HomeDataService contract", () => {
   it("exposes the complete deterministic home snapshot", async () => {
@@ -46,5 +47,10 @@ describe("HomeDataService contract", () => {
 
   it("keeps the abstract base class free of transport assumptions", async () => {
     await expect(new HomeDataService().getHomeSnapshot()).rejects.toThrow("must be implemented");
+  });
+
+  it("uses the API adapter by default and demo only when explicitly selected", () => {
+    expect(createHomeDataService()).toBeInstanceOf(ApiHomeAdapter);
+    expect(createHomeDataService({ mode: "demo" })).toBeInstanceOf(DemoHomeAdapter);
   });
 });

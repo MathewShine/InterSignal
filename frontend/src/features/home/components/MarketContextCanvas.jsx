@@ -8,10 +8,10 @@ function trajectoryPath(points) {
 export function MarketContextCanvas({ activeContext = "breadth", market }) {
   const [horizon, setHorizon] = useState(market?.selectedHorizon ?? "Today");
 
-  if (!market || market.status === "unavailable") {
+  if (!market || (market.status === "unavailable" && market.visualizationMode !== "ILLUSTRATIVE")) {
     return (
       <section aria-labelledby="market-title" className="market-canvas market-canvas--empty">
-        <div><span className="technical-label">TODAY</span><h2 id="market-title">Market context unavailable.</h2><p>Research and portfolio context remain accessible while the market feed is unavailable.</p></div>
+        <div><h2 id="market-title">Market overview</h2><p>Market information is unavailable right now.</p></div>
       </section>
     );
   }
@@ -23,11 +23,13 @@ export function MarketContextCanvas({ activeContext = "breadth", market }) {
       aria-labelledby="market-title"
       className="market-canvas"
       data-active-context={activeContext}
+      data-market-availability={market.availability ?? "AVAILABLE"}
+      data-visualization-mode={market.visualizationMode ?? "DEMO"}
       initial={{ opacity: 0, y: 8 }}
       transition={{ delay: .22, duration: .3 }}
     >
       <header className="market-canvas__header">
-        <div><span className="technical-label">TODAY</span><h2 id="market-title">{market.index}</h2><span className="market-canvas__label">{market.label}</span></div>
+        <div className="market-canvas__title"><div><h2 id="market-title">Market overview</h2><p>{market.index} context</p></div><span className="source-tag" title="Live market connection has not been enabled yet.">Sample market data</span></div>
         <div className="market-canvas__quote"><strong className="metric-value">{market.value}</strong><span className="metric-value is-positive">{market.dayChange}</span></div>
       </header>
       <div aria-label="Market horizon" className="market-horizons">
@@ -43,9 +45,8 @@ export function MarketContextCanvas({ activeContext = "breadth", market }) {
           <path className="market-area" d={`${trajectoryPath(market.trajectory)} L 100 90 L 0 90 Z`} />
           <motion.path animate={{ pathLength: 1 }} className="market-trajectory" d={trajectoryPath(market.trajectory)} initial={{ pathLength: 0 }} transition={{ delay: .32, duration: .7 }} />
           <motion.circle animate={{ cx: marker.x, cy: marker.y, r: 2.2 }} className="market-marker-halo" transition={{ duration: .28 }} />
-          <motion.circle animate={{ cx: marker.x, cy: marker.y }} className="market-marker" r="1.15" transition={{ duration: .28 }} />
+          <motion.circle animate={{ cx: marker.x, cy: marker.y }} className="market-marker" r="1.15" transition={{ duration: .28 }}><title>{marker.label}</title></motion.circle>
         </svg>
-        <motion.div animate={{ left: `${marker.x}%`, top: `${marker.y}%` }} className="market-context-note" transition={{ duration: .28 }}><span>{marker.label}</span></motion.div>
       </div>
       <footer className="market-canvas__footer">
         <div><span>Breadth</span><strong className="metric-value">{market.breadth.label}</strong></div>

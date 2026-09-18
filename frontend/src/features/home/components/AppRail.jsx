@@ -28,7 +28,7 @@ function RailLink({ item, expanded }) {
   );
 }
 
-export function AppRail() {
+export function AppRail({ onExpandedChange }) {
   const { reducedMotion } = useMotionPreference();
   const [expanded, setExpanded] = useState(false);
   const collapseTimer = useRef(null);
@@ -48,22 +48,23 @@ export function AppRail() {
     collapseTimer.current = window.setTimeout(() => setExpanded(false), reducedMotion ? 0 : 190);
   };
 
+  useEffect(() => {
+    onExpandedChange?.(expanded);
+  }, [expanded, onExpandedChange]);
+
   useEffect(() => () => cancelCollapse(), []);
 
   return (
-    <motion.aside
-      animate={{ width: expanded ? 194 : 72 }}
+    <aside
       aria-label="Application navigation"
       className="app-rail"
       data-expanded={expanded ? "true" : "false"}
-      initial={false}
       onBlur={(event) => {
         if (!event.currentTarget.contains(event.relatedTarget)) scheduleCollapse();
       }}
       onFocus={openRail}
       onMouseEnter={openRail}
       onMouseLeave={scheduleCollapse}
-      transition={{ duration: reducedMotion ? 0 : 0.26, ease: [0.22, 1, 0.36, 1] }}
     >
       <NavLink aria-label="InterSignal Home" className="app-rail__brand" to="/app">
         <BrandMark compact />
@@ -79,7 +80,7 @@ export function AppRail() {
       <nav aria-label="Account" className="app-rail__nav app-rail__nav--utility">
         {utilityNavigation.map((item) => <RailLink expanded={expanded} item={item} key={item.id} />)}
       </nav>
-    </motion.aside>
+    </aside>
   );
 }
 

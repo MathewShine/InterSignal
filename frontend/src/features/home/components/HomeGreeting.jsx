@@ -6,15 +6,14 @@ function getGreeting(hour) {
   return "Good evening.";
 }
 
-export function HomeGreeting({ environmentLabel, hour = new Date().getHours() }) {
+export function HomeGreeting({ hour = new Date().getHours() }) {
   return (
     <motion.header animate={{ opacity: 1, y: 0 }} className="home-greeting" initial={{ opacity: 0, y: 6 }} transition={{ delay: .1, duration: .28 }}>
       <div>
-        <p className="home-greeting__salutation">{getGreeting(hour)}</p>
-        <h1>Here’s what matters.</h1>
-        <p>Market context, portfolio state and research evidence in one view.</p>
+        <h1>Overview</h1>
+        <p>Market, portfolio and research at a glance.</p>
       </div>
-      <span className="home-environment-label"><i />{environmentLabel}</span>
+      <p className="home-greeting__salutation">{getGreeting(hour)} Shine</p>
     </motion.header>
   );
 }

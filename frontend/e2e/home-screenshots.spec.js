@@ -17,7 +17,7 @@ for (const viewport of viewports) {
     await page.setViewportSize(viewport);
     await page.goto("/app");
     await page.evaluate(() => document.fonts.ready);
-    await expect(page.getByRole("heading", { name: "Here’s what matters." })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Overview", exact: true })).toBeVisible();
     await page.waitForTimeout(700);
     await page.screenshot({ path: path.join("test-results", "home-qa", `${viewport.width}x${viewport.height}.png`) });
   });

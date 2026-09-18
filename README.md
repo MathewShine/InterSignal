@@ -136,6 +136,7 @@ npm run dev
 - `GET /health/database`
 - `GET /api/v1/health`
 - `GET /api/v1/health/database`
+- `GET /api/home/snapshot`
 
 ## Database Schema
 

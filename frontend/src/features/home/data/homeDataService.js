@@ -1,4 +1,7 @@
 import { homeDemoData } from "./homeDemoData.js";
+import { ApiHomeAdapter } from "./apiHomeAdapter.js";
+import { HomeDataService } from "./homeDataServiceBase.js";
+import { runtimeConfig } from "../../../config/runtimeConfig.js";
 
 /**
  * @typedef {Object} MarketContext
@@ -29,16 +32,7 @@ import { homeDemoData } from "./homeDemoData.js";
 
 const clone = (value) => JSON.parse(JSON.stringify(value));
 
-export class HomeDataService {
-  async getHomeSnapshot() { throw new Error("HomeDataService.getHomeSnapshot must be implemented."); }
-  async getAttentionItems() { return (await this.getHomeSnapshot()).attentionItems; }
-  async getMarketContext() { return (await this.getHomeSnapshot()).market; }
-  async getPortfolioContext() { return (await this.getHomeSnapshot()).portfolio; }
-  async getResearchPulse() { return (await this.getHomeSnapshot()).research; }
-  async getDataHealth() { return (await this.getHomeSnapshot()).dataHealth; }
-  async getGovernancePulse() { return (await this.getHomeSnapshot()).governance; }
-  async getRecentActivity() { return (await this.getHomeSnapshot()).recentActivity; }
-}
+export { HomeDataService };
 
 export class DemoHomeAdapter extends HomeDataService {
   constructor({ scenario = "healthy", snapshot = homeDemoData } = {}) {
@@ -61,9 +55,13 @@ export class DemoHomeAdapter extends HomeDataService {
   }
 }
 
-/** Future ApiHomeAdapter will implement HomeDataService with HTTP calls. */
-export function createHomeDataService({ scenario = "healthy" } = {}) {
-  return new DemoHomeAdapter({ scenario });
+export function createHomeDataService({
+  mode = runtimeConfig.homeDataMode,
+  scenario = "healthy",
+  ...apiOptions
+} = {}) {
+  if (mode === "demo") return new DemoHomeAdapter({ scenario });
+  return new ApiHomeAdapter(apiOptions);
 }
 
 export const homeDataService = createHomeDataService();

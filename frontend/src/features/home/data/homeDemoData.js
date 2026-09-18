@@ -16,7 +16,7 @@ export const homeDemoData = {
   },
   market: {
     status: "available",
-    label: "Illustrative market view",
+    label: "Sample market data",
     index: "NIFTY 500",
     value: "22,842",
     dayChange: "+0.48%",
@@ -44,7 +44,7 @@ export const homeDemoData = {
   },
   portfolio: {
     status: "available",
-    label: "Illustrative portfolio",
+    label: "Demo portfolio",
     value: "₹18.42L",
     cash: "₹3.12L",
     invested: "83.1%",
@@ -116,10 +116,10 @@ export const homeDemoData = {
   dataHealth: {
     status: "partial",
     rows: [
-      { id: "daily", label: "Daily history", value: "Available", tone: "healthy" },
-      { id: "actions", label: "Corporate actions", value: "Available with documented caveats", tone: "caution" },
-      { id: "intraday", label: "Intraday research data", value: "Limited", tone: "caution" },
-      { id: "catalyst", label: "Catalyst data", value: "Source blocked", tone: "blocked" },
+      { id: "daily", label: "Daily history", value: "Available", displayValue: "Ready", tone: "healthy" },
+      { id: "actions", label: "Corporate actions", value: "Available with documented caveats", displayValue: "Available", tone: "caution" },
+      { id: "intraday", label: "Intraday research", value: "Limited", displayValue: "Limited", tone: "caution" },
+      { id: "catalyst", label: "Catalyst feed", value: "Source blocked", displayValue: "Pending", tone: "blocked" },
       { id: "lineage", label: "Lineage integrity", value: "Healthy", tone: "healthy" },
       { id: "refs", label: "Broken refs", value: "0", tone: "healthy" },
     ],

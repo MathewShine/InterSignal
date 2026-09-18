@@ -5,6 +5,14 @@ export const selectAttentionById = (snapshot, id) =>
 
 export const selectActiveExposureIds = (attentionItem) => attentionItem?.metadata?.exposureIds ?? [];
 
+export const selectFocusTarget = (attentionItem) =>
+  attentionItem?.metadata?.focusTarget ?? null;
+
+export const selectMarketHighlightId = (attentionItem) =>
+  attentionItem?.provenance === "PLATFORM"
+    ? "breadth"
+    : attentionItem?.metadata?.highlightId ?? "breadth";
+
 export const selectSearchItems = (snapshot) => snapshot.searchItems ?? [];
 
 export const selectDrawerSummary = (snapshot) => ({
