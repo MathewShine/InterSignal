@@ -15,8 +15,7 @@ from app.home.models import (
     ResearchEvidenceItem,
     ResearchHomeSnapshot,
 )
-from app.portfolio_os.models import Portfolio, PortfolioType
-from app.portfolio_os.service import PortfolioOSService
+from app.portfolio_os.service import PortfolioOSService, select_primary_portfolio
 from app.research_workbench.service import ResearchWorkbenchService
 
 
@@ -93,14 +92,6 @@ class PortfolioOSHomeSource:
     def __init__(self, service: PortfolioOSService) -> None:
         self._service = service
 
-    @staticmethod
-    def _primary_portfolio(portfolios: list[Portfolio]) -> Portfolio:
-        priority = {PortfolioType.MANUAL: 0, PortfolioType.RESEARCH: 1}
-        return sorted(
-            portfolios,
-            key=lambda row: (priority.get(row.portfolio_type, 99), row.portfolio_id),
-        )[0]
-
     def read(self) -> PortfolioHomeSnapshot:
         portfolios = self._service.list_portfolios()
         if not portfolios:
@@ -111,7 +102,7 @@ class PortfolioOSHomeSource:
                 portfolio_count=0,
             )
 
-        portfolio = self._primary_portfolio(portfolios)
+        portfolio = select_primary_portfolio(portfolios)
         valuation = self._service.get_valuation(portfolio.portfolio_id)
         exposure = self._service.get_exposure(portfolio.portfolio_id)
         risk = self._service.get_risk(portfolio.portfolio_id)

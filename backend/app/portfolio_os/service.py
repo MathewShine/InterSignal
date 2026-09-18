@@ -40,6 +40,7 @@ from app.portfolio_os.models import (
     PortfolioReconciliationResult,
     PortfolioRiskSnapshot,
     PortfolioStatus,
+    PortfolioType,
     PortfolioTransaction,
     PortfolioValuation,
     RiskFlag,
@@ -62,6 +63,18 @@ from app.portfolio_os.repositories import (
 
 TOLERANCE = Decimal("0.000001")
 SNAPSHOT_VERSION = "INTERSIGNAL_PORTFOLIO_OS_SNAPSHOT_V1"
+
+
+def select_primary_portfolio(portfolios: Iterable[Portfolio]) -> Portfolio:
+    """Return the stable product-primary portfolio without changing portfolio math."""
+    rows = list(portfolios)
+    if not rows:
+        raise PortfolioNotFound("No portfolio is configured")
+    priority = {PortfolioType.MANUAL: 0, PortfolioType.RESEARCH: 1}
+    return sorted(
+        rows,
+        key=lambda row: (priority.get(row.portfolio_type, 99), row.portfolio_id),
+    )[0]
 
 
 class PortfolioOSService:
@@ -225,6 +238,9 @@ class PortfolioOSService:
         self._portfolio(portfolio_id)
         return self._holdings.get_holdings(portfolio_id)
 
+    def get_security(self, security_id: str) -> SecurityReference:
+        return self._security(security_id)
+
     def get_transactions(self, portfolio_id: str) -> list[PortfolioTransaction]:
         self._portfolio(portfolio_id)
         return self._transactions.list_transactions(portfolio_id)
@@ -246,6 +262,12 @@ class PortfolioOSService:
     ) -> PortfolioBenchmarkComparison | None:
         self._portfolio(portfolio_id)
         return self._benchmarks.get_benchmark_comparison(portfolio_id)
+
+    def get_benchmark(self, benchmark_id: str) -> BenchmarkReference:
+        benchmark = self._benchmarks.get_benchmark(benchmark_id)
+        if benchmark is None:
+            raise InvalidPortfolioState(f"Benchmark not found: {benchmark_id}")
+        return benchmark
 
     def get_attribution(self, portfolio_id: str) -> PortfolioAttribution | None:
         self._portfolio(portfolio_id)
@@ -1077,4 +1099,4 @@ class PortfolioOSService:
         )
 
 
-__all__ = ("PortfolioOSService", "SNAPSHOT_VERSION")
+__all__ = ("PortfolioOSService", "SNAPSHOT_VERSION", "select_primary_portfolio")

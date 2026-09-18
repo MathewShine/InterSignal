@@ -9,6 +9,7 @@
 @import "./styles/auth.css";
 @import "./styles/home.css";
 @import "./styles/research.css";
+@import "./styles/portfolio.css";
 
 @font-face {
   font-family: "Manrope Variable";

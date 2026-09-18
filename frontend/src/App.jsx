@@ -4,6 +4,12 @@ import { LandingPage } from "./pages/LandingPage.jsx";
 import { AppSectionPlaceholder } from "./features/home/AppSectionPlaceholder.jsx";
 import { HomePage } from "./features/home/HomePage.jsx";
 import {
+  PortfolioActivityPage,
+  PortfolioHoldingsPage,
+  PortfolioOverviewPage,
+  PortfolioPerformancePage,
+} from "./features/portfolio/PortfolioPages.jsx";
+import {
   ResearchBlockedPage,
   ResearchEvidenceDetailPage,
   ResearchEvidencePage,
@@ -29,7 +35,10 @@ export default function App() {
         <Route element={<ResearchValidationPage />} path="/app/research/validation" />
         <Route element={<ResearchBlockedPage />} path="/app/research/blocked" />
         <Route element={<ResearchTimelinePage />} path="/app/research/timeline" />
-        <Route element={<AppSectionPlaceholder area="Portfolio" />} path="/app/portfolio" />
+        <Route element={<PortfolioOverviewPage />} path="/app/portfolio" />
+        <Route element={<PortfolioHoldingsPage />} path="/app/portfolio/holdings" />
+        <Route element={<PortfolioActivityPage />} path="/app/portfolio/activity" />
+        <Route element={<PortfolioPerformancePage />} path="/app/portfolio/performance" />
         <Route element={<AppSectionPlaceholder area="Market" />} path="/app/market" />
         <Route element={<AppSectionPlaceholder area="Data" />} path="/app/data" />
         <Route element={<AppSectionPlaceholder area="Governance" />} path="/app/governance" />
