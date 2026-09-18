@@ -274,7 +274,7 @@ function normalizeGovernance(governance = {}) {
 }
 
 function actionLabel(path) {
-  if (path?.endsWith("/research")) return "Open Research";
+  if (path?.includes("/research")) return "Open Research";
   if (path?.endsWith("/portfolio")) return "Open Portfolio";
   if (path?.endsWith("/governance")) return "Open Governance";
   if (path?.endsWith("/data")) return "Open Data";
@@ -352,13 +352,13 @@ function searchItems(research, portfolio) {
       id: item.id,
       group: "Research",
       label: item.title,
-      path: "/app/research",
+      path: `/app/research/evidence/${encodeURIComponent(item.id)}`,
     })),
     ...(research.blockedItems ?? []).map((item) => ({
       id: `family-${item.family.toLowerCase()}`,
       group: "Research",
       label: `${item.label} ${item.reason.toLowerCase()}`,
-      path: "/app/research",
+      path: `/app/research/families/${item.family}`,
     })),
     ...(portfolio.sourceStatus === "SYNTHETIC"
       ? [{

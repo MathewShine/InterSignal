@@ -3,6 +3,16 @@ import { AuthPage } from "./pages/AuthPage.jsx";
 import { LandingPage } from "./pages/LandingPage.jsx";
 import { AppSectionPlaceholder } from "./features/home/AppSectionPlaceholder.jsx";
 import { HomePage } from "./features/home/HomePage.jsx";
+import {
+  ResearchBlockedPage,
+  ResearchEvidenceDetailPage,
+  ResearchEvidencePage,
+  ResearchFamiliesPage,
+  ResearchFamilyDetailPage,
+  ResearchOverviewPage,
+  ResearchTimelinePage,
+  ResearchValidationPage,
+} from "./features/research/ResearchPages.jsx";
 
 export default function App() {
   return (
@@ -11,7 +21,14 @@ export default function App() {
         <Route element={<LandingPage />} path="/" />
         <Route element={<AuthPage />} path="/auth" />
         <Route element={<HomePage />} path="/app" />
-        <Route element={<AppSectionPlaceholder area="Research" />} path="/app/research" />
+        <Route element={<ResearchOverviewPage />} path="/app/research" />
+        <Route element={<ResearchFamiliesPage />} path="/app/research/families" />
+        <Route element={<ResearchFamilyDetailPage />} path="/app/research/families/:familyId" />
+        <Route element={<ResearchEvidencePage />} path="/app/research/evidence" />
+        <Route element={<ResearchEvidenceDetailPage />} path="/app/research/evidence/:evidenceId" />
+        <Route element={<ResearchValidationPage />} path="/app/research/validation" />
+        <Route element={<ResearchBlockedPage />} path="/app/research/blocked" />
+        <Route element={<ResearchTimelinePage />} path="/app/research/timeline" />
         <Route element={<AppSectionPlaceholder area="Portfolio" />} path="/app/portfolio" />
         <Route element={<AppSectionPlaceholder area="Market" />} path="/app/market" />
         <Route element={<AppSectionPlaceholder area="Data" />} path="/app/data" />

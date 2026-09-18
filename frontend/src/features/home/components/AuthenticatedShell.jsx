@@ -14,7 +14,7 @@ export function AuthenticatedShell({ area = "Home", children, connectionState = 
   return (
     <MotionProvider reducedMotionOverride={reducedMotionOverride}>
       <div className="authenticated-shell" data-rail-expanded={railExpanded ? "true" : "false"}>
-        <a className="skip-link" href="#app-content">Skip to intelligence home</a>
+        <a className="skip-link" href="#app-content">Skip to {area.toLowerCase()}</a>
         <AppRail onExpandedChange={setRailExpanded} />
         <div className="app-workspace">
           <HomeContextBar area={area} connectionState={connectionState} marketMode={marketMode} onOpenCommand={openPalette} onOpenDrawer={() => setDrawerOpen(true)} />

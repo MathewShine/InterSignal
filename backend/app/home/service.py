@@ -153,7 +153,7 @@ class HomeApplicationService:
                     source_domain="RESEARCH",
                     source_ref=blocked.source_ref,
                     research_context=blocked.reason_code,
-                    action_target="/app/research",
+                    action_target=f"/app/research/families/{blocked.family}",
                     metadata={
                         "family": blocked.family,
                         "investment_recommendation": False,
