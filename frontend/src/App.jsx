@@ -3,6 +3,16 @@ import { AuthPage } from "./pages/AuthPage.jsx";
 import { LandingPage } from "./pages/LandingPage.jsx";
 import { AppSectionPlaceholder } from "./features/home/AppSectionPlaceholder.jsx";
 import { HomePage } from "./features/home/HomePage.jsx";
+import { MarketPage } from "./features/market/MarketPage.jsx";
+import {
+  MarketDerivativesPage,
+  MarketIndexDetailPage,
+  MarketIndicesPage,
+  MarketInstrumentPage,
+  MarketSectorDetailPage,
+  MarketSectorsPage,
+  MarketStocksPage,
+} from "./features/market/MarketWorkspacePages.jsx";
 import {
   DataLimitationsPage,
   DataLineagePage,
@@ -52,7 +62,14 @@ export default function App() {
         <Route element={<PortfolioHoldingsPage />} path="/app/portfolio/holdings" />
         <Route element={<PortfolioActivityPage />} path="/app/portfolio/activity" />
         <Route element={<PortfolioPerformancePage />} path="/app/portfolio/performance" />
-        <Route element={<AppSectionPlaceholder area="Market" />} path="/app/market" />
+        <Route element={<MarketPage />} path="/app/market" />
+        <Route element={<MarketIndicesPage />} path="/app/market/indices" />
+        <Route element={<MarketIndexDetailPage />} path="/app/market/indices/:symbol" />
+        <Route element={<MarketStocksPage />} path="/app/market/stocks" />
+        <Route element={<MarketInstrumentPage />} path="/app/market/instruments/:symbol" />
+        <Route element={<MarketSectorsPage />} path="/app/market/sectors" />
+        <Route element={<MarketSectorDetailPage />} path="/app/market/sectors/:sectorId" />
+        <Route element={<MarketDerivativesPage />} path="/app/market/derivatives" />
         <Route element={<DataOverviewPage />} path="/app/data" />
         <Route element={<DataSourcesPage />} path="/app/data/sources" />
         <Route element={<DataLineagePage />} path="/app/data/lineage" />

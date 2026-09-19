@@ -14,16 +14,30 @@ from app.providers.groww.exceptions import (
 
 @dataclass(frozen=True, slots=True, repr=False)
 class GrowwCredentials:
-    totp_token: str
-    totp_secret: str
+    access_token: str | None = None
+    api_key: str | None = None
+    api_secret: str | None = None
+    totp_token: str | None = None
+    totp_secret: str | None = None
 
     @classmethod
     def from_settings(cls, settings: Settings) -> "GrowwCredentials | None":
         if not settings.groww_configured:
             return None
         return cls(
-            totp_token=settings.groww_totp_token or "",
-            totp_secret=settings.groww_totp_secret or "",
+            access_token=settings.groww_api_access_token,
+            api_key=settings.groww_api_key,
+            api_secret=settings.groww_api_secret,
+            totp_token=settings.groww_totp_token,
+            totp_secret=settings.groww_totp_secret,
+        )
+
+    @property
+    def configured(self) -> bool:
+        return bool(
+            self.access_token
+            or (self.api_key and self.api_secret)
+            or (self.totp_token and self.totp_secret)
         )
 
 
@@ -42,23 +56,32 @@ class GrowwAuthService:
 
     @property
     def is_configured(self) -> bool:
-        return self.credentials is not None
+        return bool(self.credentials and self.credentials.configured)
 
     def get_client(self, *, refresh: bool = False) -> Any:
-        if not self.credentials:
+        if not self.credentials or not self.credentials.configured:
             raise GrowwProviderNotConfiguredError()
         if self._client is not None and not refresh:
             return self._client
 
         try:
             groww_api_cls = self._resolve_groww_api_cls()
-            totp_code = self._build_totp_code(self.credentials.totp_secret)
             with redirect_stdout(StringIO()):
-                token_response = groww_api_cls.get_access_token(
-                    api_key=self.credentials.totp_token,
-                    totp=totp_code,
-                )
-                access_token = self._extract_access_token(token_response)
+                if self.credentials.access_token:
+                    access_token = self.credentials.access_token
+                elif self.credentials.api_key and self.credentials.api_secret:
+                    token_response = groww_api_cls.get_access_token(
+                        api_key=self.credentials.api_key,
+                        secret=self.credentials.api_secret,
+                    )
+                    access_token = self._extract_access_token(token_response)
+                else:
+                    totp_code = self._build_totp_code(self.credentials.totp_secret or "")
+                    token_response = groww_api_cls.get_access_token(
+                        api_key=self.credentials.totp_token,
+                        totp=totp_code,
+                    )
+                    access_token = self._extract_access_token(token_response)
                 self._client = groww_api_cls(access_token)
         except GrowwProviderNotConfiguredError:
             raise

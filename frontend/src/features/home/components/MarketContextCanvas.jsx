@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function trajectoryPath(points) {
   return points.map(([x, y], index) => `${index === 0 ? "M" : "L"} ${x} ${y}`).join(" ");
@@ -29,7 +30,7 @@ export function MarketContextCanvas({ activeContext = "breadth", market }) {
       transition={{ delay: .22, duration: .3 }}
     >
       <header className="market-canvas__header">
-        <div className="market-canvas__title"><div><h2 id="market-title">Market overview</h2><p>{market.index} context</p></div><span className="source-tag" title="Live market connection has not been enabled yet.">Sample market data</span></div>
+        <div className="market-canvas__title"><div><h2 id="market-title">Market overview</h2><p>{market.index} context</p></div><Link className="market-canvas__open-market" to="/app/market">Market context →</Link><span className="source-tag" title="Live market connection has not been enabled yet.">Sample market data</span></div>
         <div className="market-canvas__quote"><strong className="metric-value">{market.value}</strong><span className="metric-value is-positive">{market.dayChange}</span></div>
       </header>
       <div aria-label="Market horizon" className="market-horizons">

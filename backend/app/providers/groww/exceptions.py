@@ -24,3 +24,17 @@ class GrowwHistoricalDataError(GrowwProviderError):
 
     def __init__(self) -> None:
         super().__init__("Groww historical data request failed.")
+
+
+class GrowwMarketDataError(GrowwProviderError):
+    code = "GROWW_MARKET_DATA_REQUEST_FAILED"
+
+    def __init__(self) -> None:
+        super().__init__("Groww market data request failed.")
+
+
+class GrowwRateLimitError(GrowwProviderError):
+    code = "GROWW_RATE_LIMITED"
+
+    def __init__(self) -> None:
+        super().__init__("Groww market data rate limit reached.")

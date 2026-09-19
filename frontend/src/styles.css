@@ -11,6 +11,8 @@
 @import "./styles/research.css";
 @import "./styles/portfolio.css";
 @import "./styles/operations.css";
+@import "./styles/market.css";
+@import "./styles/market-workspace.css";
 
 @font-face {
   font-family: "Manrope Variable";

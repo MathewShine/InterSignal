@@ -3,19 +3,31 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AppIcon } from "./AppIcon.jsx";
 import { commandNavigation } from "./appNavigation.js";
+import { searchMarketInstruments } from "../../market/data/marketWorkspaceApi.js";
 
 export function CommandPalette({ open, onClose, onOpen, searchItems = [] }) {
   const navigate = useNavigate();
   const inputRef = useRef(null);
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
+  const [marketItems, setMarketItems] = useState([]);
 
   const items = useMemo(() => {
     const routes = commandNavigation.map((item) => ({ ...item, group: "Go to" }));
-    const all = [...routes, ...searchItems];
+    const all = [...routes, ...searchItems, ...marketItems];
     const normalized = query.trim().toLowerCase();
     return normalized ? all.filter((item) => `${item.group} ${item.label}`.toLowerCase().includes(normalized)) : all;
-  }, [query, searchItems]);
+  }, [marketItems, query, searchItems]);
+
+  useEffect(() => {
+    const normalized = query.trim();
+    if (!open || normalized.length < 2) { setMarketItems([]); return undefined; }
+    const controller = new AbortController();
+    const timer = window.setTimeout(() => {
+      searchMarketInstruments(normalized, { signal: controller.signal }).then(setMarketItems).catch(() => setMarketItems([]));
+    }, 180);
+    return () => { window.clearTimeout(timer); controller.abort(); };
+  }, [open, query]);
 
   useEffect(() => {
     const onKeyDown = (event) => {
@@ -79,7 +91,7 @@ export function CommandPalette({ open, onClose, onOpen, searchItems = [] }) {
                 aria-label="Search commands"
                 onChange={(event) => { setQuery(event.target.value); setActiveIndex(0); }}
                 onKeyDown={handleKeyDown}
-                placeholder="Search research, portfolios, evidence…"
+                placeholder="Search markets, research, portfolios, evidence…"
                 ref={inputRef}
                 value={query}
               />
@@ -102,7 +114,7 @@ export function CommandPalette({ open, onClose, onOpen, searchItems = [] }) {
               ))}
               {items.length === 0 ? <p className="command-palette__empty">No prototype result matches that search.</p> : null}
             </div>
-            <footer><span>↑↓ Navigate</span><span>↵ Open</span><span>Frontend-only search</span></footer>
+            <footer><span>↑↓ Navigate</span><span>↵ Open</span><span>Market instrument master + product navigation</span></footer>
           </motion.section>
         </motion.div>
       ) : null}

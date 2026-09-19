@@ -99,7 +99,7 @@ def test_empty_seed_source_returns_controlled_unavailable_snapshot(tmp_path: Pat
     assert snapshot.freshness.freshness_status == "UNKNOWN"
 
 
-def test_provider_selection_never_claims_unimplemented_groww_live_mode(tmp_path: Path) -> None:
+def test_provider_selection_reports_groww_not_configured_without_credentials(tmp_path: Path) -> None:
     build_market_data_provider.cache_clear()
     groww = build_market_data_provider(tmp_path, "groww")
     none = build_market_data_provider(tmp_path, "none")
@@ -107,7 +107,9 @@ def test_provider_selection_never_claims_unimplemented_groww_live_mode(tmp_path:
 
     assert groww.mode == MarketProviderMode.UNAVAILABLE
     assert groww.provider_name == "GROWW"
-    assert groww.reason == "GROWW_LIVE_MARKET_PROVIDER_NOT_IMPLEMENTED"
+    assert groww.unavailable_reason == "GROWW_NOT_CONFIGURED"
+    assert groww.configured is False
+    assert "QUOTE" in groww.capabilities
     assert none.mode == MarketProviderMode.UNAVAILABLE
     assert unsupported.mode == MarketProviderMode.UNAVAILABLE
     assert all(provider.mode != MarketProviderMode.LIVE for provider in (groww, none, unsupported))

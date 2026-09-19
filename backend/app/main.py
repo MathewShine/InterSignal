@@ -12,6 +12,7 @@ from app.api.v1 import api_router
 from app.config.settings import Settings, get_settings
 from app.core.exceptions import register_exception_handlers
 from app.core.logging import configure_logging
+from app.market_api.factory import build_market_runtime
 
 
 def create_app(settings: Settings | None = None) -> FastAPI:
@@ -23,6 +24,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         version=app_settings.app_version,
     )
     app.state.settings = app_settings
+    app.state.market_runtime = build_market_runtime(app_settings)
 
     if app_settings.frontend_url:
         app.add_middleware(

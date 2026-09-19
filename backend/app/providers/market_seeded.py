@@ -11,12 +11,16 @@ from statistics import median
 from zoneinfo import ZoneInfo
 
 from app.providers.market_data import (
+    InterSignalInstrument,
     MarketBreadthObservation,
+    MarketCandleObservation,
     MarketDataProvider,
     MarketFreshnessObservation,
     MarketIndexObservation,
+    MarketProviderCapability,
     MarketProviderMode,
     MarketQualityObservation,
+    MarketQuoteObservation,
     MarketSectorObservation,
     MarketSessionObservation,
     MarketUniverseObservation,
@@ -33,6 +37,9 @@ INDIA_ZONE = ZoneInfo("Asia/Kolkata")
 
 @dataclass(frozen=True, slots=True)
 class _DailyBar:
+    open: Decimal
+    high: Decimal
+    low: Decimal
     close: Decimal
     volume: Decimal
     traded_value: Decimal | None
@@ -53,14 +60,31 @@ class SeededMarketDataProvider(MarketDataProvider):
         return MarketProviderMode.SEEDED
 
     @property
-    def capabilities(self) -> tuple[str, ...]:
-        capabilities = ["INDEX_SNAPSHOT", "SESSION_STATUS"]
+    def capabilities(self) -> tuple[MarketProviderCapability, ...]:
+        capabilities = [
+            MarketProviderCapability.INSTRUMENT_MASTER,
+            MarketProviderCapability.SEARCH,
+            MarketProviderCapability.QUOTE,
+            MarketProviderCapability.LTP,
+            MarketProviderCapability.OHLC,
+            MarketProviderCapability.HISTORICAL_CANDLES,
+            MarketProviderCapability.INDICES,
+            MarketProviderCapability.INDEX_SNAPSHOT,
+            MarketProviderCapability.SESSION_STATUS,
+        ]
         if self._constituent_path.exists():
-            capabilities.append("CURRENT_UNIVERSE")
+            capabilities.append(MarketProviderCapability.CURRENT_UNIVERSE)
         if self._sector_index_path.exists():
-            capabilities.append("SECTOR_INDEX_CONTEXT")
+            capabilities.extend((MarketProviderCapability.SECTORS, MarketProviderCapability.SECTOR_INDEX_CONTEXT))
         if self._daily_files:
-            capabilities.extend(("EOD_BREADTH", "EOD_VOLUME_CONTEXT"))
+            capabilities.extend(
+                (
+                    MarketProviderCapability.BREADTH,
+                    MarketProviderCapability.VOLUME,
+                    MarketProviderCapability.EOD_BREADTH,
+                    MarketProviderCapability.EOD_VOLUME_CONTEXT,
+                )
+            )
         return tuple(capabilities)
 
     @cached_property
@@ -159,10 +183,16 @@ class SeededMarketDataProvider(MarketDataProvider):
                 if symbol not in self._member_symbols or row.get("series", "").strip().upper() != "EQ":
                     continue
                 close = self._decimal(row.get("close"))
+                open_ = self._decimal(row.get("open"))
+                high = self._decimal(row.get("high"))
+                low = self._decimal(row.get("low"))
                 volume = self._decimal(row.get("volume"))
-                if close is None or volume is None:
+                if None in (open_, high, low, close, volume):
                     continue
                 bars[symbol] = _DailyBar(
+                    open=open_,
+                    high=high,
+                    low=low,
                     close=close,
                     volume=volume,
                     traded_value=self._decimal(row.get("traded_value")),
@@ -220,6 +250,9 @@ class SeededMarketDataProvider(MarketDataProvider):
                     previous_close=previous_close,
                     timestamp=self._market_close_timestamp(date.fromisoformat(latest["trading_date"])),
                     source=SOURCE_NAME,
+                    open=self._decimal(latest.get("open")),
+                    high=self._decimal(latest.get("high")),
+                    low=self._decimal(latest.get("low")),
                 )
             )
         return tuple(observations)
@@ -325,6 +358,7 @@ class SeededMarketDataProvider(MarketDataProvider):
                         expected_count=len(members),
                         missing_count=max(len(members) - len(changes), 0),
                     ),
+                    index_value=latest_close,
                 )
             )
         return tuple(observations)
@@ -381,6 +415,172 @@ class SeededMarketDataProvider(MarketDataProvider):
             return MarketFreshnessObservation(source_timestamp=None)
         latest_date = date.fromisoformat(primary_rows[-1]["trading_date"])
         return MarketFreshnessObservation(source_timestamp=self._market_close_timestamp(latest_date))
+
+    @cached_property
+    def _instruments(self) -> tuple[InterSignalInstrument, ...]:
+        members = tuple(
+            InterSignalInstrument(
+                instrument_id=f"NSE:CASH:{row['symbol'].strip().upper()}",
+                symbol=row["symbol"].strip().upper(),
+                display_name=row.get("company_name", "").strip() or row["symbol"].strip().upper(),
+                exchange="NSE",
+                segment="CASH",
+                instrument_type="EQUITY",
+                groww_symbol=f"NSE-{row['symbol'].strip().upper()}",
+                series="EQ",
+                isin=row.get("isin", "").strip() or None,
+                lot_size=1,
+                tick_size=Decimal("0.05"),
+            )
+            for row in self._members
+        )
+        indices = tuple(
+            InterSignalInstrument(
+                instrument_id=f"NSE:INDEX:{symbol}",
+                symbol=symbol,
+                display_name=rows[-1].get("index_name", symbol).strip() or symbol,
+                exchange="NSE",
+                segment="CASH",
+                instrument_type="INDEX",
+                exchange_token=symbol.replace("_", ""),
+                groww_symbol=f"NSE-{symbol.replace('_', '')}",
+            )
+            for symbol, rows in sorted(self._benchmark_rows.items())
+            if rows
+        )
+        sector_indices = tuple(
+            InterSignalInstrument(
+                instrument_id=f"NSE:INDEX:{symbol}",
+                symbol=symbol,
+                display_name=rows[-1].get("index_name", symbol).strip() or symbol,
+                exchange="NSE",
+                segment="CASH",
+                instrument_type="INDEX",
+                exchange_token=symbol.replace("_", ""),
+                groww_symbol=f"NSE-{symbol.replace('_', '')}",
+            )
+            for symbol, rows in sorted(self._sector_index_rows.items())
+            if rows and symbol not in self._benchmark_rows
+        )
+        return tuple(sorted((*indices, *sector_indices, *members), key=lambda item: (item.instrument_type != "INDEX", item.symbol)))
+
+    def list_instruments(self) -> tuple[InterSignalInstrument, ...]:
+        return self._instruments
+
+    @staticmethod
+    def _canonical_symbol(symbol: str) -> str:
+        normalized = symbol.strip().upper().replace("-", "_").replace(" ", "_")
+        aliases = {"NIFTY50": "NIFTY_50", "NIFTY500": "NIFTY_500", "NIFTY": "NIFTY_50"}
+        return aliases.get(normalized, normalized)
+
+    def _instrument(self, symbol: str) -> InterSignalInstrument | None:
+        canonical = self._canonical_symbol(symbol)
+        return next((item for item in self._instruments if item.symbol == canonical), None)
+
+    def get_quote(self, symbol: str) -> MarketQuoteObservation | None:
+        instrument = self._instrument(symbol)
+        if instrument is None:
+            return None
+        if instrument.instrument_type == "INDEX":
+            rows = self._benchmark_rows.get(instrument.symbol, ()) or self._sector_index_rows.get(instrument.symbol, ())
+            if not rows:
+                return None
+            latest = rows[-1]
+            close = self._decimal(latest.get("close"))
+            previous_close = self._decimal(rows[-2].get("close")) if len(rows) > 1 else None
+            if close is None:
+                return None
+            change = close - previous_close if previous_close is not None else None
+            return MarketQuoteObservation(
+                instrument=instrument,
+                timestamp=self._market_close_timestamp(date.fromisoformat(latest["trading_date"])),
+                ltp=close,
+                change=change,
+                change_pct=self._pct(change, previous_close) if change is not None and previous_close else None,
+                open=self._decimal(latest.get("open")),
+                high=self._decimal(latest.get("high")),
+                low=self._decimal(latest.get("low")),
+                close=close,
+                previous_close=previous_close,
+                source=SOURCE_NAME,
+                session_status="CLOSED",
+            )
+        history = [(session, bars[instrument.symbol]) for session, bars in self._daily_history if instrument.symbol in bars]
+        if not history:
+            return None
+        trading_date, latest = history[-1]
+        previous_close = history[-2][1].close if len(history) > 1 else None
+        change = latest.close - previous_close if previous_close is not None else None
+        return MarketQuoteObservation(
+            instrument=instrument,
+            timestamp=self._market_close_timestamp(trading_date),
+            ltp=latest.close,
+            change=change,
+            change_pct=self._pct(change, previous_close) if change is not None and previous_close else None,
+            open=latest.open,
+            high=latest.high,
+            low=latest.low,
+            close=latest.close,
+            previous_close=previous_close,
+            volume=int(latest.volume),
+            source=SOURCE_NAME,
+            session_status="CLOSED",
+        )
+
+    def get_candles(
+        self,
+        symbol: str,
+        *,
+        interval: str,
+        start: datetime,
+        end: datetime,
+    ) -> tuple[MarketCandleObservation, ...]:
+        if interval not in {"1d", "day", "daily"}:
+            return ()
+        instrument = self._instrument(symbol)
+        if instrument is None:
+            return ()
+        rows: list[MarketCandleObservation] = []
+        if instrument.instrument_type == "INDEX":
+            source_rows = self._benchmark_rows.get(instrument.symbol, ()) or self._sector_index_rows.get(instrument.symbol, ())
+            for row in source_rows:
+                trading_date = date.fromisoformat(row["trading_date"])
+                timestamp = self._market_close_timestamp(trading_date)
+                values = tuple(self._decimal(row.get(name)) for name in ("open", "high", "low", "close"))
+                if timestamp < start or timestamp > end or any(value is None for value in values):
+                    continue
+                rows.append(MarketCandleObservation(timestamp, values[0], values[1], values[2], values[3]))
+            return tuple(rows)
+        for trading_date, bars in self._daily_history:
+            bar = bars.get(instrument.symbol)
+            timestamp = self._market_close_timestamp(trading_date)
+            if bar and start <= timestamp <= end:
+                rows.append(
+                    MarketCandleObservation(
+                        timestamp=timestamp,
+                        open=bar.open,
+                        high=bar.high,
+                        low=bar.low,
+                        close=bar.close,
+                        volume=int(bar.volume),
+                    )
+                )
+        return tuple(rows)
+
+    def get_sector_constituents(self, sector_id: str) -> tuple[InterSignalInstrument, ...]:
+        normalized = sector_id.strip().upper().replace("-", "_").replace(" ", "_")
+        symbols = self._sector_members.get(normalized, ())
+        if not symbols:
+            match = next(
+                (
+                    key for key, rows in self._sector_index_rows.items()
+                    if rows and rows[-1].get("index_name", "").strip().upper().replace(" ", "_") == normalized
+                ),
+                None,
+            )
+            symbols = self._sector_members.get(match or "", ())
+        by_symbol = {item.symbol: item for item in self._instruments}
+        return tuple(by_symbol[symbol] for symbol in symbols if symbol in by_symbol)
 
 
 __all__ = ("SeededMarketDataProvider",)

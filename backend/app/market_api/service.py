@@ -101,6 +101,7 @@ class MarketIntelligenceService:
                 failed_sections.append(name)
                 return fallback
 
+        raw_session = read("session", self._provider.get_market_status, None)
         freshness_observation = read("freshness", self._provider.get_freshness, None)
         source_timestamp = freshness_observation.source_timestamp if freshness_observation else None
         age_seconds, freshness_status = self._freshness_status(source_timestamp, generated_at)
@@ -220,7 +221,6 @@ class MarketIntelligenceService:
         else:
             volume_availability = self._detail(MarketAvailability.AVAILABLE)
 
-        raw_session = read("session", self._provider.get_market_status, None)
         session = (
             MarketSessionView(
                 status=MarketSessionStatus(raw_session.status),
@@ -271,7 +271,7 @@ class MarketIntelligenceService:
                 "The snapshot is recorded NSE end-of-day data; no live market source is configured.",
             )
         if self._provider.mode == MarketProviderMode.UNAVAILABLE:
-            reason = (
+            reason = self._provider.unavailable_reason or (
                 self._provider.reason
                 if isinstance(self._provider, UnavailableMarketDataProvider)
                 else "MARKET_PROVIDER_UNAVAILABLE"
@@ -343,7 +343,10 @@ class MarketIntelligenceService:
             session=session,
             availability=availability,
             limitations=tuple(limitations),
-            meta=MarketMeta(unavailable_sections=unavailable_sections),
+            meta=MarketMeta(
+                unavailable_sections=unavailable_sections,
+                live_provider_implemented=self._provider.provider_name == "GROWW",
+            ),
         )
 
 

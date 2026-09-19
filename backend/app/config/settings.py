@@ -29,7 +29,14 @@ class Settings(BaseSettings):
         default=BACKEND_ROOT.parent / "data",
         alias="MARKET_DATA_ROOT",
     )
+    market_instrument_cache: Path = Field(
+        default=BACKEND_ROOT / "tmp/groww-instruments.csv",
+        alias="MARKET_INSTRUMENT_CACHE",
+    )
     log_level: str | None = Field(default=None, alias="LOG_LEVEL")
+    groww_api_access_token: str | None = Field(default=None, alias="GROWW_API_ACCESS_TOKEN")
+    groww_api_key: str | None = Field(default=None, alias="GROWW_API_KEY")
+    groww_api_secret: str | None = Field(default=None, alias="GROWW_API_SECRET")
     groww_totp_token: str | None = Field(default=None, alias="GROWW_TOTP_TOKEN")
     groww_totp_secret: str | None = Field(default=None, alias="GROWW_TOTP_SECRET")
 
@@ -56,7 +63,11 @@ class Settings(BaseSettings):
 
     @property
     def groww_configured(self) -> bool:
-        return bool(self.groww_totp_token and self.groww_totp_secret)
+        return bool(
+            self.groww_api_access_token
+            or (self.groww_api_key and self.groww_api_secret)
+            or (self.groww_totp_token and self.groww_totp_secret)
+        )
 
 
 @lru_cache
