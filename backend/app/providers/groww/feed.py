@@ -34,6 +34,7 @@ class GrowwFeedManager:
         instrument_cache: GrowwInstrumentCache,
         feed_cls: type | None = None,
         on_tick: Callable[[MarketTickObservation], Awaitable[None] | None] | None = None,
+        on_state_change: Callable[[GrowwFeedState], Awaitable[None] | None] | None = None,
         max_reconnect_attempts: int = 5,
         base_reconnect_delay: float = 1.0,
     ) -> None:
@@ -41,6 +42,7 @@ class GrowwFeedManager:
         self.instrument_cache = instrument_cache
         self.feed_cls = feed_cls
         self.on_tick = on_tick
+        self.on_state_change = on_state_change
         self.max_reconnect_attempts = max_reconnect_attempts
         self.base_reconnect_delay = base_reconnect_delay
         self.state = GrowwFeedState.NOT_CONFIGURED if not auth_service.is_configured else GrowwFeedState.DISCONNECTED
@@ -56,9 +58,9 @@ class GrowwFeedManager:
     async def connect(self) -> None:
         self._event_loop = asyncio.get_running_loop()
         if not self.auth_service.is_configured:
-            self.state = GrowwFeedState.NOT_CONFIGURED
+            await self._transition(GrowwFeedState.NOT_CONFIGURED)
             return
-        self.state = GrowwFeedState.CONNECTING
+        await self._transition(GrowwFeedState.CONNECTING)
         try:
             client = await asyncio.to_thread(self.auth_service.get_client)
             feed_cls = self.feed_cls
@@ -69,28 +71,33 @@ class GrowwFeedManager:
             # The SDK constructor opens its own event loop; keep that work off
             # the FastAPI loop so the provider connection remains isolated.
             self._feed = await asyncio.to_thread(feed_cls, client)
-            self.state = GrowwFeedState.CONNECTED
+            await self._transition(GrowwFeedState.CONNECTED)
         except Exception:
-            self.state = GrowwFeedState.FAILED
+            await self._transition(GrowwFeedState.FAILED)
 
     async def subscribe(self, instrument_ids: tuple[str, ...]) -> tuple[str, ...]:
         self._event_loop = asyncio.get_running_loop()
         unique = tuple(dict.fromkeys(value.strip().upper() for value in instrument_ids if value.strip()))
-        new_ids = tuple(value for value in unique if self._references[value] == 0)
-        if self.subscription_count + len(new_ids) > self.MAX_PROVIDER_SUBSCRIPTIONS:
-            raise ValueError("GROWW_FEED_SUBSCRIPTION_LIMIT")
-        for value in unique:
-            self._references[value] += 1
         if self._feed is None:
             await self.connect()
+        resolved = tuple(
+            value
+            for value in unique
+            if (instrument := self.instrument_cache.find(value)) is not None and instrument.exchange_token
+        )
+        new_ids = tuple(value for value in resolved if self._references[value] == 0)
+        if self.subscription_count + len(new_ids) > self.MAX_PROVIDER_SUBSCRIPTIONS:
+            raise ValueError("GROWW_FEED_SUBSCRIPTION_LIMIT")
+        for value in resolved:
+            self._references[value] += 1
         if self.state != GrowwFeedState.CONNECTED or not new_ids:
-            return unique
+            return resolved
         rows = self._provider_rows(new_ids)
         if rows and hasattr(self._feed, "subscribe_ltp"):
             await asyncio.to_thread(self._feed.subscribe_ltp, rows, on_data_received=self._on_data_received)
         if rows and hasattr(self._feed, "subscribe_market_depth"):
             await asyncio.to_thread(self._feed.subscribe_market_depth, rows, on_data_received=self._on_data_received)
-        return unique
+        return resolved
 
     async def unsubscribe(self, instrument_ids: tuple[str, ...]) -> None:
         removed: list[str] = []
@@ -109,7 +116,9 @@ class GrowwFeedManager:
             await asyncio.to_thread(self._feed.unsubscribe_market_depth, rows)
 
     async def reconnect(self, connector: Callable[[], Awaitable[None]] | None = None) -> bool:
-        self.state = GrowwFeedState.RECONNECTING
+        if self.state == GrowwFeedState.CONNECTED:
+            await self._transition(GrowwFeedState.DISCONNECTED)
+        await self._transition(GrowwFeedState.RECONNECTING)
         operation = connector or self.connect
         for attempt in range(self.max_reconnect_attempts):
             if attempt:
@@ -117,8 +126,17 @@ class GrowwFeedManager:
             await operation()
             if self.state == GrowwFeedState.CONNECTED:
                 return True
-        self.state = GrowwFeedState.FAILED
+        await self._transition(GrowwFeedState.FAILED)
         return False
+
+    async def _transition(self, state: GrowwFeedState) -> None:
+        if self.state == state:
+            return
+        self.state = state
+        if self.on_state_change:
+            result = self.on_state_change(state)
+            if asyncio.iscoroutine(result):
+                await result
 
     async def ingest(self, payload: dict[str, Any]) -> MarketTickObservation | None:
         tick = self.normalize_tick(payload)

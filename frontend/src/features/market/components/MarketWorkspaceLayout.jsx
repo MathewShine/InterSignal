@@ -8,6 +8,7 @@ export const marketSearchItems = [
   { id: "market-indices", group: "Market", label: "Indices", path: "/app/market/indices" },
   { id: "market-stocks", group: "Market", label: "Stocks", path: "/app/market/stocks" },
   { id: "market-sectors", group: "Market", label: "Sectors", path: "/app/market/sectors" },
+  { id: "market-session", group: "Market", label: "Market session evidence", path: "/app/market/session" },
   { id: "market-breadth", group: "Market", label: "Market breadth", path: "/app/market#breadth" },
   { id: "sector-context", group: "Market", label: "Sector context", path: "/app/market#sectors" },
 ];
@@ -18,6 +19,7 @@ const navigation = [
   ["Stocks", "/app/market/stocks"],
   ["Sectors", "/app/market/sectors"],
   ["Derivatives", "/app/market/derivatives"],
+  ["Session", "/app/market/session"],
 ];
 
 export function marketIndicator(status) {

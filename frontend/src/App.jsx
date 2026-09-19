@@ -4,6 +4,7 @@ import { LandingPage } from "./pages/LandingPage.jsx";
 import { AppSectionPlaceholder } from "./features/home/AppSectionPlaceholder.jsx";
 import { HomePage } from "./features/home/HomePage.jsx";
 import { MarketPage } from "./features/market/MarketPage.jsx";
+import { MarketSessionPage } from "./features/market/MarketSessionPage.jsx";
 import {
   MarketDerivativesPage,
   MarketIndexDetailPage,
@@ -70,6 +71,7 @@ export default function App() {
         <Route element={<MarketSectorsPage />} path="/app/market/sectors" />
         <Route element={<MarketSectorDetailPage />} path="/app/market/sectors/:sectorId" />
         <Route element={<MarketDerivativesPage />} path="/app/market/derivatives" />
+        <Route element={<MarketSessionPage />} path="/app/market/session" />
         <Route element={<DataOverviewPage />} path="/app/data" />
         <Route element={<DataSourcesPage />} path="/app/data/sources" />
         <Route element={<DataLineagePage />} path="/app/data/lineage" />

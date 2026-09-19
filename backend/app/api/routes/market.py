@@ -4,11 +4,19 @@ import asyncio
 from datetime import datetime
 from uuid import uuid4
 
-from fastapi import APIRouter, Depends, Query, Request, Response, WebSocket, WebSocketDisconnect
+from fastapi import APIRouter, Depends, HTTPException, Query, Request, Response, WebSocket, WebSocketDisconnect
 
 from app.market_api.factory import MarketRuntime, build_market_intelligence_service, build_market_runtime
 from app.market_api.models import MarketSnapshot
 from app.market_api.service import MarketIntelligenceService
+from app.market_api.session_manager import MarketSessionManager
+from app.market_api.session_models import (
+    MarketCurrentSessionResponse,
+    MarketObservationSession,
+    MarketSessionEventsResponse,
+    MarketSessionListResponse,
+    MarketSessionSummary,
+)
 from app.market_api.workspace_models import (
     INTERSIGNAL_MARKET_STREAM_V1,
     MarketCandlesResponse,
@@ -42,6 +50,10 @@ def get_market_runtime(request: Request) -> MarketRuntime:
 
 def get_market_workspace_service(request: Request) -> MarketWorkspaceService:
     return get_market_runtime(request).workspace
+
+
+def get_market_session_manager(request: Request) -> MarketSessionManager:
+    return get_market_runtime(request).sessions
 
 
 def _no_store(response: Response) -> None:
@@ -145,6 +157,89 @@ def option_chain(response: Response, underlying: str, expiry: str, service: Mark
     return service.option_chain(underlying, expiry)
 
 
+@router.post("/session/start", response_model=MarketObservationSession)
+async def start_market_session(
+    response: Response,
+    manager: MarketSessionManager = Depends(get_market_session_manager),
+) -> MarketObservationSession:
+    _no_store(response)
+    return await manager.start()
+
+
+@router.post("/session/stop", response_model=MarketSessionSummary)
+async def stop_market_session(
+    response: Response,
+    manager: MarketSessionManager = Depends(get_market_session_manager),
+) -> MarketSessionSummary:
+    _no_store(response)
+    try:
+        return await manager.stop()
+    except ValueError as error:
+        raise HTTPException(status_code=409, detail={"code": str(error), "message": "No active market observation session."}) from None
+
+
+@router.get("/session/current", response_model=MarketCurrentSessionResponse)
+def current_market_session(
+    response: Response,
+    manager: MarketSessionManager = Depends(get_market_session_manager),
+) -> MarketCurrentSessionResponse:
+    _no_store(response)
+    return MarketCurrentSessionResponse(generated_at=datetime.now().astimezone(), session=manager.current())
+
+
+@router.get("/sessions", response_model=MarketSessionListResponse)
+def market_sessions(
+    response: Response,
+    limit: int = Query(default=50, ge=1, le=200),
+    manager: MarketSessionManager = Depends(get_market_session_manager),
+) -> MarketSessionListResponse:
+    _no_store(response)
+    return MarketSessionListResponse(generated_at=datetime.now().astimezone(), items=manager.list(limit=limit))
+
+
+@router.get("/sessions/{session_id}", response_model=MarketObservationSession)
+def market_session_detail(
+    session_id: str,
+    response: Response,
+    manager: MarketSessionManager = Depends(get_market_session_manager),
+) -> MarketObservationSession:
+    _no_store(response)
+    session = manager.get(session_id)
+    if not session:
+        raise HTTPException(status_code=404, detail={"code": "MARKET_SESSION_NOT_FOUND", "message": "Market session not found."})
+    return session
+
+
+@router.get("/sessions/{session_id}/events", response_model=MarketSessionEventsResponse)
+def market_session_events(
+    session_id: str,
+    response: Response,
+    limit: int = Query(default=500, ge=1, le=2000),
+    manager: MarketSessionManager = Depends(get_market_session_manager),
+) -> MarketSessionEventsResponse:
+    _no_store(response)
+    if not manager.get(session_id):
+        raise HTTPException(status_code=404, detail={"code": "MARKET_SESSION_NOT_FOUND", "message": "Market session not found."})
+    return MarketSessionEventsResponse(
+        generated_at=datetime.now().astimezone(),
+        session_id=session_id,
+        items=manager.observation_repository.list_events(session_id, limit=limit),
+    )
+
+
+@router.get("/sessions/{session_id}/summary", response_model=MarketSessionSummary)
+def market_session_summary(
+    session_id: str,
+    response: Response,
+    manager: MarketSessionManager = Depends(get_market_session_manager),
+) -> MarketSessionSummary:
+    _no_store(response)
+    try:
+        return manager.summary(session_id)
+    except ValueError:
+        raise HTTPException(status_code=404, detail={"code": "MARKET_SESSION_NOT_FOUND", "message": "Market session not found."}) from None
+
+
 async def _stream_receive(websocket: WebSocket, client_id: str, runtime: MarketRuntime) -> None:
     while True:
         message = await websocket.receive_json()
@@ -202,4 +297,9 @@ async def market_stream(websocket: WebSocket) -> None:
             await runtime.feed.unsubscribe(removed)
 
 
-__all__ = ("get_market_intelligence_service", "get_market_workspace_service", "router")
+__all__ = (
+    "get_market_intelligence_service",
+    "get_market_session_manager",
+    "get_market_workspace_service",
+    "router",
+)

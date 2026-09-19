@@ -63,3 +63,42 @@ If streaming is unavailable, the current page may continue with REST quote/candl
 - quote available but depth/candles absent: treat it as feature-level partial availability, not a whole-workspace outage.
 
 No successful live claim should be made until authentication, status, one read-only quote, one historical request, and one feed subscription have all succeeded in the target environment.
+
+## Monday full-session observation
+
+### Pre-open checklist
+
+1. Confirm `backend/.env` is ignored and contains the intended Groww configuration without printing it.
+2. Confirm `MARKET_TICK_RECORDING_MODE=SELECTED`, the seven monitored instruments, five-second sampling, 60-second summaries, and the frozen stale threshold.
+3. Start the backend and frontend, then read `GET /api/market/provider/status`.
+4. Confirm provider authentication succeeds, stream state can become `CONNECTED`, and `/app/market/session` contains no trading controls.
+5. Confirm the local session root is writable and contains no evidence from an unrelated verification run.
+
+### Start and opening checks
+
+1. Before or during pre-open, use `POST /api/market/session/start` or **Start observation** in `/app/market/session`.
+2. Confirm `SESSION_CREATED`, `PROVIDER_CONNECTED`, `STREAM_READY`, and `SUBSCRIBED` evidence appears.
+3. Confirm the expected list contains NIFTY 50, NIFTY 500, BANK NIFTY, FINNIFTY, RELIANCE, TCS, and HDFCBANK (or their provider-resolved equivalents).
+4. At market open, confirm `SESSION_OPEN`, the first normalized tick, and first updates for indices and equities.
+5. Confirm `GET /api/market/session/current` reports provider heartbeat separately from `last_market_event_at`.
+
+### Mid-session checks
+
+1. Check `/app/market/session` periodically; do not create aggressive browser polling or per-instrument REST polling.
+2. Confirm ticks, last-event time, observed coverage, and summary count continue to advance.
+3. Confirm 60-second summaries record index state, subscriptions, coverage, breadth availability, sector availability, errors, and reconnects.
+4. If breadth or sector aggregation is unavailable, confirm the limitation is recorded rather than synthesized.
+5. If the feed disconnects, confirm explicit disconnect and reconnect events, retry number where available, and downtime duration.
+6. If the provider throttles, confirm a sanitized `RATE_LIMITED` event without request headers or credentials.
+7. If an open-session stream produces no normalized tick beyond the configured threshold, confirm `STALE_DATA_DETECTED`; after the next tick confirm `STALE_DATA_RECOVERED`.
+8. Never use a closed-market quiet stream to test stale alarms; closed sessions must remain quiet without false degradation.
+
+### Close and finalization
+
+1. At exchange close, confirm `SESSION_CLOSED` followed by explicit finalization and `SESSION_COMPLETED`.
+2. If controlled verification ends early, use `POST /api/market/session/stop`; do not infer completion from killing the API process.
+3. Read `GET /api/market/sessions/{session_id}/summary` and confirm the deterministic `PASS`, `PASS_WITH_WARNINGS`, or `FAIL` criteria.
+4. Confirm `market_session_<date>_<id>.json` exists beneath the configured reports directory.
+5. Scan JSONL and the final report for API keys, secrets, tokens, TOTP values, authorization headers, cookies, and private provider endpoints. Required result: none.
+6. Restart/reload the API and confirm the completed session, events, snapshots, and report remain readable.
+7. Confirm no Research, Portfolio OS, Governance, strategy registry, signal, paper-order, position, fill, P&L, or broker-order state changed.

@@ -33,6 +33,18 @@ class Settings(BaseSettings):
         default=BACKEND_ROOT / "tmp/groww-instruments.csv",
         alias="MARKET_INSTRUMENT_CACHE",
     )
+    market_session_data_root: Path = Field(
+        default=BACKEND_ROOT / "tmp/market-observations",
+        alias="MARKET_SESSION_DATA_ROOT",
+    )
+    market_tick_recording_mode: str = Field(default="SELECTED", alias="MARKET_TICK_RECORDING_MODE")
+    market_observation_instruments: str = Field(
+        default="NIFTY 50,NIFTY 500,BANK NIFTY,FINNIFTY,RELIANCE,TCS,HDFCBANK",
+        alias="MARKET_OBSERVATION_INSTRUMENTS",
+    )
+    market_observation_sample_seconds: float = Field(default=5, ge=0, alias="MARKET_OBSERVATION_SAMPLE_SECONDS")
+    market_session_summary_seconds: float = Field(default=60, ge=1, alias="MARKET_SESSION_SUMMARY_SECONDS")
+    market_stale_threshold_seconds: float = Field(default=30, ge=1, alias="MARKET_STALE_THRESHOLD_SECONDS")
     log_level: str | None = Field(default=None, alias="LOG_LEVEL")
     groww_api_access_token: str | None = Field(default=None, alias="GROWW_API_ACCESS_TOKEN")
     groww_api_key: str | None = Field(default=None, alias="GROWW_API_KEY")

@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from "react";
 import { useOperationalResource } from "../operations/OperationalLayout.jsx";
 import { MarketWorkspaceLayout } from "./components/MarketWorkspaceLayout.jsx";
+import { MarketSessionOverviewCard } from "./MarketSessionPage.jsx";
 import { marketDataService } from "./data/apiMarketAdapter.js";
 import {
   breadthSummary,
@@ -298,6 +299,7 @@ export function MarketPage({ dataService = marketDataService }) {
         <div><span className="technical-label">INDIA · NSE · READ-ONLY</span><h1>Market Intelligence</h1><p>Breadth, sector leadership and participation across the recorded NSE session.</p></div>
         <div className="market-page-meta"><span title={`Provider mode: ${providerModeLabel(snapshot.provider.mode)}`}>{providerLabel(snapshot.provider.mode, snapshot.session?.status)}</span><strong>{snapshot.session?.status === "CLOSED" ? "Closed" : snapshot.session?.status ?? "Session unavailable"}</strong><time dateTime={snapshot.session?.marketDate}>Recorded {formatDate(snapshot.session?.marketDate)}</time></div>
       </header>
+      <MarketSessionOverviewCard />
       <div className="market-overview-grid">
         <PrimaryIndexPanel index={primaryIndex} universe={snapshot.universe} />
         <ReferencePanel index={referenceIndex} snapshot={snapshot} />

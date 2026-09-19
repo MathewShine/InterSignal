@@ -11,12 +11,13 @@ export class MarketWorkspaceApiError extends Error {
   }
 }
 
-async function request(path, { signal } = {}) {
+async function request(path, { signal, method = "GET" } = {}) {
   try {
     const response = await fetch(`${marketRoot}${path}`, {
       headers: { Accept: "application/json" },
       cache: "no-store",
       credentials: "omit",
+      method,
       signal,
     });
     if (!response.ok) throw new MarketWorkspaceApiError("MARKET_WORKSPACE_HTTP_ERROR", "Market data is unavailable.");
@@ -37,6 +38,13 @@ export const marketWorkspaceApi = {
   getIndex: (symbol, options) => request(`/indices/${encodeURIComponent(symbol)}`, options),
   getSectors: (options) => request("/sectors", options),
   getSector: (sectorId, options) => request(`/sectors/${encodeURIComponent(sectorId)}`, options),
+  getCurrentSession: (options) => request("/session/current", options),
+  getSessions: (options) => request("/sessions", options),
+  getSession: (sessionId, options) => request(`/sessions/${encodeURIComponent(sessionId)}`, options),
+  getSessionEvents: (sessionId, options) => request(`/sessions/${encodeURIComponent(sessionId)}/events`, options),
+  getSessionSummary: (sessionId, options) => request(`/sessions/${encodeURIComponent(sessionId)}/summary`, options),
+  startSession: (options = {}) => request("/session/start", { ...options, method: "POST" }),
+  stopSession: (options = {}) => request("/session/stop", { ...options, method: "POST" }),
   async getPortfolioContext(symbol, { signal } = {}) {
     const response = await fetch(`${apiRoot}/portfolio/holdings`, {
       headers: { Accept: "application/json" }, cache: "no-store", credentials: "omit", signal,
@@ -62,4 +70,8 @@ export async function searchMarketInstruments(query, options) {
 
 export function marketStreamUrl() {
   return `${marketRoot.replace(/^http/, "ws")}/stream`;
+}
+
+export function marketSessionSummaryUrl(sessionId) {
+  return `${marketRoot}/sessions/${encodeURIComponent(sessionId)}/summary`;
 }

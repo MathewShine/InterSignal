@@ -36,9 +36,16 @@ RANGE_INTERVALS = {"1D": "5m", "5D": "15m", "1M": "30m", "3M": "1h", "6M": "4h",
 
 
 class MarketWorkspaceService:
-    def __init__(self, *, provider: MarketDataProvider, feed_manager: object | None = None) -> None:
+    def __init__(
+        self,
+        *,
+        provider: MarketDataProvider,
+        feed_manager: object | None = None,
+        session_manager: object | None = None,
+    ) -> None:
         self.provider = provider
         self.feed_manager = feed_manager
+        self.session_manager = session_manager
 
     @staticmethod
     def _now() -> datetime:
@@ -85,12 +92,17 @@ class MarketWorkspaceService:
             market_session=value.session_status,
         )
 
-    @staticmethod
-    def _reason(error: Exception) -> str:
+    def _reason(self, error: Exception) -> str:
         if isinstance(error, GrowwProviderNotConfiguredError):
+            if self.session_manager:
+                self.session_manager.record_provider_error("PROVIDER_UNAVAILABLE", detail=type(error).__name__)
             return "GROWW_NOT_CONFIGURED"
         if isinstance(error, GrowwRateLimitError):
+            if self.session_manager:
+                self.session_manager.record_rate_limited()
             return "PROVIDER_RATE_LIMITED"
+        if self.session_manager:
+            self.session_manager.record_provider_error("PROVIDER_FEATURE_UNAVAILABLE", detail=type(error).__name__)
         return "PROVIDER_FEATURE_UNAVAILABLE"
 
     def provider_status(self) -> MarketProviderStatusResponse:

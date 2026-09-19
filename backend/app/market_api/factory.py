@@ -6,6 +6,9 @@ from pathlib import Path
 
 from app.config.settings import Settings
 from app.market_api.live import MarketLiveCache, MarketStreamHub
+from app.market_api.session_manager import DEFAULT_MONITORED_INSTRUMENTS, MarketSessionManager
+from app.market_api.session_models import TickRecordingMode
+from app.market_api.session_repository import JsonlMarketObservationStore
 from app.market_api.service import MarketIntelligenceService
 from app.market_api.workspace_service import MarketWorkspaceService
 from app.providers.groww import (
@@ -83,6 +86,7 @@ class MarketRuntime:
     cache: MarketLiveCache
     stream: MarketStreamHub
     feed: GrowwFeedManager | None
+    sessions: MarketSessionManager
 
 
 def build_market_runtime(settings: Settings) -> MarketRuntime:
@@ -94,15 +98,46 @@ def build_market_runtime(settings: Settings) -> MarketRuntime:
         feed = GrowwFeedManager(
             auth_service=provider.auth_service,
             instrument_cache=provider.instrument_cache,
-            on_tick=stream.publish_observation,
         )
+    store = JsonlMarketObservationStore(Path(settings.market_session_data_root).resolve())
+    try:
+        recording_mode = TickRecordingMode(settings.market_tick_recording_mode.strip().upper())
+    except ValueError:
+        recording_mode = TickRecordingMode.SELECTED
+    selected_instruments = tuple(
+        item.strip() for item in settings.market_observation_instruments.split(",") if item.strip()
+    ) or DEFAULT_MONITORED_INSTRUMENTS
+    sessions = MarketSessionManager(
+        provider=provider,
+        feed_manager=feed,
+        live_cache=cache,
+        session_repository=store,
+        observation_repository=store,
+        recording_mode=recording_mode,
+        selected_instruments=selected_instruments,
+        sample_interval_seconds=settings.market_observation_sample_seconds,
+        summary_interval_seconds=settings.market_session_summary_seconds,
+        stale_threshold_seconds=settings.market_stale_threshold_seconds,
+    )
+    if feed:
+        async def publish_observation(tick):
+            await stream.publish_observation(tick)
+            await sessions.observe_tick(tick)
+
+        async def record_feed_state(state):
+            await sessions.record_provider_state(str(getattr(state, "value", state)))
+
+        feed.on_tick = publish_observation
+        feed.on_state_change = record_feed_state
+    workspace = MarketWorkspaceService(provider=provider, feed_manager=feed, session_manager=sessions)
     return MarketRuntime(
         provider=provider,
         intelligence=MarketIntelligenceService(provider=provider),
-        workspace=MarketWorkspaceService(provider=provider, feed_manager=feed),
+        workspace=workspace,
         cache=cache,
         stream=stream,
         feed=feed,
+        sessions=sessions,
     )
 
 
